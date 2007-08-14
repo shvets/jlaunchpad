@@ -1,0 +1,47 @@
+<assembly>
+  <id>src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>*.xml</include>
+        <include>*.ipr</include>
+        <include>*.iws</include>
+        <include>*.iml</include>
+        <include>*.bat</include>
+        <include>*.sh</include>
+
+        <include>samples/**</include>
+        <include>docs/**</include>
+        <include>src/**</include>
+        <include>user/**</include>
+      </includes>
+    </fileSet>
+
+    <fileSet>
+      <directory>projects</directory>
+      <outputDirectory>projects</outputDirectory>
+    
+      <includes>
+        <include>bootstrap-mini/pom.xml</include>
+        <include>bootstrap-mini/src/**</include>
+
+        <include>classworlds/pom.xml</include>
+        <include>classworlds/src/**</include>
+
+        <include>pom-reader/pom.xml</include>
+        <include>pom-reader/src/**</include>
+
+        <include>universal-launcher-common/pom.xml</include>
+        <include>universal-launcher-common/src/**</include>
+
+        <include>universal-launcher/pom.xml</include>
+        <include>universal-launcher/src/**</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+
+</assembly>

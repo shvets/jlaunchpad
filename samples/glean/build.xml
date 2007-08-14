@@ -1,0 +1,9 @@
+<project name="glean" default="glean" basedir=".">
+
+  <target name="glean">
+    <ant antfile="${glean.home}/build.xml" inheritall="false" dir="${glean.home}">
+      <property name="feedback.properties" value="${feedback.properties}"/>
+    </ant>
+  </target>
+
+</project>

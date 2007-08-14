@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<document>
+  <properties>
+    <title>JLaunchPad project</title>
+    <author email="shvets_alexander@yahoo.com">Alexander Shvets</author>
+  </properties>
+
+  <body>
+    <release version="1.0" date="14-Jul-2007" description="Initial Release">    
+      <action dev="Alexander Shvets" type="add">
+        Initial Release.
+      </action>
+    </release>
+  </body>
+</document>

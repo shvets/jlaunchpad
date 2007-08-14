@@ -1,0 +1,7 @@
+${idea.home}/lib/bootstrap.jar
+${idea.home}/lib/openapi.jar
+${idea.home}/lib/jdom.jar
+${idea.home}/lib/log4j.jar
+${idea.home}/lib/extensions.jar
+${idea.home}/lib/trove4j.jar
+${idea.home}/lib/tools.jar

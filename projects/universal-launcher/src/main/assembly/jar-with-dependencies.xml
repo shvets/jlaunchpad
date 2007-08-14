@@ -1,0 +1,26 @@
+<assembly>
+  <id>with-dependencies</id>
+  <formats>
+    <format>jar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <outputDirectory></outputDirectory>
+      <outputFileNameMapping></outputFileNameMapping>
+      <unpack>true</unpack>
+      <scope>runtime</scope>
+
+      <excludes>
+        <exclude>classworlds:classworlds</exclude>
+      </excludes>
+    </dependencySet>
+  </dependencySets>
+
+  <fileSets>
+    <fileSet>
+      <directory>target/classes</directory>
+      <outputDirectory></outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>

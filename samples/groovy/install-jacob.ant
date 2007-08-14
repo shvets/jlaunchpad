@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- install-jacob.ant  -->
+
+<project name="install-jacob.ant" default="install" basedir=".">
+
+  <target name="install">
+    <script language="beanshell">
+      org.sf.scriptlandia.ScriptlandiaHelper.resolveDependencies("jacob", "jacob-dll", "1.10.1");
+    </script>
+
+    <condition property="jacob.lib.is.present">
+      <and>
+        <available file="${repository.home}/jacob/jacob-dll/1.10.1/jacob-dll-1.10.1.jar"/>
+        <istrue value="true"/>
+      </and>
+    </condition>
+
+    <antcall target="unzip.jacob.lib"/>
+  </target>
+
+  <target name="unzip.jacob.lib" if="jacob.lib.is.present">
+    <unzip src="${repository.home}/jacob/jacob-dll/1.10.1/jacob-dll-1.10.1.jar"
+           dest="${repository.home}/jacob/jacob-dll/1.10.1" overwrite="false">
+      <patternset>
+        <include name="*.dll"/>
+      </patternset>
+    </unzip>
+  </target>
+
+</project>

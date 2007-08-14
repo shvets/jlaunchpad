@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.sf.jlaunchpad</groupId>
+  <artifactId>pom-reader</artifactId>
+  <version>1.0</version>
+
+  <name>Pom Reader Module</name>
+  <description>
+    This is module that can read pom.xml file and download missing dependencies.
+  </description>
+
+  <packaging>jar</packaging>
+
+  <url>http://sf.net/projects/scriptlandia/</url>
+  <inceptionYear>2006</inceptionYear>
+
+  <issueManagement>
+    <system>SourceForge</system>
+    <url>http://sourceforge.net/tracker/?group_id=127753</url>
+  </issueManagement>
+
+  <organization>
+    <name>Dream Programs Inc.</name>
+    <url>http://sf.net/projects/scriptlandia/</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>shvets</id>
+      <name>Alexander Shvets</name>
+      <email>shvets_alexander@yahoo.com</email>
+      <organization></organization>
+      <roles>
+        <role>Founder</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>GNU General Public License</name>
+      <url>http://www.gnu.org/copyleft/gpl.html</url>
+    </license>
+  </licenses>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven.bootstrap</groupId>
+      <artifactId>bootstrap-mini</artifactId>
+      <version>2.0.7</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.sf.jlaunchpad</groupId>
+      <artifactId>universal-launcher-common</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>${artifactId}</finalName>
+    <defaultGoal>package</defaultGoal>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${java.specification.version}</source>
+          <target>${java.specification.version}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+
+        <executions>
+          <execution>
+            <id>site</id>
+            <phase>site</phase>
+            <configuration>
+              <tasks>
+
+                <copy todir="../../target/site/${project.artifactId}">
+                  <fileset dir="target/site"/>
+                </copy>
+
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+      </plugin>
+
+    </plugins>
+  </reporting>
+
+</project>
