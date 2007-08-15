@@ -16,7 +16,7 @@
 
   <issueManagement>
     <system>Sourceforge bugtracker</system>
-    <url>http://sourceforge.net/tracker/?group_id=127753</url>
+    <url>http://sourceforge.net/tracker/?group_id=203184</url>
   </issueManagement>
 
   <licenses>
@@ -27,13 +27,14 @@
   </licenses>
 
   <scm>
-    <connection>scm:svn:http://scriptlandia.svn.sourceforge.net/svnroot/scriptlandia/trunk/scriptlandia</connection>
-    <url>http://svn.sourceforge.net/scriptlandia</url>
+    <connection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk</connection>
+
+    <url>http://jlaunchpad.svn.sourceforge.net/viewvc/jlaunchpad</url>
   </scm>
 
   <organization>
     <name>Dream Programs Inc.</name>
-    <url>http://sf.net/projects/scriptlandia/</url>
+    <url>http://sf.net/projects/jlaunchpad</url>
   </organization>
 
   <developers>
