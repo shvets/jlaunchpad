@@ -6,12 +6,14 @@ import org.codehaus.classworlds.DuplicateRealmException;
 import org.codehaus.classworlds.NoSuchRealmException;
 import org.sf.jlaunchpad.core.LauncherException;
 import org.sf.jlaunchpad.core.LauncherCommandLineParser;
+import org.sf.jlaunchpad.util.ReflectionUtil;
 
 import java.io.File;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.*;
 
@@ -23,7 +25,35 @@ public class ClassworldLauncher extends CoreLauncher {
   protected Map<String, ClassRealm> configuredRealms = new HashMap<String, ClassRealm>();
 
   /** The original classworld launcher. */
-  private org.codehaus.classworlds.Launcher classworldLauncher = new org.codehaus.classworlds.Launcher();
+  private org.codehaus.classworlds.Launcher classworldLauncher = new org.codehaus.classworlds.Launcher() {
+    public void launch(String[] args) {
+      try {
+        super.launch(args);
+      }
+      catch(Exception e) {
+        try {
+          ClassRealm mainRealm = getMainRealm();
+
+          Class mainClass = getMainClass();
+
+          Method mainMethod = ReflectionUtil.getMainMethod(mainClass);
+
+          Thread.currentThread().setContextClassLoader( mainRealm.getClassLoader() );
+
+          Object ret = mainMethod.invoke(mainClass, new Object[] { args });
+
+          if(ret instanceof Integer) {
+            Integer exitCode = ((Integer)ret).intValue();
+
+            ReflectionUtil.setPrivateField(this, org.codehaus.classworlds.Launcher.class, "exitCode", exitCode);
+          }
+        }
+        catch (Exception e1) {
+          e1.printStackTrace();
+        }
+      }
+    }
+  };
 
   /**
    * Creates new classworld launcher.
