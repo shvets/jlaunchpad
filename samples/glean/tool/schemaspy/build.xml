@@ -1,0 +1,52 @@
+<project name="schemaspy" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Database schema and entity browser"/>
+    <property name="tool.url"         value="http://schemaspy.sourceforge.net/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+    
+    <target name="run-report" depends="schemaspy"/>
+
+    <target name="schemaspy" 
+        depends="check-db-driver, notify-db-driver, set-db-password-arg" 
+        if="db.driver.found">
+        <java jar="${schemaspy.jar}" 
+            output="${gen.report.dir}/${report.name}-output.log"
+            fork="true">
+            <arg line="-t ${db.type}"/>
+            <arg line="-db ${db.name}"/>
+            <arg line="-s ${db.schema}"/>
+            <arg line="-port ${db.port}"/>
+            <arg line="${db.password.arg}"/>
+            <arg line="-u ${db.user}"/>
+            <arg line="-cp ${db.driver.path}"/>
+            <arg line="-host ${db.host}"/>
+            <arg line="-o ${gen.report.dir}"/>
+        </java>
+    </target>
+
+    <target name="check-db-driver">
+        <available file="${db.driver.path}"
+                property="db.driver.found"/>
+    </target>
+    
+    <target name="notify-db-driver" unless="db.driver.found">
+        <echo message="Skipping Schemaspy. Could not find driver: ${db.driver.path}"/>
+    </target>
+    
+    <target name="set-db-password-arg">
+        <condition property="db.password.arg" value="">
+            <length string="${db.password}" trim="true" length="0"/>
+        </condition>
+        
+        <condition property="db.password.arg" value="-p ${db.password}">
+            <length string="${db.password}" when="greater" length="0"/>
+        </condition>
+    </target>
+    
+</project>
+

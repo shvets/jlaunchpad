@@ -1,0 +1,71 @@
+<project name="jdepend" default="report" basedir=".">
+    <property name="tool.description" value="Report on package-level dependency metrics"/>
+    
+    <property name="tool.url"         value="http://clarkware.com/software/JDepend.html"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <target name="run-report" depends="jdepend, graph"/>
+
+    <!-- We usually aren't as interested in the dependencies of our test classes
+         so lets not clutter up the analysis with them.
+      -->
+    <path id="classes.dir.path">
+        <dirset dir="${bin.dir}">
+            <exclude name="**/test"/>
+        </dirset>
+    </path>
+
+    <target name="jdepend" depends="bin-notice" if="class.files.available">
+        <jdepend
+              fork="true"
+              outputfile="${gen.report.dir}/${report.name}.${report.format}"
+              format="${report.format}"
+              classpathref="tool.classpath"
+              >
+            <classespath>
+                <path refid="classes.dir.path"/>
+            </classespath>
+        </jdepend>
+    </target>
+
+    <target name="check-bin">
+        <available property="class.files.available" 
+                   file="${bin.dir}" type="dir"/>
+    </target>
+    
+    <target name="bin-notice" depends="check-bin" unless="class.files.available">
+        <echo message="** Skipping jdepend analysis because no class files found in ${bin.dir}"/>
+    </target>
+    
+    <target name="check-graphviz-present">
+        <available property="graphviz.present"
+                   file="dot"/>
+    </target>
+    
+    <target name="graph" depends="check-graphviz-present" if="graphviz.present"
+        description="Create a diagram using GraphViz">
+        <style basedir="${gen.report.dir}"
+           destdir="${gen.report.dir}"
+           includes="${report.name}.xml"
+           extension=".dot"
+           style="jdepend2dot.xsl"/>
+
+        <apply executable="dot"
+                dest="${gen.report.dir}"
+                parallel="false"
+                output="${gen.report.dir}/dot-output.log"   >
+            <arg value="-Tpng"/>
+            <arg value="-o"/>
+            <targetfile/>
+            <srcfile/>
+            <fileset dir="${gen.report.dir}" includes="*.dot"/>
+            <mapper type="glob" from="*.dot" to="*.png"/>
+        </apply>
+    </target>
+
+</project>
+

@@ -1,0 +1,39 @@
+<project name="pmd" default="report" basedir=".">
+    <property name="tool.description" value="Static analysis of source files using design and style rules"/>
+    <property name="tool.url"         value="http://pmd.sourceforge.net/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask"
+        classpathref="tool.classpath"/>
+
+    <target name="run-report" depends="pmd"/>
+
+    <target name="pmd">
+        <pmd shortFilenames="yes"
+              targetjdk="${source.level}"
+              rulesetfiles="${pmd.rulesets}"
+            >
+            <formatter type="${report.format}"
+                toFile="${gen.report.dir}/${report.name}.${report.format}"
+                linkPrefix="${src.link.prefix}"/>
+            <fileset dir="${src.dir}">
+                <include name="**/*.java"/>
+            </fileset>
+        </pmd>
+    </target>
+
+    <target name="transform" depends="check-stylesheet" if="stylesheet.present">
+        <report-style>
+            <extra.params>
+                <param name="rulesets" expression="${pmd.rulesets}" />
+                <param name="context-root" expression="${src.link.prefix}" />
+            </extra.params>
+        </report-style>
+    </target>
+
+</project>
+

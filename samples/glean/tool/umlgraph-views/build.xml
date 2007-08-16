@@ -1,0 +1,54 @@
+<project name="umlgraph-views" default="report">
+    <property name="tool.description" value="UML class diagrams from source code"/>
+    <property name="tool.url"         value="http://www.spinellis.gr/sw/umlgraph/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <import file="../umlgraph-doc/umlgraph-common.xml"/>
+
+    <property name="report.view.src"    value="${project.root}/report-src/views"/>
+
+    <target name="run-report" depends="umlgraph-views"/>
+
+    <target name="check-views">
+         <available file="${report.view.src}" 
+                     type="dir"
+                     property="umlgraph.views.exist"/>
+     </target>
+
+    <target name="views-notice" depends="check-views" unless="umlgraph.views.exists">
+        <echo message="** Skipping ${ant.project.name} creation because no view descriptions found in ${report.view.src}"/>
+    </target>
+
+    <target name="umlgraph-views" depends="views-notice" 
+        description="Create class views based on view descriptions."
+        if="umlgraph.views.exist">
+
+        <umldoc doclet="gr.spinellis.umlgraph.doclet.UmlGraph"
+                outputdir="${gen.report.dir}">
+            <views>
+                <fileset dir="${project.root}">
+                    <include name="${report.view.src}/*.java"/>
+                </fileset>
+            </views>
+        </umldoc>
+
+        <apply executable="dot"
+                dest="${gen.report.dir}"
+                parallel="false"
+                output="${gen.report.dir}/dot-output.log"   >
+            <arg value="-Tpng"/>
+            <arg value="-o"/>
+            <targetfile/>
+            <srcfile/>
+            <fileset dir="${gen.report.dir}" includes="*.dot"/>
+            <mapper type="glob" from="*.dot" to="*.png"/>
+        </apply>
+    </target>
+
+</project>
+

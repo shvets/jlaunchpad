@@ -1,0 +1,32 @@
+<project name="doccheck" default="report" basedir=".">
+    <property name="tool.description" value="Checks completion of JavaDoc comments"/>
+    <property name="tool.url"         value="http://java.sun.com/j2se/javadoc/doccheck/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <property name="report.title"       value="${src.project.name}"/>
+
+    <target name="run-report" depends="doccheck"/>
+
+    <target name="doccheck">
+        <javadoc
+            classpathref="tool.classpath"
+            destdir="${gen.report.dir}"
+            verbose="false"
+                >
+            <doclet name="com.sun.tools.doclets.doccheck.DocCheck"
+                    path="${repository.home}/com/sun/tools/doccheck/1.2-beta2/doccheck-1.2-beta2.jar"
+                    >
+                <param name="-docletID"/>
+                <param name="-title" value="${report.title}"/>
+            </doclet>
+            <packageset dir="${src.dir}" defaultexcludes="yes">
+            </packageset>
+        </javadoc>
+    </target>
+
+</project>
+

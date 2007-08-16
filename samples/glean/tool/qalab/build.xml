@@ -1,0 +1,284 @@
+<project name="qalab" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Consolidation and tracking of feedback data"/>
+    <property name="tool.url"          value="http://qalab.sourceforge.net"/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://jfree.org/jfreechart&quot;&gt;JFreeChart&lt;/a&gt;"/>
+    
+    <description>${tool.description}</description>
+
+    <!-- Keep this here. All of the setup of common properties is done in this include -->
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <!-- QALab needs some other libraries for its tasks -->
+    <path id="qalab.classpath">
+        <path refid="tool.classpath"/>
+        <!--fileset dir="${jfreechart.home}">
+            <include name="lib/*.jar"/>
+        </fileset-->
+    </path>
+    
+    <taskdef name="mergestat" classname="net.objectlab.qalab.ant.BuildStatMergeTask"
+        classpathref="qalab.classpath"/>
+    <taskdef name="buildchart" classname="net.objectlab.qalab.ant.BuildStatChartTask"
+        classpathref="qalab.classpath"/>
+    <taskdef name="movers" classname="net.objectlab.qalab.ant.BuildStatMoverTask"
+        classpathref="qalab.classpath"/>
+        
+    <!-- The complete run of QALab follows a set of steps -->
+    <target name="run-report" 
+         depends="init, check-data, mergestat, buildchart, movers, finish, transform"/>
+
+    <!-- We want to create a summary of the different tool reports we create,
+         so we need to surround it all in valid XML.
+      -->
+    <target name="init" depends="tools-common.init">
+        <echo file="${qalab.report.summary}" append="no">
+        &lt;qalab time=&quot;${tool.timestamp}&quot; &gt;
+        </echo>    
+    </target>
+    
+    <target name="finish">
+        <echo file="${qalab.report.summary}" append="yes">
+        &lt;/qalab&gt;
+        </echo>    
+    </target>
+    
+    <!-- Step 1: Merge the individual tool results into the common QALab data set -->
+    <target name="mergestat"
+        depends="mergestat-checkstyle, mergestat-cpd, mergestat-pmd, mergestat-cobertura, mergestat-findbugs, mergestat-emma"/>
+
+    <target name="check-data" description="See which tool data is available">
+        <available file="${checkstyle.data.file}" property="${checkstyle.data.available}"/>
+        <available file="${cpd.data.file}"        property="${cpd.data.available}"/>
+        <available file="${pmd.data.file}"        property="${pmd.data.available}"/>
+        <available file="${cobertura.data.file}"  property="${cobertura.data.available}"/>
+        <available file="${emma.data.file}"       property="${emma.data.available}"/>
+        <available file="${findbugs.data.file}"   property="${findbugs.data.available}"/>
+    </target>
+    
+    <target name="mergestat-checkstyle" if="${checkstyle.data.available}">
+        <merge-tool-stats 
+            tool-data-file="${checkstyle.data.file}"
+            tool-merge-handler="CheckstyleStatMerge" />
+    </target>
+    
+    <target name="mergestat-cpd" if="${cpd.data.available}">
+        <merge-tool-stats 
+            tool-data-file="${cpd.data.file}"
+            tool-merge-handler="PMDCPDStatMerge" />
+    </target>
+    
+    <target name="mergestat-pmd" if="${pmd.data.available}">
+        <merge-tool-stats 
+            tool-data-file="${pmd.data.file}"
+            tool-merge-handler="PMDStatMerge" />
+    </target>
+    
+    <target name="mergestat-cobertura" if="${cobertura.data.available}">
+         <merge-tool-stats 
+            tool-data-file="${cobertura.data.file}"
+            tool-merge-handler="CoberturaLineStatMerge" />
+        <merge-tool-stats 
+            tool-data-file="${cobertura.data.file}"
+            tool-merge-handler="CoberturaBranchStatMerge" />
+    </target>
+    
+    <target name="mergestat-emma" if="${emma.data.available}">
+         <merge-tool-stats 
+            tool-data-file="${emma.data.file}"
+            tool-merge-handler="EmmaClassStatMerge" />
+        <merge-tool-stats 
+            tool-data-file="${emma.data.file}"
+            tool-merge-handler="EmmaMethodStatMerge" />
+    </target>
+    
+    <target name="mergestat-findbugs" if="${findbugs.data.available}">
+        <merge-tool-stats 
+            tool-data-file="${findbugs.data.file}"
+            tool-merge-handler="FindBugsStatMerge" />
+    </target>
+    
+    <!-- Step 2: Generate graph visualizations of the information over time -->
+    <target name="buildchart"
+        depends="buildchart-checkstyle, buildchart-cpd, buildchart-pmd, buildchart-cobertura, buildchart-findbugs, buildchart-emma"/>
+
+    <target name="buildchart-checkstyle" if="${checkstyle.data.available}">
+        <build-tool-chart tool-report-type="checkstyle"/>
+        <build-tool-page tool-report-type="checkstyle"/>
+        <add-tool-links tool-report-type="checkstyle"/>
+    </target>
+
+    <target name="buildchart-pmd" if="${pmd.data.available}">
+        <build-tool-chart tool-report-type="pmd"/>
+        <build-tool-page tool-report-type="pmd"/>
+        <add-tool-links tool-report-type="pmd"/>
+    </target>
+
+    <target name="buildchart-cpd" if="${cpd.data.available}">
+        <build-tool-chart tool-report-type="pmd-cpd"/>
+        <build-tool-page tool-report-type="pmd-cpd"/>
+        <add-tool-links tool-report-type="pmd-cpd"/>
+    </target>
+
+    <target name="buildchart-cobertura" if="${cobertura.data.available}">
+        <build-tool-chart tool-report-type="cobertura-branch"/>
+        <build-tool-chart tool-report-type="cobertura-line"/>
+
+        <build-tool-page tool-report-type="cobertura-branch"/>
+        <build-tool-page tool-report-type="cobertura-line"/>
+
+        <add-tool-links tool-report-type="cobertura-branch"/>
+        <add-tool-links tool-report-type="cobertura-line"/>
+    </target>
+    
+    <target name="buildchart-emma" if="${emma.data.available}">
+        <build-tool-chart tool-report-type="emma-class"/>
+        <build-tool-chart tool-report-type="emma-method"/>
+
+        <build-tool-page tool-report-type="emma-class"/>
+        <build-tool-page tool-report-type="emma-method"/>
+
+        <add-tool-links tool-report-type="emma-class"/>
+        <add-tool-links tool-report-type="emma-method"/>
+    </target>
+    
+    <target name="buildchart-findbugs" if="${findbugs.data.available}">
+        <build-tool-chart tool-report-type="findbugs"/>
+        <build-tool-page tool-report-type="findbugs"/>
+        <add-tool-links tool-report-type="findbugs"/>
+    </target>
+    
+    <!-- Optional: Generate a graph highlighting the most significant changes -->
+    <target name="movers"
+        depends="buildmovers-checkstyle, buildmovers-cobertura, buildmovers-findbugs, buildmovers-pmd, buildmovers-cpd, buildmovers-emma"/>
+
+    <target name="buildmovers-checkstyle" if="${checkstyle.data.available}">
+        <build-movers-chart tool-report-type="checkstyle"/>
+        <build-movers-page tool-report-type="checkstyle"/>
+    </target>
+    
+    <target name="buildmovers-cobertura" if="${cobertura.data.available}">
+        <build-movers-chart tool-report-type="cobertura-branch"/>
+        <build-movers-chart tool-report-type="cobertura-line"/>
+        <build-movers-page tool-report-type="cobertura-branch"/>
+        <build-movers-page tool-report-type="cobertura-line"/>
+    </target>
+
+    <target name="buildmovers-emma" if="${emma.data.available}">
+        <build-movers-chart tool-report-type="emma-class"/>
+        <build-movers-chart tool-report-type="emma-method"/>
+        <build-movers-page tool-report-type="emma-class"/>
+        <build-movers-page tool-report-type="emma-method"/>
+    </target>
+        
+    <target name="buildmovers-findbugs" if="${findbugs.data.available}">
+        <build-movers-chart tool-report-type="findbugs"/>
+        <build-movers-page tool-report-type="findbugs"/>
+    </target>
+    
+    <target name="buildmovers-pmd" if="${pmd.data.available}">
+        <build-movers-chart tool-report-type="pmd"/>
+        <build-movers-page tool-report-type="pmd"/>
+    </target>
+    
+    <target name="buildmovers-cpd" if="${cpd.data.available}">
+        <build-movers-chart tool-report-type="pmd-cpd"/>
+        <build-movers-page tool-report-type="pmd-cpd"/>
+    </target>
+
+    <!-- Create a summary page pointing to the different tool charts -->
+    <target name="transform">
+        <report-style input.file="${qalab.report.summary}"/>
+    </target>
+    
+    <!-- Macrodefs to capture the general QALab task executions -->
+    <macrodef name="merge-tool-stats">
+        <attribute name="tool-data-file"/>
+        <attribute name="tool-merge-handler"/>
+        <sequential>
+            <mergestat
+                  inputFile="@{tool-data-file}"
+                  srcdir="${src.dir}"
+                  outputfile="${qalab.data.file}"
+                  handler="net.objectlab.qalab.parser.@{tool-merge-handler}"
+                  quiet="${qalab.quiet}"
+                  />
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="build-tool-chart">
+        <attribute name="tool-report-type"/>
+        <attribute name="tool-name" default="@{tool-report-type}"/>
+        <sequential>
+            <mkdir dir="${gen.report.dir}/@{tool-name}"/>
+            
+            <buildchart
+                  inputFile="${qalab.data.file}"
+                  toDir="${gen.report.dir}/@{tool-name}"
+                  movingAverage="${qalab.moving.average}"
+                  width="${qalab.chart.width}"
+                  height="${qalab.chart.height}"
+                  summaryOnly="${qalab.summary.only}"
+                  summaryType="@{tool-report-type}"
+                  type="@{tool-report-type}"
+                  quiet="${qalab.quiet}"
+                  />
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="build-tool-page">
+        <attribute name="tool-report-type"/>
+        <attribute name="tool-name" default="@{tool-report-type}"/>
+        <sequential>
+            <report-style
+                input.file="${qalab.data.file}"
+                output.file="${gen.report.dir}/@{tool-name}/@{tool-name}-hist.html"
+                stylesheet="${qalab.chart.stylesheet}">
+                <extra.params>
+                    <param name="targetdir" expression="${gen.report.dir}/@{tool-name}" />
+                    <param name="type" expression="@{tool-report-type}" />
+                </extra.params>
+            </report-style>
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="add-tool-links">
+        <attribute name="tool-report-type"/>
+        <sequential>
+            <echo file="${qalab.report.summary}" append="yes">
+            &lt;tool name=&quot;@{tool-report-type}&quot; 
+                chart=&quot;./@{tool-report-type}/index.html&quot; 
+                movers=&quot;./@{tool-report-type}-movers.html&quot; 
+            /&gt;
+            </echo>
+        </sequential>
+    </macrodef>
+    
+    <macrodef name="build-movers-chart">
+        <attribute name="tool-report-type"/>
+        <sequential>
+            <movers
+                  inputFile="${qalab.data.file}"
+                  outputXMLfile="${qalab.movers.file}"
+                  types="@{tool-report-type}"
+                  weekendAdjustment="${qalab.movers.weekendAdjustment}"
+                  startTimeHoursOffset="${qalab.movers.startTimeHoursOffset}"
+                  quiet="${qalab.quiet}"
+                  />
+        </sequential>
+    </macrodef>
+
+    <macrodef name="build-movers-page">
+        <attribute name="tool-report-type"/>
+        <sequential>
+            <report-style
+                input.file="${qalab.movers.file}"
+                output.file="${gen.report.dir}/@{tool-report-type}-movers.html"
+                stylesheet="${qalab.movers.stylesheet}">
+            </report-style>
+        </sequential>
+    </macrodef>
+    
+</project>
+

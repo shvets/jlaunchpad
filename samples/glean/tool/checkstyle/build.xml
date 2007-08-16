@@ -1,0 +1,36 @@
+<project name="checkstyle" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Checks code against team style and design guidelines."/>
+
+    <property name="tool.url"       value="http://checkstyle.sourceforge.net/"/>
+    <property name="tool.min.jdk"   value="1.4"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef resource="checkstyletask.properties"
+         classpath="${tool.home}/checkstyle-all-4.3.jar"/>
+
+    <target name="run-report" depends="checkstyle"/>
+
+    <target name="checkstyle">
+        <checkstyle config="${checkstyle.config}"
+              failureProperty="checkstyle.failure"
+              failOnViolation="false">
+              <formatter type="${report.format}" 
+                    tofile="${gen.report.dir}/${report.name}.${report.format}"/>
+              <fileset dir="${src.dir}" includes="**/*.java"/>
+        </checkstyle>
+    </target>
+
+    <target name="transform" depends="check-stylesheet" if="stylesheet.present">
+        <report-style>
+            <extra.params>
+                <param name="context-root" expression="${src.link.prefix}" />
+                <param name="source-root" expression="${src.dir}/"/>
+            </extra.params>
+        </report-style>
+    </target>
+</project>
+

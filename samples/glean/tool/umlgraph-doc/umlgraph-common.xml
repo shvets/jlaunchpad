@@ -1,0 +1,54 @@
+<project name="umlgraph-common">
+    <description>Tasks, macrodefs and properties common to UMLGraph reports</description>
+    
+    <macrodef name="umldoc">
+        <attribute name="doclet"     default="gr.spinellis.umlgraph.doclet.UmlGraph"/>
+        <attribute name="outputdir"  default="${gen.report.dir}"/>
+        <element name="std-doclet-opts" optional="true"/>
+        <element name="views"        optional="true"/>
+        <sequential>
+            <javadoc
+                classpathref="tool.classpath"
+                verbose="false"
+                >
+            <doclet name="@{doclet}"
+                    pathref="tool.classpath"
+                    >
+                <param name="-d" value="@{outputdir}"/>
+                <param name="-output" value="${report.name}.dot"/>
+                <param name="-private"/>
+                <param name="-all"/>
+                <param name="-inferrel"/>
+                <!-- Inferring dependencies can add a lot of information to a graph
+                <param name="-inferdep"/>
+                -->
+                <param name="-qualify"/>
+                <param name="-postfixpackage"/>
+                <param name="-useimports"/>
+                <param name="-collpackages" value="java.util.*"/>
+                <param name="-hide" value="java.lang.String"/>
+                <param name="-link" value="http://java.sun.com/j2se/1.5/docs/api"/>
+                <param name="-views"/>
+                <!-- In order to change the default font that Graphviz
+                     uses, we have to define a number of font settings here. -->
+                <param name="-nodefontname" value="${graphviz.font.name}"/>
+                <param name="-nodefontabstractname" value="${graphviz.font.name}"/>
+                <param name="-nodefontclassname" value="${graphviz.font.name}"/>
+                <param name="-nodefontclassabstractname" value="${graphviz.font.name}"/>
+                <param name="-nodefonttagname" value="${graphviz.font.name}"/>
+                <param name="-nodefontpackagename" value="${graphviz.font.name}"/>
+                <param name="-edgefontname" value="${graphviz.font.name}"/>
+            </doclet>
+            <packageset dir="${src.dir}"/>
+            <tag 
+                dir="${basedir}" 
+                includes="${javadoc.taglist.files}"
+                />
+            <!-- Standard doclet options here -->
+            <std-doclet-opts/>
+            <!-- Optional view descriptions here -->
+            <views/>
+        </javadoc>
+        </sequential>
+    </macrodef>
+</project>

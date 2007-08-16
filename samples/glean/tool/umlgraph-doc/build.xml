@@ -1,0 +1,39 @@
+<project name="umlgraph-doc" default="report">
+    <property name="tool.description" value="Javadoc with embedded UML class diagrams"/>
+    <property name="tool.url"         value="http://www.spinellis.gr/sw/umlgraph/"/>
+    <property name="tool.min.jdk"     value="1.5"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <import file="umlgraph-common.xml"/>
+
+    <!-- This has to be set here rather than in a property file so that it
+         can pick up the timestamp setting. -->
+    <property name="report.footer"    value="Generated on ${tool.timestamp}"/>
+
+    <target name="run-report" depends="umlgraph-doc"/>
+
+    <target name="umlgraph-doc" 
+        description="Create integrated Javadoc and class diagrams"
+        >
+        <umldoc doclet="gr.spinellis.umlgraph.doclet.UmlGraphDoc"
+                outputdir="${gen.report.dir}">
+            <!-- Pass in arguments that are only valid for the standard doclet -->
+            <std-doclet-opts>
+                <arg line="-windowtitle ${report.title}"/>
+                <arg line="-overview ${report.overview}"/>
+                <arg value="-use"/>
+                <arg value="-breakiterator"/>
+                <doctitle>${report.title}</doctitle>
+                <header><![CDATA[<b>]]>${report.header}<![CDATA[</b>]]></header>
+                <bottom><![CDATA[<i>]]>${report.footer}<![CDATA[</i>]]></bottom>
+                <link href="${jdk5.javadoc.link}"/>
+            </std-doclet-opts>
+        </umldoc>
+    </target>
+
+</project>
+

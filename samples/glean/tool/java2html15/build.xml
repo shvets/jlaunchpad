@@ -1,0 +1,39 @@
+<project name="java2html15" default="report" basedir=".">
+    <property name="tool.description" value="Java source conversion to HTML"/>
+    <property name="tool.url"         value="http://www.java2html.de"/>
+    <property name="tool.min.jdk"     value="1.5"/>
+    
+    <!-- This tool doesn't create a browser, so there is no root page -->
+    <property name="index.page"       value=""/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <!-- NOTE: This tool supports syntax up to JDK 1.5, however it does NOT
+         generate a framed source browser.
+         If you have source that only uses language features through JDK 1.4
+         you could use the tool under "java2html14" to create better
+         browsable source..
+      -->
+    <taskdef name="java2html" classname="de.java2html.anttasks.Java2HtmlTask"
+        classpathref="tool.classpath"/>
+        
+    <target name="run-report" depends="java2html15"/>
+
+    <target name="java2html15">
+        <java2html
+           srcdir="${src.dir}"
+           destdir="${gen.report.dir}"
+           includes="**/*.java"
+           style="eclipse"
+           tabs="4"
+           addLineAnchors="true"
+           showLineNumbers="true"
+           showFileName="true"
+           showTableBorder="true"
+        />
+    </target>
+
+</project>
+

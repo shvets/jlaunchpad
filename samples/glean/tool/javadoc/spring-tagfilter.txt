@@ -1,0 +1,7 @@
+spring.bean:x:spring.bean
+spring.property:x:spring.property
+spring.constructor-arg:x:spring.constructor-arg
+spring.property:x:spring.property
+spring.validator:x:spring.validator
+spring.validator-args:x:spring.validator-args
+spring.validator-var:x:spring.validator-var

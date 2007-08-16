@@ -1,0 +1,181 @@
+<project name="tools-common" >
+    <description>Common attributes and targets for source code reports</description>
+
+    <!-- Double-dereference a property to create a new property -->
+    <macrodef name="propprop">
+        <attribute name="source"/>
+        <attribute name="dest"/>
+        <sequential>
+            <property name="@{dest}" value="${@{source}}"/>
+        </sequential>
+    </macrodef>
+
+    <!-- Create a property referring to the install for the current tool 
+         Each tool's home should be loaded in feedback.properties, but we
+         want to transfer that to a generic property name that can be
+         used by our common script.
+     -->
+    <property file="${feedback.script.dir}/toolhome.properties.local"/>
+    <property file="${feedback.script.dir}/toolhome.properties"/>
+    <propprop source="${ant.project.name}.home" dest="tool.home"/>
+
+    <!-- Make sure environment variables are available -->
+    <property environment="env"/>
+    
+    <!-- Properties can be overridden at the code project or individual report level -->
+    
+    <property file="${feedback.properties.file.local}"/>
+    <property file="${feedback.properties.file}"/>
+
+    <property file="${project.root}/feedback.properties.local"/>
+    <property file="${project.root}/feedback.properties"/>
+
+    <property file="${basedir}/tool.override.properties.local"/>    
+    <property file="${basedir}/tool.override.properties"/>
+    
+    <property file="${feedback.script.dir}/feedback.properties.local"/>
+    <property file="${feedback.script.dir}/feedback.properties"/>
+
+    <property file="${basedir}/tool.extend.properties.local"/>    
+    <property file="${basedir}/tool.extend.properties"/>    
+    
+    <!-- Classpath for source code dependencies -->
+    <path id="build.classpath">
+        <!--fileset dir="${lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset-->
+        <pathelement location="${bin.dir}"/>
+    </path>
+
+    <!-- Classpath for tool dependencies -->
+    <path id="tool.classpath">
+        <fileset dir="${tool.home}">
+            <include name="**/*.jar"/>
+        </fileset>
+
+        <pathelement location="${tool.home}"/>
+        <path refid="build.classpath"/>
+
+        <fileset dir="${repository.home}">
+            <include name="org/springframework/spring-beandoc/0.7.1/*.jar"/>
+            <include name="javancss/javancss/28.49/*.jar"/>
+            <include name="checkstyle/checkstyle/4.3/*.jar"/>
+            <include name="cobertura/cobertura/1.8/*.jar"/>
+            <include name="pmd/pmd/3.9/*.jar"/>
+            <include name="com/sun/tools/doccheck/1.2-beta2/*.jar"/>
+            <include name="emma/emma/2.0.5312/*.jar"/>
+
+        </fileset>
+
+    </path>
+
+    <tstamp>
+        <format pattern="${tool.timestamp.format}" property="tool.timestamp"/>
+    </tstamp>
+
+    <!-- Template target for reports -->
+    <target name="report" depends="init, run-report, transform, post-process"
+        description="Template target that defines the steps for creating a report"/>
+    
+    <!-- Shared tasks -->
+    <target name="disabled" description="An empty task to allow the report to be disabled"/>
+    
+    <target name="init"
+        description="Basic report setup">
+        <mkdir dir="${gen.report.dir}"/>
+
+        <tstamp>
+            <format pattern="${tool.timestamp.format}" property="tool.start.timestamp"/>
+        </tstamp>
+        <echo message="++++++++ Starting ${ant.project.name} at ${tool.start.timestamp} ++++++++"/>
+
+        <!-- Check to make sure that the tool.home directory exists -->
+        <condition property="tool.home.exists">
+            <or>
+                <length string="${tool.home}" length="0" />
+                <available file="${tool.home}" type="dir"/>
+            </or>
+        </condition>
+        <fail unless="tool.home.exists"
+            message="**** Can not find tool.home directory '${tool.home}' for ${ant.project.name} ****"/>
+    </target>
+
+    <target name="post-process" description="Follow-up processing after a tool is finished">
+	    <!-- Generate an element in the summary report for this tool -->
+        <echo file="${project.report.summary}" append="yes">
+            &lt;report name=&quot;${ant.project.name}&quot; 
+                description=&quot;${tool.description}&quot; 
+                time=&quot;${tool.timestamp}&quot; 
+                indexpage=&quot;${index.page}&quot; 
+            /&gt;
+        </echo>
+
+        <tstamp>
+            <format pattern="${tool.timestamp.format}" property="tool.stop.timestamp"/>
+        </tstamp>
+        <echo message="-------- Finishing ${ant.project.name} at ${tool.stop.timestamp} --------"/>
+    </target>
+    
+    <target name="transform" 
+        depends="check-stylesheet, notify-stylesheet" 
+        if="stylesheet.present"
+        description="Uses the defined stylesheet, if it exists, to transform the tool output.">
+        <report-style/>
+    </target>
+
+    <target name="check-stylesheet"
+        description="Check whether this report uses a stylesheet to generate HTML">
+
+        <!-- Check for it as either a loose file or as a resource on the classpath -->
+        <available
+            property="stylesheet.present"
+            file="${report.stylesheet}"
+            classpathref="tool.classpath"/>
+
+        <available
+            property="stylesheet.present"
+            resource="${report.stylesheet}"
+            classpathref="tool.classpath"/>
+    </target>
+
+    <target name="notify-stylesheet"
+        unless="stylesheet.present">
+        <echo message="Skipping style transformation. Stylesheet '${report.stylesheet}' not found." level="info"/>
+    </target>
+    
+    <target name="tool-description">
+        <echo message="${ant.project.name} - ${tool.description}"/>
+    </target>
+    
+    <target name="gen-tool-doc-row"
+        description="Generate HTML documentation for this tool">
+        <echo file="${tool.doc.fragment}" append="true">
+            &lt;tr class=&quot;a&quot;&gt;
+            &lt;td&gt;&lt;a href="#${ant.project.name}"&gt;${ant.project.name}&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;${tool.description}&lt;/td&gt;
+            &lt;td&gt;${tool.min.jdk}&lt;/td&gt;
+            &lt;td&gt;${tool.dependencies}&lt;/td&gt;
+            &lt;td&gt;&lt;a href="${tool.url}"&gt;Download&lt;/a&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        </echo>
+    </target>
+        
+    <!-- Common macrodefs -->
+    <macrodef name="report-style">
+        <attribute name="input.file" default="${gen.report.dir}/${report.name}.xml"/>
+        <attribute name="output.file" default="${gen.report.dir}/${styled.report.name}.html"/>
+        <attribute name="stylesheet" default="${report.stylesheet}"/>
+        <element name="extra.params" optional="true"/>
+        <sequential>
+            <xslt basedir="." destdir="."
+                in="@{input.file}" 
+                out="@{output.file}"
+                style="@{stylesheet}">
+              <param name="project" expression="${src.project.name}" />
+              <param name="today" expression="${tool.timestamp}" />
+              <extra.params/>
+            </xslt>
+        </sequential>
+    </macrodef>
+    
+</project>

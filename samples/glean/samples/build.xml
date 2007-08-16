@@ -1,0 +1,63 @@
+<project name="template" default="report" basedir=".">
+    <!--
+        This is what a standard report script would look like. To create a new
+        report, make a copy of this and review the pieces below that say "CHECKME"
+    -->
+    
+    <!-- CHECKME: Give the report a one-line description of what it tells you.
+         This will show up on the summary page of reports, as well as provide
+         documentation of the script.
+         The tool.url, tool.min.jdk and tool.dependencies are properties that
+         are read to generate part of the online documentation. In the future
+         they could be used for parts of the reports or checking the runtime environment.
+    -->
+    <property name="tool.description" 
+             value="DESCRIBE WHAT FEEDBACK THE TOOL PROVIDES (e.g. Reports on the number of lines of code)"/>
+    <property name="tool.url"          value=""/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="None"/>
+    
+    <description>${report.description}</description>
+
+    <!-- Keep this here. All of the setup of common properties is done in this include -->
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <!-- CHECKME: If your report relies ona custom Ant task, define that here
+    <taskdef name="mytooltask" classname="some.ones.tool.MyToolAntTask"
+        classpathref="tool.classpath"/>
+        -->
+        
+    <!-- CHECKME: Replace 'mytooltask' with the target that you create below.
+         If the tool generates XML and you have an XSL, simply name it the same
+         name as you gave the project (top of this file) with a '.xsl' extension
+         and the 'transform' task will run it.
+    -->
+    <target name="run-report" depends="mytooltask"/>
+
+    <!-- CHECKME: Write a target for the tool here. -->
+    <target name="mytooltask">
+        <mytooltask
+              srcdir="${src.dir}"
+              bindir="${bin.dir}"
+              includes="**/*.java"
+              outputfile="${gen.report.dir}/${report.name}.${report.format}"
+              format="${report.format}"
+              />
+    </target>
+
+    <!-- CHECKME: If the tool has properties available to customize it, or if it
+         overrides the values of Glean properties, place them in one of two
+         properties files, in the same folder as this build script:
+         - tool.pre.properties : if the properties need to override Glean properties
+                                 This file will be processed before the default
+                                 Glean properties
+         - tool.post.properties : if the properties make use of Glean properties
+                                 that need to be defined first.
+                                 This file will be processed after the default
+                                 Glean properties.
+        Users will be able to override any of these settings with their own
+        properties files that have ".local" at the end of them.
+    -->
+    
+</project>
+

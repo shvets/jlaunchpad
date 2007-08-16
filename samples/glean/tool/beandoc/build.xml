@@ -1,0 +1,31 @@
+<project name="beandoc" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Spring bean documentation"/>
+    
+    <property name="tool.url"       value="http://springframework.sourceforge.net/beandoc/"/>
+    <property name="tool.min.jdk"   value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
+
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+    
+    <taskdef name="beandoc" classname="org.springframework.beandoc.client.AntTask"
+        classpathref="tool.classpath"/>
+        
+    <target name="run-report" depends="beandoc"/>
+
+    <target name="beandoc">
+        <beandoc
+              beanDocProps="${beandoc.props.file}"
+              outputDir="${gen.report.dir}"
+              title="Spring Contexts in ${src.project.name}"
+              >
+            <fileset dir="${spring.config.dir}">
+                <include name="${spring.config.pattern}"/>
+            </fileset>
+        </beandoc>
+    </target>
+
+</project>
+

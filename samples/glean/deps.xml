@@ -105,7 +105,7 @@
       <groupId>java2html</groupId>
       <artifactId>j2h</artifactId>
       <!--version>1.3.1</version-->
-      <-version>1.5</version>
+      <version>1.5</version>
     </dependency>
 
     <dependency>
@@ -157,19 +157,17 @@
       <version>1.0</version>
     </dependency>
 
-<!--  
     <dependency>
-      <groupId>statcvs</groupId>
-      <artifactId>statcvs</artifactId>
-      <version>0.1.3</version>
+      <groupId>statsvn</groupId>
+      <artifactId>statsvn</artifactId>
+      <version>0.3.1</version>
     </dependency>
 
     <dependency>
-      <groupId>net.sf.statsvn</groupId>
-      <artifactId>statsvn</artifactId>
-      <version>0.2.0</version>
+      <groupId>statcvs</groupId>
+      <artifactId>statcvs</artifactId>
+      <version>0.3</version>
     </dependency>
--->  
 
     <dependency>
       <groupId>com.sun.tools</groupId>
@@ -181,6 +179,24 @@
       <groupId>glean</groupId>
       <artifactId>dashboard</artifactId>
       <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jaranalyzer</groupId>
+      <artifactId>jaranalyzer</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>net.sourceforge</groupId>
+      <artifactId>schemaspy</artifactId>
+      <version>3.1.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>umlgraph</groupId>
+      <artifactId>umlgraph</artifactId>
+      <version>4.8</version>
     </dependency>
   </dependencies>
 

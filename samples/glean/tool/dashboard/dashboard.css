@@ -1,0 +1,67 @@
+  body {
+    font:normal 85% verdana,arial,helvetica;
+    color:#000000;
+  }
+  table tr td, tr th {
+      font-size: 85%;
+  }
+  table.summary {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  table.summary tr th{
+    font-weight: normal;
+    text-align:left;
+    background:#d6caf0;
+  }
+  table.summary tr td{
+    text-align:center;
+    background:#eeeee0;
+  }
+  table.summary caption {
+    text-align: left;
+  }
+  
+  td.measure {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  p {
+    line-height:1.5em;
+    margin-top:0.5em; margin-bottom:1.0em;
+    margin-left:2em;
+    margin-right:2em;
+  }
+  h1 {
+    margin: 0px 0px 5px; font: 165% verdana,arial,helvetica
+  }
+  h2 {
+    margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica
+  }
+  h3 {
+    margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica
+  }
+  h4 {
+    margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+  }
+  h5 {
+    margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+  }
+  h6 {
+    margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
+  }
+  
+  div#metrics {
+    border-left: thin solid gray;
+    padding-left: 20px;
+    text-align: left;
+    margin-left : 250px;
+    clear: right;
+  }
+  div#docbar {
+    float : left;
+    width : 220px;
+  }
+

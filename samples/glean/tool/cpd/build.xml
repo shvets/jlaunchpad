@@ -1,0 +1,33 @@
+<project name="cpd" default="report" basedir=".">
+    <property name="tool.description" value="Report of copy/paste segments found in source"/>
+    <property name="tool.url"         value="http://pmd.sourceforge.net/cpd.html"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask"
+        classpathref="tool.classpath"/>
+
+    <target name="run-report" depends="cpd"/>
+
+    <target name="cpd">
+        <cpd minimumTokenCount="100"
+            outputFile="${gen.report.dir}/${report.name}.${report.format}"
+            format="${report.format}">
+                <fileset dir="${src.dir}">
+                    <include name="**/*.java"/>
+                </fileset>
+        </cpd>
+    </target>
+
+    <target name="transform" depends="check-stylesheet" if="stylesheet.present">
+        <report-style>
+            <extra.params>
+                <param name="context-root" expression="${src.link.prefix}" />
+                <param name="source-root" expression="${src.dir}/"/>
+            </extra.params>
+        </report-style>
+    </target>
+</project>

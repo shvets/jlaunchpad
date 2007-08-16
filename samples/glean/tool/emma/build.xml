@@ -1,0 +1,92 @@
+<project name="emma" default="report" basedir=".">
+    <property name="tool.description" value="Unit test coverage report"/>
+    <property name="tool.url"         value="http://emma.sourceforge.net/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="Optional Ant tasks (JUnit)"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef resource="emma_ant.properties" classpathref="tool.classpath" />
+
+    <!-- We need to have a build script that can execute our unit tests -->
+    <import file="${test.script}" optional="true"/>
+
+    <!-- Path to files that will be instrumented -->
+    <path id="run.classpath">
+        <pathelement location="${bin.dir}"/>
+    </path>
+
+    <!-- Path for unit tests -->
+    <path id="emma.test.classpath">
+        <pathelement location="${out.instr.dir}"/>
+        <path refid="tool.classpath"/>
+    </path>
+    
+    <target name="run-report" depends="coverage"/>
+
+    <target name="coverage" depends="emma, check-tests, notify-tests" 
+        if="tests.available">
+        <!-- Instrument the code -->
+        <emma enabled="${emma.enabled}" >
+            <instr instrpathref="run.classpath"
+                   destdir="${out.instr.dir}"
+                   metadatafile="${coverage.dir}/metadata.emma"
+                   merge="false"
+            >
+                <filter file="${report.filter}"/>
+            </instr>
+        </emma>
+
+        <!-- Run the tests -->
+        <glean-test
+            test-class-dir="${test.bin.dir}">
+            <extra-classpath>
+                <path refid="emma.test.classpath"/>
+            </extra-classpath>
+            <jvm-args>
+                <jvmarg value="-Demma.coverage.out.file=${coverage.dir}/coverage.emma" />
+                <jvmarg value="-Demma.coverage.out.merge=true" />
+            </jvm-args>
+        </glean-test>
+
+        <!-- Generate the report -->
+        <emma enabled="${emma.enabled}" >
+            <report sourcepath="${src.dir}"
+                    sort="+name">
+                <fileset dir="${coverage.dir}" >
+                    <include name="*.emma" />
+                </fileset>
+
+                <txt outfile="${coverage.dir}/coverage.txt" />
+                <xml outfile="${coverage.dir}/coverage.xml" />
+                <html outfile="${coverage.dir}/index.html" />
+           </report>
+        </emma>
+    </target>
+
+    <target name="emma" description="turns on EMMA instrumentation/reporting" >
+        <property name="emma.enabled" value="true" />
+        <delete dir="${out.instr.dir}"/>
+        <mkdir dir="${out.instr.dir}" />
+
+        <!-- If a set of filters is defined for the current project, use it.
+             Otherwise, use the default filters.-->
+        <available file="${project.report.filter}"
+                property="report.filter"
+                value="${project.report.filter}"/>
+        <property name="report.filter" value="${default.filter}"/>
+    </target>
+
+    <target name="check-tests" description="Check if tests and a test script exist.">
+        <available file="${test.bin.dir}" type="dir"
+            property="tests.available"/>
+    </target>
+    
+    <target name="notify-tests" unless="tests.available">
+        <echo message="Skipping Emma test coverage because no test directory found (test.bin.dir= ${test.bin.dir})"/>
+    </target>
+    
+</project>
+

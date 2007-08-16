@@ -1,0 +1,35 @@
+<project name="findbugs" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Static code analysis for common programming errors"/>
+    <property name="tool.url"         value="http://findbugs.sourceforge.net/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
+        classpathref="tool.classpath"/>
+        
+    <target name="run-report" depends="findbugs"/>
+
+    <target name="findbugs">
+        <findbugs home="${tool.home}"
+                debug="${report.debug}"
+                reportLevel="${findbugs.report.level}"
+                jvmargs="${findbugs.jvm.args}"
+                output="${findbugs.report.format}"
+                outputFile="${gen.report.dir}/${report.name}.${report.format}"
+                excludeFilter="${findbugs.excludes.file}"
+                stylesheet="${findbugs.stylesheet}"
+                timeout="${findbugs.timeout}">
+            <sourcePath path="${src.dir}"/>
+            <class location="${bin.dir}"/>
+            <auxClasspath>
+                <path refid="build.classpath"/>
+            </auxClasspath>
+        </findbugs>
+    </target>
+
+</project>
+

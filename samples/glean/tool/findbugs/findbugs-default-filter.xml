@@ -1,0 +1,6 @@
+<FindBugsFilter>
+    <!-- Match any test packages -->
+    <Match>
+        <Package name="~.*\.test"/>
+    </Match>
+</FindBugsFilter>

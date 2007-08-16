@@ -1,0 +1,74 @@
+<project name="dbdoclet" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Generates DocBook documentation from source code"/>
+    <property name="tool.url"          value="http://www.michael-a-fuchs.de/projects/dbdoclet/en/index.html"/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://graphviz.org&quot;&gt;Graphviz&lt;/a&gt;"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <property name="fop.home" value="${tool.home}/fop"/>
+
+    <!-- DocBook Doclet comes with Apache FOP packaged with it. -->    
+    <taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop"
+             classpathref="tool.classpath"/>
+
+    <!-- This has to be set here rather than in a property file so that it
+         can pick up the timestamp setting. -->
+    <property name="report.footer"    value="Generated on ${tool.timestamp}"/>
+
+    <target name="run-report" depends="dbdoclet"/>
+
+    <target name="dbdoclet" depends="javadoc, fo-transform, pdf-transform"/>
+    
+    <target name="javadoc">
+        <javadoc
+            classpathref="tool.classpath"
+            destdir="${gen.report.dir}"
+            use="true"
+            windowtitle="${report.title}"
+            breakiterator="true"
+            useexternalfile="true"
+            maxmemory="${dbdoclet.maxmemory}"
+            verbose="false"
+            source="${source.level}"
+            >
+            <doclet name="org.dbdoclet.doclet.docbook.DocBookDoclet"
+                    pathref="tool.classpath"
+                    >
+            </doclet>
+            <packageset dir="${src.dir}"/>
+            <tag 
+                dir="${basedir}" 
+                includes="${javadoc.taglist.files}"
+                />
+            <!-- Standard doclet options here -->
+            <doctitle>${report.title}</doctitle>
+            <header><![CDATA[<b>]]>${report.header}<![CDATA[</b>]]></header>
+            <bottom><![CDATA[<i>]]>${report.footer}<![CDATA[</i>]]></bottom>
+            <link href="${jdk5.javadoc.link}"/>
+        </javadoc>
+    </target>
+
+    <target name="fo-transform" description="Turn DocBook ouput into an FO file">
+        <report-style
+            input.file="${dbdoclet.report.file}"
+            output.file="${dbdoclet.fo.file}"
+            stylesheet="${dbdoclet.fo.transform}">
+            <extra.params>
+                <!-- Java 5 XSLTC seems to have a problem with the DocBook XSLs
+                     so we need to have it use the Xalan processor instead. -->
+                <factory name="org.apache.xalan.processor.TransformerFactoryImpl"/>
+            </extra.params>
+        </report-style>
+    </target>
+
+    <target name="pdf-transform" description="Turn an FO file into a PDF">
+        <fop format="application/pdf" 
+            fofile="${dbdoclet.fo.file}"
+            outfile="${dbdoclet.pdf.file}" />
+    </target>
+</project>
+

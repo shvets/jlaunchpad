@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="Starter PMD ruleset"
+    xmlns="http://pmd.sf.net/ruleset/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sf.net/ruleset/1.0.0 http://pmd.sf.net/ruleset_xml_schema.xsd"
+    xsi:noNamespaceSchemaLocation="http://pmd.sf.net/ruleset_xml_schema.xsd">
+
+  <description>
+  A starting set of PMD rules to build from.
+  </description>
+
+  <!-- Full rulesets -->
+  <rule ref="rulesets/basic.xml"/>
+  <rule ref="rulesets/strictexception.xml"/>
+  <rule ref="rulesets/unusedcode.xml"/>
+
+  <!-- Individual rules -->
+  <rule ref="rulesets/logging-java.xml/SystemPrintln"/>
+  <rule ref="rulesets/logging-java.xml/AvoidPrintStackTrace"/>
+  <rule ref="rulesets/design.xml/ImmutableField"/>
+  <rule ref="rulesets/design.xml/SwitchStmtsShouldHaveDefault"/>
+  <rule ref="rulesets/design.xml/PositionLiteralsFirstInComparisons"/>
+
+</ruleset>
+

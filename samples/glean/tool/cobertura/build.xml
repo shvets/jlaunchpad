@@ -1,0 +1,93 @@
+<project name="cobertura" default="report" basedir=".">
+    <property name="tool.description"  value="Unit test coverage report"/>
+    <property name="tool.url"          value="http://cobertura.sourceforge.net/"/>
+    <property name="tool.min.jdk"      value="1.4"/>
+    <property name="tool.dependencies" value="Optional Ant tasks (JUnit)"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef resource="tasks.properties"   classpathref="tool.classpath"/>
+        
+    <!-- We need to have a build script that can execute our unit tests -->
+    <import file="${test.script}" optional="true"/>
+
+    <!-- Path for unit tests -->
+    <path id="test.coverage.classpath">
+        <pathelement location="${out.instr.dir}"/>
+        <!-- We need to make sure ASM is kept off of the classpath used when
+             running the tests since Cobertura packages one that may conflict
+             with other components, Hibernate in particular.
+             See http://cobertura.sourceforge.net/faq.html -->
+        <fileset dir="${tool.home}">
+            <include name="**/*.jar"/>
+            <exclude name="**/asm*.jar"/>
+        </fileset>
+        <pathelement location="${tool.home}"/>
+        <path refid="build.classpath"/>
+    </path>
+    
+    <target name="run-report" depends="cobertura"/>
+
+    <target name="cobertura" depends="check-tests, notify-tests, clean-tests"
+        if="tests.available">
+        
+        <!-- Instrument the class files -->
+        <cobertura-instrument
+            datafile="${coverage.data.file}"
+            todir="${out.instr.dir}">
+            <ignore regex="org.apache.log4j.*" />
+            <fileset dir="${bin.dir}"
+                includesfile="${cobertura.includes.file}" 
+                excludesfile="${cobertura.excludes.file}" />
+        </cobertura-instrument>
+
+        <!-- Run the tests -->
+        <glean-test
+            test-class-dir="${test.bin.dir}">
+            <extra-classpath>
+                <path refid="test.coverage.classpath"/>
+            </extra-classpath>
+            <jvm-args>
+                <jvmarg value="-Dnet.sourceforge.cobertura.datafile=${coverage.data.file}" />
+            </jvm-args>
+        </glean-test>
+
+        <!-- Create the HTML report for viewing -->
+        <cobertura-report format="html" 
+            destdir="${gen.report.dir}"
+            datafile="${coverage.data.file}">
+            <fileset dir="${src.dir}">
+                <include name="**/*.java" />
+                <exclude name="**/*Test.java" />
+            </fileset>
+        </cobertura-report>
+
+        <!-- Create an XML report for other views or analysis -->
+        <cobertura-report format="xml" 
+            destdir="${gen.report.dir}"
+            datafile="${coverage.data.file}">
+            <fileset dir="${src.dir}"
+                includesfile="${cobertura.includes.file}" 
+                excludesfile="${cobertura.excludes.file}" />
+        </cobertura-report>
+
+    </target>
+
+    <target name="clean-tests" description="Get rid of old data file and instrumented classes">
+        <delete file="${coverage.data.file}"/>
+        <delete dir="${coverage.dir}"/>
+    </target>
+    
+    <target name="check-tests" description="Check if tests and a test script exist.">
+        <available file="${test.bin.dir}" type="dir"
+            property="tests.available"/>
+    </target>
+    
+    <target name="notify-tests" unless="tests.available">
+        <echo message="Skipping ${ant.project.name} test coverage because no test directory found (test.bin.dir= ${test.bin.dir})"/>
+    </target>
+        
+</project>
+

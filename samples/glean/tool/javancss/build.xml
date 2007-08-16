@@ -1,0 +1,29 @@
+<project name="javancss" default="report" basedir=".">
+    <property name="tool.description" value="Source code size and complexity metrics"/>
+    <property name="tool.url"         value="http://www.kclee.de/clemens/java/javancss/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="javancss" classname="javancss.JavancssAntTask"
+        classpathref="tool.classpath"/>
+
+    <target name="run-report" depends="javancss"/>
+
+    <target name="javancss">
+        <javancss
+              srcdir="${src.dir}"
+              includes="**/*.java"
+              generateReport="yes"
+              outputfile="${gen.report.dir}/${report.name}.${report.format}"
+              format="${report.format}"
+              packageMetrics="yes"
+              classMetrics="yes"
+              functionMetrics="yes"
+              />
+    </target>
+
+</project>
+

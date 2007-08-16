@@ -1,0 +1,87 @@
+<project name="statsvn" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Statistical data from Subversion repository activity"/>
+    <property name="tool.url"         value="http://statsvn.org/"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="Subversion command-line client"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <taskdef name="statsvn" classname="net.sf.statsvn.ant.StatSvnTask"
+        classpathref="tool.classpath"/>
+        
+    <target name="run-report" depends="statsvn"/>
+
+    <target name="statsvn" depends="generate-svn-log">
+        <statsvn
+            path="${src.dir}"
+            log="${svn.log.file}"
+            outputDir="${gen.report.dir}"
+            title="${src.project.name}"
+            include="${svn.include.pattern}"
+            />
+    </target>
+
+    <!-- To specify a limit on the svn history, define one of the following
+         properties. If none of these are defined, then the entire history
+         will be used:
+            statsvn.prev.days   = number of days to look back
+            statsvn.prev.weeks  = number of weeks to look back
+            statsvn.prev.months = number of months to look back
+    -->
+    <target name="create-start-day" if="statsvn.prev.days">
+        <tstamp>
+            <format property="statsvn.start" pattern="${svn.date.format}" 
+                    offset="-${statsvn.prev.days}" unit="day"/>
+        </tstamp>
+        <echo message="Setting StatSVN history to be ${statsvn.prev.days} days (${statsvn.start})" level="info"/>
+    </target>
+    
+    <target name="create-start-week" if="statsvn.prev.weeks">
+        <tstamp>
+            <format property="statsvn.start" pattern="${svn.date.format}" 
+                    offset="-${statsvn.prev.weeks}" unit="week"/>
+        </tstamp>
+        <echo message="Setting StatSVN history to be ${statsvn.prev.weeks} weeks (${statsvn.start})" level="info"/>
+    </target>
+    
+    <target name="create-start-month" if="statsvn.prev.months">
+        <tstamp>
+            <format property="statsvn.start" pattern="${svn.date.format}" 
+                    offset="-${statsvn.prev.months}" unit="month"/>
+        </tstamp>
+        <echo message="Setting StatSVN history to be ${statsvn.prev.months} months (${statsvn.start})" level="info"/>
+    </target>
+    
+    <target name="generate-svn-log-range" 
+        depends="create-start-day,create-start-week,create-start-month"
+        if="statsvn.start">
+        <tstamp>
+            <format property="statsvn.end" pattern="${svn.date.format}"/>
+        </tstamp>
+        
+        <exec executable="svn" 
+            dir="${src.dir}"
+            output="${svn.log.file}"
+            error="${svn.error.file}">
+            <arg line="log -v --xml"/>
+            <arg line="-r {${statsvn.start}}:{${statsvn.end}}"/>
+        </exec>
+    </target>
+    
+    <target name="generate-svn-log-total"
+        unless="statsvn.start">
+        <exec executable="svn" 
+            dir="${src.dir}"
+            output="${svn.log.file}"
+            error="${svn.error.file}">
+            <arg line="log -v --xml"/>
+        </exec>
+    </target>
+    
+    <target name="generate-svn-log"
+        depends="generate-svn-log-range, generate-svn-log-total"/>
+</project>
+

@@ -1,0 +1,74 @@
+<project name="dashboard" default="report" basedir=".">
+    <property name="tool.description" 
+             value="Summary view of feedback metrics"/>
+    <property name="tool.url"         value="http://jbrugge.com/glean/dashboard-1.0.jar"/>
+    <property name="tool.min.jdk"     value="1.4"/>
+    <property name="tool.dependencies" value="&lt;a href=&quot;http://groovy.codehaus.org/&quot;&gt;Groovy&lt;/a&gt;"/>
+    
+    <description>${tool.description}</description>
+
+    <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <path id="groovy.classpath">
+        <fileset dir="${env.GROOVY_HOME}/embeddable" includes="*.jar"/>
+    </path>
+    
+    <taskdef name="groovy"
+         classname="org.codehaus.groovy.ant.Groovy"
+         classpathref="groovy.classpath"/>
+         
+    <path id="dashboard.classpath">
+        <path refid="groovy.classpath"/>
+        <path refid="tool.classpath"/>
+    </path>
+
+    <target name="run-report" depends="strip-dtds, dashboard"/>
+
+    <target name="dashboard">
+        <groovy classpathref="dashboard.classpath">
+            import com.jbrugge.glean.Dashboard
+            
+            def dashboard = new Dashboard(projectName: "${properties['src.project.name']}",
+                                        buildTime: "${properties['feedback.timestamp']}",
+                                        buildLabel: "",
+                                        docRoot: "${properties['gen.report.root']}")
+
+            // Load the tool results
+            println "Loading the tool results..."
+            dashboard.setResults("pmd", "${properties['pmd.data.file']}")
+            dashboard.setResults("cpd", "${properties['cpd.data.file']}")
+            dashboard.setResults("checkstyle", "${properties['checkstyle.data.file']}")
+            dashboard.setResults("findbugs", "${properties['findbugs.data.file']}")
+            dashboard.setResults("emma", "${properties['emma.data.file']}")
+            dashboard.setResults("cobertura", "${properties['cobertura.data.file']}")
+            dashboard.setResults("junitreport", "${properties['junitreport.data.file']}")
+            dashboard.setResults("javancss", "${properties['javancss.data.file']}")
+            dashboard.setResults("jdepend", "${properties['jdepend.data.file']}")
+            
+            // Create the XML file
+            def reportPath = "${properties['gen.report.dir']}/${properties['report.name']}.xml"
+            
+            println "Creating the dashboard XML to ${reportPath}"
+            new File(reportPath).write(dashboard.toXml())
+        </groovy>
+        
+        <copy file="dashboard.css" todir="${gen.report.dir}"/>
+    </target>
+
+    <target name="strip-dtds"
+        depends="check-cobertura-data"
+        if="cobertura.data.exists"
+        description="Remove DTD entities from data files that refer to external URLs">
+
+        <echo message="Removing '${cobertura.dtd.spec}' from ${cobertura.data.file}"/>
+        <replace file="${cobertura.data.file}" 
+            value="" 
+            token="${cobertura.dtd.spec}"
+            summary="true" />
+    </target>
+    
+    <target name="check-cobertura-data" description="Check if there is a data file from Cobertura">
+        <available file="${cobertura.data.file}" property="cobertura.data.exists"/>
+    </target>
+</project>
+
