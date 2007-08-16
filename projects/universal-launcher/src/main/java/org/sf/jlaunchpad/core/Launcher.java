@@ -3,7 +3,7 @@ package org.sf.jlaunchpad.core;
 import java.net.URL;
 
 /**
- * The interface represents launher behavior.
+ * The interface represents launcher behavior.
  *
  * @author Alexander Shvets
  * @version 1.0 01/14/2007

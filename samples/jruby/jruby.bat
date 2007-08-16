@@ -6,7 +6,7 @@ if exist "%USERPROFILE%\jlaunchpad\config.bat" (
 
 SET MAIN_CLASS=org.jruby.Main
 
-SET PROPERTIES="-deps.file.name=%CD%\deps.xml" "-main.class.name=%MAIN_CLASS%"
+SET PROPERTIES="-deps.file.name=%CD%\deps.xml" "-main.class.name=%MAIN_CLASS%" -Dtest=true
 
 rem %LAUNCHER_HOME%\launcher.bat %PROPERTIES% %*
 
