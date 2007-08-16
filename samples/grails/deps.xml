@@ -24,7 +24,7 @@
     </dependency>
 
     <dependency>
-      <groupId>groovy</groupId>
+      <groupId>org.codehaus.groovy</groupId>
       <artifactId>groovy-all</artifactId>
       <version>1.1-beta-2</version>
 
@@ -118,6 +118,12 @@
           <artifactId>ejb</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-mock</artifactId>
+      <version>2.0.4</version>
     </dependency>
 
     <dependency>
@@ -252,6 +258,17 @@
       <version>2.4.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>oro</groupId>
+      <artifactId>oro</artifactId>
+      <version>2.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>opensymphony</groupId>
+      <artifactId>sitemesh</artifactId>
+      <version>2.3</version>
+    </dependency>
   </dependencies>
 
 </project>
