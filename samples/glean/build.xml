@@ -1,9 +1,150 @@
 <project name="glean" default="glean" basedir=".">
+    <description>Run reporting or feedback tools over a set of source code</description>
 
-  <target name="glean">
-    <ant antfile="${glean.home}/build.xml" inheritall="false" dir="${glean.home}">
-      <property name="feedback.properties" value="${feedback.properties}"/>
-    </ant>
-  </target>
+    <property name="feedback.properties"           location="feedback.properties"/>
+    <property name="feedback.properties.local"     location="${feedback.properties}.local"/>
+    
+    <property file="${feedback.properties.local}"/>
+    <property file="${feedback.properties}"/>
+    <property file="feedback.properties.local"/>
+    <property file="feedback.properties"/>
 
+    <!-- Define a property to refer to the name of the code project -->
+    <basename property="src.project.name"   file="${project.root}"/>
+
+    <tstamp>
+        <format pattern="${tool.timestamp.format}" property="feedback.timestamp"/>
+    </tstamp>
+    
+    <!-- Some properties we have to define here rather than in a properties
+         file because they need the name derived via the "basename" task -->
+    <property name="glean.log.file"     value="${src.project.name}-feedback-${DSTAMP}-${TSTAMP}.log"/>
+    <property name="report.war.file"    value="${src.project.name}-feedback.war"/>
+    
+    <target name="init" description="Set up the environment">
+        <echo message="Creating log directory at ${glean.log.dir}"/>
+        <mkdir dir="${glean.log.dir}"/>
+
+        <record name="${glean.log.dir}/${glean.log.file}"/>
+        <echo message="Starting to gather feedback for ${src.project.name} at ${feedback.timestamp}"/>
+        <echo message="Feedback tools being used: ${tool.pattern}"/>
+
+        <mkdir dir="${gen.report.root}"/>        
+        <copy file="${report.css}" todir="${gen.report.root}"/>
+
+        <!-- Check to make sure that the feedback properties file exists -->
+        <available file="${feedback.properties}" property="feedback.properties.exists"/>
+        <fail unless="feedback.properties.exists"
+            message="**** Can not find feedback properties file '${feedback.properties}' ****"/>
+    </target>
+
+    <target name="glean" depends="init, feedback, feedback-summary"
+        description="Generate feedback reports and a summary page."/>
+        
+    <target name="feedback" depends="init" 
+        description="Generate feedback reports">
+
+        <!-- Create opening element of a report summary -->
+        <echo message="&lt;project-report name=&quot;${src.project.name}&quot; time=&quot;${feedback.timestamp}&quot;&gt;" 
+            file="${project.report.summary}" append="no"/>
+
+        <glean-subant pattern="${tool.pattern}" excludes="dashboard"/>
+        
+        <antcall target="dashboard"/>
+        
+        <!-- Create closing element of a report summary -->
+        <echo message="&lt;/project-report&gt;" 
+            file="${project.report.summary}" append="yes"/>
+            
+    </target>
+    
+    <target name="dashboard" depends="check-dashboard" if="dashboard.selected">
+        <glean-subant pattern="dashboard"/>
+    </target>
+    
+    <target name="check-dashboard">
+        <condition property="dashboard.selected">
+            <istrue value="${create.dashboard}"/>
+        </condition>
+    </target>
+
+    <target name="clean" description="Clean out generated report files">
+        <delete dir="${gen.report.root}"/>
+    </target>
+
+    <target name="feedback-summary" description="Create summary page of reports run">
+        <xslt basedir="." destdir="."
+            in="${project.report.summary}" 
+            out="${project.report.page}"
+            style="${project.report.stylesheet}">
+        </xslt>    
+    </target>
+    
+    <target name="dist"
+        description="Bundle all of the report files into a deployable WAR">
+        <mkdir dir="${report.war.dir}"/>
+        <war destfile="${report.war.dir}/${report.war.file}"
+            webxml="webapp/WEB-INF/web.xml">
+            <fileset dir="${gen.report.root}"/>
+            <fileset dir="webapp">
+                <include name="**/*.css"/>
+            </fileset>
+        </war>
+    </target>
+    
+    <target name="distclean"
+        description="Clean up the packaged reports">
+        <delete dir="${report.war.dir}"/>
+    </target>
+
+    <target name="deploy"
+        description="Deploy a report WAR to an app server">
+        <copy file="${report.war.dir}/${report.war.file}"
+             todir="${report.deploy.dir}"/>
+    </target>
+    
+    <target name="publish"
+        description="Publish the report files to a web server">
+        <mkdir dir="${report.publish.dir}"/>
+        <copy todir="${report.publish.dir}">
+            <fileset dir="${gen.report.root}"/>
+            <fileset dir="webapp">
+                <include name="**/*.css"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="all" depends="clean, glean, dist, deploy"
+        description="Runs and deploys a clean set of reports" />
+
+    <target name="download-tools"
+        description="Download the set of tools with scripts for Glean">
+        <echo message="** Sorry, not implemented yet. Work in progress **"/>
+    </target>
+    
+    <!-- Common macrodefs -->
+    <macrodef name="glean-subant">
+        <attribute name="target"     default=""/>
+        <attribute name="pattern"    default="${tool.pattern}"/>
+        <attribute name="excludes"   default=""/>
+        <element name="extra-properties" optional="true"/>
+        <sequential>
+            <subant
+                inheritall="no"
+                failonerror="no"
+                target="@{target}">
+                <!-- Other common properties specific to reports are available in feedback.properties -->
+                <property name="feedback.script.dir"  location="${basedir}"/>
+                <property name="project.root"         location="${project.root}"/>
+                <property name="src.project.name"     value="${src.project.name}"/>
+                <property name="feedback.timestamp"   value="${feedback.timestamp}"/>
+                <property name="feedback.properties.file"       location="${feedback.properties}"/>
+                <property name="feedback.properties.file.local" location="${feedback.properties.local}"/>
+                <extra-properties/>
+                
+                <!-- Run every report that matches our pattern-->
+                <dirset dir="tool" includes="@{pattern}" excludes="@{excludes}"/>
+            </subant>
+        </sequential>
+    </macrodef>
 </project>
