@@ -1,0 +1,10 @@
+<project name="test" default="init" basedir=".">
+
+  <target name="init">
+    <echo>Hello from Ant echo!</echo>
+
+    <script language="beanshell">
+      System.out.println("Hello from beanshell!");
+    </script>
+  </target>
+</project>
