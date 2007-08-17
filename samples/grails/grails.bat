@@ -4,7 +4,8 @@ if exist "%USERPROFILE%\jlaunchpad\config.bat" (
   @call "%USERPROFILE%\jlaunchpad\config.bat"
 )
 
-SET GRAILS_HOME=C:\JavaPrograms\grails-0.5.6
+rem SET GRAILS_HOME=d:\JavaPrograms\grails-0.5.6
+SET GRAILS_HOME=%~dp0
 
 SET MAIN_CLASS=org.codehaus.groovy.grails.cli.GrailsScriptRunner
 
