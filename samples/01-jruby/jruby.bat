@@ -1,3 +1,5 @@
+@echo off
+
 SET LAUNCHER_HOME=c:\launcher
 
 if exist "%USERPROFILE%\jlaunchpad\config.bat" (
@@ -6,8 +8,12 @@ if exist "%USERPROFILE%\jlaunchpad\config.bat" (
 
 SET MAIN_CLASS=org.jruby.Main
 
-SET PROPERTIES="-deps.file.name=%CD%\deps.xml" "-main.class.name=%MAIN_CLASS%" -Dtest=true
+SET PROPERTIES="-deps.file.name=%~dp0deps.xml" "-main.class.name=%MAIN_CLASS%"
 
-rem %LAUNCHER_HOME%\launcher.bat %PROPERTIES% %*
+if "%1" == "" (
+  echo "Please specify ruby sript."
+  exit
+)
 
-%LAUNCHER_HOME%\launcher.bat %PROPERTIES% test1.rb 
+%LAUNCHER_HOME%\launcher.bat %PROPERTIES% %*
+
