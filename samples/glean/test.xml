@@ -1,0 +1,65 @@
+<project name="glean-test" default="test" basedir=".">
+    <description>A basic unit test script for projects</description>
+    
+    <patternset id="unit.test.classes">
+        <include name="${unit.test.pattern}"/>
+    </patternset>
+    
+    <property name="test.patternset"       value="unit.test.classes"/>
+    
+    <path id="test.classpath">
+        <path refid="build.classpath"/>
+        <pathelement location="${test.bin.dir}"/>
+        <pathelement location="${test.src.dir}"/>
+        <fileset dir="${test.lib.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement location="${extra.test.path}"/>
+    </path>
+    
+    <target name="clean-test-results">
+        <delete dir="${test.report.dir}" failonerror="false"/>
+    </target>
+    
+    <target name="run-tests" description="Run a set of unit tests">
+        <glean-test/>
+    </target>
+    
+    <macrodef name="glean-test">
+        <attribute name="test-class-dir"   default="${test.bin.dir}"/>
+        <element   name="extra-classpath"  optional="true"/>
+        <element   name="jvm-args"         optional="true"/>
+        <sequential>
+            <mkdir dir="${test.report.dir}"/>
+            
+            <junit fork="true"
+                printsummary="false"
+                showoutput="true">
+                
+                <classpath>
+                    <extra-classpath/>
+                    <path refid="test.classpath"/>
+                </classpath>
+                <jvm-args/>
+                
+                <!-- If no suite has been defined, then run all tests in
+                     the chosen patternset -->
+                <batchtest todir="${test.report.dir}"
+                    unless="test.suite"
+                    >
+                    <fileset dir="@{test-class-dir}">
+                        <patternset refid="${test.patternset}"/>
+                    </fileset>
+                </batchtest>
+                
+                <!-- If a suite has been defined, then run just that suite -->
+                <test todir="${test.report.dir}"
+                    if="test.suite"
+                    name="${test.suite}"/>
+                
+                <formatter type="xml"/>
+                <formatter type="brief"/>
+            </junit>
+        </sequential>
+    </macrodef>
+</project>
