@@ -9,9 +9,18 @@
     <description>${tool.description}</description>
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
-    
+
+<!--    
     <taskdef name="beandoc" classname="org.springframework.beandoc.client.AntTask"
         classpathref="tool.classpath"/>
+-->
+    <taskdef name="beandoc" classname="org.springframework.beandoc.client.AntTask">
+      <classpath>
+        <fileset dir="${beandoc.home}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </taskdef>
         
     <target name="run-report" depends="beandoc"/>
 

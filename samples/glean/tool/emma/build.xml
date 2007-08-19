@@ -8,7 +8,14 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
-    <taskdef resource="emma_ant.properties" classpathref="tool.classpath" />
+    <path id="emma.classpath">
+      <!-- in order to include emma_ant -->
+      <fileset dir="${emma.home}/../..">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+
+    <taskdef resource="emma_ant.properties" classpathref="emma.classpath"/>
 
     <!-- We need to have a build script that can execute our unit tests -->
     <import file="${test.script}" optional="true"/>
@@ -21,7 +28,8 @@
     <!-- Path for unit tests -->
     <path id="emma.test.classpath">
         <pathelement location="${out.instr.dir}"/>
-        <path refid="tool.classpath"/>
+
+        <path refid="emma.classpath"/>
     </path>
     
     <target name="run-report" depends="coverage"/>

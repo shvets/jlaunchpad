@@ -16,8 +16,18 @@
          you could use the tool under "java2html14" to create better
          browsable source..
       -->
+<!--
     <taskdef name="java2html" classname="de.java2html.anttasks.Java2HtmlTask"
         classpathref="tool.classpath"/>
+-->
+
+    <taskdef name="java2html" classname="de.java2html.anttasks.Java2HtmlTask">
+      <classpath>
+        <fileset dir="${java2html15.home}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </taskdef>
         
     <target name="run-report" depends="java2html15"/>
 

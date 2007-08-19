@@ -7,8 +7,18 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+<!--
     <taskdef name="javancss" classname="javancss.JavancssAntTask"
         classpathref="tool.classpath"/>
+-->
+
+    <taskdef name="javancss" classname="javancss.JavancssAntTask">
+      <classpath>
+        <fileset dir="${javancss.home}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </taskdef>
 
     <target name="run-report" depends="javancss"/>
 

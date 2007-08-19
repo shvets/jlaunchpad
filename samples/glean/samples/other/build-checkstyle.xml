@@ -1,0 +1,104 @@
+<project name="CheckstyleProject" basedir=".">
+
+  <property file="../common.properties"/>
+  <property file="../build.properties"/>
+
+  <target name ="init">
+    <taskdef resource="checkstyletask.properties">
+      <classpath>
+        <pathelement location="${global.repository.home}/checkstyle/checkstyle-all-3.5.jar"/>
+
+        <path refid="project.classpath" />
+      </classpath>
+    </taskdef>
+  </target>
+
+  <property name="style.config.file" value="${basedir}/ant/sun_checks-modified.xml"/>
+
+  <target name ="checkstyle.file" depends="init">
+    <checkstyle file ="${file.name}" config="${style.config.file}"/>
+  </target>
+
+  <target name ="checkstyle.dir" depends="init">
+    <script language="beanshell">
+      import java.io.File;
+
+      String dirName = project.getProperty("dir.name");
+
+      dirName = dirName.replace('/', '.');
+
+      System.out.println("dirName " + dirName);
+      project.setNewProperty("dir.name.as.file.path", dirName);
+    </script>
+
+    <property name="checkstyle.xml.report" value="checkstyle/${dir.name.as.file.path}.xml"/>
+    <property name="checkstyle.html.report" value="checkstyle/${dir.name.as.file.path}.html"/>
+
+    <checkstyle config="${style.config.file}"
+                failOnViolation="false" failureProperty="checkstyle.failure">
+      <formatter type="xml" tofile="${checkstyle.xml.report}"/>
+      
+      <fileset dir="${dir.name}">
+        <include name ="**/*.java"/>
+
+        <exclude name ="**/TransactionStatus.java"/>
+      </fileset>
+    </checkstyle>
+    
+    <style in="${checkstyle.xml.report}" out="${checkstyle.html.report}" style="ant/checkstyle-simple.xsl"/>
+  </target>
+
+  <!--target name="checkstyle"
+          description="Generates a report of code convention violations.">
+
+    <property name="checkstyle.xml.report" value="checkstyle/checkstyle_report.xml"/>
+    <property name="checkstyle.html.report" value="checkstyle/checkstyle_report.html"/>
+
+    <checkstyle config="${style.config.file}"
+                failOnViolation="false" failureProperty="checkstyle.failure">
+      <formatter type="plain" tofile="checkstyle_report.txt"/>
+      <formatter type="xml" tofile="${checkstyle.xml.report}"/>
+
+      <fileset dir="${src.dir}">
+         <include name="com/bms/iris/util/*.java"/>
+      </fileset>
+    </checkstyle>
+
+    <style in="${checkstyle.xml.report}" out="${checkstyle.html.report}" style="ant/checkstyle-frames.xsl"/>
+  </target-->
+
+  <target name="checkstyle.nightly" depends="init"
+          description="Sends email if checkstyle detected code conventions violations.">
+
+    <mail from="qa@checkstyle.${project.name}.bms.com"
+          tolist="${email.list}"
+          mailhost="mail.bms.com"
+          messagemimetype="text/plain"
+          subject="Checkstyle violation(s) in project ${project.name}"
+          files="checkstyle_report.txt"/>
+  </target>
+
+  <target name ="format">
+    <taskdef name="jalopy"
+             classname="de.hunsicker.jalopy.plugin.ant.AntPlugin">
+      <classpath>
+        <fileset dir="${basedir}/../repository/jalopy">
+          <include name="*.jar" />
+        </fileset>
+      </classpath>
+    </taskdef>
+
+    <jalopy backup="false"
+            convention="${basedir}/ant/jalopy-preferences.xml"
+            fileformat="auto"
+            history="comment"
+            javadoc="false"
+            loglevel="info"
+            threads="2">
+      <fileset dir="format">
+        <include name="*.java"/>
+      </fileset>
+    </jalopy>
+  </target>
+
+</project>

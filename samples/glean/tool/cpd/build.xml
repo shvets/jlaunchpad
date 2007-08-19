@@ -7,8 +7,24 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+<!--
     <taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask"
         classpathref="tool.classpath"/>
+-->
+
+    <path id="cpd.classpath">
+      <fileset dir="${cpd.home}">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+
+    <taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask">
+      <classpath>
+        <fileset dir="${cpd.home}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </taskdef>
 
     <target name="run-report" depends="cpd"/>
 

@@ -1,0 +1,204 @@
+<FindBugsFilter>
+
+  <Match classregex=".*" >
+    <!--BugCode name="BIT,BOA,BRSA,CN,Se,SnVI,EI,EI2" /-->
+
+    <!-- Level 1 -->
+    <BugCode name="Co,DE,DLS,Dm,EC,Eq,FE,FI,HE,IC,ICAST,IJU,IL,IM,IMSE,IP,ISC,It,J2EE,MF,MWN,NP,NS,Nm,ODR,OS,PZ,QF,RCN,RE,RR,RV,SA,SI,SIO,STI,SW,UCF,UI,UR,UwF,Dm,FI,MS,DC,Dm,ESync,IS2,JLM,LI,ML,NN,No,RS,Ru,SC,SP,SWL,TLW,UG,UL,UL,UW,VO,WS,Wa,Dm,FI,ITA,SBSC,SIC,SS,UPM,UrF,UuF,WMI,BC,DB,DLS,ICAS,MTIA,NP,Nm,PS,PZLA,REC,RI,SA,SF,ST,TEST,UM,UwF"/>
+
+    <!-- Level 2 -->
+    <!--BugCode name="Co,DE,Dm,EC,Eq,FE,FI,HE,IC,ICAST,IJU,IL,IM,IMSE,IP,ISC,It,J2EE,MF,MWN,NP,NS,Nm,ODR,OS,PZ,QF,RCN,RE,RR,RV,SA,SI,SIO,STI,SW,UI,UR,UwF,Dm,FI,DC,Dm,ESync,IS2,JLM,LI,ML,NN,No,RS,Ru,SC,SP,SWL,TLW,UG,UL,UL,UW,VO,WS,Wa,Dm,FI,ITA,SBSC,SIC,SS,UPM,WMI,DB,ICAS,MTIA,NP,Nm,PS,PZLA,REC,RI,SA,SF,ST,TEST,UM,UwF"/-->
+
+<!--
+  AM: Creates an empty jar file entry Correctness
+  AM: Creates an empty zip file entry Correctness
+  BC: Impossible cast Correctness
+  BC: instanceof will always return false Correctness
+  BIT: Incompatible bit masks Correctness
+  BIT: Incompatible bit masks Correctness
+  BIT: Incompatible bit masks Correctness
+  BOA: Class overrides a method implemented in super class Adapter wrongly Correctness
+  BRSA: Method attempts to access a result set field with index 0 Correctness
+  CN: Class implements Cloneable but does not define or use clone method Correctness
+  CN: clone method does not call super.clone() Correctness
+  Co: Abstract class defines covariant compareTo() method Correctness
+  Co: Covariant compareTo() method defined Correctness
+  DE: Method might drop exception Correctness
+  DE: Method might ignore exception Correctness
+  DLS: Overwritten increment Correctness
+  Dm: Method invokes System.exit(...) Correctness
+  Dm: Method invokes runFinalizersOnExit, one of the most dangerous methods in the Java libraries.  Correctness
+  EC: Invocation of equals() on an array, which is equivalent to == Correctness
+  EC: Call to equals() with null argument Correctness
+  EC: Call to equals() comparing different interface types Correctness
+  EC: Call to equals() comparing different types Correctness
+  ES: Comparison of String objects using == or != Correctness
+  Eq: Abstract class defines covariant equals() method Correctness
+  Eq: Covariant equals() method defined Correctness
+  Eq: Covariant equals() method defined, Object.equals(Object) inherited Correctness
+  FE: Test for floating point equality. Correctness
+  FI: Explicit invocation of finalizer Correctness
+  FI: Finalizer does not call superclass finalizer Correctness
+  FI: Finalizer nullifies superclass finalizer Correctness
+  HE: Class defines equals() but not hashCode() Correctness
+  HE: Class defines equals() and uses Object.hashCode() Correctness
+  HE: Class defines hashCode() but not equals() Correctness
+  HE: Class defines hashCode() and uses Object.equals() Correctness
+  HE: Class inherits equals() and uses Object.hashCode() Correctness
+
+  IC: Initialization circularity Correctness
+  ICAST: Integer shift by an amount not in the range 0..31 Correctness
+  ICAST: Integer division result cast to double Correctness
+  ICAST: Integer value cast to double and then passed to Math.ceil Correctness
+  IJU: TestCase implements setUp but doesn't call super.setUp() Correctness
+  IJU: TestCase implements a suite method, but this method is not static and should be Correctness
+  IJU: TestCase implements tearDown but doesn't call super.tearDown() Correctness
+  IL: A container is added to itself. Correctness
+  IL: An apparent infinite recursive loop. Correctness
+  IM: Integer multiply of result of integer remainder Correctness
+  IMSE: Dubious catching of IllegalMonitorStateException Correctness
+  IP: A parameter is dead upon entry to a method but overwritten Correctness
+  ISC: Needless instantiation of class that only supplies static methods Correctness
+  It: Iterator next() method can't throw NoSuchElement exception Correctness
+  J2EE: Store of non serializable object into HttpSession Correctness
+  MF: Class defines field that obscures a superclass field Correctness
+  MF: Method defines a variable that obscures a field Correctness
+  MWN: Mismatched notify() Correctness
+  MWN: Mismatched wait() Correctness
+  NP: Null pointer dereference in method Correctness
+  NP: Null pointer dereference in method on exception path Correctness
+  NP: Immediate dereference of the result of readLine() Correctness
+  NP: Possible null pointer dereference in method Correctness
+  NP: Possible null pointer dereference in method on exception path Correctness
+  NP: Read of unwritten field Correctness
+
+  NS: Questionable use of non-short-circuit logic Correctness
+  Nm: Class defines equal(); should it be equals()? Correctness
+  Nm: Class is not derived from an Exception, even though it is named as such Correctness
+  Nm: Confusing method names Correctness
+  Nm: Class defines hashcode(); should it be hashCode()? Correctness
+  Nm: Class defines tostring(); should it be toString()? Correctness
+  Nm: Apparent method/constructor confusion Correctness
+  Nm: Very confusing method names Correctness
+  ODR: Method may fail to close database resource Correctness
+  ODR: Method may fail to close database resource on exception Correctness
+  OS: Method may fail to close stream Correctness
+  OS: Method may fail to close stream on exception Correctness
+  PZ: Passes a constant value for a month outside of the expected range of 0..11 Correctness
+  QF: Complicated, subtle or wrong increment in for-loop  Correctness
+  RC: Suspicious reference comparison Correctness
+  RCN: Redundant comparison to null of previously checked value Correctness
+  RCN: Redundant comparison to null Correctness
+  RE: Invalid syntax for regular expression Correctness
+  RR: Method ignores results of InputStream.read() Correctness
+  RR: Method ignores results of InputStream.skip() Correctness
+  RV: Random value from 0 to 1 is coerced to the integer 0 Correctness
+  RV: Method checks to see if result of String.indexOf is positive Correctness
+  RV: Method discards result of readLine after checking if it is nonnull Correctness
+  RV: Method ignores return value Correctness
+  SA: Self assignment of field Correctness
+  SI: Static initializer for class creates instance before all static final fields assigned Correctness
+  SIO: Unnecessary type check done using instanceof operator Correctness
+  STI: Unneeded use of currentThread() call, to call interrupted()  Correctness
+  STI: Static Thread.interrupted() method is mistakenly attempted to be called on an arbitrary Thread object Correctness
+  SW: Certain swing methods should only be invoked from the Swing event thread Correctness
+  Se: Non-transient non-serializable instance field in serializable class Correctness
+  Se: serialVersionUID isn't final Correctness
+  Se: serialVersionUID isn't long Correctness
+  Se: serialVersionUID isn't static Correctness
+  Se: Class is Serializable but its superclass doesn't define a void constructor Correctness
+  Se: Class is Externalizable but doesn't define a void constructor Correctness
+
+
+  SnVI: Class is Serializable, but doesn't define serialVersionUID Correctness
+  UCF: Useless control flow in method Correctness
+  UI: Usage of GetResource may be unsafe if class is extended Correctness
+  UR: Uninitialized read of field in constructor Correctness
+  UwF: Unwritten field Correctness
+  Dm: Method invokes dubious String.toUpperCase() or String.toLowerCase; use the Locale parameterized version instead Internationalization
+  EI: Method may expose internal representation by returning reference to mutable object Malicious code vulnerability
+  EI2: Method may expose internal representation by incorporating reference to mutable object Malicious code vulnerability
+  FI: Finalizer should be protected, not public Malicious code vulnerability
+  MS: Method may expose internal static state by storing a mutable object into a static field Malicious code vulnerability
+  MS: Field isn't final and can't be protected from malicious code Malicious code vulnerability
+  MS: Public static method may expose internal representation by returning array Malicious code vulnerability
+  MS: Field should be both final and package protected Malicious code vulnerability
+  MS: Field is a mutable array Malicious code vulnerability
+  MS: Field is a mutable Hashtable Malicious code vulnerability
+  MS: Field should be moved out of an interface and made package protected Malicious code vulnerability
+  MS: Field should be package protected Malicious code vulnerability
+  MS: Field isn't final but should be Malicious code vulnerability
+  DC: Possible double check of field Multithreaded correctness
+  Dm: Monitor wait() called on Condition Multithreaded correctness
+  Dm: A thread was created using the default empty run method Multithreaded correctness
+  ESync: Empty synchronized block Multithreaded correctness
+  IS2: Inconsistent synchronization Multithreaded correctness
+  JLM: Synchronization performed on java.util.concurrent Lock in method Multithreaded correctness
+  LI: Incorrect lazy initialization of static field Multithreaded correctness
+  ML: Method synchronizes on an updated field Multithreaded correctness
+  NN: Naked notify in method Multithreaded correctness
+  No: Using notify() rather than notifyAll() in method Multithreaded correctness
+  RS: Class's readObject() method is synchronized Multithreaded correctness
+  Ru: Invokes run on a thread (did you mean to start it instead?) Multithreaded correctness
+  SC: Constructor invokes Thread.start() Multithreaded correctness 
+  SP: Method spins on field Multithreaded correctness
+  SWL: Method calls Thread.sleep() with a lock held Multithreaded correctness
+  TLW: Wait with two locks held Multithreaded correctness
+  UG: Unsynchronized get method, synchronized set method Multithreaded correctness
+  UL: Method does not release lock on all paths Multithreaded correctness
+  UL: Method does not release lock on all exception paths Multithreaded correctness
+  UW: Unconditional wait in method Multithreaded correctness
+  VO: A volatile reference to an array doesn't treat the array elements as volatile Multithreaded correctness
+  WS: Class's writeObject() method is synchronized but nothing else is Multithreaded correctness
+  Wa: Condition.await() not in loop in method Multithreaded correctness
+  Wa: Wait not in loop in method Multithreaded correctness
+  Dm: Method invokes dubious Boolean constructor; use Boolean.valueOf(...) instead Performance
+  Dm: Method allocates a boxed primitive just to call toString Performance
+  Dm: Explicit garbage collection; extremely dubious except in benchmarking code Performance
+  Dm: Method allocates an object, only to get the class object Performance
+  Dm: Use the nextInt method of Random rather than nextDouble to generate a random integer Performance
+  Dm: Method invokes dubious new String(String) constructor; just use the argument Performance
+  Dm: Method invokes dubious String.equals(""); use String.length() == 0 instead Performance
+  Dm: Method invokes toString() method on a String; just use the String Performance
+  Dm: Method invokes dubious new String() constructor; just use "" Performance
+  FI: Empty finalizer should be deleted Performance
+  FI: Finalizer does nothing but call superclass finalizer Performance
+  ITA: Method uses toArray() with zero-length array argument Performance
+  SBSC: Method concatenates strings using + in a loop Performance
+  SIC: Should be a static inner class Performance
+  SIC: Could be refactored into a named static inner class Performance
+  SIC: Could be refactored into a static inner class Performance
+  SS: Unread field: should this field be static? Performance
+  UPM: Private method is never called Performance
+  UrF: Unread field Performance
+  UuF: Unused field Performance
+  WMI: Inefficient use of keySet iterator instead of entrySet iterator Performance
+  BC: Questionable cast to abstract collection  Style
+  BC: Questionable cast to concrete collection Style
+  BC: Unchecked/unconfirmed cast Style
+  BC: instanceof will always return true Style
+  CD: Test for circular dependencies among classes. Style
+  DB: Method uses the same code for two branches Style
+  DLS: Dead store to local variable Style
+  ICAST: Unsigned right shift cast to short/byte Style
+  MTIA: Class extends Servlet class and uses instance variables. Style
+  MTIA: Class extends Struts Action class and uses instance variables. Style
+  NP: Read of field not initialized in constructor Style
+  Nm: Class names should start with an upper case letter Style
+  Nm: Field names should start with an lower case letter Style
+  Nm: Method names should start with an lower case letter Style
+  PS: Class exposes synchronization and semaphores in its public interface. Style
+  PZLA: Consider returning a zero length array rather than null Style
+  REC: java.lang.Exception is caught when Exception is not thrown Style
+  RI: Class implements same interface as superclass. Style
+  SA: Self assignment of local variable Style
+  SF: Switch statement found where one case falls thru to the next case Style
+  ST: Write to static field from instance method Style
+  TEST: Testing Style
+  UM: Method calls static Math class method on a constant value Style
+  UwF: Field not initialized in constructor
+-->
+
+  </Match>
+
+</FindBugsFilter>

@@ -11,15 +11,19 @@
 
     <target name="run-report" depends="doccheck"/>
 
+    <path id="doccheck.classpath">
+      <fileset dir="${doccheck.home}">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+
     <target name="doccheck">
         <javadoc
-            classpathref="tool.classpath"
+            classpathref="doccheck.classpath"
             destdir="${gen.report.dir}"
             verbose="false"
                 >
-            <doclet name="com.sun.tools.doclets.doccheck.DocCheck"
-                    path="${repository.home}/com/sun/tools/doccheck/1.2-beta2/doccheck-1.2-beta2.jar"
-                    >
+            <doclet name="com.sun.tools.doclets.doccheck.DocCheck">
                 <param name="-docletID"/>
                 <param name="-title" value="${report.title}"/>
             </doclet>

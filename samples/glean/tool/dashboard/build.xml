@@ -9,8 +9,16 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+<!--
     <path id="groovy.classpath">
         <fileset dir="${env.GROOVY_HOME}/embeddable" includes="*.jar"/>
+    </path>
+-->
+
+    <path id="groovy.classpath">
+        <fileset dir="${groovy.home}">
+            <include name="**/*.jar"/>
+        </fileset>
     </path>
     
     <taskdef name="groovy"
@@ -19,7 +27,11 @@
          
     <path id="dashboard.classpath">
         <path refid="groovy.classpath"/>
-        <path refid="tool.classpath"/>
+        <!--path refid="tool.classpath"/-->
+
+        <fileset dir="${dashboard.home}">
+            <include name="**/*.jar"/>
+        </fileset>
     </path>
 
     <target name="run-report" depends="strip-dtds, dashboard"/>

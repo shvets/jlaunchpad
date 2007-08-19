@@ -56,6 +56,7 @@
         <pathelement location="${tool.home}"/>
         <path refid="build.classpath"/>
 
+<!--
         <fileset dir="${repository.home}">
             <include name="org/springframework/spring-beandoc/0.7.1/*.jar"/>
             <include name="javancss/javancss/28.49/*.jar"/>
@@ -66,7 +67,7 @@
             <include name="emma/emma/2.0.5312/*.jar"/>
 
         </fileset>
-
+-->
     </path>
 
     <tstamp>

@@ -8,9 +8,18 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+<!--
     <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
         classpathref="tool.classpath"/>
-        
+-->        
+    <taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties">
+      <classpath>
+        <pathelement location="${repository.home}/findbugs/findbugs/1.2.1/findbugs.jar"/>
+        <pathelement location="${repository.home}/findbugs/findbugs-ant/1.2.1/findbugs-ant.jar"/>
+        <pathelement location="${repository.home}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
+      </classpath>
+    </taskdef>
+
     <target name="run-report" depends="findbugs"/>
 
     <target name="findbugs">

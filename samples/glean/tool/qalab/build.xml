@@ -11,20 +11,25 @@
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
     <!-- QALab needs some other libraries for its tasks -->
+<!--
     <path id="qalab.classpath">
         <path refid="tool.classpath"/>
-        <!--fileset dir="${jfreechart.home}">
-            <include name="lib/*.jar"/>
-        </fileset-->
     </path>
-    
+-->
+
+    <path id="qalab.classpath">
+      <fileset dir="${qalab.home}">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+
     <taskdef name="mergestat" classname="net.objectlab.qalab.ant.BuildStatMergeTask"
         classpathref="qalab.classpath"/>
     <taskdef name="buildchart" classname="net.objectlab.qalab.ant.BuildStatChartTask"
         classpathref="qalab.classpath"/>
     <taskdef name="movers" classname="net.objectlab.qalab.ant.BuildStatMoverTask"
         classpathref="qalab.classpath"/>
-        
+       
     <!-- The complete run of QALab follows a set of steps -->
     <target name="run-report" 
          depends="init, check-data, mergestat, buildchart, movers, finish, transform"/>

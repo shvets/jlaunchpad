@@ -10,13 +10,23 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+<!--
     <path id="jaranalyzer.classpath">
         <path refid="tool.classpath"/>
         <pathelement path="${tool.home}/lib"/>
     </path>
-    
+   
     <taskdef name="jaranalyzer" classname="com.kirkk.analyzer.textui.JarAnalyzerTask"
         classpathref="jaranalyzer.classpath"/>
+-->
+
+    <taskdef name="jaranalyzer" classname="com.kirkk.analyzer.textui.JarAnalyzerTask">
+      <classpath>
+        <fileset dir="${jaranalyzer.home}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </taskdef>
         
     <target name="run-report" depends="jaranalyzer"/>
 

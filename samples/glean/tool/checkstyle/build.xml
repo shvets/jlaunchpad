@@ -9,8 +9,17 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+<!--
     <taskdef resource="checkstyletask.properties"
          classpath="${tool.home}/checkstyle-all-4.3.jar"/>
+-->
+    <taskdef resource="checkstyletask.properties">
+      <classpath>
+        <fileset dir="${checkstyle.home}">
+          <include name="**/*.jar"/>
+        </fileset>
+      </classpath>
+    </taskdef>
 
     <target name="run-report" depends="checkstyle"/>
 
