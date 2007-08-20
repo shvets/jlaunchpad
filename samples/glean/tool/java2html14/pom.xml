@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>java2html14</groupId>
+  <artifactId>java2html14-deps</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>java2html</groupId>
+      <artifactId>j2h</artifactId>
+      <version>1.5</version>
+    </dependency>
+  </dependencies>
+</project>

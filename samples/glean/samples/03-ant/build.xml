@@ -1,0 +1,24 @@
+<project name="commons-lang-analyze" default="analyze" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+  <property name="glean.home"  value="C:/Work/jlaunchpad/trunk/samples/glean"/>
+
+  <property name="project.root" value="${user.dir}"/>
+  <property name="feedback.properties" value="${user.dir}/feedback.properties"/>
+
+  <target name="analyze">
+    <ant antfile="${glean.home}/build.xml" inheritAll="false">
+      <property name="glean.home" value="${glean.home}"/>
+      <property name="project.root" value="${project.root}"/>
+      <property name="feedback.properties" value="${feedback.properties}"/>
+    </ant>
+  </target>
+
+  <target name="get.ant">
+    <get src="http://apache.hoxt.com/ant/source/apache-ant-1.7.0-src.zip" 
+         dest="apache-ant-1.7.0-src.zip" verbose="true" usetimestamp="true"/>
+  </target>
+
+  <target name="unzip.ant">
+    <unzip src="apache-ant-1.7.0-src.zip" dest="."/>
+  </target>
+</project>

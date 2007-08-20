@@ -1,0 +1,64 @@
+<project name="jdom-analyze" default="analyze" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+  <property name="glean.home"  value="C:/Work/jlaunchpad/trunk/samples/glean"/>
+
+  <property name="project.root" value="${user.dir}"/>
+  <property name="feedback.properties" value="${user.dir}/feedback.properties"/>
+
+  <target name="analyze">
+    <ant antfile="${glean.home}/build.xml" inheritAll="false">
+      <property name="glean.home" value="${glean.home}"/>
+      <property name="project.root" value="${project.root}"/>
+      <property name="feedback.properties" value="${feedback.properties}"/>
+    </ant>
+  </target>
+
+  <macrodef name="svn">
+    <attribute name="command" default="co"/>
+    <attribute name="userName" default="anonymous"/>
+    <attribute name="password" default="anonymous"/>
+
+    <attribute name="url"/>
+    <attribute name="destPath"/>
+
+    <sequential>
+      <mkdir dir="@{destPath}"/>
+
+      <java classname="org.tmatesoft.svn.cli.SVN" dir="@{destPath}" fork="true">
+        <arg value="@{command}"/>
+        <arg value="--username"/>
+        <arg value="@{userName}"/>
+        <arg value="--password"/>
+        <arg value="@{password}"/>
+        <arg value="@{url}"/>
+
+        <classpath refid="svnkit.path"/>
+      </java>
+    </sequential>
+  </macrodef>
+
+  <target name="get.svnkit">
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="svnkit.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <path id="svnkit.path">
+      <fileset dir="${repository.home}/com/svnkit">
+        <include name="**/*.jar"/>
+      </fileset>
+    </path>
+  </target>
+
+  <target name="jdom.co" depends="get.cvskit">
+    <cvs cvsRoot=":pserver:anonymous:anonymous@cvs.jdom.org:/home/cvspublic" command="login" package="jdom"/>
+
+    <cvs cvsRoot=":pserver:anonymous@cvs.jdom.org:/home/cvspublic" package="jdom"/>
+
+    <cvs cvsRoot=":pserver:anonymous@cvs.jdom.org:/home/cvspublic" package="jdom-test"/>
+  </target>
+
+</project>
