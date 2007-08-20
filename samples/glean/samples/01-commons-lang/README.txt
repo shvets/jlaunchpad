@@ -1,6 +1,6 @@
 1. Get commons-lang sources:
 
->get-library.ant
+>ant commons-lang.co
 
 2. Compile sources
 
@@ -8,3 +8,7 @@
 >ant compile
 
 >cd ../..
+
+3. Run glean
+
+>ant

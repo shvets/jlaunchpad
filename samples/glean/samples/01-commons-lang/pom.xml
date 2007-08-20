@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>svn</groupId>
+  <artifactId>svn-deps</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.svnkit</groupId>
+      <artifactId>svnkit</artifactId>
+      <version>1.1.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.svnkit</groupId>
+      <artifactId>svnkit-cli</artifactId>
+      <version>1.1.4</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>scriptlandia-languages-repo</id>
+      <name>Scriptlandia languages Maven2 repository</name>
+      <url>http://scriptlandia-repository.googlecode.com/svn/trunk/tools</url>
+    </repository>
+  </repositories>
+
+</project>
