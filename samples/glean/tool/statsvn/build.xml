@@ -1,4 +1,4 @@
-<project name="statsvn" default="report" basedir=".">
+<project name="statsvn" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Statistical data from Subversion repository activity"/>
     <property name="tool.url"         value="http://statsvn.org/"/>
@@ -9,9 +9,22 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+<!--
     <taskdef name="statsvn" classname="net.sf.statsvn.ant.StatSvnTask"
         classpathref="tool.classpath"/>
-        
+-->        
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <taskdef name="statsvn" classname="net.sf.statsvn.ant.StatSvnTask">
+      <classpath refid="tool.classpath"/>
+    </taskdef>
+
     <target name="run-report" depends="statsvn"/>
 
     <target name="statsvn" depends="generate-svn-log">

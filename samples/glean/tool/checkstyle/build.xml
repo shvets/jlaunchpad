@@ -1,4 +1,4 @@
-<project name="checkstyle" default="report" basedir=".">
+<project name="checkstyle" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Checks code against team style and design guidelines."/>
 
@@ -13,12 +13,17 @@
     <taskdef resource="checkstyletask.properties"
          classpath="${tool.home}/checkstyle-all-4.3.jar"/>
 -->
+
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
     <taskdef resource="checkstyletask.properties">
-      <classpath>
-        <fileset dir="${checkstyle.home}">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
+      <classpath refid="tool.classpath"/>
     </taskdef>
 
     <target name="run-report" depends="checkstyle"/>

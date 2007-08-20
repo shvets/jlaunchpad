@@ -1,4 +1,4 @@
-<project name="dashboard" default="report" basedir=".">
+<project name="dashboard" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Summary view of feedback metrics"/>
     <property name="tool.url"         value="http://jbrugge.com/glean/dashboard-1.0.jar"/>

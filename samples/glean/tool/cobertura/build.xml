@@ -1,4 +1,4 @@
-<project name="cobertura" default="report" basedir=".">
+<project name="cobertura" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description"  value="Unit test coverage report"/>
     <property name="tool.url"          value="http://cobertura.sourceforge.net/"/>
     <property name="tool.min.jdk"      value="1.4"/>
@@ -8,7 +8,21 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <taskdef resource="tasks.properties">
+      <classpath refid="tool.classpath"/>
+    </taskdef>
+
+<!--
     <taskdef resource="tasks.properties"   classpathref="tool.classpath"/>
+-->
         
     <!-- We need to have a build script that can execute our unit tests -->
     <import file="${test.script}" optional="true"/>

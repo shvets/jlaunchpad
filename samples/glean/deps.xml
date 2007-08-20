@@ -12,7 +12,7 @@
 
   <properties>
     <ant.version>1.7.0</ant.version>
-    <groovy.version>1.0</groovy.version>
+    <maven.version>2.0.7</maven.version>
   </properties>
 
   <dependencies>
@@ -23,14 +23,21 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.ant</groupId>
-      <artifactId>ant-nodeps</artifactId>
-      <version>${ant.version}</version>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-ant-tasks</artifactId>
+      <version>${maven.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.apache.ant</groupId>
       <artifactId>ant-trax</artifactId>
+      <version>${ant.version}</version>
+    </dependency>
+
+<!--
+    <dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant-nodeps</artifactId>
       <version>${ant.version}</version>
     </dependency>
 
@@ -53,48 +60,11 @@
     </dependency>
 
     <dependency>
-      <groupId>com.svnkit</groupId>
-      <artifactId>svnkit-cli</artifactId>
-      <version>1.1.4</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.svnkit</groupId>
-      <artifactId>svnkit</artifactId>
-      <version>1.1.4</version>
-    </dependency>
-
-    <dependency>
       <groupId>bsf</groupId>
       <artifactId>bsf</artifactId>
       <version>2.4.0</version>
     </dependency>
 
-    <dependency>
-      <groupId>cobertura</groupId>
-      <artifactId>cobertura</artifactId>
-      <version>1.9</version>
-    </dependency>
-
-    <dependency>
-      <groupId>pmd</groupId>
-      <artifactId>pmd</artifactId>
-      <version>3.9</version>
-
-      <exclusions>
-        <exclusion>
-          <groupId>jaxen</groupId>
-          <artifactId>jaxen</artifactId>
-        </exclusion>
-
-        <exclusion>
-          <groupId>ant</groupId>
-          <artifactId>ant</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-<!--
     <dependency>
       <groupId>groovy</groupId>
       <artifactId>groovy-all</artifactId>
@@ -107,7 +77,6 @@
       <version>1.1</version>
     </dependency>
 
-
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beandoc</artifactId>
@@ -115,100 +84,9 @@
     </dependency>
 
     <dependency>
-      <groupId>checkstyle</groupId>
-      <artifactId>checkstyle</artifactId>
-      <version>4.3</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beandoc</artifactId>
       <version>0.7.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>emma</groupId>
-      <artifactId>emma</artifactId>
-      <version>2.0.5312</version>
-    </dependency>
-
-    <dependency>
-      <groupId>emma</groupId>
-      <artifactId>emma_ant</artifactId>
-      <version>2.0.5312</version>
-    </dependency>
-
-    <dependency>
-      <groupId>findbugs</groupId>
-      <artifactId>findbugs</artifactId>
-      <version>1.2.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>findbugs</groupId>
-      <artifactId>findbugs-ant</artifactId>
-      <version>1.2.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>jaranalyzer</groupId>
-      <artifactId>jaranalyzer</artifactId>
-      <version>1.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>javancss</groupId>
-      <artifactId>javancss</artifactId>
-      <version>28.49</version>
-    </dependency>
-
-    <dependency>
-      <groupId>java2html</groupId>
-      <artifactId>j2h</artifactId>
-      <version>1.5</version>
-    </dependency>
-
-    <dependency>
-      <groupId>de.java2html</groupId>
-      <artifactId>java2html</artifactId>
-      <version>5.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>jdepend</groupId>
-      <artifactId>jdepend</artifactId>
-      <version>2.9.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>net.objectlab</groupId>
-      <artifactId>qalab</artifactId>
-      <version>1.0</version>
-
-      <exclusions>
-        <exclusion>
-          <groupId>ant</groupId>
-          <artifactId>ant</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>net.sourceforge</groupId>
-      <artifactId>schemaspy</artifactId>
-      <version>3.1.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>statsvn</groupId>
-      <artifactId>statsvn</artifactId>
-      <version>0.3.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>statcvs</groupId>
-      <artifactId>statcvs</artifactId>
-      <version>0.3</version>
     </dependency>
 
     <dependency>

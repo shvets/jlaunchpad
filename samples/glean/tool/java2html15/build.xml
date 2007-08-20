@@ -1,4 +1,4 @@
-<project name="java2html15" default="report" basedir=".">
+<project name="java2html15" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Java source conversion to HTML"/>
     <property name="tool.url"         value="http://www.java2html.de"/>
     <property name="tool.min.jdk"     value="1.5"/>
@@ -21,14 +21,18 @@
         classpathref="tool.classpath"/>
 -->
 
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
     <taskdef name="java2html" classname="de.java2html.anttasks.Java2HtmlTask">
-      <classpath>
-        <fileset dir="${java2html15.home}">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
+      <classpath refid="tool.classpath"/>
     </taskdef>
-        
+
     <target name="run-report" depends="java2html15"/>
 
     <target name="java2html15">

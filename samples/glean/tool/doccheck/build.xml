@@ -1,4 +1,4 @@
-<project name="doccheck" default="report" basedir=".">
+<project name="doccheck" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Checks completion of JavaDoc comments"/>
     <property name="tool.url"         value="http://java.sun.com/j2se/javadoc/doccheck/"/>
     <property name="tool.min.jdk"     value="1.4"/>

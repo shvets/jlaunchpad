@@ -1,4 +1,4 @@
-<project name="jdepend" default="report" basedir=".">
+<project name="jdepend" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Report on package-level dependency metrics"/>
     
     <property name="tool.url"         value="http://clarkware.com/software/JDepend.html"/>
@@ -7,6 +7,18 @@
     <description>${tool.description}</description>
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
+
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <taskdef resource="checkstyletask.properties">
+      <classpath refid="tool.classpath"/>
+    </taskdef>
 
     <target name="run-report" depends="jdepend, graph"/>
 

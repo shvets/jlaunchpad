@@ -1,4 +1,4 @@
-<project name="schemaspy" default="report" basedir=".">
+<project name="schemaspy" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Database schema and entity browser"/>
     <property name="tool.url"         value="http://schemaspy.sourceforge.net/"/>
@@ -9,14 +9,23 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
     
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
     <target name="run-report" depends="schemaspy"/>
 
     <target name="schemaspy" 
         depends="check-db-driver, notify-db-driver, set-db-password-arg" 
         if="db.driver.found">
-        <java jar="${schemaspy.jar}" 
+        <java classname="net.sourceforge.schemaspy.Main" 
             output="${gen.report.dir}/${report.name}-output.log"
             fork="true">
+            <classpath refid="tool.classpath"/>
             <arg line="-t ${db.type}"/>
             <arg line="-db ${db.name}"/>
             <arg line="-s ${db.schema}"/>

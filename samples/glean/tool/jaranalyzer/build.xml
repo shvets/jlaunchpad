@@ -1,4 +1,4 @@
-<project name="jaranalyzer" default="report" basedir=".">
+<project name="jaranalyzer" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Component-level dependency analysis"/>
 
@@ -20,14 +20,18 @@
         classpathref="jaranalyzer.classpath"/>
 -->
 
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
     <taskdef name="jaranalyzer" classname="com.kirkk.analyzer.textui.JarAnalyzerTask">
-      <classpath>
-        <fileset dir="${jaranalyzer.home}">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
+      <classpath refid="tool.classpath"/>
     </taskdef>
-        
+
     <target name="run-report" depends="jaranalyzer"/>
 
     <target name="jaranalyzer">

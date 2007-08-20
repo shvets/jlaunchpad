@@ -121,7 +121,7 @@
         description="Download the set of tools with scripts for Glean">
         <echo message="** Sorry, not implemented yet. Work in progress **"/>
     </target>
-    
+
     <!-- Common macrodefs -->
     <macrodef name="glean-subant">
         <attribute name="target"     default=""/>
@@ -134,6 +134,7 @@
                 failonerror="no"
                 target="@{target}">
                 <!-- Other common properties specific to reports are available in feedback.properties -->
+
                 <property name="feedback.script.dir"  location="${basedir}"/>
                 <property name="project.root"         location="${project.root}"/>
                 <property name="src.project.name"     value="${src.project.name}"/>

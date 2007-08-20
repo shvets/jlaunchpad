@@ -1,4 +1,4 @@
-<project name="beandoc" default="report" basedir=".">
+<project name="beandoc" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Spring bean documentation"/>
     

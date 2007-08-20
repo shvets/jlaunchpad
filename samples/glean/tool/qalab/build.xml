@@ -1,4 +1,4 @@
-<project name="qalab" default="report" basedir=".">
+<project name="qalab" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Consolidation and tracking of feedback data"/>
     <property name="tool.url"          value="http://qalab.sourceforge.net"/>
@@ -17,18 +17,24 @@
     </path>
 -->
 
-    <path id="qalab.classpath">
-      <fileset dir="${qalab.home}">
-        <include name="**/*.jar"/>
-      </fileset>
-    </path>
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <taskdef resource="checkstyletask.properties">
+      <classpath refid="tool.classpath"/>
+    </taskdef>
 
     <taskdef name="mergestat" classname="net.objectlab.qalab.ant.BuildStatMergeTask"
-        classpathref="qalab.classpath"/>
+        classpathref="tool.classpath"/>
     <taskdef name="buildchart" classname="net.objectlab.qalab.ant.BuildStatChartTask"
-        classpathref="qalab.classpath"/>
+        classpathref="tool.classpath"/>
     <taskdef name="movers" classname="net.objectlab.qalab.ant.BuildStatMoverTask"
-        classpathref="qalab.classpath"/>
+        classpathref="tool.classpath"/>
        
     <!-- The complete run of QALab follows a set of steps -->
     <target name="run-report" 

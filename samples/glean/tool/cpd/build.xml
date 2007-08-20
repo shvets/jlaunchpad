@@ -1,4 +1,4 @@
-<project name="cpd" default="report" basedir=".">
+<project name="cpd" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Report of copy/paste segments found in source"/>
     <property name="tool.url"         value="http://pmd.sourceforge.net/cpd.html"/>
     <property name="tool.min.jdk"     value="1.4"/>
@@ -12,18 +12,16 @@
         classpathref="tool.classpath"/>
 -->
 
-    <path id="cpd.classpath">
-      <fileset dir="${cpd.home}">
-        <include name="**/*.jar"/>
-      </fileset>
-    </path>
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
 
     <taskdef name="cpd" classname="net.sourceforge.pmd.cpd.CPDTask">
-      <classpath>
-        <fileset dir="${cpd.home}">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
+      <classpath refid="tool.classpath"/>
     </taskdef>
 
     <target name="run-report" depends="cpd"/>

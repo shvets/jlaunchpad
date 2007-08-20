@@ -48,6 +48,7 @@
     </path>
 
     <!-- Classpath for tool dependencies -->
+<!--
     <path id="tool.classpath">
         <fileset dir="${tool.home}">
             <include name="**/*.jar"/>
@@ -56,20 +57,8 @@
         <pathelement location="${tool.home}"/>
         <path refid="build.classpath"/>
 
-<!--
-        <fileset dir="${repository.home}">
-            <include name="org/springframework/spring-beandoc/0.7.1/*.jar"/>
-            <include name="javancss/javancss/28.49/*.jar"/>
-            <include name="checkstyle/checkstyle/4.3/*.jar"/>
-            <include name="cobertura/cobertura/1.8/*.jar"/>
-            <include name="pmd/pmd/3.9/*.jar"/>
-            <include name="com/sun/tools/doccheck/1.2-beta2/*.jar"/>
-            <include name="emma/emma/2.0.5312/*.jar"/>
-
-        </fileset>
--->
     </path>
-
+-->
     <tstamp>
         <format pattern="${tool.timestamp.format}" property="tool.timestamp"/>
     </tstamp>

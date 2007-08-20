@@ -1,4 +1,4 @@
-<project name="java2html14" default="report">
+<project name="java2html14" default="report" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Java source cross-reference in HTML"/>
     <property name="tool.url"         value="http://www.java2html.com"/>
     <property name="tool.min.jdk"     value="1.4"/>
@@ -19,14 +19,18 @@
     />
 -->
 
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
     <taskdef name="java2html" classname="com.java2html.Java2HTMLTask">
-      <classpath>
-        <fileset dir="${java2html14.home}">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
+      <classpath refid="tool.classpath"/>
     </taskdef>
-    
+
     <target name="run-report" depends="java2html14"/>
 
     <target name="java2html14" depends="init">

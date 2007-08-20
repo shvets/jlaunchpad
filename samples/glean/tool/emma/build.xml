@@ -1,4 +1,4 @@
-<project name="emma" default="report" basedir=".">
+<project name="emma" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Unit test coverage report"/>
     <property name="tool.url"         value="http://emma.sourceforge.net/"/>
     <property name="tool.min.jdk"     value="1.4"/>
@@ -15,7 +15,21 @@
       </fileset>
     </path>
 
+<!--
     <taskdef resource="emma_ant.properties" classpathref="emma.classpath"/>
+-->
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <taskdef resource="emma_ant.properties" classpathref="emma.classpath">
+      <classpath refid="tool.classpath"/>
+    </taskdef>
+
 
     <!-- We need to have a build script that can execute our unit tests -->
     <import file="${test.script}" optional="true"/>

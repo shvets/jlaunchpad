@@ -1,4 +1,4 @@
-<project name="findbugs" default="report" basedir=".">
+<project name="findbugs" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Static code analysis for common programming errors"/>
     <property name="tool.url"         value="http://findbugs.sourceforge.net/"/>
@@ -12,19 +12,22 @@
     <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
         classpathref="tool.classpath"/>
 -->        
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
     <taskdef resource="edu/umd/cs/findbugs/anttask/tasks.properties">
-      <classpath>
-        <pathelement location="${repository.home}/findbugs/findbugs/1.2.1/findbugs.jar"/>
-        <pathelement location="${repository.home}/findbugs/findbugs-ant/1.2.1/findbugs-ant.jar"/>
-        <pathelement location="${repository.home}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
-      </classpath>
+      <classpath refid="tool.classpath"/>
     </taskdef>
 
     <target name="run-report" depends="findbugs"/>
 
     <target name="findbugs">
-        <findbugs home="${tool.home}"
-                debug="${report.debug}"
+        <findbugs debug="${report.debug}"
                 reportLevel="${findbugs.report.level}"
                 jvmargs="${findbugs.jvm.args}"
                 output="${findbugs.report.format}"
@@ -34,6 +37,19 @@
                 timeout="${findbugs.timeout}">
             <sourcePath path="${src.dir}"/>
             <class location="${bin.dir}"/>
+
+            <classpath>
+              <path refid="tool.classpath"/>
+            </classpath>
+
+            <pluginList>
+              <path>
+                <fileset dir="${repository.home}">
+                  <include name="findbugs/**/coreplugin/**/*.jar"/>
+                </fileset>
+              </path>
+            </pluginList>
+
             <auxClasspath>
                 <path refid="build.classpath"/>
             </auxClasspath>
@@ -41,4 +57,3 @@
     </target>
 
 </project>
-

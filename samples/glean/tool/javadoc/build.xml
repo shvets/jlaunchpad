@@ -1,4 +1,4 @@
-<project name="javadoc" default="report" basedir=".">
+<project name="javadoc" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Java API documentation"/>
     <property name="tool.url"         value="http://java.sun.com/j2se/javadoc/"/>
     <property name="tool.min.jdk"     value="1.4"/>
@@ -12,6 +12,14 @@
     <!-- This has to be set here rather than in a property file so that it
          can pick up the timestamp setting. -->
     <property name="report.footer"    value="Generated on ${tool.timestamp}"/>
+
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
 
     <target name="run-report" depends="javadoc"/>
 

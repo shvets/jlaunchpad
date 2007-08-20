@@ -1,4 +1,4 @@
-<project name="junitreport" default="report" basedir=".">
+<project name="junitreport" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Browsable report of testcase results"/>
     <property name="tool.url"         value="http://ant.apache.org/manual/OptionalTasks/junitreport.html"/>

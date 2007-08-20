@@ -1,4 +1,4 @@
-<project name="umlgraph-doc" default="report">
+<project name="umlgraph-doc" default="report" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Javadoc with embedded UML class diagrams"/>
     <property name="tool.url"         value="http://www.spinellis.gr/sw/umlgraph/"/>
     <property name="tool.min.jdk"     value="1.5"/>

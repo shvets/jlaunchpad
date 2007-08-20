@@ -1,6 +1,6 @@
 1. Get jdom sources:
 
->get-jdom-from-cvs.ant
+>ant jdom.co
 
 2. Compile sources
 
@@ -12,5 +12,9 @@
 >cd jdom-test
 >ant compile
 
+>cd ..
 
+3. Run glean
+
+>ant
 

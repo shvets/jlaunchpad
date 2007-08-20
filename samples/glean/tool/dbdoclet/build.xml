@@ -1,4 +1,4 @@
-<project name="dbdoclet" default="report" basedir=".">
+<project name="dbdoclet" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Generates DocBook documentation from source code"/>
     <property name="tool.url"          value="http://www.michael-a-fuchs.de/projects/dbdoclet/en/index.html"/>

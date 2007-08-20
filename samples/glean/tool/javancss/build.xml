@@ -1,4 +1,4 @@
-<project name="javancss" default="report" basedir=".">
+<project name="javancss" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Source code size and complexity metrics"/>
     <property name="tool.url"         value="http://www.kclee.de/clemens/java/javancss/"/>
     <property name="tool.min.jdk"     value="1.4"/>
@@ -12,12 +12,16 @@
         classpathref="tool.classpath"/>
 -->
 
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
     <taskdef name="javancss" classname="javancss.JavancssAntTask">
-      <classpath>
-        <fileset dir="${javancss.home}">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
+      <classpath refid="tool.classpath"/>
     </taskdef>
 
     <target name="run-report" depends="javancss"/>

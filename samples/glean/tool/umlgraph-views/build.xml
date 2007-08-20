@@ -1,4 +1,4 @@
-<project name="umlgraph-views" default="report">
+<project name="umlgraph-views" default="report" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="UML class diagrams from source code"/>
     <property name="tool.url"         value="http://www.spinellis.gr/sw/umlgraph/"/>
     <property name="tool.min.jdk"     value="1.4"/>

@@ -1,4 +1,4 @@
-<project name="statcvs" default="report" basedir=".">
+<project name="statcvs" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" 
              value="Statistical data from CVS repository activity"/>
     <property name="tool.url"         value="http://statcvs.sourceforge.net/"/>

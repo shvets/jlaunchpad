@@ -1,4 +1,4 @@
-<project name="pmd" default="report" basedir=".">
+<project name="pmd" default="report" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
     <property name="tool.description" value="Static analysis of source files using design and style rules"/>
     <property name="tool.url"         value="http://pmd.sourceforge.net/"/>
     <property name="tool.min.jdk"     value="1.4"/>
@@ -12,18 +12,16 @@
         classpathref="tool.classpath"/>
 -->
 
-    <path id="pmd.classpath">
-      <fileset dir="${pmd.home}">
-        <include name="**/*.jar"/>
-      </fileset>
-    </path>
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
 
     <taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask">
-      <classpath>
-        <fileset dir="${pmd.home}">
-          <include name="**/*.jar"/>
-        </fileset>
-      </classpath>
+      <classpath refid="tool.classpath"/>
     </taskdef>
 
     <target name="run-report" depends="pmd"/>
