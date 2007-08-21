@@ -9,6 +9,14 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
     <target name="run-report" depends="junitreport"/>
 
     <target name="junitreport">

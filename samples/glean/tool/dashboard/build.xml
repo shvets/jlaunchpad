@@ -12,32 +12,38 @@
 <!--
     <path id="groovy.classpath">
         <fileset dir="${env.GROOVY_HOME}/embeddable" includes="*.jar"/>
-    </path>
--->
 
-    <path id="groovy.classpath">
-        <fileset dir="${groovy.home}">
-            <include name="**/*.jar"/>
-        </fileset>
-    </path>
-    
-    <taskdef name="groovy"
-         classname="org.codehaus.groovy.ant.Groovy"
+    <taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy"
          classpathref="groovy.classpath"/>
          
+    </path>
+
     <path id="dashboard.classpath">
         <path refid="groovy.classpath"/>
-        <!--path refid="tool.classpath"/-->
+        <path refid="tool.classpath"/>
 
         <fileset dir="${dashboard.home}">
             <include name="**/*.jar"/>
         </fileset>
     </path>
+-->
+
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <taskdef name="groovy" classname="org.codehaus.groovy.ant.Groovy">
+      <classpath refid="tool.classpath"/>
+    </taskdef>
 
     <target name="run-report" depends="strip-dtds, dashboard"/>
 
     <target name="dashboard">
-        <groovy classpathref="dashboard.classpath">
+        <groovy classpathref="tool.classpath">
             import com.jbrugge.glean.Dashboard
             
             def dashboard = new Dashboard(projectName: "${properties['src.project.name']}",

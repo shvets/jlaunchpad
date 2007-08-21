@@ -16,10 +16,6 @@
       <pom refid="maven.project"/>
     </artifact:dependencies>
 
-    <taskdef resource="checkstyletask.properties">
-      <classpath refid="tool.classpath"/>
-    </taskdef>
-
     <target name="run-report" depends="jdepend, graph"/>
 
     <!-- We usually aren't as interested in the dependencies of our test classes

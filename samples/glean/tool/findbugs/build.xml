@@ -51,7 +51,7 @@
             </pluginList>
 
             <auxClasspath>
-                <path refid="build.classpath"/>
+              <path refid="build.classpath"/>
             </auxClasspath>
         </findbugs>
     </target>

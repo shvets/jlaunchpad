@@ -9,8 +9,22 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
+<!--
     <taskdef name="statcvs" classname="net.sf.statcvs.ant.StatCvsTask"
         classpathref="tool.classpath"/>
+-->
+
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <taskdef name="statcvs" classname="net.sf.statcvs.ant.StatCvsTask">
+      <classpath refid="tool.classpath"/>
+    </taskdef>
         
     <target name="run-report" depends="statcvs"/>
 

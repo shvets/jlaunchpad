@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>checkstyle</groupId>
+  <artifactId>checkstyle-deps</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <groovy.version>1.1-beta-2</groovy.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>${groovy.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>glean</groupId>
+      <artifactId>dashboard</artifactId>
+      <version>1.0</version>
+    </dependency>
+  </dependencies>
+</project>

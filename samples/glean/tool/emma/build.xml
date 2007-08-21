@@ -8,13 +8,6 @@
 
     <import file="${feedback.script.dir}/tools-common.xml"/>
 
-    <path id="emma.classpath">
-      <!-- in order to include emma_ant -->
-      <fileset dir="${emma.home}/../..">
-        <include name="**/*.jar"/>
-      </fileset>
-    </path>
-
 <!--
     <taskdef resource="emma_ant.properties" classpathref="emma.classpath"/>
 -->
@@ -26,7 +19,7 @@
       <pom refid="maven.project"/>
     </artifact:dependencies>
 
-    <taskdef resource="emma_ant.properties" classpathref="emma.classpath">
+    <taskdef resource="emma_ant.properties">
       <classpath refid="tool.classpath"/>
     </taskdef>
 
@@ -43,7 +36,7 @@
     <path id="emma.test.classpath">
         <pathelement location="${out.instr.dir}"/>
 
-        <path refid="emma.classpath"/>
+        <path refid="tool.classpath"/>
     </path>
     
     <target name="run-report" depends="coverage"/>

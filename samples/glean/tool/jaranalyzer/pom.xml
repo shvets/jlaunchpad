@@ -13,5 +13,17 @@
       <artifactId>jaranalyzer</artifactId>
       <version>1.2</version>
     </dependency>
+
+    <dependency>
+      <groupId>bcel</groupId>
+      <artifactId>bcel</artifactId>
+      <version>5.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta-regexp</groupId>
+      <artifactId>jakarta-regexp</artifactId>
+      <version>1.4</version>
+    </dependency>
   </dependencies>
 </project>
