@@ -37,23 +37,7 @@
     </sequential>
   </macrodef>
 
-  <target name="get.svnkit">
-    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
-
-    <artifact:pom file="pom.xml" id="maven.project" />
-
-    <artifact:dependencies pathId="svnkit.classpath" useScope="runtime">
-      <pom refid="maven.project"/>
-    </artifact:dependencies>
-
-    <path id="svnkit.path">
-      <fileset dir="${repository.home}/com/svnkit">
-        <include name="**/*.jar"/>
-      </fileset>
-    </path>
-  </target>
-
-  <target name="jdom.co" depends="get.cvskit">
+  <target name="jdom.co">
     <cvs cvsRoot=":pserver:anonymous:anonymous@cvs.jdom.org:/home/cvspublic" command="login" package="jdom"/>
 
     <cvs cvsRoot=":pserver:anonymous@cvs.jdom.org:/home/cvspublic" package="jdom"/>
