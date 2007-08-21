@@ -9,21 +9,24 @@
 
     <property name="report.title"       value="${src.project.name}"/>
 
-    <target name="run-report" depends="doccheck"/>
+    <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
 
-    <path id="doccheck.classpath">
-      <fileset dir="${doccheck.home}">
-        <include name="**/*.jar"/>
-      </fileset>
-    </path>
+    <artifact:pom file="pom.xml" id="maven.project" />
+
+    <artifact:dependencies pathId="tool.classpath" useScope="runtime">
+      <pom refid="maven.project"/>
+    </artifact:dependencies>
+
+    <target name="run-report" depends="doccheck"/>
 
     <target name="doccheck">
         <javadoc
-            classpathref="doccheck.classpath"
+            classpathref="tool.classpath"
             destdir="${gen.report.dir}"
             verbose="false"
                 >
-            <doclet name="com.sun.tools.doclets.doccheck.DocCheck">
+            <doclet name="com.sun.tools.doclets.doccheck.DocCheck"
+                    path="${repository.home}/com/sun/tools/doccheck/1.2-beta2/doccheck-1.2-beta2.jar">
                 <param name="-docletID"/>
                 <param name="-title" value="${report.title}"/>
             </doclet>

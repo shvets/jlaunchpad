@@ -1,6 +1,6 @@
 <project name="jdom-analyze" default="analyze" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
 
-  <property name="glean.home"  value="C:/Work/jlaunchpad/trunk/samples/glean"/>
+  <property name="glean.home"  value="C:/Work/jlaunchpad/trunk/samples/08-glean"/>
 
   <property name="project.root" value="${user.dir}"/>
   <property name="feedback.properties" value="${user.dir}/feedback.properties"/>

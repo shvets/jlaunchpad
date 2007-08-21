@@ -54,12 +54,6 @@
     </dependency>
 
     <dependency>
-      <groupId>com.sun.tools</groupId>
-      <artifactId>doccheck</artifactId>
-      <version>1.2-beta2</version>
-    </dependency>
-
-    <dependency>
       <groupId>umlgraph</groupId>
       <artifactId>umlgraph</artifactId>
       <version>4.8</version>

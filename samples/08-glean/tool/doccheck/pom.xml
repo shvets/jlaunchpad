@@ -2,26 +2,16 @@
 
 <project>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>checkstyle</groupId>
-  <artifactId>checkstyle-deps</artifactId>
+  <groupId>doccheck</groupId>
+  <artifactId>doccheck-deps</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
 
-  <properties>
-    <groovy.version>1.1-beta-2</groovy.version>
-  </properties>
-
   <dependencies>
     <dependency>
-      <groupId>groovy</groupId>
-      <artifactId>groovy-all</artifactId>
-      <version>${groovy.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>glean</groupId>
-      <artifactId>dashboard</artifactId>
-      <version>1.0</version>
+      <groupId>com.sun.tools</groupId>
+      <artifactId>doccheck</artifactId>
+      <version>1.2-beta2</version>
     </dependency>
   </dependencies>
 
