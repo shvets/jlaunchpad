@@ -182,14 +182,24 @@ processresult() {
   fi
 }
 
-if [ -n "$JAVA_CMD" ]
-then
-    CMD="$JAVA_CMD"
-elif [ -n "$JAVA_HOME" ] # is JAVA_HOME defined
-then
-    CMD="$JAVA_HOME/bin/java"
+#if [ -n "$JAVA_CMD" ]
+#then
+#    CMD="$JAVA_CMD"
+#elif [ -n "$JAVA_HOME" ] # is JAVA_HOME defined
+#then
+#    CMD="$JAVA_HOME/bin/java"
+#else
+#    CMD=java
+#fi
+
+if [ -n "$CMD" ]; then
+  CMD=java.exe
+fi
+
+if [ "x$JAVA_HOME" = "x" ]; then
+  # do nothing
 else
-    CMD=java
+  JAVA_CMD="$JAVA_HOME/bin/java"
 fi
 
 LAUNCHER_APP_CONF=$LAUNCHER_HOME/launcher.conf
@@ -271,7 +281,7 @@ if [ "$JAVA_LIBRARY_PATH" != "" ]; then
   JAVA_LIBRARY_PATH="-Djava.library.path=$JAVA_LIBRARY_PATH"
 fi
  
-$CMD \
+$JAVA_CMD \
   $JAVA_BOOTCLASSPATH_APPEND $JAVA_BOOTCLASSPATH_PREPEND $JAVA_BOOTCLASSPATH \
   $JAVA_LIBRARY_PATH $JAVA_EXT_DIRS $JAVA_ENDORSED_DIRS \
   $JVM_ARGS \

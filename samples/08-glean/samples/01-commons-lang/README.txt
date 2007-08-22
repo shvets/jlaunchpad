@@ -2,6 +2,8 @@
 
 >ant commons-lang.co
 
+or unzip archive in the current directory.
+
 2. Compile sources
 
 >cd commons-lang\trunk

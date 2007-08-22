@@ -1,0 +1,22 @@
+  <dependency>
+  <groupId>hibernate</groupId>
+  <artifactId>hibernate3</artifactId>
+  <version>3.0rc1</version>
+  </dependency>
+
+		<fileset dir="${spring.root}/lib/hibernate">
+			<include name="hibernate3.jar"/>
+		</fileset>
+		<fileset dir="${spring.root}/lib/jakarta-commons">
+			<include name="commons-logging.jar"/>
+		</fileset>
+		<fileset dir="${spring.root}/lib/j2ee">
+			<include name="jdbc2_0-stdext.jar"/>
+			<include name="servlet-api.jar"/>
+		</fileset>
+		<fileset dir="${spring.root}/lib/ojb">
+			<include name="db-ojb-*.jar"/>
+		</fileset>
+		<fileset dir="${spring.root}/dist">
+			<include name="spring.jar"/>
+		</fileset>

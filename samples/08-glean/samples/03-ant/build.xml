@@ -1,4 +1,4 @@
-<project name="commons-lang-analyze" default="analyze" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+<project name="commons-lang-analyze" default="analyze" basedir=".">
 
   <property name="glean.home"  value="C:/Work/jlaunchpad/trunk/samples/08-glean"/>
 

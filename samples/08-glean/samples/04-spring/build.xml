@@ -1,0 +1,29 @@
+<project name="petclinic-analyze" default="analyze" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+  <property name="glean.home"  value="C:/Work/jlaunchpad/trunk/samples/08-glean"/>
+
+  <property name="project.root" value="${user.dir}"/>
+  <property name="feedback.properties" value="${user.dir}/feedback.properties"/>
+
+  <artifact:localRepository id="local.repository" path="${repository.home}" layout="default"/>
+
+  <artifact:pom file="pom.xml" id="maven.project" />
+
+  <artifact:dependencies pathId="spring.classpath" useScope="runtime">
+    <pom refid="maven.project"/>
+  </artifact:dependencies>
+
+  <path id="svnkit.path">
+    <fileset dir="${repository.home}/com/svnkit">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
+  <target name="analyze">
+    <ant antfile="${glean.home}/build.xml" inheritAll="false">
+      <property name="glean.home" value="${glean.home}"/>
+      <property name="project.root" value="${project.root}"/>
+      <property name="feedback.properties" value="${feedback.properties}"/>
+    </ant>
+  </target>
+</project>

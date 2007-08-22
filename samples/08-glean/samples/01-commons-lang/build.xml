@@ -32,7 +32,7 @@
         <arg value="@{password}"/>
         <arg value="@{url}"/>
 
-        <classpath refid="svnkit.path"/>
+        <classpath refid="svnkit.classpath"/>
       </java>
     </sequential>
   </macrodef>
@@ -46,11 +46,13 @@
       <pom refid="maven.project"/>
     </artifact:dependencies>
 
+<!--
     <path id="svnkit.path">
       <fileset dir="${repository.home}/com/svnkit">
         <include name="**/*.jar"/>
       </fileset>
     </path>
+-->
   </target>
 
   <target name="commons-lang.co" depends="get.svnkit">

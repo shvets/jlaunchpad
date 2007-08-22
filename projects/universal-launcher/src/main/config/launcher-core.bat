@@ -194,9 +194,9 @@ goto end
 :execute
 
 if not defined CMD set CMD=java.exe
-if defined JAVA_HOME set CMD="%JAVA_HOME%\bin\%CMD%"
-if defined JAVA_CMD set CMD="%JAVA_CMD%"
-set JAVA_CMD=
+if defined JAVA_HOME set JAVA_CMD="%JAVA_HOME%\bin\%CMD%"
+rem if defined JAVA_CMD set CMD="%JAVA_CMD%"
+rem set JAVA_CMD=
 
 set LAUNCHER_APP_CONF=%LAUNCHER_HOME%\launcher.conf
 
@@ -268,7 +268,7 @@ if not "%JAVA_LIBRARY_PATH%" == "" (
   SET JAVA_LIBRARY_PATH=-Djava.library.path="%JAVA_LIBRARY_PATH%"
 )
 
-%CMD% ^
+%JAVA_CMD% ^
   %JAVA_BOOTCLASSPATH_APPEND% %JAVA_BOOTCLASSPATH_PREPEND% %JAVA_BOOTCLASSPATH% ^
   %JAVA_LIBRARY_PATH% %JAVA_EXT_DIRS% %JAVA_ENDORSED_DIRS% ^
   %JVM_ARGS% ^

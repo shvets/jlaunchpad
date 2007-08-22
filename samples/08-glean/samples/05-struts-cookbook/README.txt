@@ -1,9 +1,5 @@
-1. Get ant sources:
-
->ant get.ant
->ant unzip.ant
-
-or unzip archive in the current directory.
+1. Get strutscookbook web application sources from struts 1.3.8 installation 
+(http://struts.apache.org/downloads.html).
 
 2. Compile sources
 

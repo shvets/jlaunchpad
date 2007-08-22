@@ -1,9 +1,5 @@
-1. Get ant sources:
-
->ant get.ant
->ant unzip.ant
-
-or unzip archive in the current directory.
+1. Get petclinick web application sources from spring 1.2.9 installation 
+(http://www.springframework.org/download).
 
 2. Compile sources
 

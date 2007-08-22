@@ -2,6 +2,8 @@
 
 >ant jdom.co
 
+or unzip archive in the current directory.
+
 2. Compile sources
 
 2.1
@@ -14,7 +16,7 @@ SET JAVA_HOME=c:\Java\jdk1.5.0
 
 2.3.
 
->ant compile
+>build.bat
 
 2.4.
 
@@ -29,7 +31,7 @@ SET JAVA_HOME=c:\Java\jdk1.5.0
 
 2.6.
 
->ant compile
+>build.bat
 
 >cd ..
 
