@@ -90,5 +90,38 @@ public abstract class AbstractLauncher implements Launcher {
   public void setArgs(String[] args) {
     this.args = args;
   }
-  
+
+  /**
+   * Configures the launcher.
+   *
+   * @param parentClassLoader parent class loader
+   * @throws LauncherException the exception
+   */
+  public void configure(ClassLoader parentClassLoader) throws LauncherException {}
+
+  /**
+   * Main launcher method.
+   *
+   * @throws LauncherException the exception
+   */
+  public void launch() throws LauncherException {
+    initLaunch();
+
+    performLaunch();
+  }
+
+  /**
+   * Inits the launch.
+   *
+   * @throws LauncherException the exception
+   */
+  public void initLaunch() throws LauncherException {}
+
+  /**
+   * Perform actual launch.
+   *
+   * @throws LauncherException the exception
+   */
+  public abstract void performLaunch() throws LauncherException;
+
 }

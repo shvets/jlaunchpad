@@ -208,11 +208,11 @@ public class ClassworldLauncher extends CoreLauncher {
   }
 
   /**
-   * Main launcher method.
+   * Perform actual launch.
    *
    * @throws LauncherException the exception
    */
-  public void launch() throws LauncherException {
+  public void performLaunch() throws LauncherException {
     boolean isExceptionThrown = false;
 
     try {
@@ -229,7 +229,8 @@ public class ClassworldLauncher extends CoreLauncher {
 
       if (isInteractive()) {
         interact(newArgs);
-      } else {
+      }
+      else {
         classworldLauncher.launch(newArgs);
       }
 

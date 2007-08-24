@@ -36,9 +36,18 @@ public class DepsLauncher extends ClassworldLauncher {
    * @param parser the parser
    * @param args command line arguments
    * @param classWorld the classworld
+   * @throws LauncherException the exception
    */
-  public DepsLauncher(LauncherCommandLineParser parser, String[] args, ClassWorld classWorld) {
+  public DepsLauncher(LauncherCommandLineParser parser, String[] args, ClassWorld classWorld) 
+         throws LauncherException {
     super(parser, args, classWorld);
+
+    try {
+      pomReader.init();
+    }
+    catch (Exception e) {
+      throw new LauncherException(e);
+    }
   }
 
   /**
@@ -183,7 +192,7 @@ public class DepsLauncher extends ClassworldLauncher {
    * @param parentClassLoader parent class loader
    * @throws LauncherException the exception
    */
-  public void configure(ClassLoader parentClassLoader) throws LauncherException {
+/*  public void configure(ClassLoader parentClassLoader) throws LauncherException {
     try {
       pomReader.init();
     }
@@ -193,13 +202,13 @@ public class DepsLauncher extends ClassworldLauncher {
 
     super.configure(parentClassLoader);
   }
-
+*/
   /**
-   * Main launcher method.
+   * Inits the launch.
    *
    * @throws LauncherException the exception
    */
-  public void launch() throws LauncherException {
+  public void initLaunch() throws LauncherException {
     try {
       if(depsFileName != null) {
         File depsFile = new File(depsFileName);
@@ -220,8 +229,6 @@ public class DepsLauncher extends ClassworldLauncher {
     catch (Exception e) {
       throw new LauncherException(e);
     }
-
-    super.launch();
   }
 
 }

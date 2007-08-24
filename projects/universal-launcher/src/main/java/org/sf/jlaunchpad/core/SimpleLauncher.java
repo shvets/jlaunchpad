@@ -118,11 +118,11 @@ public class SimpleLauncher extends AbstractLauncher {
   }
 
   /**
-   * Main launcher method.
+   * Perform actual launch.
    *
    * @throws LauncherException the exception
    */
-  public void launch() throws LauncherException {
+  public void performLaunch() throws LauncherException {
     try {
       Class clazz = classLoader.loadClass(mainClassName);
 

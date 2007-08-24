@@ -43,17 +43,16 @@ public class UniversalLauncher extends DepsLauncher {
    * @throws LauncherException the exception
    */
   public void configure(ClassLoader parentClassLoader) throws LauncherException {
+/*    try {
+      pomReader.init();
+    }
+    catch (Exception e) {
+      throw new LauncherException(e);
+    }
+*/
     Map<String, String> commandLine = parser.getCommandLine();
 
-    String mainClassName = parser.getCommandLine().get("main.class.name");
-
-    if(mainClassName == null) {
-      throw new LauncherException("main.class.name property should be specified.");
-    }
-
-    setMainClassName(mainClassName);
-
-    String depsFileName = commandLine.get("deps.file.name");
+    String depsFileName = parser.getStarterDepsFileName();
 
     if(depsFileName != null) {
       if(new File(depsFileName).exists()) {
@@ -75,24 +74,39 @@ public class UniversalLauncher extends DepsLauncher {
       }
     }
 
-    /*String launcherPropertiesFileName = commandLine.get("launcher.properties");
+    String mainClassName = parser.getStarterClassName();
 
-    if(launcherPropertiesFileName == null) {
-      launcherPropertiesFileName = System.getProperty("user.home") + "/.jlaunchpad";
+    if(mainClassName == null) {
+      if(parser.isPomstarterMode()) {
+        if(depsFileName == null) {
+          throw new LauncherException("deps.file.name property should be specified.");
+        }
+        else {
+          try {
+            List<String> mainClassNames = findMainClassNames(depsFileName);
+
+            if(mainClassNames.size() == 0) {
+              System.out.println("Cannot find Main Class Name.");
+            }
+            else if(mainClassNames.size() == 1) {
+              mainClassName = mainClassNames.get(0);
+            }
+            else {
+              throw new LauncherException("More than one option for Main Class Name: " + mainClassNames + ".");
+            }
+          }
+          catch (Exception e) {
+            throw new LauncherException(e);
+          }
+
+        }
+      }
+      else {
+        throw new LauncherException("main.class.name property should be specified.");
+      }
     }
 
-    if(new File(launcherPropertiesFileName).exists()) {
-      try {
-        LauncherProperties launcherProperties = new LauncherProperties(launcherPropertiesFileName);
-      }
-      catch (IOException e) {
-        throw new LauncherException(e);
-      }
-    }
-    else {
-      System.out.println("File " + launcherPropertiesFileName + " does not exist.");
-    }
-      */
+    setMainClassName(mainClassName);
 
     super.configure(parentClassLoader);
 
@@ -113,6 +127,7 @@ public class UniversalLauncher extends DepsLauncher {
     }
   }
 
+
   /**
    * Finds main class name from pom file.
    *
@@ -132,7 +147,7 @@ public class UniversalLauncher extends DepsLauncher {
 
       File file = pomReader.getArtifactFile(dependency);
 
-      if (!FileUtil.getExtension(file).equals("pom")) {
+      if (FileUtil.getExtension(file).equals("jar")) {
         final Manifest manifest = FileUtil.getManifest(new JarFile(file));
         if (manifest != null) {
           final Attributes mainAttributes = manifest.getMainAttributes();

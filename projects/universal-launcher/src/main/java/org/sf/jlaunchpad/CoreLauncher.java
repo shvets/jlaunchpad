@@ -102,19 +102,11 @@ public class CoreLauncher extends AbstractLauncher {
   }
 
   /**
-   * Configures the launcher.
-   *
-   * @param parentClassLoader parent class loader
-   * @throws LauncherException the exception
-   */
-  public void configure(ClassLoader parentClassLoader) throws LauncherException {}
-
-  /**
-   * Main launcher method.
+   * Perform actual launch.
    *
    * @throws LauncherException the exception
    */
-  public void launch() throws LauncherException {
+  public void performLaunch() throws LauncherException {
     Throwable throwable = null;
     try {
       ClassRealm mainRealm = getMainRealm();
@@ -142,6 +134,6 @@ public class CoreLauncher extends AbstractLauncher {
 
       throw new LauncherException(e);
     }
-  }
-   
+  } 
+
 }
