@@ -187,23 +187,6 @@ public class DepsLauncher extends ClassworldLauncher {
   }
 
   /**
-   * Configures the launcher.
-   *
-   * @param parentClassLoader parent class loader
-   * @throws LauncherException the exception
-   */
-/*  public void configure(ClassLoader parentClassLoader) throws LauncherException {
-    try {
-      pomReader.init();
-    }
-    catch (Exception e) {
-      throw new LauncherException(e);
-    }
-
-    super.configure(parentClassLoader);
-  }
-*/
-  /**
    * Inits the launch.
    *
    * @throws LauncherException the exception

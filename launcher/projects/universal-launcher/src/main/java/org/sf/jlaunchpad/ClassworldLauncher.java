@@ -25,7 +25,7 @@ public class ClassworldLauncher extends CoreLauncher {
   protected Map<String, ClassRealm> configuredRealms = new HashMap<String, ClassRealm>();
 
   /** The original classworld launcher. */
-  private org.codehaus.classworlds.Launcher classworldLauncher = new org.codehaus.classworlds.Launcher() {
+  protected org.codehaus.classworlds.Launcher classworldLauncher = new org.codehaus.classworlds.Launcher() {
     public void launch(String[] args) {
       try {
         super.launch(args);

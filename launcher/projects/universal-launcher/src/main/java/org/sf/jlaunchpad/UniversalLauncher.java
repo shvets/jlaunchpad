@@ -43,13 +43,6 @@ public class UniversalLauncher extends DepsLauncher {
    * @throws LauncherException the exception
    */
   public void configure(ClassLoader parentClassLoader) throws LauncherException {
-/*    try {
-      pomReader.init();
-    }
-    catch (Exception e) {
-      throw new LauncherException(e);
-    }
-*/
     Map<String, String> commandLine = parser.getCommandLine();
 
     String depsFileName = parser.getStarterDepsFileName();
@@ -81,25 +74,6 @@ public class UniversalLauncher extends DepsLauncher {
         if(depsFileName == null) {
           throw new LauncherException("deps.file.name property should be specified.");
         }
-        else {
-          try {
-            List<String> mainClassNames = findMainClassNames(depsFileName);
-
-            if(mainClassNames.size() == 0) {
-              System.out.println("Cannot find Main Class Name.");
-            }
-            else if(mainClassNames.size() == 1) {
-              mainClassName = mainClassNames.get(0);
-            }
-            else {
-              throw new LauncherException("More than one option for Main Class Name: " + mainClassNames + ".");
-            }
-          }
-          catch (Exception e) {
-            throw new LauncherException(e);
-          }
-
-        }
       }
       else {
         throw new LauncherException("main.class.name property should be specified.");
@@ -127,6 +101,52 @@ public class UniversalLauncher extends DepsLauncher {
     }
   }
 
+  /**
+   * Inits the launch.
+   *
+   * @throws LauncherException the exception
+   */
+  public void initLaunch() throws LauncherException {
+    super.initLaunch();
+
+    String mainClassName = parser.getStarterClassName();
+
+    if(mainClassName == null) {
+      if(parser.isPomstarterMode()) {
+        String depsFileName = parser.getStarterDepsFileName();
+
+        if(depsFileName == null) {
+          throw new LauncherException("deps.file.name property should be specified.");
+        }
+        else {
+          try {
+            List<String> mainClassNames = findMainClassNames(depsFileName);
+
+            if(mainClassNames.size() == 0) {
+              System.out.println("Cannot find Main Class Name.");
+            }
+            else if(mainClassNames.size() == 1) {
+              mainClassName = mainClassNames.get(0);
+            }
+            else {
+              throw new LauncherException("More than one option for Main Class Name: " + mainClassNames + ".");
+            }
+          }
+          catch (Exception e) {
+            throw new LauncherException(e);
+          }
+
+        }
+      }
+      else {
+        throw new LauncherException("main.class.name property should be specified.");
+      }
+    }
+
+    setMainClassName(mainClassName);
+
+    classworldLauncher.setAppMain(mainClassName, getRealmName());
+  }
 
   /**
    * Finds main class name from pom file.
