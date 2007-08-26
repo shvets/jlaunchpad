@@ -1,0 +1,30 @@
+<assembly>
+  <id>src</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+
+  <fileSets>
+    <fileSet>
+      <includes>
+        <include>*.bat</include>
+        <include>*.sh</include>
+        <include>*.txt</include>
+        <include>*.maven</include>
+        <include>*.ant</include>
+        <include>*.xml</include>
+
+        <include>0-*/**</include>
+        <include>0*-*/**</include>
+        <include>pending/**</include>
+      </includes>
+
+      <excludes>
+        <exclude>**/*.jar</exclude>
+        <exclude>**/*.zip</exclude>
+      </excludes>
+
+    </fileSet>
+  </fileSets>
+</assembly>
+
