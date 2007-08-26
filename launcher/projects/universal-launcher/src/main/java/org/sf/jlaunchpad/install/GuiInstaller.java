@@ -439,7 +439,7 @@ public class GuiInstaller extends CoreInstaller
     updateProperty(repositoryHomeField, "repository.home");
 //    launcherProps.updateProperty(rubyHomeField, "native.ruby.home");
 
-    updateProperty(useProxyCheckbox, "use.proxy");
+    updateProperty(useProxyCheckbox, "proxySet");
     updateProperty(proxyHostField, "proxyHost");
     updateProperty(proxyPortField, "proxyPort");
   }
@@ -454,7 +454,7 @@ public class GuiInstaller extends CoreInstaller
     saveProperty(launcherHomeField, "launcher.home");
     saveProperty(repositoryHomeField, "repository.home");
 
-    saveProperty(useProxyCheckbox, "use.proxy");
+    saveProperty(useProxyCheckbox, "proxySet");
     saveProperty(proxyHostField, "proxyHost");
     saveProperty(proxyPortField, "proxyPort");
 

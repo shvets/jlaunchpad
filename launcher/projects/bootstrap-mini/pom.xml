@@ -69,7 +69,12 @@ under the License.
   <reporting>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
+
+        <configuration>
+          <proxyPort>0</proxyPort>
+        </configuration>
       </plugin>
 
       <plugin>
@@ -78,4 +83,5 @@ under the License.
       </plugin>
     </plugins>
   </reporting>
+
 </project>

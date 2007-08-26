@@ -53,8 +53,7 @@ public class LauncherProperties extends Properties {
 //      put("mobile.java.home", "");
       //put("scriptlandia.home", root + "scriptlandia");
 
-      put("use.proxy", "false");
-
+      put("proxySet", "false");
       put("proxyHost", "");
       put("proxyPort", "");
       //put("native.ruby.home", "");

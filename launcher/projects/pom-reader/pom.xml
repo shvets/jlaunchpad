@@ -14,17 +14,30 @@
 
   <packaging>jar</packaging>
 
-  <url>http://sf.net/projects/scriptlandia/</url>
-  <inceptionYear>2006</inceptionYear>
+  <url>http://sf.net/projects/jlaunchpad/</url>
+  <inceptionYear>2007</inceptionYear>
 
   <issueManagement>
-    <system>SourceForge</system>
-    <url>http://sourceforge.net/tracker/?group_id=127753</url>
+    <system>Sourceforge bugtracker</system>
+    <url>http://sourceforge.net/tracker/?group_id=203184</url>
   </issueManagement>
+
+  <licenses>
+    <license>
+      <name>GNU General Public License</name>
+      <url>http://www.gnu.org/copyleft/gpl.html</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk</connection>
+
+    <url>http://jlaunchpad.svn.sourceforge.net/viewvc/jlaunchpad</url>
+  </scm>
 
   <organization>
     <name>Dream Programs Inc.</name>
-    <url>http://sf.net/projects/scriptlandia/</url>
+    <url>http://sf.net/projects/jlaunchpad</url>
   </organization>
 
   <developers>
@@ -38,13 +51,6 @@
       </roles>
     </developer>
   </developers>
-
-  <licenses>
-    <license>
-      <name>GNU General Public License</name>
-      <url>http://www.gnu.org/copyleft/gpl.html</url>
-    </license>
-  </licenses>
 
   <dependencies>
     <dependency>
@@ -102,15 +108,18 @@
   <reporting>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
+
+        <configuration>
+          <proxyPort>0</proxyPort>
+        </configuration>
       </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jxr-plugin</artifactId>
       </plugin>
-
     </plugins>
   </reporting>
-
 </project>

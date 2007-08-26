@@ -77,6 +77,40 @@
 
   <build>
     <finalName>${artifactId}</finalName>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${java.specification.version}</source>
+          <target>${java.specification.version}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+
+        <executions>
+          <execution>
+            <id>site</id>
+            <phase>site</phase>
+            <configuration>
+              <tasks>
+
+                <copy todir="../../target/site/${project.artifactId}">
+                  <fileset dir="target/site"/>
+                </copy>
+
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 
   <distributionManagement>
@@ -86,4 +120,23 @@
       <url>scp://classworlds.codehaus.org//www/classworlds.codehaus.org</url>
     </site>
   </distributionManagement>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+
+        <configuration>
+          <proxyPort>0</proxyPort>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+
 </project>
