@@ -21,6 +21,8 @@ public class GuiInstallerFrame extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(800, 600);
 
+    //setIconImage(Toolkit.getDefaultToolkit().getImage("jlaunchpad.jpg"));
+
     Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
 
     setLocation(

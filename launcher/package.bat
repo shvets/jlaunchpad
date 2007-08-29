@@ -97,3 +97,6 @@ SET UL_CLASSPATH=%UL_CLASSPATH%;%CLASSWORLDS_PROJECT%\target\classes
 
 %JAVA_HOME%\bin\jar cf %UNIVERSAL_LAUNCHER_PROJECT%\target\universal-launcher.jar ^
   -C %UNIVERSAL_LAUNCHER_PROJECT%\target\classes .
+
+%JAVA_HOME%\bin\jar uf %UNIVERSAL_LAUNCHER_PROJECT%\target\universal-launcher.jar ^
+  -C %UNIVERSAL_LAUNCHER_PROJECT%\src\main\resources .
