@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="${outputEncoding}"?>
 
 <project name="${project.name}">
+<!--
+  <head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  </head>
+-->
+
   <bannerLeft>
     <name>${project.name}</name>
   </bannerLeft>
