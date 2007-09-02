@@ -55,7 +55,8 @@ other artifacts.
 As the result, we have Dependencies Tree (or Transitive Dependencies).
 
 5. Launcher program connects to the remote Central Repositories and downloads required 
-components to the client's computer. Then the launcher starts up the programs. 
+components to the client's computer. Then the launcher builds correct CLASSPATH and then 
+starts up the programs. 
 
 6. All downloaded components are stored in the Local Repository - it is the mirror of 
 Central Repositories and it contains only required components with their dependencies.
