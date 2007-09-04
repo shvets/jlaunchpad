@@ -25,6 +25,8 @@ public class GuiInstaller extends CoreInstaller
   private JCheckBox useProxyCheckbox = new JCheckBox();
   private JTextField proxyHostField = new JTextField(35);
   private JTextField proxyPortField = new JTextField(6);
+  private JTextField proxyUserField = new JTextField(15);
+  private JPasswordField proxyPasswordField = new JPasswordField(15);
 
   private JButton installButton = new JButton("Install");
   private JTextArea console = new JTextArea();
@@ -74,6 +76,9 @@ public class GuiInstaller extends CoreInstaller
     proxyHostField.addCaretListener(this);
     proxyPortField.addCaretListener(this);
 
+    proxyUserField.addCaretListener(this);
+    proxyPasswordField.addCaretListener(this);
+
     frame.getContentPane().add(createContent(), BorderLayout.CENTER);
 
     tryEnableInstallButton();
@@ -101,7 +106,8 @@ public class GuiInstaller extends CoreInstaller
         if (repositoryHome != null && repositoryHome.length() > 0) {
           if (!useProxyCheckbox.isSelected()) {
             enabled = true;
-          } else {
+          }
+          else {
             String proxyHost = proxyHostField.getText().trim();
             String proxyPort = proxyPortField.getText().trim();
 
@@ -126,9 +132,14 @@ public class GuiInstaller extends CoreInstaller
     if (useProxyCheckbox.isSelected()) {
       proxyHostField.setEnabled(true);
       proxyPortField.setEnabled(true);
-    } else {
+      proxyUserField.setEnabled(true);
+      proxyPasswordField.setEnabled(true);
+    }
+    else {
       proxyHostField.setEnabled(false);
       proxyPortField.setEnabled(false);
+      proxyUserField.setEnabled(false);
+      proxyPasswordField.setEnabled(false);
     }
 
     installButton.setEnabled(enabled);
@@ -293,20 +304,42 @@ public class GuiInstaller extends CoreInstaller
   protected JComponent makeProxySettingsPanel() {
     JPanel panel = new JPanel();
 
-    SpringLayout layout = new SpringLayout();
+//    SpringLayout layout = new SpringLayout();
 
-    panel.setLayout(layout);
+    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+    JPanel panel1 = new JPanel();
+    panel1.setLayout(new FlowLayout());
 
     JLabel label1 = new JLabel("Use Proxy:");
-    JLabel label2 = new JLabel("Host/port:");
+    JLabel label2 = new JLabel("Host:");
+    JLabel label3 = new JLabel("Port:");
 
-    panel.add(label1);
-    panel.add(useProxyCheckbox);
-    panel.add(label2);
-    panel.add(proxyHostField);
-    panel.add(proxyPortField);
+    panel1.add(label1);
+    panel1.add(useProxyCheckbox);
+    panel1.add(label2);
+    panel1.add(proxyHostField);
+    panel1.add(label3);
+    panel1.add(proxyPortField);
 
-    layout.putConstraint(SpringLayout.WEST, label1, 5, SpringLayout.WEST, panel);
+    JPanel panel2 = new JPanel();
+    panel1.setLayout(new FlowLayout());
+
+    JLabel label4 = new JLabel("User:");
+    JLabel label5 = new JLabel("Password:");
+
+    panel2.add(label4);
+    panel2.add(proxyUserField);
+    panel2.add(label5);
+    panel2.add(proxyPasswordField);
+
+    panel.add(Box.createRigidArea(new Dimension(0, 10)));
+    panel.add(panel1);
+    panel.add(Box.createRigidArea(new Dimension(0, 10)));
+    panel.add(panel2);
+    panel.add(Box.createRigidArea(new Dimension(0, 10)));
+
+/*    layout.putConstraint(SpringLayout.WEST, label1, 5, SpringLayout.WEST, panel);
     layout.putConstraint(SpringLayout.NORTH, label1, 5, SpringLayout.NORTH, panel);
 
     layout.putConstraint(SpringLayout.WEST, useProxyCheckbox, 5, SpringLayout.EAST, label1);
@@ -320,7 +353,7 @@ public class GuiInstaller extends CoreInstaller
 
     layout.putConstraint(SpringLayout.WEST, proxyPortField, 5, SpringLayout.EAST, proxyHostField);
     layout.putConstraint(SpringLayout.NORTH, proxyPortField, 5, SpringLayout.NORTH, panel);
-    
+  */  
     return panel;
   }
 
@@ -416,9 +449,15 @@ public class GuiInstaller extends CoreInstaller
     if (useProxyCheckbox.isSelected()) {
       System.setProperty("proxyHost", proxyHostField.getText().trim());
       System.setProperty("proxyPort", proxyPortField.getText().trim());
-    } else {
+      System.setProperty("proxyUser", proxyUserField.getText().trim());
+      System.setProperty("proxyPassword", new String(proxyPasswordField.getPassword()).trim());
+
+    }
+    else {
       System.setProperty("proxyHost", "");
       System.setProperty("proxyPort", "");
+      System.setProperty("proxyUser", "");
+      System.setProperty("proxyPassword", "");
     }
 
     System.setProperty("launcher.home", launcherHomeField.getText().trim());
@@ -442,6 +481,8 @@ public class GuiInstaller extends CoreInstaller
     updateProperty(useProxyCheckbox, "proxySet");
     updateProperty(proxyHostField, "proxyHost");
     updateProperty(proxyPortField, "proxyPort");
+    updateProperty(proxyUserField, "proxyUser");
+    updateProperty(proxyPasswordField, "proxyPassword");
   }
 
   @SuppressWarnings({"MismatchedQueryAndUpdateOfCollection"})
@@ -457,6 +498,8 @@ public class GuiInstaller extends CoreInstaller
     saveProperty(useProxyCheckbox, "proxySet");
     saveProperty(proxyHostField, "proxyHost");
     saveProperty(proxyPortField, "proxyPort");
+    saveProperty(proxyUserField, "proxyUser");
+    saveProperty(proxyPasswordField, "proxyPassword");
 
 //    launcherProps.put("launcher.version", System.getProperty("launcher.version"));
 

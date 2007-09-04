@@ -40,29 +40,35 @@ public class PomReader {
    * @throws Exception the exception
    */
   public void init() throws Exception {
-    Settings settings = new Settings();
+//    Settings settings = new Settings();
 
     System.setProperty("maven.repo.local", System.getProperty("repository.home"));
 
-
+/*
     if(settings.getLocalRepository() == null) {
       settings.setLocalRepository(System.getProperty("repository.home"));
     }
 
-    String proxyServerHost = System.getProperty("proxyHost");
-    String proxyServerPort = System.getProperty("proxyPort");
+    String proxyHost = System.getProperty("proxyHost");
+    String proxyPort = System.getProperty("proxyPort");
 
-    if (proxyServerHost != null && proxyServerHost.trim().length() > 0) {
+    if (proxyHost != null && proxyHost.trim().length() > 0) {
       Proxy proxy = new Proxy();
 
-      proxy.setHost(proxyServerHost);
-      proxy.setPort(proxyServerPort);
+      String proxyUser = System.getProperty("proxyUser");
+      String proxyPassword = System.getProperty("proxyPassword");
+
+      proxy.setHost(proxyHost);
+      proxy.setPort(proxyPort);
+      proxy.setUserName(proxyUser);
+      proxy.setPassword(proxyPassword);
       proxy.setActive(true);
 
       settings.addProxy(proxy);
     }
+*/
 
-    resolver = setupRepositories(settings);
+    resolver = setupRepositories(/*settings*/);
   }
 
   /**
@@ -229,7 +235,8 @@ public class PomReader {
    * @return artifact resolver
    * @throws Exception the exception
    */
-  private ArtifactResolver setupRepositories(Settings settings) throws Exception {
+  private ArtifactResolver setupRepositories(/*Settings settings*/) throws Exception {
+    String repositoryHome = System.getProperty("repository.home");
     String launcherHome = System.getProperty("launcher.home");
 
     List<Repository> repositories;
@@ -263,7 +270,8 @@ public class PomReader {
     }
 
     Repository localRepository =
-            new Repository("local", settings.getLocalRepository(), Repository.LAYOUT_DEFAULT, false, false);
+            new Repository("local", repositoryHome/*settings.getLocalRepository()*/, Repository.LAYOUT_DEFAULT,
+                           false, false);
 
     File repoLocalFile = new File(localRepository.getBasedir());
     repoLocalFile.mkdirs();
@@ -278,12 +286,23 @@ public class PomReader {
       downloader.setRemoteRepositories(repositories);
 
       resolver = downloader;
-      if (settings.getActiveProxy() != null) {
-        Proxy proxy = settings.getActiveProxy();
-        downloader.setProxy(proxy.getHost(), proxy.getPort(), proxy.getUserName(), proxy.getPassword());
+//      if (settings.getActiveProxy() != null) {
+//        Proxy proxy = settings.getActiveProxy();
+//        downloader.setProxy(proxy.getHost(), proxy.getPort(), proxy.getUserName(), proxy.getPassword());
+//      }
+
+      String proxySetStr = System.getProperty("proxySet");
+
+      if(proxySetStr != null && new Boolean(proxySetStr).equals(Boolean.TRUE)) {
+        String proxyHost = System.getProperty("proxyHost");
+        String proxyPort = System.getProperty("proxyPort");
+        String proxyUser = System.getProperty("proxyUser");
+        String proxyPassword = System.getProperty("proxyPassword");
+
+        downloader.setProxy(proxyHost, proxyPort, proxyUser, proxyPassword);
       }
 
-      List<Repository> remoteRepos = downloader.getRemoteRepositories();
+/*      List<Repository> remoteRepos = downloader.getRemoteRepositories();
       List<Repository> newRemoteRepos = new ArrayList<Repository>();
 
       for (Object remoteRepo : remoteRepos) {
@@ -298,12 +317,14 @@ public class PomReader {
             foundMirror = true;
           }
         }
+
         if (!foundMirror) {
           newRemoteRepos.add(repo);
         }
       }
 
       downloader.setRemoteRepositories(newRemoteRepos);
+        */
     }
     else {
       resolver = new OfflineArtifactResolver(localRepository);

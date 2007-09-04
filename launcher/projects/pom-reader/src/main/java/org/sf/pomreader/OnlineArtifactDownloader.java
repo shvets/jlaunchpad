@@ -46,7 +46,9 @@ public class OnlineArtifactDownloader
     proxyPort = port;
     proxyUserName = userName;
     proxyPassword = password;
-    //System.out.println( "Using the following proxy : " + proxyHost + "/" + proxyPort );
+
+//    System.out.println( "Using the following proxy : " + proxyHost + "/" + proxyPort );
+//    System.out.println( "Using the following proxy user : " + proxyUserName + ":" + proxyPassword );
   }
 
   public void downloadDependencies(Collection dependencies)
