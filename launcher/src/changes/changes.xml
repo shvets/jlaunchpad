@@ -12,5 +12,16 @@
         Initial Release.
       </action>
     </release>
+
+    <release version="1.0.1" date="29-Aug-2007" description="Minor Release">    
+      <action dev="Alexander Shvets" type="add">
+        Added proxy with authenication.
+      </action>
+
+      <action dev="Alexander Shvets" type="add">
+        Removed dependency on maven2 settings.xml file.
+      </action>
+    </release>
+
   </body>
 </document>

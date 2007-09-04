@@ -5,7 +5,7 @@
 
   <groupId>org.sf.jlaunchpad</groupId>
   <artifactId>universal-launcher-common</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 
   <name>Universal Launcher Common Module</name>
   <description>
