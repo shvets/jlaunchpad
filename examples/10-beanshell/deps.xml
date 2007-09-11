@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.sf.scriptlandia</groupId>
+  <artifactId>beanshell-starter</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <name>Beanshell Starter</name>
+  <description>Beanshell Starter</description>
+
+  <properties>
+    <beanshell.version>2.0b5</beanshell.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>bsh</groupId>
+      <artifactId>bsh</artifactId>
+      <version>${beanshell.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>

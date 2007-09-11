@@ -1,0 +1,10 @@
+// Hello.bsh
+
+// Case 1 for Unix
+//#!/usr/java/bin/java bsh.Interpreter
+
+// Case 2 for Unix
+//#!/bin/sh
+//# The following hack allows java to reside anywhere in the PATH.
+
+System.out.println("Hello, World!");
