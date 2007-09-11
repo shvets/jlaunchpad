@@ -1,5 +1,11 @@
 package org.sf.jlaunchpad;
 
+import java.util.*;
+import java.util.jar.Manifest;
+import java.util.jar.JarFile;
+import java.util.jar.Attributes;
+import java.io.File;
+
 import org.codehaus.classworlds.ClassWorld;
 import org.codehaus.classworlds.ClassRealm;
 import org.apache.maven.bootstrap.model.Model;
@@ -9,12 +15,6 @@ import org.sf.jlaunchpad.util.CommonUtil;
 import org.sf.jlaunchpad.core.LauncherCommandLineParser;
 import org.sf.jlaunchpad.core.LauncherException;
 
-import java.util.*;
-import java.util.jar.Manifest;
-import java.util.jar.JarFile;
-import java.util.jar.Attributes;
-import java.io.File;
-
 /**
  * This is the main launcher class. It should be able to launch any Java program.
  *
@@ -22,6 +22,12 @@ import java.io.File;
  * @version 2.0 02/19/2006
  */
 public class UniversalLauncher extends DepsLauncher {
+  protected final static String IGNORE_EXTENSION = "ignore-extension";
+
+  /**
+   * The singleton object.
+   */
+  protected static Map<String, UniversalLauncher> instances = new HashMap<String, UniversalLauncher>();
 
   /**
    * Creates new launcher.
@@ -34,6 +40,15 @@ public class UniversalLauncher extends DepsLauncher {
   protected UniversalLauncher(LauncherCommandLineParser parser, String[] args, ClassWorld classWorld)
          throws LauncherException {
     super(parser, args, classWorld);
+  }
+
+  /**
+   * Gets the singleton instance.
+   *
+   * @return the singleton instance
+   */
+  public static UniversalLauncher getInstance() {
+    return instances.get(IGNORE_EXTENSION);
   }
 
   /**
@@ -217,6 +232,8 @@ public class UniversalLauncher extends DepsLauncher {
 
     try {
       launcher.configure(Thread.currentThread().getContextClassLoader());
+
+      instances.put(IGNORE_EXTENSION, launcher);
 
       launcher.launch();
     }
