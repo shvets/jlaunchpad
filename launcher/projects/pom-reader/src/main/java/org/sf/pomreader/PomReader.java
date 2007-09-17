@@ -296,8 +296,16 @@ public class PomReader {
       if(proxySetStr != null && new Boolean(proxySetStr).equals(Boolean.TRUE)) {
         String proxyHost = System.getProperty("proxyHost");
         String proxyPort = System.getProperty("proxyPort");
-        String proxyUser = System.getProperty("proxyUser");
-        String proxyPassword = System.getProperty("proxyPassword");
+
+        String proxyUser = "";
+        String proxyPassword = "";
+
+        String proxyAuthStr = System.getProperty("proxyAuth");
+
+        if(proxyAuthStr != null && new Boolean(proxyAuthStr).equals(Boolean.TRUE)) {
+          proxyUser = System.getProperty("proxyUser");
+          proxyPassword = System.getProperty("proxyPassword");
+        }
 
         downloader.setProxy(proxyHost, proxyPort, proxyUser, proxyPassword);
       }

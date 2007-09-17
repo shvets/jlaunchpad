@@ -56,6 +56,7 @@ public class LauncherProperties extends Properties {
       put("proxySet", "false");
       put("proxyHost", "");
       put("proxyPort", "");
+      put("proxyAuth", "false");
       put("proxyUser", "");
       put("proxyPassword", "");
       //put("native.ruby.home", "");
