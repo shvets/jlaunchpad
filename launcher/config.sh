@@ -19,6 +19,8 @@ CYGWIN=true
 # Overwrites default values, if exists
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh
+else
+  . user/config.sh
 fi
 
 if [ "x$JAVA_HOME" = "x" ]; then
