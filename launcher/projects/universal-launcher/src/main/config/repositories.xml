@@ -79,4 +79,10 @@
   </repository>
 -->
 
+  <repository>
+    <id>jyaml-maven2-repository</id>
+    <name>Maven Repository for jyaml</name>
+    <url>http://jyaml.sourceforge.net/m2-repo</url>
+  </repository>
+
 </repositories>
