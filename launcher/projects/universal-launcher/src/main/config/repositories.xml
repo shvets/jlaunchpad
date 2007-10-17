@@ -85,4 +85,13 @@
     <url>http://jyaml.sourceforge.net/m2-repo</url>
   </repository>
 
+  <repository>
+    <id>mule-deps</id>
+    <name>Mule Dependencies</name>
+    <url>http://dist.codehaus.org/mule/dependencies/maven2</url>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+  </repository>
+
 </repositories>
