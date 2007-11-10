@@ -75,6 +75,25 @@ and add <%= @hello_string %> as the last line. The updated file looks like:
 Now you should see your view.
 
 
+How to run JRoR on Glassfish
+
+1. Download glassfish gem locally:
+
+>wget -c http://download.java.net/maven/glassfish/com/sun/enterprise/glassfish/glassfish-gem/10.0-SNAPSHOT/glassfish-gem-10.0-SNAPSHOT.gem
+
+2. Install glassfish:
+
+>jruby -S gem install glassfish-gem-10.0-SNAPSHOT.gem
+
+3. Start glassfish:
+
+>start jruby -S glassfish_rails testrails -wait
+
+4.
+
+http://localhost:8080/testrails/my_test/index
+
+
 To do:
 
 ruby.bat script/generate migration contact_db
