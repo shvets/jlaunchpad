@@ -11,12 +11,12 @@ SET MAIN_CLASS=org.jruby.Main
 SET PROPERTIES="-deps.file.name=%~dp0deps.xml" "-main.class.name=%MAIN_CLASS%"
 
 if "%1" == "" (
-  echo "Please specify ruby sript."
+  echo "Please specify ruby script."
   exit
 )
 
 SET REPOSITOTY_HOME=c:\maven-repository
-SET JRUBY_HOME=%REPOSITOTY_HOME%\jruby\jruby\1.0.2
+SET JRUBY_HOME=%REPOSITOTY_HOME%\jruby\jruby\1.1b1
 
 SET SYSTEM_PARAMETERS="-Djruby.base=%JRUBY_HOME%"
 SET SYSTEM_PARAMETERS=%SYSTEM_PARAMETERS% "-Djruby.home=%JRUBY_HOME%"
