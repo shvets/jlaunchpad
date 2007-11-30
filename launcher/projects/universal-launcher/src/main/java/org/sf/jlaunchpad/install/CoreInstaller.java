@@ -81,7 +81,7 @@ public class CoreInstaller {
 
           try {
             reader = new BufferedReader(new FileReader(fromFile));
-            writer = new BufferedWriter (new FileWriter(toFile));
+            writer = new BufferedWriter(new FileWriter(toFile));
 
             boolean done = false;
 

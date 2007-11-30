@@ -85,6 +85,8 @@
         <configuration>
           <source>${java.specification.version}</source>
           <target>${java.specification.version}</target>
+          <debug>true</debug>
+
         </configuration>
       </plugin>
 

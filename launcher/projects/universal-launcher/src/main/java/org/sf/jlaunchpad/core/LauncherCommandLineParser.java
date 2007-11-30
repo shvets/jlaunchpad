@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class LauncherCommandLineParser {
   /** The collection of significant parameters. */
-  protected Map<String, String> commandLine = new HashMap<String, String>();
+  protected Map<String, Object> commandLine = new HashMap<String, Object>();
 
   /**
    * Parses the command line.
@@ -30,7 +30,13 @@ public class LauncherCommandLineParser {
         else if (arg.toLowerCase().startsWith("-deps.file.name=")) {
           int index = arg.indexOf("=");
 
-          commandLine.put("deps.file.name", arg.substring(index + 1));
+          List<String> depsFileName = (List<String>) commandLine.get("deps.file.name");
+          if(depsFileName == null) {
+            depsFileName = new ArrayList<String>();
+            commandLine.put("deps.file.name", depsFileName);
+          }
+
+          depsFileName.add(arg.substring(index + 1));
         }
           else if (arg.toLowerCase().startsWith("-classpath.file.name=")) {
           int index = arg.indexOf("=");
@@ -78,8 +84,8 @@ public class LauncherCommandLineParser {
    *
    * @return starter dependencies file name
    */
-  public String getStarterDepsFileName() {
-    return commandLine.get("deps.file.name");
+  public List getStarterDepsFileNames() {
+    return (List)commandLine.get("deps.file.name");
   }
 
   /**
@@ -88,7 +94,7 @@ public class LauncherCommandLineParser {
    * @return starter class name
    */
   public String getStarterClassName() {
-    return commandLine.get("main.class.name");
+    return (String)commandLine.get("main.class.name");
   }
 
   /**
@@ -97,7 +103,7 @@ public class LauncherCommandLineParser {
    * @return true if wait mode; false otherwise
    */
   public boolean isWaitMode() {
-    String s = commandLine.get("wait.mode");
+    String s = (String)commandLine.get("wait.mode");
     return s != null && s.equalsIgnoreCase("true");
   }
 
@@ -107,7 +113,7 @@ public class LauncherCommandLineParser {
    * @return true if wait mode; false otherwise
    */
   public boolean isPomstarterMode() {
-    String s = commandLine.get("pomstarter.mode");
+    String s = (String)commandLine.get("pomstarter.mode");
     return s != null && s.equalsIgnoreCase("true");
   }
 
@@ -116,7 +122,7 @@ public class LauncherCommandLineParser {
    *
    * @return the command line parameters
    */
-  public Map<String, String> getCommandLine() {
+  public Map<String, Object> getCommandLine() {
     return commandLine;
   }
   

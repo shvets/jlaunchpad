@@ -58,20 +58,23 @@ public class UniversalLauncher extends DepsLauncher {
    * @throws LauncherException the exception
    */
   public void configure(ClassLoader parentClassLoader) throws LauncherException {
-    Map<String, String> commandLine = parser.getCommandLine();
+    Map<String, Object> commandLine = parser.getCommandLine();
 
-    String depsFileName = parser.getStarterDepsFileName();
+    List depsFileNames = parser.getStarterDepsFileNames();
 
-    if(depsFileName != null) {
-      if(new File(depsFileName).exists()) {
-        setDepsFileName(depsFileName);
-      }
-      else {
-        System.out.println("File " + depsFileName + " does not exist.");
+    if(depsFileNames != null) {
+      for(int i=0; i < depsFileNames.size(); i++) {
+        String depsFileName = (String)depsFileNames.get(i);
+        if(new File(depsFileName).exists()) {
+          addDepsFileName(depsFileNames);
+        }
+        else {
+          System.out.println("File " + depsFileName + " does not exist.");
+        }
       }
     }
 
-    String classpathFileName = commandLine.get("classpath.file.name");
+    String classpathFileName = (String)commandLine.get("classpath.file.name");
 
     if(classpathFileName != null) {
       if(new File(classpathFileName).exists()) {
@@ -86,7 +89,7 @@ public class UniversalLauncher extends DepsLauncher {
 
     if(mainClassName == null) {
       if(parser.isPomstarterMode()) {
-        if(depsFileName == null) {
+        if(depsFileNames == null) {
           throw new LauncherException("deps.file.name property should be specified.");
         }
       }
@@ -128,14 +131,14 @@ public class UniversalLauncher extends DepsLauncher {
 
     if(mainClassName == null) {
       if(parser.isPomstarterMode()) {
-        String depsFileName = parser.getStarterDepsFileName();
+        List depsFileNames = parser.getStarterDepsFileNames();
 
-        if(depsFileName == null) {
+        if(depsFileNames == null) {
           throw new LauncherException("deps.file.name property should be specified.");
         }
         else {
           try {
-            List<String> mainClassNames = findMainClassNames(depsFileName);
+            List<String> mainClassNames = findMainClassNames(depsFileNames);
 
             if(mainClassNames.size() == 0) {
               System.out.println("Cannot find Main Class Name.");
@@ -166,53 +169,58 @@ public class UniversalLauncher extends DepsLauncher {
   /**
    * Finds main class name from pom file.
    *
-   * @param pomFileName the pom file name
+   * @param pomFileNames the pom file name
    * @return main class name
    * @throws Exception the exception
    */
-  public List<String> findMainClassNames(String pomFileName) throws Exception {
-    List<String> names = new ArrayList<String>();
+  public List<String> findMainClassNames(List pomFileNames) throws Exception {
+    List<String> closestNames = new ArrayList<String>();
 
-    File pom = new File(pomFileName);
+    for (Object pfn : pomFileNames) {
+      String pomFileName = (String) pfn;
 
-    Model model = pomReader.readModel(pom, false);
+      File pom = new File(pomFileName);
 
-    for (Object o : model.getAllDependencies()) {
-      Dependency dependency = (Dependency) o;
+      List<String> names = new ArrayList<String>();
 
-      File file = pomReader.getArtifactFile(dependency);
+      Model model = pomReader.readModel(pom, false);
 
-      if (FileUtil.getExtension(file).equals("jar")) {
-        final Manifest manifest = FileUtil.getManifest(new JarFile(file));
-        if (manifest != null) {
-          final Attributes mainAttributes = manifest.getMainAttributes();
-          final String className = mainAttributes.getValue(Attributes.Name.MAIN_CLASS);
+      for (Object o : model.getAllDependencies()) {
+        Dependency dependency = (Dependency) o;
 
-          if (className != null) {
-            names.add(className);
+        File file = pomReader.getArtifactFile(dependency);
+
+        if (FileUtil.getExtension(file).equals("jar")) {
+          final Manifest manifest = FileUtil.getManifest(new JarFile(file));
+          if (manifest != null) {
+            final Attributes mainAttributes = manifest.getMainAttributes();
+            final String className = mainAttributes.getValue(Attributes.Name.MAIN_CLASS);
+
+            if (className != null) {
+              names.add(className);
+            }
           }
         }
       }
-    }
 
-    String groupId = model.getGroupId();
-    String artifactId = model.getArtifactId();
+      String groupId = model.getGroupId();
+      String artifactId = model.getArtifactId();
 
-    List<String> closestNames = new ArrayList<String>();
+      for (Iterator<String> j = names.iterator(); j.hasNext();) {
+        String className = j.next();
 
-    for (Iterator<String> i = names.iterator(); i.hasNext();) {
-      String className = i.next();
-
-      if(className.startsWith(groupId) || className.startsWith(groupId + "." + artifactId)) {
-        i.remove();
-        closestNames.add(className);
+        if (className.startsWith(groupId) || className.startsWith(groupId + "." + artifactId)) {
+          j.remove();
+          closestNames.add(className);
+        }
       }
-    }
 
-    closestNames.addAll(names);
+      closestNames.addAll(names);
 
-    if(closestNames.size() == 0) {
-      closestNames.add(groupId + "." + artifactId);
+      if (closestNames.size() == 0) {
+        closestNames.add(groupId + "." + artifactId);
+      }
+
     }
 
     return closestNames;

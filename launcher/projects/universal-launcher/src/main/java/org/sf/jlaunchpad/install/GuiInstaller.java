@@ -124,10 +124,10 @@ public class GuiInstaller extends CoreInstaller
                   }
                   else {
                     String proxyUser = proxyUserField.getText().trim();
-                    String proxyPassword = proxyPasswordField.getText().trim();
+                    char[] proxyPassword = proxyPasswordField.getPassword();
 
                     if (proxyUser != null && proxyUser.length() > 0) {
-                      if (proxyPassword != null && proxyPassword.length() > 0) {
+                      if (proxyPassword != null && proxyPassword.length > 0) {
                         enabled = true;
                       }
                     }
@@ -469,10 +469,11 @@ public class GuiInstaller extends CoreInstaller
       }
     }
     else {
-      System.setProperty("proxyHost", "");
+/*      System.setProperty("proxyHost", "");
       System.setProperty("proxyPort", "");
       System.setProperty("proxyUser", "");
       System.setProperty("proxyPassword", "");
+      */
     }
 
     System.setProperty("launcher.home", launcherHomeField.getText().trim());
@@ -511,10 +512,16 @@ public class GuiInstaller extends CoreInstaller
     saveProperty(launcherHomeField, "launcher.home");
     saveProperty(repositoryHomeField, "repository.home");
 
-    saveProperty(useProxyCheckbox, "proxySet");
+    if(useProxyCheckbox.isSelected()) {
+      saveProperty(useProxyCheckbox, "proxySet");
+    }
     saveProperty(proxyHostField, "proxyHost");
     saveProperty(proxyPortField, "proxyPort");
-    saveProperty(proxyAuthCheckbox, "proxyAuth");
+
+    if(useProxyCheckbox.isSelected()) {
+      saveProperty(proxyAuthCheckbox, "proxyAuth");
+    }
+    
     saveProperty(proxyUserField, "proxyUser");
     saveProperty(proxyPasswordField, "proxyPassword");
 
@@ -571,7 +578,9 @@ public class GuiInstaller extends CoreInstaller
 
       String value = textField.getText().trim();
 
-      launcherProps.put(property, value.replace(File.separatorChar, '/'));
+        if(value != null && value.trim().length() > 0) {
+          launcherProps.put(property, value.replace(File.separatorChar, '/'));
+        }
     }
     else if(component instanceof JCheckBox) {
       JCheckBox checkBox = (JCheckBox)component;
