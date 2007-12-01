@@ -225,7 +225,7 @@ public class PomReader {
 
     dependencies.addAll(calculateDependencies(pomFile));
 
-    return dependencies;    
+    return dependencies;
   }
 
   /**
