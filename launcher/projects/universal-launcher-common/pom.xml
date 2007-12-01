@@ -86,49 +86,7 @@
               <goal>run</goal>
             </goals>
           </execution>
-
-         <execution>
-            <id>install</id>
-            <phase>install</phase>
-            <configuration>
-              <tasks>
-                <condition property="extension" value="bat" else="sh">
-                  <os family="Windows"/>
-                </condition>
-
-                <exec executable="mvn.${extension}">
-                  <arg line="source:jar javadoc:jar"/>
-                </exec>
- 
-               <exec executable="mvn.${extension}">
-                  <arg value='install:install-file'/>
-                  <arg value='"-Dfile=target/${artifactId}-sources.jar"'/>
-                  <arg value='"-DgroupId=${groupId}"'/>
-                  <arg value='"-DartifactId=${artifactId}"'/>
-                  <arg value='"-Dversion=${version}"'/>
-                  <arg value='"-Dpackaging=${packaging}"'/>
-                  <arg value='"-Dclassifier=sources"'/>
-                  <arg value='"-DgeneratePom=true"'/>
-                </exec>
-
-               <exec executable="mvn.${extension}">
-                  <arg value='install:install-file'/>
-                  <arg value='"-Dfile=target/${artifactId}-javadoc.jar"'/>
-                  <arg value='"-DgroupId=${groupId}"'/>
-                  <arg value='"-DartifactId=${artifactId}"'/>
-                  <arg value='"-Dversion=${version}"'/>
-                  <arg value='"-Dpackaging=${packaging}"'/>
-                  <arg value='"-Dclassifier=javadoc"'/>
-                  <arg value='"-DgeneratePom=true"'/>
-                </exec>
-              </tasks>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-
-        </executions>
+         </executions>
       </plugin>
 
     </plugins>
