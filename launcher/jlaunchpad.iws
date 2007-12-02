@@ -16,20 +16,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/download/HttpUtils.java" afterPath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/download/HttpUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java" afterPath="$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/bootstrap-mini/pom.xml" afterPath="$PROJECT_DIR$/projects/bootstrap-mini/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.ipr" afterPath="$PROJECT_DIR$/jlaunchpad.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/universal-launcher/pom.xml" afterPath="$PROJECT_DIR$/projects/universal-launcher/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/README.txt" afterPath="$PROJECT_DIR$/docs/README.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/download/OnlineArtifactDownloader.java" afterPath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/download/OnlineArtifactDownloader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java" afterPath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/core/LauncherCommandLineParser.java" afterPath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/core/LauncherCommandLineParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/config/classworlds.conf" afterPath="$PROJECT_DIR$/projects/universal-launcher/src/main/config/classworlds.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/pom-reader/pom.xml" afterPath="$PROJECT_DIR$/projects/pom-reader/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java" afterPath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.iws" afterPath="$PROJECT_DIR$/jlaunchpad.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/download/RepositoryMetadata.java" afterPath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/download/RepositoryMetadata.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/model/ModelReader.java" afterPath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/model/ModelReader.java" />
     </list>
     <ignored path="jlaunchpad.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,13 +92,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UniversalLauncher.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UniversalLauncher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="35" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.489533">
+            <state line="56" column="35" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.030595813">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoreLauncher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="13" selection-start="671" selection-end="671" vertical-scroll-proportion="-2.0289855">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DepsLauncher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/DepsLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="13" selection-start="659" selection-end="659" vertical-scroll-proportion="0.33333334">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClassworldLauncher.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="217" column="5" selection-start="5671" selection-end="5671" vertical-scroll-proportion="0.11916264">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,6 +167,82 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="jlaunchpad" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="universal-launcher" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="universal-launcher" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="universal-launcher" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="universal-launcher" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
     </subPane>
@@ -386,10 +477,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="35" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.489533">
+        <state line="56" column="35" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.030595813">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="671" selection-end="671" vertical-scroll-proportion="-2.0289855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/DepsLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="13" selection-start="659" selection-end="659" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="217" column="5" selection-start="5671" selection-end="5671" vertical-scroll-proportion="0.11916264">
+          <folding />
         </state>
       </provider>
     </entry>

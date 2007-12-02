@@ -215,6 +215,8 @@ public class ClassworldLauncher extends CoreLauncher {
   public void performLaunch() throws LauncherException {
     boolean isExceptionThrown = false;
 
+   // printConstituents();
+      
     try {
       final List<String> libPaths = new ArrayList<String>();
       Map<String, String> systemParams = new HashMap<String, String>();
