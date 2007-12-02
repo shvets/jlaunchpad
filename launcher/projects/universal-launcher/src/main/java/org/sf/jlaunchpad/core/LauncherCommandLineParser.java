@@ -84,8 +84,8 @@ public class LauncherCommandLineParser {
    *
    * @return starter dependencies file name
    */
-  public List getStarterDepsFileNames() {
-    return (List)commandLine.get("deps.file.name");
+  public List<String> getStarterDepsFileNames() {
+    return (List<String>)commandLine.get("deps.file.name");
   }
 
   /**

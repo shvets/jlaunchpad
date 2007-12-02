@@ -6,8 +6,6 @@ import org.apache.maven.bootstrap.model.Repository;
 import org.apache.maven.bootstrap.model.Dependency;
 import org.apache.maven.bootstrap.download.ArtifactResolver;
 import org.apache.maven.bootstrap.download.OfflineArtifactResolver;
-import org.apache.maven.bootstrap.settings.Settings;
-import org.apache.maven.bootstrap.settings.Proxy;
 import org.apache.maven.bootstrap.settings.Mirror;
 import org.xml.sax.SAXException;
 import org.sf.jlaunchpad.util.FileUtil;
@@ -225,41 +223,17 @@ public class PomReader {
 
     dependencies.addAll(calculateDependencies(pomFile));
 
-    return dependencies;
+    return dependencies;    
   }
 
   /**
    * Sets up repositories.
    *
-   * @param settings settings object
    * @return artifact resolver
    * @throws Exception the exception
    */
   private ArtifactResolver setupRepositories(/*Settings settings*/) throws Exception {
     String repositoryHome = System.getProperty("repository.home");
-    String launcherHome = System.getProperty("launcher.home");
-
-    List<Repository> repositories;
-
-    RepositoriesReader reader = new RepositoriesReader();
-    File file = new File("repositories.xml");
-
-    if(!file.exists()) {
-      file = new File(launcherHome + File.separatorChar + "repositories.xml");
-    }
-
-    if(!file.exists()) {
-      file = new File(System.getProperty("user.dir") + "/projects/universal-launcher/src/main/config/repositories.xml");
-    }
-
-    if(!file.exists()) {
-      System.out.println("File " + file.getName() + " cannot be found.");
-      repositories = new ArrayList<Repository>();
-    }
-    else {
-      reader.parse(file);
-      repositories = reader.getRepositories();
-    }
 
     boolean online = true;
 
@@ -282,6 +256,11 @@ public class PomReader {
 
     ArtifactResolver resolver;
     if (online) {
+      List<Repository> repositories = getRepositories("repositories.xml");
+      List<Repository> mirrors = getRepositories("mirrors.xml");
+
+      repositories.addAll(mirrors);
+
       OnlineArtifactDownloader downloader = new OnlineArtifactDownloader(localRepository);
       downloader.setRemoteRepositories(repositories);
 
@@ -293,7 +272,7 @@ public class PomReader {
 
       String proxySetStr = System.getProperty("proxySet");
 
-      if(proxySetStr != null && new Boolean(proxySetStr).equals(Boolean.TRUE)) {
+      if(proxySetStr != null && Boolean.valueOf(proxySetStr).equals(Boolean.TRUE)) {
         String proxyHost = System.getProperty("proxyHost");
         String proxyPort = System.getProperty("proxyPort");
 
@@ -302,7 +281,7 @@ public class PomReader {
 
         String proxyAuthStr = System.getProperty("proxyAuth");
 
-        if(proxyAuthStr != null && new Boolean(proxyAuthStr).equals(Boolean.TRUE)) {
+        if(proxyAuthStr != null && Boolean.valueOf(proxyAuthStr).equals(Boolean.TRUE)) {
           proxyUser = System.getProperty("proxyUser");
           proxyPassword = System.getProperty("proxyPassword");
         }
@@ -310,14 +289,14 @@ public class PomReader {
         downloader.setProxy(proxyHost, proxyPort, proxyUser, proxyPassword);
       }
 
-/*      List<Repository> remoteRepos = downloader.getRemoteRepositories();
+      List<Repository> remoteRepos = downloader.getRemoteRepositories();
       List<Repository> newRemoteRepos = new ArrayList<Repository>();
 
-      for (Object remoteRepo : remoteRepos) {
-        Repository repo = (Repository) remoteRepo;
+      for (Repository remoteRepo : remoteRepos) {
+        Repository repo = remoteRepo;
 
         boolean foundMirror = false;
-        for (Iterator j = settings.getMirrors().iterator(); j.hasNext() && !foundMirror;) {
+        for (Iterator j = mirrors.iterator(); j.hasNext() && !foundMirror;) {
           Mirror m = (Mirror) j.next();
           if (m.getMirrorOf().equals(repo.getId())) {
             newRemoteRepos.add(new Repository(m.getId(), m.getUrl(), repo.getLayout(), repo.isSnapshots(),
@@ -332,7 +311,6 @@ public class PomReader {
       }
 
       downloader.setRemoteRepositories(newRemoteRepos);
-        */
     }
     else {
       resolver = new OfflineArtifactResolver(localRepository);
@@ -341,7 +319,34 @@ public class PomReader {
     return resolver;
   }
 
-  /**
+    private List<Repository> getRepositories(String fileName) throws ParserConfigurationException, SAXException, IOException {
+        String launcherHome = System.getProperty("launcher.home");
+
+        List<Repository> repositories;
+
+        RepositoriesReader reader = new RepositoriesReader();
+        File file = new File("repositories.xml");
+
+        if(!file.exists()) {
+          file = new File(launcherHome + File.separatorChar + fileName);
+        }
+
+        if(!file.exists()) {
+          file = new File(System.getProperty("user.dir") + "/projects/universal-launcher/src/main/config/" + fileName);
+        }
+
+        if(!file.exists()) {
+          System.out.println("File " + file.getName() + " cannot be found.");
+          repositories = new ArrayList<Repository>();
+        }
+        else {
+          reader.parse(file);
+          repositories = reader.getRepositories();
+        }
+        return repositories;
+    }
+
+    /**
    * Gets the artifact resolver.
    *
    * @return the artifact resolver

@@ -127,7 +127,7 @@ public class UniversalLauncher extends DepsLauncher {
 
     if (mainClassName == null) {
       if (parser.isPomstarterMode()) {
-        List depsFileNames = parser.getStarterDepsFileNames();
+        List<String> depsFileNames = parser.getStarterDepsFileNames();
 
         if (depsFileNames == null) {
           throw new LauncherException("deps.file.name property should be specified.");
@@ -210,6 +210,7 @@ public class UniversalLauncher extends DepsLauncher {
       closestNames.add(groupId + "." + artifactId);
     }
 
+
     return closestNames;
   }
 
@@ -231,7 +232,6 @@ public class UniversalLauncher extends DepsLauncher {
 
     return closestNames;
   }
-
 
   /**
    * Launches the launcher from the command line.

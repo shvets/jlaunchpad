@@ -77,7 +77,7 @@ Instead, you provide dependencies for the project and they will be downloaded au
 For the implementation the following projects were reused:
 
 - classworlds project        http://dist.codehaus.org/classworlds
-- bootstrap-mini project     http://svn.apache.org/repos/asf/maven/components/tags/maven-2.0.7/bootstrap
+- bootstrap-mini project     http://svn.apache.org/repos/asf/maven/components/tags/maven-2.0.8/bootstrap
 - Java App Launcher 	     https://java-app-launcher.dev.java.net
 
     Examples

@@ -51,7 +51,6 @@ public class HttpUtils
     public static void useProxyUser( final String proxyHost, final String proxyPort, final String proxyUserName,
                                      final String proxyPassword )
     {
-
         if ( proxyHost != null && proxyPort != null )
         {
             System.getProperties().put( "proxySet", "true" );
@@ -97,8 +96,6 @@ public class HttpUtils
                                 boolean useChecksum )
         throws IOException
     {
-
-
         // Get the requested file.
         getFile( url, destinationFile, ignoreErrors, useTimestamp, proxyHost, proxyPort, proxyUserName, proxyPassword );
 
@@ -186,14 +183,6 @@ public class HttpUtils
         String username = s[0];
         String password = s[1];
         String parsedUrl = s[2];
-
-        if(proxyUserName != null) {
-          username = proxyUserName;
-        }
-
-        if(proxyPassword != null) {
-          password = proxyPassword;
-        }
 
         URL source = new URL( parsedUrl );
 

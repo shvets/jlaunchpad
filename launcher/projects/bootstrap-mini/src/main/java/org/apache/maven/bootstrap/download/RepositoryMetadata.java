@@ -23,8 +23,9 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -38,7 +39,7 @@ import java.util.TimeZone;
  * I/O for repository metadata.
  *
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id: RepositoryMetadata.java 332580 2005-11-11 15:05:53Z brett $
+ * @version $Id: RepositoryMetadata.java 585268 2007-10-16 21:43:07Z hboutemy $
  */
 public class RepositoryMetadata
 {
@@ -177,13 +178,13 @@ public class RepositoryMetadata
         }
         return baseVersion;
     }
-    
+
     public long getLastUpdatedUtc()
     {
         TimeZone timezone = TimeZone.getTimeZone( "UTC" );
         DateFormat fmt = new SimpleDateFormat( "yyyyMMddHHmmss" );
         fmt.setTimeZone( timezone );
-        
+
         try
         {
             return fmt.parse( lastUpdated ).getTime();
@@ -345,7 +346,7 @@ public class RepositoryMetadata
         public void write( File file )
             throws IOException
         {
-            PrintWriter w = new PrintWriter( new FileWriter( file ) );
+            PrintWriter w = new PrintWriter( new OutputStreamWriter( new FileOutputStream( file ), "UTF-8" ) );
 
             try
             {

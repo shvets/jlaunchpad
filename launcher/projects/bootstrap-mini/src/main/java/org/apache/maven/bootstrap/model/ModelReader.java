@@ -35,7 +35,7 @@ import java.util.Set;
 /**
  * Parse a POM.
  *
- * @version $Id: ModelReader.java 492046 2007-01-03 05:20:19Z brett $
+ * @version $Id: ModelReader.java 585855 2007-10-18 04:11:41Z brett $
  */
 public class ModelReader
     extends AbstractReader
@@ -47,6 +47,8 @@ public class ModelReader
     private Dependency currentDependency;
 
     private Resource currentResource;
+
+    private boolean insideProfiles;
 
     private boolean insideParent;
 
@@ -122,9 +124,19 @@ public class ModelReader
 
     public void startElement( String uri, String localName, String rawName, Attributes attributes )
     {
+        // skip profile contents
+        if ( insideProfiles )
+        {
+            return;
+        }
+
         if ( rawName.equals( "parent" ) )
         {
             insideParent = true;
+        }
+        else if ( rawName.equals( "profiles" ) )
+        {
+            insideProfiles = true;
         }
         else if ( rawName.equals( "repository" ) )
         {
@@ -196,6 +208,12 @@ public class ModelReader
 
     public void characters( char buffer[], int start, int length )
     {
+        // skip profile contents
+        if ( insideProfiles )
+        {
+            return;
+        }
+
         bodyText.append( buffer, start, length );
     }
 
@@ -207,6 +225,16 @@ public class ModelReader
     public void endElement( String uri, String localName, String rawName )
         throws SAXException
     {
+        if ( rawName.equals( "profiles" ) )
+        {
+            insideProfiles = false;
+        }
+
+        if ( insideProfiles )
+        {
+            return;
+        }
+
         // support both v3 <extend> and v4 <parent>
         if ( rawName.equals( "parent" ) )
         {
@@ -369,7 +397,7 @@ public class ModelReader
                 currentDependency.setOptional( Boolean.valueOf( getBodyText() ).booleanValue() );
             }
             else if ( rawName.equals( "classifier" ) ) {
-              currentDependency.setClassifier(getBodyText());              
+              currentDependency.setClassifier(getBodyText());
             }
         }
         else if ( insideBuild && insidePlugin )
@@ -514,7 +542,7 @@ public class ModelReader
           String classifier = model.getClassifier();
 
           if(classifier != null) {
-            map.put( "project.classifier", classifier );            
+            map.put( "project.classifier", classifier );
           }
 
           result = StringUtils.interpolate( text, map );
