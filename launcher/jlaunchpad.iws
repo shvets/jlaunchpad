@@ -16,8 +16,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/pom-reader/src/test" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.ipr" afterPath="$PROJECT_DIR$/jlaunchpad.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java" afterPath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.iws" afterPath="$PROJECT_DIR$/jlaunchpad.iws" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/pom-reader/src/test/java/PomReaderTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/pom-reader/pom.xml" afterPath="$PROJECT_DIR$/projects/pom-reader/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/pom-reader/src/test/java" />
     </list>
     <ignored path="jlaunchpad.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,7 +91,7 @@
       <file leaf-file-name="PomReader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="26" selection-start="3714" selection-end="3714" vertical-scroll-proportion="0.030595813">
+            <state line="23" column="13" selection-start="716" selection-end="716" vertical-scroll-proportion="-0.1197479">
               <folding />
             </state>
           </provider>
@@ -95,10 +100,8 @@
       <file leaf-file-name="UniversalLauncher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="35" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.030595813">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="56" column="35" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.019957984">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,7 +109,7 @@
       <file leaf-file-name="CoreLauncher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="13" selection-start="671" selection-end="671" vertical-scroll-proportion="-2.0289855">
+            <state line="22" column="13" selection-start="671" selection-end="671" vertical-scroll-proportion="0.019957984">
               <folding />
             </state>
           </provider>
@@ -115,7 +118,7 @@
       <file leaf-file-name="DepsLauncher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/DepsLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="13" selection-start="659" selection-end="659" vertical-scroll-proportion="0.33333334">
+            <state line="22" column="13" selection-start="659" selection-end="659" vertical-scroll-proportion="0.019957984">
               <folding />
             </state>
           </provider>
@@ -124,7 +127,25 @@
       <file leaf-file-name="ClassworldLauncher.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="217" column="5" selection-start="5671" selection-end="5671" vertical-scroll-proportion="0.11916264">
+            <state line="217" column="6" selection-start="5672" selection-end="5672" vertical-scroll-proportion="0.46709818">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PomReaderTest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/test/java/PomReaderTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="2" selection-start="830" selection-end="830" vertical-scroll-proportion="0.51890755">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/pom-reader/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="61" column="0" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.020452099">
               <folding />
             </state>
           </provider>
@@ -245,6 +266,86 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="pom-reader" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="pom-reader" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="pom-reader" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader\src\test" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader\src\test\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="pom-reader" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader\src" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader\src\main" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader\src\main\java" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\launcher\projects\pom-reader\src\main\java\org\sf\pomreader" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+        </PATH_ELEMENT>
+      </PATH>
     </subPane>
   </component>
   <component name="ProjectReloadState">
@@ -267,18 +368,41 @@
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="RunManagerConfig.showSettingsBeforeRunnig" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
-  <component name="RunManager">
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+  <component name="RunManager" selected="JUnit.Unnamed">
+    <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method>
+        <option name="Make" value="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
@@ -291,19 +415,6 @@
       <option name="VM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <module name="" />
@@ -323,8 +434,61 @@
         <value defaultName="wholeProject" />
       </option>
       <envs />
+      <method>
+        <option name="Make" value="true" />
+      </method>
     </configuration>
-    <list size="0" />
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="false" name="Unnamed" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
+      <module name="pom-reader" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PomReaderTest" />
+      <option name="METHOD_NAME" value="testCaluclateDependencies" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="1542" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JUnit.Unnamed" />
+    </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -381,11 +545,11 @@
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
       <window_info id="Dilbert" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960325" order="8" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" order="8" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="1" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="3" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5361139" order="3" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
@@ -396,7 +560,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
       <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32967034" order="3" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967034" order="3" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294893" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
@@ -468,39 +632,51 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="26" selection-start="3714" selection-end="3714" vertical-scroll-proportion="0.030595813">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="35" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.030595813">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="56" column="35" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.019957984">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="671" selection-end="671" vertical-scroll-proportion="-2.0289855">
+        <state line="22" column="13" selection-start="671" selection-end="671" vertical-scroll-proportion="0.019957984">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/DepsLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="13" selection-start="659" selection-end="659" vertical-scroll-proportion="0.33333334">
+        <state line="22" column="13" selection-start="659" selection-end="659" vertical-scroll-proportion="0.019957984">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/pom-reader/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="0" selection-start="1514" selection-end="1514" vertical-scroll-proportion="0.020452099">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/test/java/PomReaderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="2" selection-start="830" selection-end="830" vertical-scroll-proportion="0.51890755">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="716" selection-end="716" vertical-scroll-proportion="-0.1197479">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="5" selection-start="5671" selection-end="5671" vertical-scroll-proportion="0.11916264">
+        <state line="217" column="6" selection-start="5672" selection-end="5672" vertical-scroll-proportion="0.46709818">
           <folding />
         </state>
       </provider>
