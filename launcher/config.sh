@@ -5,6 +5,9 @@ PROXY_SERVER_HOST_NAME=
 PROXY_SERVER_PORT=
 SET PROXY_USER=
 SET PROXY_PASSWORD=
+
+DEBUG_MODE=true
+
 JAVA_HOME=~/jdk1.6.0_01
 LAUNCHER_HOME=~/launcher
 REPOSITORY_HOME=/media/hda5/maven-repository
@@ -34,7 +37,8 @@ SYSTEM_PROPERTIES="-Dlauncher.home=$LAUNCHER_HOME \
 -Drepository.home=$REPOSITORY_HOME \
 -Dlauncher.version=$LAUNCHER_VERSION \
 -Dclassworlds.version=$CLASSWORLDS_VERSION \
--Djava.specification.version=$JAVA_SPECIFICATION_VERSION"
+-Djava.specification.version=$JAVA_SPECIFICATION_VERSION" \
+-Ddebug.mode=$DEBUG_MODE
 
 if [ "x$PROXY_SERVER_HOST_NAME" = "x" ]; then
   SYSTEM_PROPERTIES="$SYSTEM_PROPERTIES -DproxySet=true -DproxyHost=$PROXY_SERVER_HOST_NAME -DproxyPort=$PROXY_SERVER_PORT -DproxyUser=$PROXY_USER -DproxyUser=$PROXY_PASSWORD"
