@@ -37,7 +37,7 @@ public class UniversalLauncher extends DepsLauncher {
    * @param classWorld class world
    * @throws LauncherException the launcher exception
    */
-  protected UniversalLauncher(LauncherCommandLineParser parser, String[] args, ClassWorld classWorld)
+  public UniversalLauncher(LauncherCommandLineParser parser, String[] args, ClassWorld classWorld)
       throws LauncherException {
     super(parser, args, classWorld);
   }

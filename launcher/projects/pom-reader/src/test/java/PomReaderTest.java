@@ -18,6 +18,16 @@ public class PomReaderTest extends TestCase {
     super.tearDown();
   }
 
+  public void testCreatePom() {
+    try {
+      PomReader pomReader = new PomReader();
+
+      pomReader.init();
+    } catch (Exception e) {
+      fail(e.getMessage());
+    }
+  }
+
   public void testCaluclateDependencies() {
     try {
       PomReader pomReader = new PomReader();

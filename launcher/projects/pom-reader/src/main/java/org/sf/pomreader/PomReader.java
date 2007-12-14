@@ -1,19 +1,24 @@
 package org.sf.pomreader;
 
+import org.apache.maven.bootstrap.download.ArtifactResolver;
+import org.apache.maven.bootstrap.download.OfflineArtifactResolver;
+import org.apache.maven.bootstrap.model.Dependency;
 import org.apache.maven.bootstrap.model.Model;
 import org.apache.maven.bootstrap.model.ModelReader;
 import org.apache.maven.bootstrap.model.Repository;
-import org.apache.maven.bootstrap.model.Dependency;
-import org.apache.maven.bootstrap.download.ArtifactResolver;
-import org.apache.maven.bootstrap.download.OfflineArtifactResolver;
 import org.apache.maven.bootstrap.settings.Mirror;
-import org.xml.sax.SAXException;
+import org.apache.maven.bootstrap.settings.Proxy;
+import org.apache.maven.bootstrap.settings.Settings;
 import org.sf.jlaunchpad.util.FileUtil;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
-import java.util.*;
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
+import java.util.*;
 
 /**
  * This class can read pom.xml file.
@@ -30,7 +35,8 @@ public class PomReader {
   /**
    * Creates new POM reader.
    */
-  public PomReader() {}
+  public PomReader() {
+  }
 
   /**
    * Initializes POM reader.
@@ -38,35 +44,50 @@ public class PomReader {
    * @throws Exception the exception
    */
   public void init() throws Exception {
-//    Settings settings = new Settings();
-
     System.setProperty("maven.repo.local", System.getProperty("repository.home"));
 
-/*
-    if(settings.getLocalRepository() == null) {
-      settings.setLocalRepository(System.getProperty("repository.home"));
+    Settings settings;
+    try {
+      settings = Settings.read(System.getProperty("user.home"), new File(System.getProperty("launcher.home") + File.separatorChar + "settings.xml"));
+    }
+    catch (Exception e) {
+      settings = new Settings();
+
+      if (settings.getLocalRepository() == null) {
+        settings.setLocalRepository(System.getProperty("repository.home"));
+      }
+
+      String proxySetStr = System.getProperty("proxySet");
+
+      if (proxySetStr != null && Boolean.valueOf(proxySetStr).equals(Boolean.TRUE)) {
+        String proxyHost = System.getProperty("proxyHost");
+        String proxyPort = System.getProperty("proxyPort");
+
+        String proxyUser = "";
+        String proxyPassword = "";
+
+        String proxyAuthStr = System.getProperty("proxyAuth");
+
+        if (proxyAuthStr != null && Boolean.valueOf(proxyAuthStr).equals(Boolean.TRUE)) {
+          proxyUser = System.getProperty("proxyUser");
+          proxyPassword = System.getProperty("proxyPassword");
+
+          Proxy proxy = new Proxy();
+
+          proxy.setHost(proxyHost);
+          proxy.setPort(proxyPort);
+          proxy.setUserName(proxyUser);
+          proxy.setPassword(proxyPassword);
+          proxy.setActive(true);
+
+          settings.addProxy(proxy);
+        }
+
+        //downloader.setProxy(proxyHost, proxyPort, proxyUser, proxyPassword);
+      }
     }
 
-    String proxyHost = System.getProperty("proxyHost");
-    String proxyPort = System.getProperty("proxyPort");
-
-    if (proxyHost != null && proxyHost.trim().length() > 0) {
-      Proxy proxy = new Proxy();
-
-      String proxyUser = System.getProperty("proxyUser");
-      String proxyPassword = System.getProperty("proxyPassword");
-
-      proxy.setHost(proxyHost);
-      proxy.setPort(proxyPort);
-      proxy.setUserName(proxyUser);
-      proxy.setPassword(proxyPassword);
-      proxy.setActive(true);
-
-      settings.addProxy(proxy);
-    }
-*/
-
-    resolver = setupRepositories(/*settings*/);
+    resolver = setupRepositories(settings);
   }
 
   /**
@@ -75,8 +96,8 @@ public class PomReader {
    * @param file pom file
    * @return the model
    * @throws ParserConfigurationException the exception
-   * @throws SAXException the exception
-   * @throws IOException the exception
+   * @throws SAXException                 the exception
+   * @throws IOException                  the exception
    */
   public Model readModel(File file) throws ParserConfigurationException, SAXException, IOException {
     return readModel(file, true);
@@ -85,15 +106,15 @@ public class PomReader {
   /**
    * Builds the model based on pom/xml file.
    *
-   * @param file pom file
+   * @param file                          pom file
    * @param resolveTransitiveDependencies true if transitive dependencies should be resolved; false otherwise
    * @return the model
    * @throws ParserConfigurationException the exception
-   * @throws SAXException the exception
-   * @throws IOException the exception
+   * @throws SAXException                 the exception
+   * @throws IOException                  the exception
    */
   public Model readModel(File file, boolean resolveTransitiveDependencies)
-          throws ParserConfigurationException, SAXException, IOException {
+      throws ParserConfigurationException, SAXException, IOException {
 
     ModelReader modelReader = new ModelReader(resolver, resolveTransitiveDependencies);
 
@@ -111,16 +132,17 @@ public class PomReader {
 
   /**
    * Resolves dependencies for specified pom maven2 dependencies file.
+   *
    * @param pom the pom file
-   * @throws Exception the exception
    * @return the list of dependent URLs
+   * @throws Exception the exception
    */
   public List<URL> calculateDependencies(File pom) throws Exception {
     List<URL> dependencies = new ArrayList<URL>();
 
     Model model = readModel(pom, true);
 
-    if(model.getPackaging() != null && model.getPackaging().equals("jar")) {
+    if (model.getPackaging() != null && model.getPackaging().equals("jar")) {
       Dependency currentDep = new Dependency(new ArrayList());
       currentDep.setGroupId(model.getGroupId());
       currentDep.setArtifactId(model.getArtifactId());
@@ -149,7 +171,7 @@ public class PomReader {
   }
 
   private File downloadPom(String groupId, String artifactId, String version, String classifier)
-          throws IOException {
+      throws IOException {
     File pomFile = File.createTempFile(groupId, artifactId + "-" + version + ".pom");
     BufferedWriter writer = new BufferedWriter(new FileWriter(pomFile));
 
@@ -168,7 +190,7 @@ public class PomReader {
     writer.write("      <artifactId>" + artifactId + "</artifactId>\n");
     writer.write("      <version>" + version + "</version>\n");
 
-    if(classifier != null && classifier.trim().length() > 0) {
+    if (classifier != null && classifier.trim().length() > 0) {
       writer.write("      <classifier>" + classifier + "</classifier>\n");
     }
 
@@ -195,25 +217,25 @@ public class PomReader {
   /**
    * Resolves dependencies for specified pom maven2 dependencies file.
    *
-   * @param groupId the group ID
+   * @param groupId    the group ID
    * @param artifactId the artifact ID
-   * @param version the version
+   * @param version    the version
    * @param classifier the classifier
    * @return the list witn dependencied
    * @throws Exception the exception
    */
   public List<URL> calculateDependencies(String groupId, String artifactId, String version, String classifier)
-         throws Exception {
+      throws Exception {
     List<URL> dependencies = new ArrayList<URL>();
 
     String repositoryHome = System.getProperty("repository.home");
 
     String pom = repositoryHome + "/" + groupId.replace('.', '/') + "/" + artifactId + "/" + version +
-            "/" + artifactId + "-" + version + ".pom";
+        "/" + artifactId + "-" + version + ".pom";
 
     File pomFile = new File(pom);
 
-    if(!pomFile.exists()) {
+    if (!pomFile.exists()) {
       File tmpPom = downloadPom(groupId, artifactId, version, classifier);
 
       dependencies.addAll(calculateDependencies(tmpPom));
@@ -223,7 +245,7 @@ public class PomReader {
 
     dependencies.addAll(calculateDependencies(pomFile));
 
-    return dependencies;    
+    return dependencies;
   }
 
   /**
@@ -232,8 +254,8 @@ public class PomReader {
    * @return artifact resolver
    * @throws Exception the exception
    */
-  private ArtifactResolver setupRepositories(/*Settings settings*/) throws Exception {
-    String repositoryHome = System.getProperty("repository.home");
+  private ArtifactResolver setupRepositories(Settings settings) throws Exception {
+/*    String repositoryHome = System.getProperty("repository.home");
 
     boolean online = true;
 
@@ -244,7 +266,7 @@ public class PomReader {
     }
 
     Repository localRepository =
-            new Repository("local", repositoryHome/*settings.getLocalRepository()*/, Repository.LAYOUT_DEFAULT,
+            new Repository("local", repositoryHome, Repository.LAYOUT_DEFAULT,
                            false, false);
 
     File repoLocalFile = new File(localRepository.getBasedir());
@@ -344,9 +366,68 @@ public class PomReader {
           repositories = reader.getRepositories();
         }
         return repositories;
+        */
+
+    boolean online = true;
+
+    String onlineProperty = System.getProperty("maven.online");
+
+    if (onlineProperty != null && onlineProperty.equals("false")) {
+      online = false;
     }
 
-    /**
+    Repository localRepository =
+        new Repository("local", settings.getLocalRepository(), Repository.LAYOUT_DEFAULT, false, false);
+
+    File repoLocalFile = new File(localRepository.getBasedir());
+    repoLocalFile.mkdirs();
+
+    if (!repoLocalFile.canWrite()) {
+      throw new Exception("Can't write to " + repoLocalFile);
+    }
+
+    ArtifactResolver resolver;
+    if (online) {
+      OnlineArtifactDownloader downloader = new OnlineArtifactDownloader(localRepository);
+      resolver = downloader;
+      if (settings.getActiveProxy() != null) {
+        Proxy proxy = settings.getActiveProxy();
+        downloader.setProxy(proxy.getHost(), proxy.getPort(), proxy.getUserName(), proxy.getPassword());
+      }
+
+     // List remoteRepos = downloader.getRemoteRepositories();
+       List remoteRepos = settings.getRepositories();
+      List newRemoteRepos = new ArrayList();
+
+      for (Iterator i = remoteRepos.iterator(); i.hasNext();) {
+        Repository repo = (Repository) i.next();
+
+        boolean foundMirror = false;
+        for (Iterator j = settings.getMirrors().iterator(); j.hasNext() && !foundMirror;) {
+          Mirror m = (Mirror) j.next();
+          if (m.getMirrorOf().equals(repo.getId())) {
+            newRemoteRepos.add(new Repository(m.getId(), m.getUrl(), repo.getLayout(), repo.isSnapshots(),
+                repo.isReleases()));
+            foundMirror = true;
+          }
+        }
+        if (!foundMirror) {
+          newRemoteRepos.add(repo);
+        }
+      }
+
+      downloader.setRemoteRepositories(newRemoteRepos);
+
+      //System.out.println("Using the following for your local repository: " + localRepository);
+      //System.out.println("Using the following for your remote repository: " + newRemoteRepos);
+    } else {
+      resolver = new OfflineArtifactResolver(localRepository);
+    }
+
+    return resolver;
+  }
+
+  /**
    * Gets the artifact resolver.
    *
    * @return the artifact resolver
@@ -368,7 +449,7 @@ public class PomReader {
   /**
    * Gets the cached model.
    *
-   * @param groupId the group ID
+   * @param groupId    the group ID
    * @param artifactId the artifact ID
    * @return the cached model
    */
