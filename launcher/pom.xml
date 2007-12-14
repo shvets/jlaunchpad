@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.sf.jlaunchpad</groupId>
-  <artifactId>jlaunchpad-main</artifactId>
+  <artifactId>jlaunchpad</artifactId>
   <version>1.0.1</version>
   <packaging>pom</packaging>
 
@@ -52,8 +52,8 @@
     <module>projects/bootstrap-mini</module>
     <module>projects/classworlds</module>
     <module>projects/pom-reader</module>
-    <module>projects/jlaunchpad-launcher-common</module>
-    <module>projects/jlaunchpad</module>
+    <module>projects/jlaunchpad-common</module>
+    <module>projects/jlaunchpad-launcher</module>
   </modules>
 
   <build>
@@ -100,7 +100,7 @@
                   <fileset dir="docs"/>
                 </copy>
 
-                <copy file="projects/jlaunchpad/src/main/config/jlaunchpad.ico" 
+                <copy file="src/main/config/jlaunchpad.ico" 
                       tofile="target/site/favicon.ico"/>
               </tasks>
             </configuration>

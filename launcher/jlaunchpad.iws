@@ -16,31 +16,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\ExitProtector.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ExitProtector.java" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\ExitTrappedException.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ExitTrappedException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/universal-launcher/jlaunchpad.iml" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\pom.xml" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher-common/src/main/java/org" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher-common/src/main/java/org/sf/jlaunchpad/util" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher-common/src/main" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\Checksum.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/Checksum.java" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\ReflectionUtil.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ReflectionUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher-common/src/main/java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\FormatElement.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/FormatElement.java" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\SerializableUtil.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/SerializableUtil.java" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\StringUtil.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/StringUtil.java" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\ChecksumCalculator.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ChecksumCalculator.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher-common/src/main/java/org/sf" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jlaunchpad-main.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher-common/src/main/java/org/sf/jlaunchpad" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\FileUtil.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/FileUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.ipr" afterPath="$PROJECT_DIR$/jlaunchpad.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher-common/src" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncherHelper.java" afterPath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncherHelper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher-common" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\codehaus\groovy\tools\GroovyStarter.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/codehaus/groovy/tools/GroovyStarter.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\UniversalLauncher.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\pom.xml" afterPath="$PROJECT_DIR$/projects/jlaunchpad/pom.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher" afterPath="$PROJECT_DIR$/projects/jlaunchpad" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\core\SimpleLauncher.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/core/SimpleLauncher.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\CoreLauncher.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/CoreLauncher.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/test" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/test" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\core\LauncherException.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/core/LauncherException.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/assembly" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/assembly" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\install\GuiInstallerFrame.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/install/GuiInstallerFrame.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\install\LauncherProperties.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/install/LauncherProperties.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\install\GuiInstaller.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/test/java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/test/java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\codehaus\groovy\tools\RootLoader.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/codehaus/groovy/tools/RootLoader.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/universal-launcher/jlaunchpad.iml" afterPath="" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\codehaus\groovy\tools\LoaderConfiguration.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/codehaus/groovy/tools/LoaderConfiguration.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\core\AbstractLauncher.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/core/AbstractLauncher.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/codehaus" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/codehaus" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\assembly\jar-with-dependencies.xml" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/assembly/jar-with-dependencies.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/install" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/install" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\install\CoreInstaller.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\LauncherProperties.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/LauncherProperties.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/codehaus/groovy/tools" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/codehaus/groovy/tools" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src" />
+      <change type="DELETED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\jlaunchpad\src\main\config" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\DepsLauncher.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/DepsLauncher.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/core" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/core" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\core\LauncherCommandLineParser.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/core/LauncherCommandLineParser.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\UniversalLauncherHelper.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/UniversalLauncherHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.iws" afterPath="$PROJECT_DIR$/jlaunchpad.iws" />
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher-common\src\main\java\org\sf\jlaunchpad\util\CommonUtil.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/CommonUtil.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/codehaus/groovy" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/codehaus/groovy" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\test\java\UniversalLauncherTest.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/test/java/UniversalLauncherTest.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\core\Launcher.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/core/Launcher.java" />
+      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\launcher\projects\universal-launcher\src\main\java\org\sf\jlaunchpad\ClassworldLauncher.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java" />
     </list>
     <ignored path="jlaunchpad.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +74,7 @@
   </component>
   <component name="DebuggerManager">
     <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/projects/universal-launcher/src/test/java/UniversalLauncherTest.java" line="69" class="UniversalLauncherTest" package="">
+      <breakpoint url="file://$PROJECT_DIR$/projects/jlaunchpad/src/test/java/UniversalLauncherTest.java" line="69" class="UniversalLauncherTest" package="">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -122,18 +136,18 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="UniversalLauncherHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncherHelper.java">
+        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/UniversalLauncherHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="51" selection-start="1503" selection-end="1503" vertical-scroll-proportion="1.5909823">
+            <state line="52" column="51" selection-start="1503" selection-end="1503" vertical-scroll-proportion="1.0378151">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="UniversalLauncher.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java">
+        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="119" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.7648953">
+            <state line="38" column="119" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.4989496">
               <folding />
             </state>
           </provider>
@@ -176,6 +190,36 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="jlaunchpad" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad-main" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="jlaunchpad" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="classworlds" />
+          <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
       </PATH>
     </subPane>
@@ -430,14 +474,14 @@
     <editor active="false" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960325" order="8" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" order="8" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" order="8" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="4" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32912087" order="1" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32912087" order="1" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875207" order="3" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
@@ -522,21 +566,21 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/core/LauncherCommandLineParser.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/core/LauncherCommandLineParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="121" selection-start="2440" selection-end="2440" vertical-scroll-proportion="0.32142857">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/CoreLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="9" selection-start="1154" selection-end="1154" vertical-scroll-proportion="-1.1155462">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="7" selection-start="2087" selection-end="2087" vertical-scroll-proportion="0.5126051">
           <folding />
@@ -571,35 +615,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/test/java/UniversalLauncherTest.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/test/java/UniversalLauncherTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="89" column="72" selection-start="3097" selection-end="3097" vertical-scroll-proportion="0.24684873">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstallerFrame.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/install/GuiInstallerFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="13" selection-start="241" selection-end="241" vertical-scroll-proportion="0.019957984">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="116" column="130" selection-start="3480" selection-end="3480" vertical-scroll-proportion="0.46113446">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/DepsLauncher.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/DepsLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="147" column="0" selection-start="3855" selection-end="3855" vertical-scroll-proportion="0.019957984">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/core/SimpleLauncher.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/core/SimpleLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="46" selection-start="427" selection-end="427" vertical-scroll-proportion="0.019957984">
           <folding />
@@ -613,9 +657,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncherHelper.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/UniversalLauncherHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="51" selection-start="1503" selection-end="1503" vertical-scroll-proportion="1.5909823">
+        <state line="52" column="51" selection-start="1503" selection-end="1503" vertical-scroll-proportion="1.0378151">
           <folding />
         </state>
       </provider>
@@ -627,9 +671,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/universal-launcher/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad/src/main/java/org/sf/jlaunchpad/UniversalLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="119" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.7648953">
+        <state line="38" column="119" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.4989496">
           <folding />
         </state>
       </provider>

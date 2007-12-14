@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.sf.jlaunchpad</groupId>
-  <artifactId>universal-launcher-common</artifactId>
+  <artifactId>jlaunchpad-common</artifactId>
   <version>1.0.1</version>
 
-  <name>Universal Launcher Common Module</name>
+  <name>JLaunchPad Common Module</name>
   <description>
     This module contains common code that could be used everywhere.
   </description>
