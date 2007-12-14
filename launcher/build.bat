@@ -5,8 +5,8 @@
 SET BOOTSTRAP_MINI_PROJECT=projects\bootstrap-mini
 SET CLASSWORLDS_PROJECT=projects\classworlds
 SET POM_READER_PROJECT=projects\pom-reader
-SET UNIVERSAL_LAUNCHER_COMMON_PROJECT=projects\universal-launcher-common
-SET UNIVERSAL_LAUNCHER_PROJECT=projects\universal-launcher
+SET JLAUNCHPAD_COMMON_PROJECT=projects\jlaunchpad-common
+SET JLAUNCHPAD_LAUNCHER_PROJECT=projects\jlaunchpad-launcher
 
 echo ---### Java Specification Version: %JAVA_SPECIFICATION_VERSION%
 
@@ -42,21 +42,21 @@ SET CW_CLASSPATH=%CLASSWORLDS_PROJECT%\src\main\java
 %JAVA_HOME%\bin\jar cf %CLASSWORLDS_PROJECT%\target\classworlds.jar ^
   -C %CLASSWORLDS_PROJECT%\target\classes .
 
-echo ---### Builds universal-launcher-common project
+echo ---### Builds jlaunchpad-common project
 
-if not exist %UNIVERSAL_LAUNCHER_COMMON_PROJECT%\target\classes (
-  mkdir %UNIVERSAL_LAUNCHER_COMMON_PROJECT%\target\classes
+if not exist %JLAUNCHPAD_COMMON_PROJECT%\target\classes (
+  mkdir %JLAUNCHPAD_COMMON_PROJECT%\target\classes
 )
 
-SET UL_COMMON_CLASSPATH=%UNIVERSAL_LAUNCHER_COMMON_PROJECT%\src\main\java
+SET UL_COMMON_CLASSPATH=%JLAUNCHPAD_COMMON_PROJECT%\src\main\java
 
 %JAVA_HOME%\bin\javac -nowarn -source %JAVA_SPECIFICATION_VERSION% -target %JAVA_SPECIFICATION_VERSION% ^
   -classpath %UL_COMMON_CLASSPATH% ^
-  -d %UNIVERSAL_LAUNCHER_COMMON_PROJECT%\target\classes ^
-  %UNIVERSAL_LAUNCHER_COMMON_PROJECT%\src\main\java\org\sf\jlaunchpad\util\*.java
+  -d %JLAUNCHPAD_COMMON_PROJECT%\target\classes ^
+  %JLAUNCHPAD_COMMON_PROJECT%\src\main\java\org\sf\jlaunchpad\util\*.java
 
-%JAVA_HOME%\bin\jar cf %UNIVERSAL_LAUNCHER_COMMON_PROJECT%\target\universal-launcher-common.jar ^
-  -C %UNIVERSAL_LAUNCHER_COMMON_PROJECT%\target\classes .
+%JAVA_HOME%\bin\jar cf %JLAUNCHPAD_COMMON_PROJECT%\target\jlaunchpad-common.jar ^
+  -C %JLAUNCHPAD_COMMON_PROJECT%\target\classes .
 
 echo ---### Builds pom-reader project
 
@@ -65,7 +65,7 @@ if not exist %POM_READER_PROJECT%\target\classes (
 )
 
 SET PR_CLASSPATH=%BOOTSTRAP_MINI_PROJECT%\target\classes
-SET PR_CLASSPATH=%PR_CLASSPATH%;%UNIVERSAL_LAUNCHER_COMMON_PROJECT%\target\classes
+SET PR_CLASSPATH=%PR_CLASSPATH%;%JLAUNCHPAD_COMMON_PROJECT%\target\classes
 SET PR_CLASSPATH=%PR_CLASSPATH%;%POM_READER_PROJECT%\src\main\java
 
 %JAVA_HOME%\bin\javac -nowarn -source %JAVA_SPECIFICATION_VERSION% -target %JAVA_SPECIFICATION_VERSION% ^
@@ -76,24 +76,24 @@ SET PR_CLASSPATH=%PR_CLASSPATH%;%POM_READER_PROJECT%\src\main\java
 %JAVA_HOME%\bin\jar cf %POM_READER_PROJECT%\target\pom-reader.jar ^
   -C %POM_READER_PROJECT%\target\classes .
 
-echo ---### Builds universal-launcher project
+echo ---### Builds jlaunchpad-launcher project
 
-if not exist %UNIVERSAL_LAUNCHER_PROJECT%\target\classes (
-  mkdir %UNIVERSAL_LAUNCHER_PROJECT%\target\classes
+if not exist %JLAUNCHPAD_LAUNCHER_PROJECT%\target\classes (
+  mkdir %JLAUNCHPAD_LAUNCHER_PROJECT%\target\classes
 )
 
-SET UL_CLASSPATH=%UNIVERSAL_LAUNCHER_PROJECT%\src\main\java
-SET UL_CLASSPATH=%UL_CLASSPATH%;%UNIVERSAL_LAUNCHER_COMMON_PROJECT%\target\classes
+SET UL_CLASSPATH=%JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java
+SET UL_CLASSPATH=%UL_CLASSPATH%;%JLAUNCHPAD_COMMON_PROJECT%\target\classes
 SET UL_CLASSPATH=%UL_CLASSPATH%;%BOOTSTRAP_MINI_PROJECT%\target\classes
 SET UL_CLASSPATH=%UL_CLASSPATH%;%POM_READER_PROJECT%\target\classes
 SET UL_CLASSPATH=%UL_CLASSPATH%;%CLASSWORLDS_PROJECT%\target\classes
 
 %JAVA_HOME%\bin\javac -nowarn -source %JAVA_SPECIFICATION_VERSION% -target %JAVA_SPECIFICATION_VERSION% ^
   -classpath %UL_CLASSPATH% ^
-  -d %UNIVERSAL_LAUNCHER_PROJECT%\target\classes ^
-  %UNIVERSAL_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\core\*.java ^
-  %UNIVERSAL_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\install\*.java ^
-  %UNIVERSAL_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\*.java
+  -d %JLAUNCHPAD_LAUNCHER_PROJECT%\target\classes ^
+  %JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\core\*.java ^
+  %JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\install\*.java ^
+  %JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\*.java
 
-%JAVA_HOME%\bin\jar cf %UNIVERSAL_LAUNCHER_PROJECT%\target\universal-launcher.jar ^
-  -C %UNIVERSAL_LAUNCHER_PROJECT%\target\classes .
+%JAVA_HOME%\bin\jar cf %JLAUNCHPAD_LAUNCHER_PROJECT%\target\jlaunchpad-launcher.jar ^
+  -C %JLAUNCHPAD_LAUNCHER_PROJECT%\target\classes .

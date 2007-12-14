@@ -45,8 +45,8 @@ public class CoreInstaller {
       System.out.println("Installing bootstrap-mini project...");
       installer.install("projects/bootstrap-mini", false);
 
-      System.out.println("Installing \"universal-launcher-common\" project...");
-      installer.install("projects/universal-launcher-common", false);
+      System.out.println("Installing \"jlaunchpad-common\" project...");
+      installer.install("projects/jlaunchpad-common", false);
 
       System.out.println("Installing \"classworlds\" project...");
       installer.install("projects/classworlds", false);
@@ -54,8 +54,8 @@ public class CoreInstaller {
       System.out.println("Installing \"pom-reader\" project...");
       installer.install("projects/pom-reader", false);      
 
-      System.out.println("Installing \"universal-launcher\" project...");
-      installer.install("projects/universal-launcher", false);
+      System.out.println("Installing \"jlaunchpad-launcher\" project...");
+      installer.install("projects/jlaunchpad-launcher", false);
 
       File[] files = new File("src/main/config").listFiles();
 

@@ -2,7 +2,7 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import org.codehaus.classworlds.ClassWorld;
-import org.sf.jlaunchpad.UniversalLauncher;
+import org.sf.jlaunchpad.JLaunchPadLauncher;
 import org.sf.jlaunchpad.DepsLauncher;
 import org.sf.jlaunchpad.core.LauncherCommandLineParser;
 import org.sf.jlaunchpad.core.SimpleLauncher;
@@ -36,9 +36,9 @@ public class UniversalLauncherTest extends TestCase {
 */
       // String[] newArgs = parser.parse(args);
 
-      // UniversalLauncher.main(args, classWorld);
+      // JLaunchPadLauncher.main(args, classWorld);
 
-      //UniversalLauncher launcher = UniversalLauncher.getInstance();
+      //JLaunchPadLauncher launcher = JLaunchPadLauncher.getInstance();
 
       // launcher.configure(Thread.currentThread().getContextClassLoader());
 
@@ -47,7 +47,7 @@ public class UniversalLauncherTest extends TestCase {
 
       LauncherCommandLineParser parser = new LauncherCommandLineParser();
 
-      UniversalLauncher launcher = new UniversalLauncher(parser, args, classWorld);
+      JLaunchPadLauncher launcher = new JLaunchPadLauncher(parser, args, classWorld);
 
       launcher.configure(Thread.currentThread().getContextClassLoader());
 
@@ -71,10 +71,10 @@ public class UniversalLauncherTest extends TestCase {
 
       launcher.configure(Thread.currentThread().getContextClassLoader());
 
-      launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/universal-launcher-common/1.0.1/universal-launcher-common-1.0.1.jar");
+      launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/jlaunchpad-common/1.0.1/jlaunchpad-common-1.0.1.jar");
       launcher.addClasspathEntry(repositoryHome + "/org/apache/maven/bootstrap/bootstrap-mini/2.0.8/bootstrap-mini-2.0.8.jar");
       launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/pom-reader/1.0.1/pom-reader-1.0.1.jar");
-      launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/universal-launcher/1.0.1/universal-launcher-1.0.1.jar");
+      launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/jlaunchpad-launcher/1.0.1/jlaunchpad-launcher-1.0.1.jar");
 
       // 1. download dependency
 
@@ -100,10 +100,10 @@ public class UniversalLauncherTest extends TestCase {
 
       String repositoryHome = System.getProperty("repository.home");
 
-      launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/universal-launcher-common/1.0.1/universal-launcher-common-1.0.1.jar");
+      launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/jlaunchpad-common/1.0.1/jlaunchpad-common-1.0.1.jar");
       launcher.addClasspathEntry(repositoryHome + "/org/apache/maven/bootstrap/bootstrap-mini/2.0.8/bootstrap-mini-2.0.8.jar");
       launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/pom-reader/1.0.1/pom-reader-1.0.1.jar");
-      launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/universal-launcher/1.0.1/universal-launcher-1.0.1.jar");
+      launcher.addClasspathEntry(repositoryHome + "/org/sf/jlaunchpad/jlaunchpad-launcher/1.0.1/jlaunchpad-launcher-1.0.1.jar");
 
       launcher.configure(Thread.currentThread().getContextClassLoader());
       launcher.launch();

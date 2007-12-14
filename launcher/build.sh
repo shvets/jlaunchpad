@@ -5,8 +5,8 @@
 BOOTSTRAP_MINI_PROJECT=projects/bootstrap-mini
 CLASSWORLDS_PROJECT=projects/classworlds
 POM_READER_PROJECT=projects/pom-reader
-UNIVERSAL_LAUNCHER_COMMON_PROJECT=projects/universal-launcher-common
-UNIVERSAL_LAUNCHER_PROJECT=projects/universal-launcher
+JLAUNCHPAD_COMMON_PROJECT=projects/jlaunchpad-common
+JLAUNCHPAD_LAUNCHER_PROJECT=projects/jlaunchpad-launcher
 
 echo ---### Java Specification Version: $JAVA_SPECIFICATION_VERSION
 
@@ -44,19 +44,19 @@ $JAVA_HOME/bin/jar cf $CLASSWORLDS_PROJECT/target/classworlds.jar \
 
 echo ---### Builds universal-launcher-common project
 
-if [ ! -f $UNIVERSAL_LAUNCHER_COMMON_PROJECT/target/classes ]; then
-  mkdir -p $UNIVERSAL_LAUNCHER_COMMON_PROJECT/target/classes
+if [ ! -f $JLAUNCHPAD_COMMON_PROJECT/target/classes ]; then
+  mkdir -p $JLAUNCHPAD_COMMON_PROJECT/target/classes
 fi
 
-UL_COMMON_CLASSPATH=$UNIVERSAL_LAUNCHER_COMMON_PROJECT/src/main/java
+UL_COMMON_CLASSPATH=$JLAUNCHPAD_COMMON_PROJECT/src/main/java
 
 $JAVA_HOME/bin/javac -nowarn -source $JAVA_SPECIFICATION_VERSION -target $JAVA_SPECIFICATION_VERSION \
   -classpath $UL_COMMON_CLASSPATH \
-  -d $UNIVERSAL_LAUNCHER_COMMON_PROJECT/target/classes \
-  $UNIVERSAL_LAUNCHER_COMMON_PROJECT/src/main/java/org/sf/jlaunchpad/util/*.java
+  -d $JLAUNCHPAD_COMMON_PROJECT/target/classes \
+  $JLAUNCHPAD_COMMON_PROJECT/src/main/java/org/sf/jlaunchpad/util/*.java
 
-$JAVA_HOME/bin/jar cf $UNIVERSAL_LAUNCHER_COMMON_PROJECT/target/universal-launcher-common.jar \
-  -C $UNIVERSAL_LAUNCHER_COMMON_PROJECT/target/classes .
+$JAVA_HOME/bin/jar cf $JLAUNCHPAD_COMMON_PROJECT/target/jlaunchpad-common.jar \
+  -C $JLAUNCHPAD_COMMON_PROJECT/target/classes .
 
 echo ---### Builds pom-reader project
 
@@ -65,7 +65,7 @@ if [ ! -f $POM_READER_PROJECT/target/classes ]; then
 fi
 
 PR_CLASSPATH=$BOOTSTRAP_MINI_PROJECT/target/classes
-PR_CLASSPATH=$PR_CLASSPATH:$UNIVERSAL_LAUNCHER_COMMON_PROJECT/target/classes
+PR_CLASSPATH=$PR_CLASSPATH:$JLAUNCHPAD_COMMON_PROJECT/target/classes
 PR_CLASSPATH=$PR_CLASSPATH:$POM_READER_PROJECT/src/main/java
 
 if [ "$CYGWIN" = "true" ]; then
@@ -83,12 +83,12 @@ $JAVA_HOME/bin/jar cf $POM_READER_PROJECT/target/pom-reader.jar \
 
 echo ---### Builds universal-launcher project
 
-if [ ! -f $UNIVERSAL_LAUNCHER_PROJECT/target/classes ]; then
-  mkdir -p $UNIVERSAL_LAUNCHER_PROJECT/target/classes
+if [ ! -f $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes ]; then
+  mkdir -p $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes
 fi
 
-UL_CLASSPATH=$UNIVERSAL_LAUNCHER_PROJECT/src/main/java
-UL_CLASSPATH=$UL_CLASSPATH:$UNIVERSAL_LAUNCHER_COMMON_PROJECT/target/classes
+UL_CLASSPATH=$JLAUNCHPAD_LAUNCHER_PROJECT/src/main/java
+UL_CLASSPATH=$UL_CLASSPATH:$JLAUNCHPAD_COMMON_PROJECT/target/classes
 UL_CLASSPATH=$UL_CLASSPATH:$BOOTSTRAP_MINI_PROJECT/target/classes
 UL_CLASSPATH=$UL_CLASSPATH:$POM_READER_PROJECT/target/classes
 UL_CLASSPATH=$UL_CLASSPATH:$CLASSWORLDS_PROJECT/target/classes
@@ -99,10 +99,10 @@ fi
 
 $JAVA_HOME/bin/javac -nowarn -source $JAVA_SPECIFICATION_VERSION -target $JAVA_SPECIFICATION_VERSION \
   -classpath $UL_CLASSPATH \
-  -d $UNIVERSAL_LAUNCHER_PROJECT/target/classes \
-  $UNIVERSAL_LAUNCHER_PROJECT/src/main/java/org/sf/jlaunchpad/core/*.java \
-  $UNIVERSAL_LAUNCHER_PROJECT/src/main/java/org/sf/jlaunchpad/install/*.java \
-  $UNIVERSAL_LAUNCHER_PROJECT/src/main/java/org/sf/jlaunchpad/*.java
+  -d $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes \
+  $JLAUNCHPAD_LAUNCHER_PROJECT/src/main/java/org/sf/jlaunchpad/core/*.java \
+  $JLAUNCHPAD_LAUNCHER_PROJECT/src/main/java/org/sf/jlaunchpad/install/*.java \
+  $JLAUNCHPAD_LAUNCHER_PROJECT/src/main/java/org/sf/jlaunchpad/*.java
 
-$JAVA_HOME/bin/jar cf $UNIVERSAL_LAUNCHER_PROJECT/target/universal-launcher.jar \
-  -C $UNIVERSAL_LAUNCHER_PROJECT/target/classes .
+$JAVA_HOME/bin/jar cf $JLAUNCHPAD_LAUNCHER_PROJECT/target/jlaunchpad-launcher.jar \
+  -C $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes .

@@ -35,11 +35,11 @@
         <include>pom-reader/pom.xml</include>
         <include>pom-reader/src/**</include>
 
-        <include>universal-launcher-common/pom.xml</include>
-        <include>universal-launcher-common/src/**</include>
+        <include>jlaunchpad-common/pom.xml</include>
+        <include>jlaunchpad-common/src/**</include>
 
-        <include>universal-launcher/pom.xml</include>
-        <include>universal-launcher/src/**</include>
+        <include>jlaunchpad-launcher/pom.xml</include>
+        <include>jlaunchpad-launcher/src/**</include>
       </includes>
     </fileSet>
   </fileSets>

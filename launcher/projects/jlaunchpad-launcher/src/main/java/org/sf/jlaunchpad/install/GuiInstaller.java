@@ -10,7 +10,7 @@ import java.awt.event.*;
 import java.io.*;
 
 /**
- * The class perform initial (gui) installation of universal launcher.
+ * The class perform initial (gui) installation of jlaunchpad launcher.
  *
  * @author Alexander Shvets
  * @version 1.0 01/14/2007

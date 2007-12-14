@@ -37,8 +37,8 @@
       <item name="Bootstrap-Mini" href="bootstrap-mini/index.html"/>
       <item name="Classworlds" href="classworlds/index.html"/>      
       <item name="Pom-Reader" href="pom-reader/index.html"/>
-      <item name="Universal-Launcher-Common" href="universal-launcher-common/index.html"/>
-      <item name="Universal-Launcher" href="universal-launcher/index.html"/>
+      <item name="JLaunchPad-Common" href="jlaunchpad-common/index.html"/>
+      <item name="JLaunchPad-Launcher" href="jlaunchpad-launcher/index.html"/>
     </menu>
 
     ${parentProject}

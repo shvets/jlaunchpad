@@ -33,12 +33,12 @@
         <include>pom-reader/pom.xml</include>
         <include>pom-reader/target/pom-reader.jar</include>
 
-        <include>universal-launcher-common/pom.xml</include>
-        <include>universal-launcher-common/target/universal-launcher-common.jar</include>
+        <include>jlaunchpad-common/pom.xml</include>
+        <include>jlaunchpad-common/target/jlaunchpad-common.jar</include>
 
-        <include>universal-launcher/pom.xml</include>
-        <include>universal-launcher/target/universal-launcher.jar</include>
-        <include>universal-launcher/src/main/config/*.*</include>
+        <include>jlaunchpad-launcher/pom.xml</include>
+        <include>jlaunchpad-launcher/target/jlaunchpad-launcher.jar</include>
+        <include>jlaunchpad-launcher/src/main/config/*.*</include>
       </includes>
     </fileSet>
   </fileSets>
