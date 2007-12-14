@@ -57,7 +57,7 @@ public class CoreInstaller {
       System.out.println("Installing \"universal-launcher\" project...");
       installer.install("projects/universal-launcher", false);
 
-      File[] files = new File("projects/universal-launcher/src/main/config").listFiles();
+      File[] files = new File("src/main/config").listFiles();
 
       String launcherHome = System.getProperty("launcher.home");
       File launcherHomeFile = new File(launcherHome);
