@@ -354,7 +354,7 @@ public class PomReader {
         }
 
         if(!file.exists()) {
-          file = new File(System.getProperty("user.dir") + "/projects/universal-launcher/src/main/config/" + fileName);
+          file = new File(System.getProperty("user.dir") + "/projects/jlaunchpad-launcher/src/main/config/" + fileName);
         }
 
         if(!file.exists()) {

@@ -42,7 +42,7 @@ $JAVA_HOME/bin/javac -nowarn -source $JAVA_SPECIFICATION_VERSION -target $JAVA_S
 $JAVA_HOME/bin/jar cf $CLASSWORLDS_PROJECT/target/classworlds.jar \
   -C $CLASSWORLDS_PROJECT/target/classes .
 
-echo ---### Builds universal-launcher-common project
+echo ---### Builds jlaunchpad-common project
 
 if [ ! -f $JLAUNCHPAD_COMMON_PROJECT/target/classes ]; then
   mkdir -p $JLAUNCHPAD_COMMON_PROJECT/target/classes
@@ -81,7 +81,7 @@ $JAVA_HOME/bin/javac -nowarn -source $JAVA_SPECIFICATION_VERSION -target $JAVA_S
 $JAVA_HOME/bin/jar cf $POM_READER_PROJECT/target/pom-reader.jar \
   -C $POM_READER_PROJECT/target/classes .
 
-echo ---### Builds universal-launcher project
+echo ---### Builds jlaunchpad-launcher project
 
 if [ ! -f $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes ]; then
   mkdir -p $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes
