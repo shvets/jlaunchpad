@@ -497,7 +497,11 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectModuleManager">
-    <modules />
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/projects/universal-launcher/jlaunchpad.iml" filepath="$PROJECT_DIR$/projects/universal-launcher/jlaunchpad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projects/universal-launcher-common/jlaunchpad-common.iml" filepath="$PROJECT_DIR$/projects/universal-launcher-common/jlaunchpad-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jlaunchpad-main.iml" filepath="$PROJECT_DIR$/jlaunchpad-main.iml" />
+    </modules>
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />

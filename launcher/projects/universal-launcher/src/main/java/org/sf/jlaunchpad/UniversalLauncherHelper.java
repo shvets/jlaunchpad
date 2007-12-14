@@ -46,10 +46,8 @@ public class UniversalLauncherHelper {
   /**
    * Resolves dependencies for specified dependencies file.
    *
+   * @param depsFileName deps file name
    * @throws Exception the exception
-   * @param groupId group ID
-   * @param artifactId artifact ID
-   * @param version version
    */
   public static void resolveDependencies(String depsFileName) throws Exception {
     UniversalLauncher.getInstance().resolveDependencies(depsFileName);
