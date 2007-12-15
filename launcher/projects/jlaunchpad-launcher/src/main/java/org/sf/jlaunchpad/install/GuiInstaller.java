@@ -455,8 +455,6 @@ public class GuiInstaller extends CoreInstaller
   }
 
   private void updateProperties() {
-//    System.setProperty("java.specification.version", (String)javaSpecVersionComboBox.getSelectedItem());
-
     System.setProperty("java.home.internal", javaHomeField.getText().trim());
 
     if (useProxyCheckbox.isSelected()) {
@@ -478,21 +476,15 @@ public class GuiInstaller extends CoreInstaller
 
     System.setProperty("launcher.home", launcherHomeField.getText().trim());
     System.setProperty("repository.home", repositoryHomeField.getText().trim());
-//    System.setProperty("maven.repo.local", repositoryHomeField.getText().trim());    
   }
 
 
   @SuppressWarnings({"MismatchedQueryAndUpdateOfCollection"})
   protected void load() throws IOException {
     super.load();
-//    launcherProps.updateProperty(javaSpecVersionComboBox, "java.specification.version");
     updateProperty(javaHomeField, "java.home.internal");
-
-//    launcherProps.updateProperty(mobileJavaHomeField, "mobile.java.home");
     updateProperty(launcherHomeField, "launcher.home");
-
     updateProperty(repositoryHomeField, "repository.home");
-//    launcherProps.updateProperty(rubyHomeField, "native.ruby.home");
 
     updateProperty(useProxyCheckbox, "proxySet");
     updateProperty(proxyHostField, "proxyHost");
@@ -506,7 +498,6 @@ public class GuiInstaller extends CoreInstaller
   protected void save() throws IOException {
     launcherProps.load();
 
-//    launcherProps.saveProperty(javaSpecVersionComboBox, "java.specification.version");
     saveProperty(javaHomeField, "java.home.internal");
 
     saveProperty(launcherHomeField, "launcher.home");
