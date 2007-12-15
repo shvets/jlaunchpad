@@ -76,8 +76,19 @@ public final class ProjectResolver
                                                dependency.getClassifier(), dependency.getVersion(), dependency.getScope(),
                                                resolveTransitiveDependencies, excluded2, dependency.getChain() );
 
-                        addDependencies( p.getAllDependencies(), model.getTransitiveDependencies(), dependency.getScope(),
-                                         excluded2 );
+                        addDependencies( p.getAllDependencies(), model.getTransitiveDependencies(), dependency.getScope(), excluded2 );
+
+                       // add jar too
+                      if(!"pom".equals(dependency.getPackaging())) {
+                        Dependency jar = new Dependency( dependency.getGroupId(), dependency.getArtifactId(), dependency.getVersion(), dependency.getPackaging(), dependency.getChain() );
+                        jar.setClassifier(dependency.getClassifier());
+
+                        try {
+                          resolver.downloadDependencies( Collections.singletonList( jar ) );
+                        } catch (DownloadFailedException e) {
+                          e.printStackTrace();
+                        }
+                      }
                     }
                 }
             }
