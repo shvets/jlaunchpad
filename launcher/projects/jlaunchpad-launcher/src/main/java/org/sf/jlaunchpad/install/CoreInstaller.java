@@ -1,12 +1,15 @@
 package org.sf.jlaunchpad.install;
 
-
 import org.sf.jlaunchpad.core.LauncherException;
 import org.sf.jlaunchpad.util.FileUtil;
 import org.sf.jlaunchpad.util.StringUtil;
+import org.sf.jlaunchpad.xml.ProxiesXmlHelper;
 import org.sf.pomreader.ProjectInstaller;
+import org.jdom.JDOMException;
+import org.jdom.Element;
 
 import java.io.*;
+import java.util.ArrayList;
 
 /**
  * The class perform initial (command line) installation of scriprlandia.
@@ -40,23 +43,54 @@ public class CoreInstaller {
     System.out.println("Installing JLaunchPad...");
 
     try {
-      load();
+//      load();
+      save();
 
       installer = new ProjectInstaller();
 
       install("bootstrap-mini");
+      install("jdom");
       install("jlaunchpad-common");
       install("classworlds");
       install("pom-reader");
       install("jlaunchpad-launcher");
 
       copyConfigFiles("src/main/config");
+
+      configureProxy();
     }
     catch (Exception e) {
       throw new LauncherException(e);
     }
 
     System.out.println("JLaunchPad is installed.");
+  }
+
+  private void configureProxy() throws JDOMException, IOException {
+    String repositoryHome = System.getProperty("repository.home");
+    String launcherHome = System.getProperty("launcher.home");
+
+    File outSettings = new File(launcherHome + File.separatorChar + "settings.xml");
+
+    ProxiesXmlHelper xmlHelper = new ProxiesXmlHelper();
+
+    if(!outSettings.exists()) {
+      File inSettings =  new File("src/main/config/settings.xml");
+
+      xmlHelper.read(inSettings);
+    }
+    else {
+      xmlHelper.read(outSettings);
+    }
+
+    Element localRepository = xmlHelper.getLocalRepositoryElement();
+
+    // set up local repository value
+    localRepository.setText(repositoryHome.replace(File.separatorChar, '/'));
+
+    xmlHelper.process(/*new ArrayList()*/launcherProps);
+
+    xmlHelper.save(outSettings);
   }
 
   private void install(String name) throws Exception {

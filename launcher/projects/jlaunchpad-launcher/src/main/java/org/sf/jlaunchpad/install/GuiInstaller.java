@@ -16,7 +16,7 @@ import java.io.*;
  * @version 1.0 01/14/2007
  */
 public class GuiInstaller extends CoreInstaller
-       implements CaretListener, ActionListener {
+    implements CaretListener, ActionListener {
   private JTextField javaHomeField = new JTextField(35);
   private JTextField launcherHomeField = new JTextField(35);
   private JTextField repositoryHomeField = new JTextField(35);
@@ -50,6 +50,7 @@ public class GuiInstaller extends CoreInstaller
 
   /**
    * Creates new GUI installer.
+   *
    * @param args command line arguments
    * @throws LauncherException the exception
    */
@@ -85,7 +86,7 @@ public class GuiInstaller extends CoreInstaller
     frame.getContentPane().add(createContent(), BorderLayout.CENTER);
 
     tryEnableInstallButton();
-    
+
     frame.setVisible(true);
   }
 
@@ -109,8 +110,7 @@ public class GuiInstaller extends CoreInstaller
         if (repositoryHome != null && repositoryHome.length() > 0) {
           if (!useProxyCheckbox.isSelected()) {
             enabled = true;
-          }
-          else {
+          } else {
             String proxyHost = proxyHostField.getText().trim();
             String proxyPort = proxyPortField.getText().trim();
 
@@ -121,8 +121,7 @@ public class GuiInstaller extends CoreInstaller
 
                   if (!proxyAuthCheckbox.isSelected()) {
                     enabled = true;
-                  }
-                  else {
+                  } else {
                     String proxyUser = proxyUserField.getText().trim();
                     char[] proxyPassword = proxyPasswordField.getPassword();
 
@@ -153,13 +152,11 @@ public class GuiInstaller extends CoreInstaller
       if (proxyAuthCheckbox.isSelected()) {
         proxyUserField.setEnabled(true);
         proxyPasswordField.setEnabled(true);
-      }
-      else {
+      } else {
         proxyUserField.setEnabled(false);
         proxyPasswordField.setEnabled(false);
       }
-    }
-    else {
+    } else {
       proxyHostField.setEnabled(false);
       proxyPortField.setEnabled(false);
       proxyAuthCheckbox.setEnabled(false);
@@ -276,9 +273,12 @@ public class GuiInstaller extends CoreInstaller
 
     panel11.setLayout(new GridBagLayout());
 
-    constraints.gridx = 0; panel11.add(javaHomeLabel, constraints);
-    constraints.gridx = 1; panel11.add(javaHomeField, constraints);
-    constraints.gridx = 2; panel11.add(javaHomeSearchButton, constraints);
+    constraints.gridx = 0;
+    panel11.add(javaHomeLabel, constraints);
+    constraints.gridx = 1;
+    panel11.add(javaHomeField, constraints);
+    constraints.gridx = 2;
+    panel11.add(javaHomeSearchButton, constraints);
 
 //    JPanel panel12 = new JPanel();
 
@@ -292,9 +292,12 @@ public class GuiInstaller extends CoreInstaller
 
     panel12.setLayout(new GridBagLayout());
 
-    constraints.gridx = 0; panel12.add(launcherHomeLabel, constraints);
-    constraints.gridx = 1; panel12.add(launcherHomeField, constraints);
-    constraints.gridx = 2; panel12.add(launcherHomeSearchButton, constraints);
+    constraints.gridx = 0;
+    panel12.add(launcherHomeLabel, constraints);
+    constraints.gridx = 1;
+    panel12.add(launcherHomeField, constraints);
+    constraints.gridx = 2;
+    panel12.add(launcherHomeSearchButton, constraints);
 
     constraints.gridy = 2;
 
@@ -302,9 +305,12 @@ public class GuiInstaller extends CoreInstaller
 
     panel13.setLayout(new GridBagLayout());
 
-    constraints.gridx = 0; panel13.add(repositoryHomeLabel, constraints);
-    constraints.gridx = 1; panel13.add(repositoryHomeField, constraints);
-    constraints.gridx = 2; panel13.add(repositoryHomeSearchButton, constraints);
+    constraints.gridx = 0;
+    panel13.add(repositoryHomeLabel, constraints);
+    constraints.gridx = 1;
+    panel13.add(repositoryHomeField, constraints);
+    constraints.gridx = 2;
+    panel13.add(repositoryHomeSearchButton, constraints);
 
 //    constraints.gridy = 3;
 
@@ -465,8 +471,7 @@ public class GuiInstaller extends CoreInstaller
         System.setProperty("proxyUser", proxyUserField.getText().trim());
         System.setProperty("proxyPassword", new String(proxyPasswordField.getPassword()).trim());
       }
-    }
-    else {
+    } else {
 /*      System.setProperty("proxyHost", "");
       System.setProperty("proxyPort", "");
       System.setProperty("proxyUser", "");
@@ -503,18 +508,31 @@ public class GuiInstaller extends CoreInstaller
     saveProperty(launcherHomeField, "launcher.home");
     saveProperty(repositoryHomeField, "repository.home");
 
-    if(useProxyCheckbox.isSelected()) {
+    if (useProxyCheckbox.isSelected()) {
       saveProperty(useProxyCheckbox, "proxySet");
-    }
-    saveProperty(proxyHostField, "proxyHost");
-    saveProperty(proxyPortField, "proxyPort");
 
-    if(useProxyCheckbox.isSelected()) {
-      saveProperty(proxyAuthCheckbox, "proxyAuth");
+      saveProperty(proxyHostField, "proxyHost");
+      saveProperty(proxyPortField, "proxyPort");
+
+      if (proxyAuthCheckbox.isSelected()) {
+        saveProperty(proxyAuthCheckbox, "proxyAuth");
+        saveProperty(proxyUserField, "proxyUser");
+        saveProperty(proxyPasswordField, "proxyPassword");
+      }
+      else {
+        launcherProps.put("proxyAuth", Boolean.FALSE.toString());
+        launcherProps.put("proxyUser", "");
+        launcherProps.put("proxyPassword", "");
+      }
     }
-    
-    saveProperty(proxyUserField, "proxyUser");
-    saveProperty(proxyPasswordField, "proxyPassword");
+    else {
+      launcherProps.put("proxySet", Boolean.FALSE.toString());
+      launcherProps.put("proxyHost", "");
+      launcherProps.put("proxyPort", "");
+      launcherProps.put("proxyAuth", Boolean.FALSE.toString());
+      launcherProps.put("proxyUser", "");
+      launcherProps.put("proxyPassword", "");
+    }
 
 //    launcherProps.put("launcher.version", System.getProperty("launcher.version"));
 
@@ -525,33 +543,31 @@ public class GuiInstaller extends CoreInstaller
    * Updates GUI component from the property.
    *
    * @param component GUI component
-   * @param property the property to be propagated
+   * @param property  the property to be propagated
    */
   public void updateProperty(JComponent component, String property) {
-    if(component instanceof JTextField) {
-      JTextField textField = (JTextField)component;
+    if (component instanceof JTextField) {
+      JTextField textField = (JTextField) component;
 
-      String value = (String)launcherProps.get(property);
+      String value = (String) launcherProps.get(property);
 
-      if(value != null) {
+      if (value != null) {
         textField.setText(value.replace('/', File.separatorChar));
       }
-    }
-    else if(component instanceof JCheckBox) {
-      JCheckBox checkBox = (JCheckBox)component;
+    } else if (component instanceof JCheckBox) {
+      JCheckBox checkBox = (JCheckBox) component;
 
-      String value = (String)launcherProps.get(property);
+      String value = (String) launcherProps.get(property);
 
-      if(value != null) {
+      if (value != null) {
         checkBox.setSelected(Boolean.parseBoolean(value));
       }
-    }
-    else if(component instanceof JComboBox) {
-      JComboBox comboBox = (JComboBox)component;
+    } else if (component instanceof JComboBox) {
+      JComboBox comboBox = (JComboBox) component;
 
-      String value = (String)launcherProps.get(property);
+      String value = (String) launcherProps.get(property);
 
-      if(value != null) {
+      if (value != null) {
         comboBox.setSelectedItem(value);
       }
     }
@@ -561,25 +577,23 @@ public class GuiInstaller extends CoreInstaller
    * Updates the property from GUI component.
    *
    * @param component GUI component
-   * @param property the property to be updated
+   * @param property  the property to be updated
    */
   public void saveProperty(JComponent component, String property) {
-    if(component instanceof JTextField) {
-      JTextField textField = (JTextField)component;
+    if (component instanceof JTextField) {
+      JTextField textField = (JTextField) component;
 
       String value = textField.getText().trim();
 
-        if(value != null && value.trim().length() > 0) {
-          launcherProps.put(property, value.replace(File.separatorChar, '/'));
-        }
-    }
-    else if(component instanceof JCheckBox) {
-      JCheckBox checkBox = (JCheckBox)component;
+      if (value != null && value.trim().length() > 0) {
+        launcherProps.put(property, value.replace(File.separatorChar, '/'));
+      }
+    } else if (component instanceof JCheckBox) {
+      JCheckBox checkBox = (JCheckBox) component;
 
       launcherProps.put(property, String.valueOf(checkBox.isSelected()));
-    }
-    else if(component instanceof JComboBox) {
-      JComboBox comboBox = (JComboBox)component;
+    } else if (component instanceof JComboBox) {
+      JComboBox comboBox = (JComboBox) component;
 
       launcherProps.put(property, comboBox.getSelectedItem());
     }

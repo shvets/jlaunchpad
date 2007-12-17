@@ -52,6 +52,14 @@
     </developer>
   </developers>
 
+  <dependencies>
+    <dependency>
+      <groupId>jdom</groupId>
+      <artifactId>jdom</artifactId>
+      <version>1.1</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <finalName>${artifactId}</finalName>
     <defaultGoal>package</defaultGoal>

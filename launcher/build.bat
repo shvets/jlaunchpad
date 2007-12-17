@@ -5,6 +5,7 @@
 SET BOOTSTRAP_MINI_PROJECT=projects\bootstrap-mini
 SET CLASSWORLDS_PROJECT=projects\classworlds
 SET POM_READER_PROJECT=projects\pom-reader
+SET JDOM_PROJECT=projects\jdom
 SET JLAUNCHPAD_COMMON_PROJECT=projects\jlaunchpad-common
 SET JLAUNCHPAD_LAUNCHER_PROJECT=projects\jlaunchpad-launcher
 
@@ -49,11 +50,13 @@ if not exist %JLAUNCHPAD_COMMON_PROJECT%\target\classes (
 )
 
 SET UL_COMMON_CLASSPATH=%JLAUNCHPAD_COMMON_PROJECT%\src\main\java
+SET UL_COMMON_CLASSPATH=%UL_COMMON_CLASSPATH%;%JDOM_PROJECT%\target\jdom.jar
 
 %JAVA_HOME%\bin\javac -nowarn -source %JAVA_SPECIFICATION_VERSION% -target %JAVA_SPECIFICATION_VERSION% ^
   -classpath %UL_COMMON_CLASSPATH% ^
   -d %JLAUNCHPAD_COMMON_PROJECT%\target\classes ^
-  %JLAUNCHPAD_COMMON_PROJECT%\src\main\java\org\sf\jlaunchpad\util\*.java
+  %JLAUNCHPAD_COMMON_PROJECT%\src\main\java\org\sf\jlaunchpad\util\*.java ^
+  %JLAUNCHPAD_COMMON_PROJECT%\src\main\java\org\sf\jlaunchpad\xml\*.java
 
 %JAVA_HOME%\bin\jar cf %JLAUNCHPAD_COMMON_PROJECT%\target\jlaunchpad-common.jar ^
   -C %JLAUNCHPAD_COMMON_PROJECT%\target\classes .
@@ -87,6 +90,7 @@ SET UL_CLASSPATH=%UL_CLASSPATH%;%JLAUNCHPAD_COMMON_PROJECT%\target\classes
 SET UL_CLASSPATH=%UL_CLASSPATH%;%BOOTSTRAP_MINI_PROJECT%\target\classes
 SET UL_CLASSPATH=%UL_CLASSPATH%;%POM_READER_PROJECT%\target\classes
 SET UL_CLASSPATH=%UL_CLASSPATH%;%CLASSWORLDS_PROJECT%\target\classes
+SET UL_CLASSPATH=%UL_CLASSPATH%;%JDOM_PROJECT%\target\jdom.jar
 
 %JAVA_HOME%\bin\javac -nowarn -source %JAVA_SPECIFICATION_VERSION% -target %JAVA_SPECIFICATION_VERSION% ^
   -classpath %UL_CLASSPATH% ^

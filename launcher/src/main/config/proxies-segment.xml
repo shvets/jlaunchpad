@@ -7,9 +7,9 @@
     <proxy>
       <active>true</active>
       <protocol>http</protocol>
-      <username>@pproxyUser@</username>
-      <password>@pproxyPassword@</password>
-      <port>@pproxyHost@</port>
+      <username>@proxyUser@</username>
+      <password>@proxyPassword@</password>
+      <port>@proxyPort@</port>
       <host>@proxyHost@</host>
       <id/>
     </proxy>

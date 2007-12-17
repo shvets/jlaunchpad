@@ -4,6 +4,7 @@ import junit.textui.TestRunner;
 import org.codehaus.classworlds.ClassWorld;
 import org.sf.jlaunchpad.DepsLauncher;
 import org.sf.jlaunchpad.JLaunchPadLauncher;
+import org.sf.jlaunchpad.install.GuiInstaller;
 import org.sf.jlaunchpad.core.LauncherCommandLineParser;
 
 import java.util.ArrayList;
@@ -23,8 +24,6 @@ public class JLaunchPadLauncherTest extends TestCase {
   }
 
   public void testCreateJLaunchPad() {
-   // String repositoryHome = System.getProperty("repository.home");
-
     String[] args = new String[]{};
 
     ClassWorld classWorld = new ClassWorld();
@@ -50,18 +49,14 @@ public class JLaunchPadLauncherTest extends TestCase {
     try {
       ClassWorld classWorld = new ClassWorld();
 
-      // LauncherCommandLineParser parser = new LauncherCommandLineParser();
+      List<String> depsFileNames = new ArrayList<String>();
 
-/*      List<String> depsFileNames = new ArrayList<String>();
-
-      depsFileNames.add("C:/maven-repository/org/sf/scriptlandia/beanshell-starter/1.0.0/beanshell-starter-1.0.0.pom ");
-      parser.getCommandLine().put("main.class.name", "bsh.Interpreter");
-      parser.getCommandLine().put("deps.file.name", depsFileNames);
-*/
-
+      depsFileNames.add("projects/jlaunchpad-launcher/pom.xml ");
       LauncherCommandLineParser parser = new LauncherCommandLineParser();
 
       JLaunchPadLauncher launcher = new JLaunchPadLauncher(parser, args, classWorld);
+      parser.getCommandLine().put("main.class.name", "org.sf.pomreader.ProjectInstaller");
+      parser.getCommandLine().put("deps.file.name", depsFileNames);
 
       launcher.configure(Thread.currentThread().getContextClassLoader());
 
@@ -72,8 +67,6 @@ public class JLaunchPadLauncherTest extends TestCase {
   }
 
   public void testInstallProject() {
- //   String repositoryHome = System.getProperty("repository.home");
-
     String[] args = new String[]{
         "-basedir", "projects/jlaunchpad-launcher/src/test/resources/test-data1",
         "-build.required", "false"
@@ -81,7 +74,7 @@ public class JLaunchPadLauncherTest extends TestCase {
 
     List<String> depsFileNames = new ArrayList<String>();
 
-    depsFileNames.add( "projects/jlaunchpad-launcher/pom.xml ");
+    depsFileNames.add("projects/jlaunchpad-launcher/pom.xml ");
 
     LauncherCommandLineParser parser = new LauncherCommandLineParser();
     parser.getCommandLine().put("main.class.name", "org.sf.pomreader.ProjectInstaller");
@@ -95,6 +88,18 @@ public class JLaunchPadLauncherTest extends TestCase {
       launcher.configure(Thread.currentThread().getContextClassLoader());
 
       launcher.launch();
+    } catch (Exception e) {
+      fail(e.getMessage());
+    }
+  }
+
+  public void testGuiInstaller() {
+    String[] args = new String[]{};
+
+    try {
+      GuiInstaller.main(args);
+
+      Thread.currentThread().join();
     } catch (Exception e) {
       fail(e.getMessage());
     }
