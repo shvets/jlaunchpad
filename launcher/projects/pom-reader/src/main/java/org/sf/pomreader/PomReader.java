@@ -100,8 +100,24 @@ public class PomReader {
    * @throws IOException                  the exception
    */
   public Model readModel(File file) throws ParserConfigurationException, SAXException, IOException {
-    return readModel(file, true);
+    return readModel(file, true, false);
   }
+
+  /**
+    * Builds the model based on pom/xml file.
+    *
+    * @param file                          pom file
+    * @param resolveTransitiveDependencies true if transitive dependencies should be resolved; false otherwise
+    * @return the model
+    * @throws ParserConfigurationException the exception
+    * @throws SAXException                 the exception
+    * @throws IOException                  the exception
+    */
+   public Model readModel(File file, boolean resolveTransitiveDependencies)
+       throws ParserConfigurationException, SAXException, IOException {
+
+      return readModel(file, resolveTransitiveDependencies, false);
+   }
 
   /**
    * Builds the model based on pom/xml file.
@@ -113,10 +129,10 @@ public class PomReader {
    * @throws SAXException                 the exception
    * @throws IOException                  the exception
    */
-  public Model readModel(File file, boolean resolveTransitiveDependencies)
+  public Model readModel(File file, boolean resolveTransitiveDependencies, boolean fullDownload)
       throws ParserConfigurationException, SAXException, IOException {
 
-    ModelReader modelReader = new ModelReader(resolver, resolveTransitiveDependencies);
+    ModelReader modelReader = new ModelReader(resolver, resolveTransitiveDependencies, fullDownload);
 
     Model model = modelReader.parseModel(file, Collections.EMPTY_LIST);
 

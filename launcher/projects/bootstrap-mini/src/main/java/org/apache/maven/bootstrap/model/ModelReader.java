@@ -82,6 +82,8 @@ public class ModelReader
 
     private final String inheritedScope;
 
+    private boolean fullDownload;
+
     private boolean insideConfiguration;
 
     private boolean insideBuild;
@@ -94,13 +96,18 @@ public class ModelReader
 
     private Map pomProperties = new HashMap();
 
-    public ModelReader( ArtifactResolver resolver, boolean resolveTransitiveDependencies )
+  public ModelReader( ArtifactResolver resolver, boolean resolveTransitiveDependencies  )
+  {
+      this( resolver, null, resolveTransitiveDependencies, Collections.EMPTY_SET, false );
+  }
+
+    public ModelReader( ArtifactResolver resolver, boolean resolveTransitiveDependencies, boolean fullDownload  )
     {
-        this( resolver, null, resolveTransitiveDependencies, Collections.EMPTY_SET );
+        this( resolver, null, resolveTransitiveDependencies, Collections.EMPTY_SET, fullDownload  );
     }
 
     public ModelReader( ArtifactResolver resolver, String inheritedScope, boolean resolveTransitiveDependencies,
-                        Set excluded )
+                        Set excluded, boolean fullDownload )
     {
         this.resolver = resolver;
 
@@ -109,6 +116,8 @@ public class ModelReader
         this.excluded = excluded;
 
         this.inheritedScope = inheritedScope;
+
+        this.fullDownload = fullDownload;
     }
 
     public Model parseModel( File file, List chain )
@@ -265,7 +274,7 @@ public class ModelReader
 
             Model p = ProjectResolver.retrievePom( resolver, model.getParentGroupId(), model.getParentArtifactId(),
                                                    model.getClassifier(),
-                                                   model.getParentVersion(), inheritedScope, false, excluded, model.getChain() );
+                                                   model.getParentVersion(), inheritedScope, false, excluded, model.getChain(), fullDownload );
 
             ProjectResolver.addDependencies( p.getAllDependencies(), model.getParentDependencies(), inheritedScope, excluded );
 
@@ -512,7 +521,7 @@ public class ModelReader
         {
             resolver.addBuiltArtifact( model.getGroupId(), model.getArtifactId(), "pom", model.getProjectFile() );
 
-            ProjectResolver.resolveDependencies( resolver, model, resolveTransitiveDependencies, inheritedScope, excluded );
+            ProjectResolver.resolveDependencies( resolver, model, resolveTransitiveDependencies, inheritedScope, excluded, fullDownload );
         }
 
         bodyText = new StringBuffer();

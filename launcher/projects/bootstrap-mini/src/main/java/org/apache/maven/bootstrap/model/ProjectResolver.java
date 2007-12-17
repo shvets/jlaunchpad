@@ -42,7 +42,7 @@ public final class ProjectResolver
     }
 
     public static void resolveDependencies( ArtifactResolver resolver, Model model,
-                                            boolean resolveTransitiveDependencies, String inheritedScope, Set excluded )
+                                            boolean resolveTransitiveDependencies, String inheritedScope, Set excluded, boolean fullDownload)
         throws SAXException
     {
         for ( Iterator it = model.getDependencies().values().iterator(); it.hasNext(); )
@@ -74,12 +74,12 @@ public final class ProjectResolver
 
                         Model p = retrievePom( resolver, dependency.getGroupId(), dependency.getArtifactId(),
                                                dependency.getClassifier(), dependency.getVersion(), dependency.getScope(),
-                                               resolveTransitiveDependencies, excluded2, dependency.getChain() );
+                                               resolveTransitiveDependencies, excluded2, dependency.getChain(), fullDownload );
 
                         addDependencies( p.getAllDependencies(), model.getTransitiveDependencies(), dependency.getScope(), excluded2 );
 
                        // add jar too
-                      if(!"pom".equals(dependency.getPackaging())) {
+                      if(fullDownload && !"pom".equals(dependency.getPackaging())) {
                         Dependency jar = new Dependency( dependency.getGroupId(), dependency.getArtifactId(), dependency.getVersion(), dependency.getPackaging(), dependency.getChain() );
                         jar.setClassifier(dependency.getClassifier());
 
@@ -144,7 +144,7 @@ public final class ProjectResolver
 
     public static Model retrievePom( ArtifactResolver resolver, String groupId, String artifactId, String classifier,
                                      String version, String inheritedScope, boolean resolveTransitiveDependencies,
-                                     Set excluded, List chain )
+                                     Set excluded, List chain, boolean fullDownload )
         throws SAXException
     {
         String key = groupId + ":" + artifactId + ":" + version;
@@ -160,7 +160,7 @@ public final class ProjectResolver
 
         inProgress.add( key );
 
-        ModelReader p = new ModelReader( resolver, inheritedScope, resolveTransitiveDependencies, excluded );
+        ModelReader p = new ModelReader( resolver, inheritedScope, resolveTransitiveDependencies, excluded, fullDownload);
 
         try
         {

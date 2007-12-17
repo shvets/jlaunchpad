@@ -36,12 +36,24 @@ public class ProjectInstaller {
   private PomReader pomReader;
   private ArtifactResolver resolver;
 
+  private boolean fullDownload;
   /**
    * Creates new project installer.
    *
    * @throws Exception the exception 
    */
   public ProjectInstaller() throws Exception {
+    this(false);
+  }
+
+  /**
+   * Creates new project installer.
+   *
+   * @throws Exception the exception
+   */
+  public ProjectInstaller(boolean fullDownload) throws Exception {
+    this.fullDownload = fullDownload;
+
     pomReader = new PomReader();
     pomReader.init();
 
@@ -214,7 +226,7 @@ public class ProjectInstaller {
 
     File file = new File(basedir, "pom.xml");
 
-    Model model = pomReader.readModel(file, true);
+    Model model = pomReader.readModel(file, true, fullDownload);
 
     String key = model.getGroupId() + ":" + model.getArtifactId() + ":" + model.getPackaging();
 
