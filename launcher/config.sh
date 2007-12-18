@@ -16,6 +16,8 @@ REPOSITORY_HOME=/media/hda5/maven-repository
 JAVA_SPECIFICATION_VERSION=1.5
 LAUNCHER_VERSION=1.0.1
 CLASSWORLDS_VERSION=1.1
+JDOM_VERSION=1.1
+BOOTSTRAP_MINI_VERSION=2.0.8
 
 CYGWIN=true
 
@@ -37,6 +39,8 @@ SYSTEM_PROPERTIES="-Dlauncher.home=$LAUNCHER_HOME \
 -Drepository.home=$REPOSITORY_HOME \
 -Dlauncher.version=$LAUNCHER_VERSION \
 -Dclassworlds.version=$CLASSWORLDS_VERSION \
+-Djdom.version=$JDOM_VERSION \
+-Dbootstrap-mini.version=$BOOTSTRAP_MINI_VERSION \
 -Djava.specification.version=$JAVA_SPECIFICATION_VERSION" \
 -Ddebug.mode=$DEBUG_MODE
 
