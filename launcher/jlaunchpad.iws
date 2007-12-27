@@ -16,16 +16,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/test/java/JLaunchPadLauncherTest.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/test/java/JLaunchPadLauncherTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.bat" afterPath="$PROJECT_DIR$/build.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-common/pom.xml" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/config/classworlds.conf" afterPath="$PROJECT_DIR$/src/main/config/classworlds.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstallerFrame.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstallerFrame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/pom.xml" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/assembly/src.xml" afterPath="$PROJECT_DIR$/src/main/assembly/src.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/assembly/install.xml" afterPath="$PROJECT_DIR$/src/main/assembly/install.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.iws" afterPath="$PROJECT_DIR$/jlaunchpad.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/installer.bat" afterPath="$PROJECT_DIR$/installer.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.bat" afterPath="$PROJECT_DIR$/config.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/config/proxies-segment.xml" afterPath="$PROJECT_DIR$/src/main/config/proxies-segment.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/pom-reader/pom.xml" afterPath="$PROJECT_DIR$/projects/pom-reader/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java" />
     </list>
     <ignored path="jlaunchpad.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,20 +108,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java" line="57" class="org.sf.jlaunchpad.install.GuiInstaller" package="org.sf.jlaunchpad.install">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java" line="446" class="org.sf.jlaunchpad.install.GuiInstaller" package="org.sf.jlaunchpad.install">
+      <breakpoint url="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java" line="461" class="org.sf.jlaunchpad.install.GuiInstaller" package="org.sf.jlaunchpad.install">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -184,91 +169,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CoreInstaller.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java">
+      <file leaf-file-name="ProjectInstaller.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/ProjectInstaller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="18" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.029827315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JLaunchPadLauncherTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/test/java/JLaunchPadLauncherTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="6" selection-start="2991" selection-end="2991" vertical-scroll-proportion="0.9717426">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GuiInstaller.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="106" selection-start="818" selection-end="818" vertical-scroll-proportion="0.029827315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LauncherProperties.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/LauncherProperties.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="0" selection-start="3693" selection-end="3693" vertical-scroll-proportion="0.9717426">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PomReader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="136" column="0" selection-start="4549" selection-end="4549" vertical-scroll-proportion="0.029827315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClassworldLauncher.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.029827315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XmlHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/xml/XmlHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="70" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.7032967">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProxiesXmlHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/xml/ProxiesXmlHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="62" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.029827315">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projects/jdom/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="proxies-segment.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/config/proxies-segment.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="17" selection-start="411" selection-end="411" vertical-scroll-proportion="0.30944625">
+            <state line="30" column="13" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.23384616">
               <folding />
             </state>
           </provider>
@@ -532,25 +436,25 @@
     </navigator>
   </component>
   <component name="PropertiesComponent">
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="265" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="212" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="278" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="225" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="39" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="242" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="255" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="true" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth2" value="201" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth2" value="211" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder4" value="4" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth1" value="224" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth0" value="186" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="986" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="187" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth1" value="235" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth0" value="196" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="996" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="198" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
-    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="1026" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="1039" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
@@ -561,28 +465,6 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
   </component>
   <component name="RunManager" selected="JUnit.jlaunchpad-launcher-junit">
-    <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="ADDITIONAL_CLASS_PATH" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="wholeProject" />
-      </option>
-      <envs />
-      <method>
-        <option name="Make" value="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -608,6 +490,28 @@
       <envs />
       <properties />
       <listeners />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
       <method>
         <option name="Make" value="true" />
       </method>
@@ -762,37 +666,37 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1170" extended-state="6" />
-    <editor active="false" />
+    <frame x="-4" y="-4" width="1928" height="1170" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32902583" order="8" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960325" order="8" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
-      <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24725275" order="4" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32870123" order="1" />
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875207" order="3" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="2" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Dilbert" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5059642" order="8" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="5" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="1" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="1" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5357853" order="3" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="8" />
       <window_info id="FileBrowser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985157" order="2" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="8" />
       <window_info id="CafeBabe" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985157" order="7" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="4" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
+      <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24725275" order="4" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="6" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32870123" order="1" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875207" order="3" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="6" />
+      <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="2" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="5" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="5" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" order="0" />
       <window_info id="EJB" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="4" />
     </layout>
   </component>
@@ -804,7 +708,7 @@
     <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding fullDownload property - it specifies whether it shoild download pom file only or pom file with jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding proxy support" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
@@ -818,6 +722,7 @@
     <MESSAGE value="downloading jar too" />
     <MESSAGE value="removing comments" />
     <MESSAGE value="adding fullDownload property - it specifies whether it shoild download pom file only or pom file with jar" />
+    <MESSAGE value="adding proxy support" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -858,13 +763,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/model/Dependency.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="86" selection-start="4817" selection-end="4817" vertical-scroll-proportion="0.36205128">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/model/ModelReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="100" column="87" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.01948718">
@@ -900,72 +798,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/test/java/JLaunchPadLauncherTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="18" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.029827315">
+        <state line="101" column="6" selection-start="2991" selection-end="2991" vertical-scroll-proportion="0.6348718">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/test/java/JLaunchPadLauncherTest.java">
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="6" selection-start="2991" selection-end="2991" vertical-scroll-proportion="0.9717426">
+        <state line="55" column="72" selection-start="1495" selection-end="1495" vertical-scroll-proportion="0.01948718">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstaller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="106" selection-start="818" selection-end="818" vertical-scroll-proportion="0.029827315">
+        <state line="402" column="0" selection-start="12694" selection-end="12694" vertical-scroll-proportion="0.01948718">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/GuiInstallerFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="6" selection-start="861" selection-end="861" vertical-scroll-proportion="0.01948718">
+          <folding>
+            <marker date="1198176392500" expanded="true" signature="974:1188" placeholder="{...}" />
+            <marker date="1198176392500" expanded="true" signature="1192:1339" placeholder="/**...*/" />
+            <marker date="1198176392500" expanded="true" signature="1367:1742" placeholder="{...}" />
+            <marker date="1198176392500" expanded="true" signature="1746:1787" placeholder="/**...*/" />
+            <marker date="1198176392500" expanded="true" signature="1809:1917" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/LauncherProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="0" selection-start="3693" selection-end="3693" vertical-scroll-proportion="0.9717426">
+        <state line="115" column="0" selection-start="3693" selection-end="3693" vertical-scroll-proportion="0.6348718">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="0" selection-start="4549" selection-end="4549" vertical-scroll-proportion="0.029827315">
+        <state line="26" column="116" selection-start="890" selection-end="890" vertical-scroll-proportion="0.15589744">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/ClassworldLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.029827315">
+        <state line="30" column="0" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.01948718">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/xml/XmlHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="70" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.7032967">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/config/proxies-segment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="17" selection-start="411" selection-end="411" vertical-scroll-proportion="0.30944625">
+        <state line="68" column="70" selection-start="1603" selection-end="1603" vertical-scroll-proportion="0.45948717">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/xml/ProxiesXmlHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="62" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.029827315">
+        <state line="32" column="62" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.01948718">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/jdom/build.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/config/proxies-segment.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="10" column="17" selection-start="411" selection-end="411" vertical-scroll-proportion="0.19957983">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/ProjectInstaller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="13" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.23384616">
           <folding />
         </state>
       </provider>

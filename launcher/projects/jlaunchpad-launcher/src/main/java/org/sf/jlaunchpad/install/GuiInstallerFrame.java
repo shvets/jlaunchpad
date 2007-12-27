@@ -11,12 +11,16 @@ import java.awt.*;
  * @version 1.0 07/14/2007
  */
 public class GuiInstallerFrame extends JFrame {
-  private boolean isCancel = false;
+  private GuiInstaller parent;
 
   /**
    * Creates new GUI frame.
+   *
+   * @param parent the parent
    */
-  public GuiInstallerFrame() {
+  public GuiInstallerFrame(GuiInstaller parent) {
+    this.parent = parent;
+
     setTitle("Installing Launcher...");
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setSize(800, 600);
@@ -29,10 +33,10 @@ public class GuiInstallerFrame extends JFrame {
       (int) (size.getWidth() / 2 - this.getWidth() / 2),
       (int) (size.getHeight() / 2 - this.getHeight() / 2));
 
-    getGlassPane().setCursor(new Cursor(Cursor.WAIT_CURSOR));
+    //getGlassPane().setCursor(new Cursor(Cursor.WAIT_CURSOR));
   }
 
-  protected void processWindowEvent(WindowEvent e) {
+ protected void processWindowEvent(WindowEvent e) {
     if (e.getID() == WindowEvent.WINDOW_CLOSING) {
       if (canExit()) {
         super.processWindowEvent(e);
@@ -40,6 +44,8 @@ public class GuiInstallerFrame extends JFrame {
     } else {
       super.processWindowEvent(e);
     }
+
+    //super.processWindowEvent(e);
   }
 
   /**
@@ -48,12 +54,12 @@ public class GuiInstallerFrame extends JFrame {
    * @return true if installer can perform "exit" operation; false otherwise.
    */
   public boolean canExit() {
-    if(isCancel) {
+   if(!parent.isInProcess()) {
       return true;
     }
 
     int value = JOptionPane.showConfirmDialog(this,
-      "Do you want to leave installation?",
+      "Do you want to cancel the installation?",
       "Confirmation",
       JOptionPane.YES_NO_OPTION);
 
@@ -75,15 +81,6 @@ public class GuiInstallerFrame extends JFrame {
     WindowEvent evt = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
 
     processWindowEvent(evt);
-  }
-
-  /**
-   * Performs "cancel" operation.
-   */
-  public void cancel() {
-    isCancel = true;
-
-    exit();
   }
 
 }

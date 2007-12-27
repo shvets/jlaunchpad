@@ -39,6 +39,9 @@
         <include>jlaunchpad-launcher/pom.xml</include>
         <include>jlaunchpad-launcher/target/jlaunchpad-launcher.jar</include>
         <include>jlaunchpad-launcher/src/main/config/*.*</include>
+
+        <include>jdom/pom.xml</include>
+        <include>jdom/target/jdom.jar</include>
       </includes>
     </fileSet>
   </fileSets>

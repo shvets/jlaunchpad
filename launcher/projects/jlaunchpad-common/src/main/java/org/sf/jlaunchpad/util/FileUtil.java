@@ -10,9 +10,12 @@ import java.util.zip.ZipEntry;
 import java.io.IOException;
 import java.io.File;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 
 /**
  * This is the class for holding file utilities.
@@ -71,6 +74,59 @@ public final class FileUtil {
     }
 
     return file;
+  }
+
+  public static void copyFile(String fileName, OutputStream out)
+      throws IOException {
+    InputStream is = null;
+    OutputStream os = null;
+
+    try {
+      is = new BufferedInputStream(new FileInputStream(fileName));
+      os = new BufferedOutputStream(out);
+
+      copy(is, os);
+    }
+    finally {
+      if (is != null) {
+        is.close();
+      }
+
+      if (os != null) {
+        os.close();
+      }
+    }
+  }
+
+  public static void copyFile(InputStream in, String fileName)
+      throws IOException {
+    InputStream is = null;
+    OutputStream os = null;
+
+    try {
+      is = new BufferedInputStream(in);
+      os = new BufferedOutputStream(new FileOutputStream(fileName));
+
+      copy(is, os);
+    }
+    finally {
+      if (is != null) {
+        is.close();
+      }
+
+      if (os != null) {
+        os.close();
+      }
+    }
+  }
+
+  public static void copy(InputStream is, OutputStream os) throws IOException {
+    byte[] buffer = new byte[2048];
+    int bytesRead;
+    // Simple read/write loop.
+    while (-1 != (bytesRead = is.read(buffer, 0, buffer.length))) {
+      os.write(buffer, 0, bytesRead);
+    }
   }
 
   /**

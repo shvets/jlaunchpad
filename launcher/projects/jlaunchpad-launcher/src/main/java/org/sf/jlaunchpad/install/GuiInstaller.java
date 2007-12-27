@@ -6,7 +6,9 @@ import javax.swing.*;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.*;
 
 /**
@@ -30,8 +32,13 @@ public class GuiInstaller extends CoreInstaller
   private JTextField proxyUserField = new JTextField(15);
   private JPasswordField proxyPasswordField = new JPasswordField(15);
 
+  private JButton javaHomeSearchButton;
+  private JButton launcherHomeSearchButton;
+  private JButton repositoryHomeSearchButton;
+
   private JButton installButton = new JButton("Install");
-  private JTextArea console = new JTextArea();
+  private JTextArea consoleArea = new JTextArea();
+  private JButton closeButton;
 
   private JTabbedPane tabbedPane = new JTabbedPane();
 
@@ -39,12 +46,16 @@ public class GuiInstaller extends CoreInstaller
     public void write(byte b[], int off, int len) throws IOException {
       super.write(b, off, len);
 
-      console.append(new String(b, off, len));
-      console.setCaretPosition(console.getDocument().getLength());
+      consoleArea.append(new String(b, off, len));
+      consoleArea.setCaretPosition(consoleArea.getDocument().getLength());
     }
   };
 
-  private GuiInstallerFrame frame = new GuiInstallerFrame();
+  private JLabel statusLabel = new JLabel();
+
+  private boolean inProcess = false;
+
+  private GuiInstallerFrame frame = new GuiInstallerFrame(this);
 
   private String[] args;
 
@@ -67,9 +78,10 @@ public class GuiInstaller extends CoreInstaller
       throw new LauncherException(e);
     }
 
-    console.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
-    Font currentFont = console.getFont();
-    console.setFont(new Font(currentFont.getName(), Font.BOLD, currentFont.getSize()));
+    consoleArea.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
+    Font currentFont = consoleArea.getFont();
+    consoleArea.setFont(new Font(currentFont.getName(), Font.BOLD, currentFont.getSize()));
+    consoleArea.setEditable(false);
 
     javaHomeField.addCaretListener(this);
     launcherHomeField.addCaretListener(this);
@@ -88,6 +100,10 @@ public class GuiInstaller extends CoreInstaller
     tryEnableInstallButton();
 
     frame.setVisible(true);
+  }
+
+  public boolean isInProcess() {
+    return inProcess;
   }
 
   public void caretUpdate(CaretEvent e) {
@@ -201,7 +217,7 @@ public class GuiInstaller extends CoreInstaller
 
     JLabel javaHomeLabel = new JLabel("Java Home:              ");
 
-    JButton javaHomeSearchButton = new JButton("Search...");
+    javaHomeSearchButton = new JButton("Search...");
 
     javaHomeSearchButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
@@ -219,7 +235,7 @@ public class GuiInstaller extends CoreInstaller
 
     JLabel launcherHomeLabel = new JLabel("Launcher Home:     ");
 
-    JButton launcherHomeSearchButton = new JButton("Search...");
+    launcherHomeSearchButton = new JButton("Search...");
 
     launcherHomeSearchButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
@@ -237,7 +253,7 @@ public class GuiInstaller extends CoreInstaller
 
     JLabel repositoryHomeLabel = new JLabel("Repository Home:    ");
 
-    JButton repositoryHomeSearchButton = new JButton("Search...");
+    repositoryHomeSearchButton = new JButton("Search...");
 
     repositoryHomeSearchButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
@@ -384,17 +400,7 @@ public class GuiInstaller extends CoreInstaller
       public void actionPerformed(ActionEvent event) {
         Thread thread = new Thread() {
           public void run() {
-            Component glassPane = frame.getGlassPane();
-
-            glassPane.setVisible(true);
-
-            glassPane.addMouseListener(new MouseAdapter() {
-              @SuppressWarnings({"UnnecessarySemicolon"})
-              public void mousePressed(MouseEvent e) {
-                ; // supress
-              }
-            });
-
+            blockControls("Installing JLaunchPad...");
             try {
               GuiInstaller.this.install(args);
             }
@@ -402,7 +408,7 @@ public class GuiInstaller extends CoreInstaller
               e.printStackTrace();
             }
             finally {
-              glassPane.setVisible(false);
+              unblockControls("JLaunchPad installed.");
             }
           }
         };
@@ -411,13 +417,20 @@ public class GuiInstaller extends CoreInstaller
       }
     });
 
-    JButton closeButton = new JButton("Close");
+    closeButton = new JButton("Close");
 
     closeButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent event) {
-        frame.cancel();
+        frame.exit();
       }
     });
+
+    JPanel panel10 = new JPanel();
+    panel10.setLayout(new BoxLayout(panel10, BoxLayout.X_AXIS));
+
+    panel10.add(Box.createRigidArea(new Dimension(10, 0)));
+    panel10.add(statusLabel);
+    panel10.add(Box.createRigidArea(new Dimension(600, 0)));
 
     JPanel panel11 = new JPanel();
     panel11.setLayout(new BoxLayout(panel11, BoxLayout.X_AXIS));
@@ -431,10 +444,12 @@ public class GuiInstaller extends CoreInstaller
     JPanel panel12 = new JPanel();
     panel12.setLayout(new BoxLayout(panel12, BoxLayout.X_AXIS));
 
-    console.setRows(10);
-    console.setColumns(300);
-    panel12.add(new JScrollPane(console));
+    consoleArea.setRows(10);
+    consoleArea.setColumns(300);
+    panel12.add(new JScrollPane(consoleArea));
 
+    panel.add(panel10);
+    panel.add(Box.createRigidArea(new Dimension(0, 10)));
     panel.add(panel11);
     panel.add(Box.createRigidArea(new Dimension(0, 10)));
     panel.add(panel12);
@@ -457,7 +472,62 @@ public class GuiInstaller extends CoreInstaller
       e.printStackTrace();
     }
 
-    GuiInstaller.super.install(args);
+    super.install(args);
+  }
+
+
+  private void unblockControls(String message) {
+    closeButton.setText("Close");
+    enableControls();
+    inProcess = false;
+    statusLabel.setText(message);
+  }
+
+  private void blockControls(String message) {
+    statusLabel.setText(message);
+    inProcess = true;
+    disableControls();
+    closeButton.setText("Cancel");
+  }
+
+  private void enableControls() {
+    javaHomeField.setEnabled(true);
+    launcherHomeField.setEnabled(true);
+    repositoryHomeField.setEnabled(true);
+    useProxyCheckbox.setEnabled(true);
+    proxyHostField.setEnabled(true);
+    proxyPortField.setEnabled(true);
+
+    proxyAuthCheckbox.setEnabled(true);
+    proxyUserField.setEnabled(true);
+    proxyPasswordField.setEnabled(true);
+
+    javaHomeSearchButton.setEnabled(true);
+    launcherHomeSearchButton.setEnabled(true);
+    repositoryHomeSearchButton.setEnabled(true);
+
+    installButton.setEnabled(true);
+
+    tryEnableInstallButton();
+  }
+
+  private void disableControls() {
+    javaHomeField.setEnabled(false);
+    launcherHomeField.setEnabled(false);
+    repositoryHomeField.setEnabled(false);
+    useProxyCheckbox.setEnabled(false);
+    proxyHostField.setEnabled(false);
+    proxyPortField.setEnabled(false);
+
+    proxyAuthCheckbox.setEnabled(false);
+    proxyUserField.setEnabled(false);
+    proxyPasswordField.setEnabled(false);
+
+    javaHomeSearchButton.setEnabled(false);
+    launcherHomeSearchButton.setEnabled(false);
+    repositoryHomeSearchButton.setEnabled(false);
+
+    installButton.setEnabled(false);
   }
 
   private void updateProperties() {
@@ -518,14 +588,12 @@ public class GuiInstaller extends CoreInstaller
         saveProperty(proxyAuthCheckbox, "proxyAuth");
         saveProperty(proxyUserField, "proxyUser");
         saveProperty(proxyPasswordField, "proxyPassword");
-      }
-      else {
+      } else {
         launcherProps.put("proxyAuth", Boolean.FALSE.toString());
         launcherProps.put("proxyUser", "");
         launcherProps.put("proxyPassword", "");
       }
-    }
-    else {
+    } else {
       launcherProps.put("proxySet", Boolean.FALSE.toString());
       launcherProps.put("proxyHost", "");
       launcherProps.put("proxyPort", "");

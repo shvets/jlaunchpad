@@ -40,6 +40,9 @@
 
         <include>jlaunchpad-launcher/pom.xml</include>
         <include>jlaunchpad-launcher/src/**</include>
+
+        <include>jdom/pom.xml</include>
+        <include>jdom/target/jdom.jar</include>
       </includes>
     </fileSet>
   </fileSets>
