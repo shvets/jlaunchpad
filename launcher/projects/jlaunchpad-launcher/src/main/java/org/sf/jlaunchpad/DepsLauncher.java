@@ -174,14 +174,25 @@ public class DepsLauncher extends ClassworldLauncher {
    * @throws Exception the exception
    */
   public void resolveDependencies(String depsFileName) throws Exception {
+	  resolveDependencies(depsFileName, false);
+  }
+  /**
+   * Resolves dependencies for specified pom maven2 dependencies file.
+   *
+   * @param depsFileName the pom file ma,e
+   * @param ignore do not download pom file
+   * @throws Exception the exception
+   */
+  public void resolveDependencies(String depsFileName, boolean ignore) throws Exception {
     File depsFile = new File(depsFileName);
 
     if (!depsFile.exists()) {
       System.out.println("File " + depsFile + " does not exist.");
-    } else {
+    }
+    else {
       ClassRealm classRealm = getMainRealm();
 
-      List<URL> deps = pomReader.calculateDependencies(depsFile);
+      List<URL> deps = pomReader.calculateDependencies(depsFile, ignore);
 
       for (URL dep : deps) {
         classRealm.addConstituent(dep);
