@@ -61,9 +61,10 @@ public class OnlineArtifactDownloader
       }
 
       String dependencyConflictId = dep.getDependencyConflictId();
+
       if (!downloadedArtifacts.containsKey(dependencyConflictId)) {
         File destinationFile = getLocalRepository().getArtifactFile(dep);
-        // The directory structure for this project may
+	      // The directory structure for this project may
         // not exists so create it if missing.
         File directory = destinationFile.getParentFile();
 
