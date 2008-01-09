@@ -16,6 +16,7 @@ import java.io.IOException;
  *
  * @author Alexander Shvets
  * @version 1.0 12/16/2006
+ * @deprecated
  */
 public class RepositoriesReader extends AbstractReader {
   /** helper fields. */
