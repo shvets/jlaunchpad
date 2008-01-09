@@ -154,11 +154,23 @@ public class PomReader {
    * @throws Exception the exception
    */
   public List<URL> calculateDependencies(File pom) throws Exception {
+	return calculateDependencies(pom, false);
+  }
+
+  /**
+   * Resolves dependencies for specified pom maven2 dependencies file.
+   *
+   * @param pom the pom file
+   * @param ignore do not download pom file
+   * @return the list of dependent URLs
+   * @throws Exception the exception
+   */
+  public List<URL> calculateDependencies(File pom, boolean ignore) throws Exception {
     List<URL> dependencies = new ArrayList<URL>();
 
     Model model = readModel(pom, true);
 
-    if (model.getPackaging() != null && model.getPackaging().equals("jar")) {
+    if (!ignore && model.getPackaging() != null && model.getPackaging().equals("jar")) {
       Dependency currentDep = new Dependency(new ArrayList());
       currentDep.setGroupId(model.getGroupId());
       currentDep.setArtifactId(model.getArtifactId());
@@ -254,12 +266,12 @@ public class PomReader {
     if (!pomFile.exists()) {
       File tmpPom = downloadPom(groupId, artifactId, version, classifier);
 
-      dependencies.addAll(calculateDependencies(tmpPom));
+      dependencies.addAll(calculateDependencies(tmpPom, true));
 
       tmpPom.delete();
     }
 
-    dependencies.addAll(calculateDependencies(pomFile));
+    dependencies.addAll(calculateDependencies(pomFile, true));
 
     return dependencies;
   }
