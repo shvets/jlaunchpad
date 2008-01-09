@@ -49,6 +49,7 @@ public class ProjectInstaller {
   /**
    * Creates new project installer.
    *
+   * @param fullDownload full download
    * @throws Exception the exception
    */
   public ProjectInstaller(boolean fullDownload) throws Exception {
