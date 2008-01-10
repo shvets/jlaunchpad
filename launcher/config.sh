@@ -3,14 +3,15 @@
 # Default values
 PROXY_SERVER_HOST_NAME=
 PROXY_SERVER_PORT=
-SET PROXY_USER=
-SET PROXY_PASSWORD=
+PROXY_USER=
+PROXY_PASSWORD=
 
 DEBUG_MODE=true
+CYGWIN=false
 
-JAVA_HOME=~/jdk1.6.0_01
+JAVA_HOME=~/jdk1.6.0_03
 LAUNCHER_HOME=~/launcher
-REPOSITORY_HOME=/media/hda5/maven-repository
+REPOSITORY_HOME=/media/sda2/maven-repository
 
 # Constants
 JAVA_SPECIFICATION_VERSION=1.5
@@ -19,7 +20,6 @@ CLASSWORLDS_VERSION=1.1
 JDOM_VERSION=1.1
 BOOTSTRAP_MINI_VERSION=2.0.8
 
-CYGWIN=true
 
 # Overwrites default values, if exists
 if [ -f ~/jlaunchpad/config.sh ]; then
@@ -41,8 +41,9 @@ SYSTEM_PROPERTIES="-Dlauncher.home=$LAUNCHER_HOME \
 -Dclassworlds.version=$CLASSWORLDS_VERSION \
 -Djdom.version=$JDOM_VERSION \
 -Dbootstrap-mini.version=$BOOTSTRAP_MINI_VERSION \
--Djava.specification.version=$JAVA_SPECIFICATION_VERSION" \
--Ddebug.mode=$DEBUG_MODE
+-Djava.specification.version=$JAVA_SPECIFICATION_VERSION \
+-Djava.home.internal=$JAVA_HOME \
+-Ddebug.mode=$DEBUG_MODE"
 
 if [ "x$PROXY_SERVER_HOST_NAME" = "x" ]; then
   SYSTEM_PROPERTIES="$SYSTEM_PROPERTIES -DproxySet=true -DproxyHost=$PROXY_SERVER_HOST_NAME -DproxyPort=$PROXY_SERVER_PORT -DproxyUser=$PROXY_USER -DproxyUser=$PROXY_PASSWORD"

@@ -161,6 +161,26 @@ public class CoreInstaller {
         writer.close();
       }
     }
+
+    if(!System.getProperty("os.name").toLowerCase().startsWith("windows") && isUnixFile) {
+      chmod(toFile);
+    }
+  }
+
+  private void chmod(File file) {
+    Runtime runtime = Runtime.getRuntime();
+
+    try {
+      Process process = runtime.exec(new String[] { "chmod", "+x", file.getCanonicalPath() });
+
+      int code = process.waitFor();
+
+      if(code > 0) {
+        System.out.println("Error code: " + code);
+      }
+    } catch (Exception e) {
+       e.printStackTrace();
+    }
   }
 
   /**

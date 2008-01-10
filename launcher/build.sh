@@ -5,6 +5,7 @@
 BOOTSTRAP_MINI_PROJECT=projects/bootstrap-mini
 CLASSWORLDS_PROJECT=projects/classworlds
 POM_READER_PROJECT=projects/pom-reader
+JDOM_PROJECT=projects/jdom
 JLAUNCHPAD_COMMON_PROJECT=projects/jlaunchpad-common
 JLAUNCHPAD_LAUNCHER_PROJECT=projects/jlaunchpad-launcher
 
@@ -49,11 +50,13 @@ if [ ! -f $JLAUNCHPAD_COMMON_PROJECT/target/classes ]; then
 fi
 
 UL_COMMON_CLASSPATH=$JLAUNCHPAD_COMMON_PROJECT/src/main/java
+UL_COMMON_CLASSPATH=$UL_COMMON_CLASSPATH:$JDOM_PROJECT/target/jdom.jar
 
 $JAVA_HOME/bin/javac -nowarn -source $JAVA_SPECIFICATION_VERSION -target $JAVA_SPECIFICATION_VERSION \
   -classpath $UL_COMMON_CLASSPATH \
   -d $JLAUNCHPAD_COMMON_PROJECT/target/classes \
-  $JLAUNCHPAD_COMMON_PROJECT/src/main/java/org/sf/jlaunchpad/util/*.java
+  $JLAUNCHPAD_COMMON_PROJECT/src/main/java/org/sf/jlaunchpad/util/*.java \
+  $JLAUNCHPAD_COMMON_PROJECT/src/main/java/org/sf/jlaunchpad/xml/*.java
 
 $JAVA_HOME/bin/jar cf $JLAUNCHPAD_COMMON_PROJECT/target/jlaunchpad-common.jar \
   -C $JLAUNCHPAD_COMMON_PROJECT/target/classes .
@@ -92,6 +95,7 @@ UL_CLASSPATH=$UL_CLASSPATH:$JLAUNCHPAD_COMMON_PROJECT/target/classes
 UL_CLASSPATH=$UL_CLASSPATH:$BOOTSTRAP_MINI_PROJECT/target/classes
 UL_CLASSPATH=$UL_CLASSPATH:$POM_READER_PROJECT/target/classes
 UL_CLASSPATH=$UL_CLASSPATH:$CLASSWORLDS_PROJECT/target/classes
+UL_CLASSPATH=$UL_CLASSPATH:$JDOM_PROJECT/target/jdom.jar
 
 if [ "$CYGWIN" = "true" ]; then
   UL_CLASSPATH=`cygpath -wp $UL_CLASSPATH`

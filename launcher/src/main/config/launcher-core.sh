@@ -1,5 +1,7 @@
 #!/bin/sh
 
+DEBUG_MODE=@debug.mode@
+
 JAVA_HOME="@java.home.internal@"
 
 readCommandLine() {
@@ -198,6 +200,7 @@ fi
 
 if [ "x$JAVA_HOME" = "x" ]; then
   # do nothing
+  tmp=tmp
 else
   JAVA_CMD="$JAVA_HOME/bin/java"
 fi
@@ -252,7 +255,7 @@ fi
 FILE=$CURRENT_APP_CONF
 
 if [ -r "$FILE" ]; then
-  if [ "$$CURRENT_APP_CONF" != "$LAUNCHER_APP_CONF" ]; then
+  if [ "$CURRENT_APP_CONF" != "$LAUNCHER_APP_CONF" ]; then
     readFile
   fi
 fi

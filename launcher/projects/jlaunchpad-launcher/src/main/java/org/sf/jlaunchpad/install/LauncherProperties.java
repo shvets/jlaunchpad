@@ -111,7 +111,7 @@ public class LauncherProperties extends Properties {
         }
 
         if (get("launcher.home") == null) {
-            put("launcher.home", root + "launcher");
+            put("launcher.home", System.getProperty("user.home") + File.separatorChar + "launcher");
         }
     }
 
