@@ -74,7 +74,7 @@ public class LauncherProperties extends Properties {
                 remove("http.proxyPassword");
             }
         } else {
-            //put("java.specification.version", "1.5");
+            //put("java.specification.version.level", "1.5");
             put("java.home.internal", root + "Java" + File.separatorChar + "jdk1.6.0");
 //      put("mobile.java.home", "");
             //put("scriptlandia.home", root + "scriptlandia");

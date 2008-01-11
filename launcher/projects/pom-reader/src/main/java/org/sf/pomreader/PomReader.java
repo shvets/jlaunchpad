@@ -266,12 +266,12 @@ public class PomReader {
     if (!pomFile.exists()) {
       File tmpPom = downloadPom(groupId, artifactId, version, classifier);
 
-      dependencies.addAll(calculateDependencies(tmpPom, true));
+      dependencies.addAll(calculateDependencies(tmpPom, false));
 
       tmpPom.delete();
     }
 
-    dependencies.addAll(calculateDependencies(pomFile, true));
+    dependencies.addAll(calculateDependencies(pomFile, false));
 
     return dependencies;
   }

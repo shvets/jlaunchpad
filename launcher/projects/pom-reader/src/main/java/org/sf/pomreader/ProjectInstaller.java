@@ -442,11 +442,11 @@ public class ProjectInstaller {
       Map<String,String> compilerOptions = new HashMap<String, String>();
       compilerOptions.putAll(compilerConfiguration.getCompilerOptions());
 
-      String javaSpecificationVersion = System.getProperty("java.specification.version");
-      System.out.println("Java Specification Version: " + javaSpecificationVersion);
+      String javaSpecificationVersionLevel = System.getProperty("java.specification.version.level");
+      System.out.println("Java Specification Version Level: " + javaSpecificationVersionLevel);
 
-      compilerOptions.put("-source", javaSpecificationVersion);
-      compilerOptions.put("-target", javaSpecificationVersion);
+      compilerOptions.put("-source", javaSpecificationVersionLevel);
+      compilerOptions.put("-target", javaSpecificationVersionLevel);
 
       compilerConfiguration.setCompilerOptions(compilerOptions);
 

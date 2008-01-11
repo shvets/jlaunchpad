@@ -100,8 +100,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>${java.specification.version}</source>
-          <target>${java.specification.version}</target>
+          <source>${java.specification.version.level}</source>
+          <target>${java.specification.version.level}</target>
         </configuration>
       </plugin>
 
