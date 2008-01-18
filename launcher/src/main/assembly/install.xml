@@ -11,12 +11,9 @@
 
         <include>config.*</include>
         <include>installer.*</include>
-      </includes>
-    </fileSet>
 
-    <fileSet>
-      <includes>
-        <include>samples/**</include>
+        <include>docs/**</include>
+        <include>src/main/config/*.*</include>
       </includes>
     </fileSet>
 

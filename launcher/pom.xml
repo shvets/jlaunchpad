@@ -68,7 +68,6 @@
         <configuration>
           <descriptors>
             <descriptor>src/main/assembly/install.xml</descriptor>
-            <descriptor>src/main/assembly/install-with-dependencies.xml</descriptor>
             <descriptor>src/main/assembly/src.xml</descriptor>
            </descriptors>
           <finalName>${project.build.finalName}-${project.version}</finalName>

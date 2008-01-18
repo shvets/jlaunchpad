@@ -23,6 +23,8 @@ public class CoreInstaller {
 
   protected LauncherProperties launcherProps = new LauncherProperties(LAUNCHER_PROPERTIES);
 
+  private String installRoot;
+
   private ProjectInstaller installer;
 
   protected void load() throws IOException {
@@ -42,9 +44,15 @@ public class CoreInstaller {
   public void install(String[] args) throws LauncherException {
     System.out.println("Installing JLaunchPad...");
 
+    installRoot = System.getProperty("jlaunchpad.install.root");
+
+    if(installRoot == null) {
+      installRoot = ".";
+    }
+
     try {
 //      load();
-      save();
+      //save();
 
       installer = new ProjectInstaller();
 
@@ -75,7 +83,7 @@ public class CoreInstaller {
     ProxiesXmlHelper xmlHelper = new ProxiesXmlHelper();
 
     if(!outSettings.exists()) {
-      File inSettings =  new File("src/main/config/settings.xml");
+      File inSettings =  new File(installRoot,"src/main/config/settings.xml");
 
       xmlHelper.read(inSettings);
     }
@@ -96,11 +104,11 @@ public class CoreInstaller {
   private void install(String name) throws Exception {
     System.out.println("Installing \"" + name + "\" project...");
 
-    installer.install("projects/" + name, false);
+    installer.install(installRoot + "/projects/" + name, false);
   }
 
   private void copyConfigFiles(String dir) throws IOException {
-    File[] files = new File(dir).listFiles();
+    File[] files = new File(installRoot, dir).listFiles();
 
     String launcherHome = System.getProperty("launcher.home");
     File launcherHomeFile = new File(launcherHome);
@@ -189,8 +197,9 @@ public class CoreInstaller {
    * @param args The application command-line arguments.
    * @throws LauncherException exception
    */
-  public static void main(String[] args) throws LauncherException {
+  public static void main(String[] args) throws Exception {
     CoreInstaller installer = new CoreInstaller();
+    installer.load();
 
     installer.install(args);
   }

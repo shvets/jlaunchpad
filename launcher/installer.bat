@@ -6,7 +6,7 @@ SET JLAUNCHPAD_PROJECT=.
 
 SET BOOTSTRAP_MINI_PROJECT=%JLAUNCHPAD_PROJECT%\projects\bootstrap-mini
 SET POM_READER_PROJECT=%JLAUNCHPAD_PROJECT%\projects\pom-reader
-SET JDOM_PROJECT=projects\jdom
+SET JDOM_PROJECT=%JLAUNCHPAD_PROJECT%\projects\jdom
 SET JLAUNCHPAD_COMMON_PROJECT=%JLAUNCHPAD_PROJECT%\projects\jlaunchpad-common
 SET JLAUNCHPAD_LAUNCHER_PROJECT=%JLAUNCHPAD_PROJECT%\projects\jlaunchpad-launcher
 
@@ -19,4 +19,4 @@ SET CLASSPATH=%CLASSPATH%;%JDOM_PROJECT%\target\jdom.jar
 REM SET MAIN_CLASS=org.sf.jlaunchpad.install.CoreInstaller
 SET MAIN_CLASS=org.sf.jlaunchpad.install.GuiInstaller
 
-%JAVA_HOME%\bin\java -classpath %CLASSPATH% %SYSTEM_PROPERTIES% %MAIN_CLASS%
+%JAVA_HOME%\bin\java -classpath %CLASSPATH% %SYSTEM_PROPERTIES% -Dbasedir=. %MAIN_CLASS%

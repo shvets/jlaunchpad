@@ -30,7 +30,7 @@ public class ClassworldLauncher extends CoreLauncher {
       try {
         super.launch(args);
       }
-      catch(Exception e) {
+      catch(NoSuchMethodException e) {
         try {
           ClassRealm mainRealm = getMainRealm();
 
@@ -51,6 +51,9 @@ public class ClassworldLauncher extends CoreLauncher {
         catch (Exception e1) {
           e1.printStackTrace();
         }
+      }
+      catch(Exception e) {
+        e.printStackTrace();
       }
     }
   };
