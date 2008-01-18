@@ -9,7 +9,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.io.*;
+import java.io.IOException;
+import java.io.File;
 
 /**
  * The class perform initial (gui) installation of jlaunchpad launcher.
@@ -37,19 +38,10 @@ public class GuiInstaller extends CoreInstaller
   private JButton repositoryHomeSearchButton;
 
   private JButton installButton = new JButton("Install");
-  private JTextArea consoleArea = new JTextArea();
+  private org.sf.jlaunchpad.install.Console console = new org.sf.jlaunchpad.install.Console();
   private JButton closeButton;
 
   private JTabbedPane tabbedPane = new JTabbedPane();
-
-  private final FilterOutputStream filterOutputStream = new FilterOutputStream(new ByteArrayOutputStream()) {
-    public void write(byte b[], int off, int len) throws IOException {
-      super.write(b, off, len);
-
-      consoleArea.append(new String(b, off, len));
-      consoleArea.setCaretPosition(consoleArea.getDocument().getLength());
-    }
-  };
 
   private JLabel statusLabel = new JLabel();
 
@@ -68,20 +60,12 @@ public class GuiInstaller extends CoreInstaller
   public GuiInstaller(String[] args) throws LauncherException {
     this.args = args;
 
-    System.setOut(new PrintStream(filterOutputStream));
-    System.setErr(new PrintStream(filterOutputStream));
-
     try {
       load();
     }
     catch (IOException e) {
       throw new LauncherException(e);
     }
-
-    consoleArea.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2));
-    Font currentFont = consoleArea.getFont();
-    consoleArea.setFont(new Font(currentFont.getName(), Font.BOLD, currentFont.getSize()));
-    consoleArea.setEditable(false);
 
     javaHomeField.addCaretListener(this);
     launcherHomeField.addCaretListener(this);
@@ -444,9 +428,7 @@ public class GuiInstaller extends CoreInstaller
     JPanel panel12 = new JPanel();
     panel12.setLayout(new BoxLayout(panel12, BoxLayout.X_AXIS));
 
-    consoleArea.setRows(10);
-    consoleArea.setColumns(300);
-    panel12.add(new JScrollPane(consoleArea));
+    panel12.add(new JScrollPane(console.getComponent()));
 
     panel.add(panel10);
     panel.add(Box.createRigidArea(new Dimension(0, 10)));

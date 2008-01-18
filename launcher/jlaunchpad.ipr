@@ -610,9 +610,6 @@
       <Port>5050</Port>
     </configuration>
   </component>
-  <component name="SQLPlugin.ProjectConfiguration">
-    <queries />
-  </component>
   <component name="StarteamConfiguration">
     <option name="SERVER" value="" />
     <option name="PORT" value="49201" />
