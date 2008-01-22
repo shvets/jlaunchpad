@@ -40,6 +40,18 @@ public class JLaunchPadLauncher extends DepsLauncher {
   public JLaunchPadLauncher(LauncherCommandLineParser parser, String[] args, ClassWorld classWorld)
       throws LauncherException {
     super(parser, args, classWorld);
+
+    String osName = System.getProperty("os.name");
+
+    if(osName.toLowerCase().startsWith("windows")) {
+      System.setProperty("os.short.name", "windows");
+    }
+    else if(osName.toLowerCase().startsWith("linux")) {
+      System.setProperty("os.short.name", "linux");
+    }
+    else if(osName.toLowerCase().startsWith("sunos")) {
+      System.setProperty("os.short.name", "sunos");
+    }
   }
 
   /**
