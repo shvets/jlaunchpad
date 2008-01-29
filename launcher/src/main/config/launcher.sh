@@ -2,6 +2,8 @@
 
 LAUNCHER_HOME=@launcher.home@
 
-export CMD=java
+CMD=java
 
-. $LAUNCHER_HOME/launcher-core.sh $*
+export LAUNCHER_HOME CMD
+
+$LAUNCHER_HOME/launcher-core.sh $*

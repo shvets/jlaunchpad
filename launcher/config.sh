@@ -25,7 +25,9 @@ BOOTSTRAP_MINI_VERSION=2.0.8
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh
 else
-  . user/config.sh
+  if [ -f user/config.sh ]; then
+    . user/config.sh
+  fi
 fi
 
 if [ "x$JAVA_HOME" = "x" ]; then
@@ -46,7 +48,8 @@ SYSTEM_PROPERTIES="-Dlauncher.home=$LAUNCHER_HOME \
 -Ddebug.mode=$DEBUG_MODE"
 
 if [ "x$PROXY_SERVER_HOST_NAME" = "x" ]; then
-  SYSTEM_PROPERTIES="$SYSTEM_PROPERTIES -DproxySet=true -DproxyHost=$PROXY_SERVER_HOST_NAME -DproxyPort=$PROXY_SERVER_PORT -DproxyUser=$PROXY_USER -DproxyUser=$PROXY_PASSWORD"
+  SYSTEM_PROPERTIES="$SYSTEM_PROPERTIES -DproxySet=true -DproxyHost=$PROXY_SERVER_HOST_NAME -DproxyPort=$PROXY_SERVER_PORT"
+  SYSTEM_PROPERTIES="$SYSTEM_PROPERTIES -DproxyUser=$PROXY_USER -DproxyUser=$PROXY_PASSWORD"
 fi
 
 export PROXY_SERVER_HOST_NAME PROXY_SERVER_PORT

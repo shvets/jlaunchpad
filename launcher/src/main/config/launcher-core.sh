@@ -22,17 +22,20 @@ processArg() {
   fi
 
   PARAM1=`expr substr $arg 1 2`
-  PARAM2=`expr substr $arg 1 19`
-  PARAM3=`expr substr $arg 1 20`
+  PARAM2=`expr substr $arg 1 18`
+  PARAM3=`expr substr $arg 1 19`
+  PARAM4=`expr substr $arg 1 17`
 
   if [ "$PARAM1" = "-D" ]; then
     JAVA_SYSTEM_PROPS="$JAVA_SYSTEM_PROPS $arg"
   elif [ "$PARAM2" = "-Xbootclasspath/p:" ]; then
-    JAVA_BOOTCLASSPATH_PREPEND="$JAVA_BOOTCLASSPATH_PREPEND $arg"
+    JAVA_BOOTCLASSPATH_PREPEND="$JAVA_BOOTCLASSPATH_PREPEND$SEPARATOR$arg"
   elif [ "$PARAM2" = "-Xbootclasspath/a:" ]; then
-    JAVA_BOOTCLASSPATH_APPEND="$JAVA_BOOTCLASSPATH_APPEND $arg"
+    JAVA_BOOTCLASSPATH_APPEND="$JAVA_BOOTCLASSPATH_APPEND$SEPARATOR$arg"
+  elif [ "$PARAM4" = "-Xbootclasspath:" ]; then
+    JAVA_BOOTCLASSPATH="$JAVA_BOOTCLASSPATH$SEPARATOR$arg"
   elif [ "$arg" = "-debug" ]; then
-    JAVA_SYSTEM_PROPS="$JAVA_SYSTEM_PROPS -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=6006"
+    JAVA_SYSTEM_PROPS="$JAVA_SYSTEM_PROPS -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6006"
   elif [ "$PARAM3" = "-Djava.library.path" ]; then
     JAVA_LIBRARY_PATH="$JAVA_LIBRARY_PATH $arg"
   else
@@ -254,6 +257,7 @@ fi
 
 FILE=$CURRENT_APP_CONF
 
+
 if [ -r "$FILE" ]; then
   if [ "$CURRENT_APP_CONF" != "$LAUNCHER_APP_CONF" ]; then
     readFile
@@ -268,8 +272,12 @@ if [ "$JAVA_BOOTCLASSPATH_PREPEND" != "" ]; then
   JAVA_BOOTCLASSPATH_PREPEND="-Xbootclasspath/p:$JAVA_BOOTCLASSPATH_PREPEND"
 fi
 
-if [ "$JAVA_BOOTCLASSPATH_APPPEND" != "" ]; then
-  JAVA_BOOTCLASSPATH_APPPEND="-Xbootclasspath/a:$JAVA_BOOTCLASSPATH_APPPEND"
+if [ "$JAVA_BOOTCLASSPATH_APPEND" != "" ]; then
+  JAVA_BOOTCLASSPATH_APPEND="-Xbootclasspath/a:$JAVA_BOOTCLASSPATH_APPEND"
+fi
+
+if [ "$JAVA_BOOTCLASSPATH" != "" ]; then
+  JAVA_BOOTCLASSPATH="-Xbootclasspath:$JAVA_BOOTCLASSPATH"
 fi
 
 if [ "$JAVA_ENDORSED_DIRS" != "" ]; then

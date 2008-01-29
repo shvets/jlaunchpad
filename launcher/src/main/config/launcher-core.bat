@@ -203,7 +203,7 @@ if "%PARAM5%"=="-Xbootclasspath:" (
 )
 
 if "%TEMP%"=="-debug" (
-  SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=6006
+  SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6006
   goto end
 )
 
