@@ -1,8 +1,8 @@
 #!/bin/sh
 
-CYGWIN=true
+CYGWIN=false
 
-LAUNCHER_HOME=d:/launcher
+LAUNCHER_HOME=/home/alex/launcher
 
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh

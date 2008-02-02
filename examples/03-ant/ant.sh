@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LAUNCHER_HOME=c:/launcher
+LAUNCHER_HOME=/home/alex/launcher
 
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh

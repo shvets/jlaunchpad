@@ -1,8 +1,8 @@
 #!/bin/sh
 
-CYGWIN=true
+CYGWIN=false
 
-LAUNCHER_HOME=d:/launcher
+LAUNCHER_HOME=~/launcher
 
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh
@@ -20,4 +20,4 @@ PROPERTIES="-deps.file.name=$PWD/deps.xml -main.class.name=$MAIN_CLASS"
 
 # $LAUNCHER_HOME/launcher.sh $PROPERTIES $*
 
-$LAUNCHER_HOME/launcher.sh $PROPERTIES test1.rb
+$LAUNCHER_HOME/launcher.sh $PROPERTIES test.rb
