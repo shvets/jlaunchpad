@@ -157,9 +157,7 @@ join() {
       elif [ "$VARIABLE_NAME" = "SET_VARIABLES" ]; then
         eval `echo "$line"`
       elif [ "$VARIABLE_NAME" = "LAUNCHER_CLASS" ]; then
-        if [ "$VARIABLE_VALUE" ]; then
-          a=b
-        else
+        if [ ! $LAUNCHER_CLASS ]; then
           LAUNCHER_CLASS="$line"
         fi
       else
