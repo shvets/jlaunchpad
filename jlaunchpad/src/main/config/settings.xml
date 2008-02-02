@@ -1,0 +1,303 @@
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<!--
+ | This is the configuration file for Maven. It can be specified at two levels:
+ |
+ |  1. User Level. This settings.xml file provides configuration for a single user, 
+ |                 and is normally provided in $HOME/.m2/settings.xml.
+ |
+ |                 NOTE: This location can be overridden with the system property:
+ |
+ |                 -Dorg.apache.maven.user-settings=/path/to/user/settings.xml
+ |
+ |  2. Global Level. This settings.xml file provides configuration for all maven
+ |                 users on a machine (assuming they're all using the same maven
+ |                 installation). It's normally provided in 
+ |                 ${maven.home}/conf/settings.xml.
+ |
+ |                 NOTE: This location can be overridden with the system property:
+ |
+ |                 -Dorg.apache.maven.global-settings=/path/to/global/settings.xml
+ |
+ | The sections in this sample file are intended to give you a running start at
+ | getting the most out of your Maven installation. Where appropriate, the default
+ | values (values used when the setting is not specified) are provided.
+ |
+ |-->
+<settings>
+  <!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ~/.m2/repository -->
+  <!--localRepository>@repository.home@</localRepository-->
+
+  <localRepository>@repository.home@</localRepository>
+
+  <!-- interactiveMode
+   | This will determine whether maven prompts you when it needs input. If set to false,
+   | maven will use a sensible default value, perhaps based on some other setting, for
+   | the parameter in question.
+   |
+   | Default: true
+  <interactiveMode>true</interactiveMode>
+  -->
+
+  <!-- offline
+   | Determines whether maven should attempt to connect to the network when executing a build.
+   | This will have an effect on artifact downloads, artifact deployment, and others.
+   |
+   | Default: false
+  <offline>false</offline>
+  -->
+
+  <!-- proxies
+   | This is a list of proxies which can be used on this machine to connect to the network.
+   | Unless otherwise specified (by system property or command-line switch), the first proxy
+   | specification in this list marked as active will be used.
+   |-->
+  <proxies>
+    <!-- proxy
+     | Specification for one proxy, to be used in connecting to the network.
+     |
+    <proxy>
+      <id>optional</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <username>proxyuser</username>
+      <password>proxypass</password>
+      <host>proxy.host.net</host>
+      <port>80</port>
+      <nonProxyHosts>local.net,some.host.com</nonProxyHosts>
+    </proxy>
+    -->
+  </proxies>
+
+  <!-- servers
+   | This is a list of authentication profiles, keyed by the server-id used within the system.
+   | Authentication profiles can be used whenever maven must make a connection to a remote server.
+   |-->
+  <servers>
+    <!-- server
+     | Specifies the authentication information to use when connecting to a particular server, identified by
+     | a unique name within the system (referred to by the 'id' attribute below).
+     | 
+     | NOTE: You should either specify username/password OR privateKey/passphrase, since these pairings are 
+     |       used together.
+     |
+    <server>
+      <id>deploymentRepo</id>
+      <username>repouser</username>
+      <password>repopwd</password>
+    </server>
+    -->
+    
+    <!-- Another sample, using keys to authenticate.
+    <server>
+      <id>siteServer</id>
+      <privateKey>/path/to/private/key</privateKey>
+      <passphrase>optional; leave empty if not used.</passphrase>
+    </server>
+    -->
+  </servers>
+
+  <!-- List of profiles that are active for all builds. -->
+
+  <activeProfiles>
+    <activeProfile>defaultProfile</activeProfile>
+  </activeProfiles>
+  
+  <profiles>
+    <profile>
+      <id>defaultProfile</id>
+
+      <repositories>
+        <repository>
+          <id>accelerator</id>
+          <name>Accelerator</name>
+          <url>file://${repository.home}-accelerator</url>
+        </repository>
+
+        <repository>
+          <id>scriptlandia-languages-repo</id>
+          <name>Scriptlandia languages Maven2 repository</name>
+          <url>http://scriptlandia-repository.googlecode.com/svn/trunk/languages</url>
+        </repository>
+
+        <repository>
+          <id>scriptlandia-languages-repo</id>
+          <name>Scriptlandia languages Maven2 repository</name>
+          <url>http://scriptlandia-repository.googlecode.com/svn/trunk/tools</url>
+        </repository>
+
+        <repository>
+          <id>mergere-repo</id>
+          <name>Mergere Maven2 repository</name>
+          <url>http://repo.mergere.com/maven2</url>
+        </repository>
+
+        <repository>
+          <id>central1</id>
+          <name>Central Repository 1</name>
+          <url>http://repo1.maven.org/maven2</url>
+        </repository>
+
+        <repository>
+          <id>central2</id>
+          <name>Central Repository 2</name>
+          <url>http://repo1.maven.org/maven-spring</url>
+        </repository>
+
+        <repository>
+          <id>groovy</id>
+          <name>Groovy repository</name>
+          <url>http://dist.codehaus.org</url>
+          <layout>legacy</layout>
+        </repository>
+
+        <repository>
+          <id>codehaus-repo</id>
+          <name>Codehaus Maven2 repository</name>
+          <url>http://repository.codehaus.org</url>
+        </repository>
+
+        <repository>
+          <id>maven2-repository.dev.java.net</id>
+          <name>Java.net Repository for Maven</name>
+          <url>http://download.java.net/maven/2/</url>
+          <layout>default</layout>
+        </repository>
+
+        <repository>
+          <id>javanet</id>
+          <name>Java.Net repository</name>
+          <url>https://maven-repository.dev.java.net/nonav/repository</url>
+          <layout>legacy</layout>
+        </repository>
+
+        <repository>
+          <id>javanet2</id>
+          <name>Java.Net repository 2</name>
+          <url>http://download.java.net/maven/2</url>
+          <layout>legacy</layout>
+        </repository>
+
+        <!--
+          <repository>
+            <id>sourcelabs-repo</id>
+            <name>Sourcelab Maven2 repository</name>
+            <url>http://dist.sourcelabs.com/sash/m2</url>
+          </repository>
+        -->
+
+        <repository>
+          <id>jyaml-maven2-repository</id>
+          <name>Maven Repository for jyaml</name>
+          <url>http://jyaml.sourceforge.net/m2-repo</url>
+        </repository>
+
+        <repository>
+          <id>mule-deps</id>
+          <name>Mule Dependencies</name>
+          <url>http://dist.codehaus.org/mule/dependencies/maven2</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+
+    </profile>
+  </profiles>
+
+  <!-- This is a list of mirrors to be used in downloading artifacts from remote repositories. -->
+  
+  <mirrors>
+   <mirror>
+      <id>ibiblio.org</id>
+      <url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- United States, North Carolina -->
+    </mirror>
+
+    <mirror>
+      <id>lsu.edu</id>
+      <url>http://ibiblio.lsu.edu/main/pub/packages/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- United States, Louisiana -->
+    </mirror>
+
+    <mirror>
+      <id>sateh.com</id>
+      <url>http://maven.sateh.com/repository</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- The Netherlands, Amsterdam -->
+    </mirror>
+
+    <mirror>
+      <id>dotsrc.org</id>
+      <url>http://mirrors.dotsrc.org/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- Denmark -->
+    </mirror>
+
+    <mirror>
+      <id>sunsite.dk</id>
+      <url>http://mirrors.sunsite.dk/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- Denmark -->
+    </mirror>
+
+    <mirror>
+      <id>skynet.be</id>
+      <url>http://maven2.mirrors.skynet.be/pub/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- Belgium -->
+    </mirror>
+
+    <mirror>
+      <id>cica.es</id>
+      <url>http://ftp.cica.es/mirrors/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- Spain, Sevilla -->
+    </mirror>
+
+    <mirror>
+      <id>redv.com</id>
+      <url>http://mirrors.redv.com/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- Shanghai, China -->
+    </mirror>
+
+    <!-- these just point to ibiblio.org --> 
+    <mirror>
+      <id>ibiblio.net</id>
+      <url>http://www.ibiblio.net/pub/packages/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- United States, North Carolina -->
+    </mirror>
+
+    <mirror>
+      <id>ggi-project.org</id>
+      <url>http://ftp.ggi-project.org/pub/packages/maven2</url>
+      <mirrorOf>central</mirrorOf>
+      <!-- The Netherlands, Amsterdam -->
+    </mirror>
+  </mirrors>
+
+</settings>

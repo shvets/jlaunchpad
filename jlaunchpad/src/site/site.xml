@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="${outputEncoding}"?>
+
+<project name="${project.name}">
+<!--
+  <head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+  </head>
+-->
+
+  <bannerLeft>
+    <name>${project.name}</name>
+  </bannerLeft>
+
+  <poweredBy>
+    <logo name="Hosted on SourceForge.net" href="http://sourceforge.net"
+          img="http://sflogo.sourceforge.net/sflogo.php?group_id=167867&amp;type=1" />
+
+    <logo name="Build with Maven 2" href="http://maven.apache.org"
+          img="images/logos/maven-feather.png" />
+  </poweredBy>
+
+  <body>
+    <links>
+      <item name="Maven 2" href="http://maven.apache.org/maven2/"/>
+      <item name="Ant" href="http://ant.apache.org"/>
+      <item name="Scriptlandia Blog" href="http://scriptlandia.blogspot.com"/>
+      <item name="${project.name}" href="${project.url}"/>
+    </links>
+
+    <menu name="JLaunchPad 1.0.x">
+      <item name="Readme file" href="docs/README.txt"/>
+
+      <item name="Downloads" href="http://sourceforge.net/projects/jlaunchpad"/>
+    </menu>
+
+    <menu name="SubProjects">
+      <item name="Bootstrap-Mini" href="bootstrap-mini/index.html"/>
+      <item name="Classworlds" href="classworlds/index.html"/>      
+      <item name="Pom-Reader" href="pom-reader/index.html"/>
+      <item name="JLaunchPad-Common" href="jlaunchpad-common/index.html"/>
+      <item name="JLaunchPad-Launcher" href="jlaunchpad-launcher/index.html"/>
+    </menu>
+
+    ${parentProject}
+
+    ${modules}
+
+    ${reports}
+
+  </body>
+</project>
