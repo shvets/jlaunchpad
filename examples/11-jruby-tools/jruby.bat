@@ -1,6 +1,6 @@
 @echo off
 
-SET LAUNCHER_HOME=c:\launcher
+SET JLAUNCHPAD_HOME=c:\jlaunchpad
 
 if exist "%USERPROFILE%\jlaunchpad\config.bat" (
   @call "%USERPROFILE%\jlaunchpad\config.bat"
@@ -24,5 +24,5 @@ SET SYSTEM_PARAMETERS=%SYSTEM_PARAMETERS% "-Djruby.lib=%JRUBY_HOME%\lib"
 SET SYSTEM_PARAMETERS=%SYSTEM_PARAMETERS% "-Djruby.shell=cmd.exe"
 SET SYSTEM_PARAMETERS=%SYSTEM_PARAMETERS% "-Djruby.script=jruby.bat"
 
-%LAUNCHER_HOME%\launcher.bat %SYSTEM_PARAMETERS% %PROPERTIES% %*
+%JLAUNCHPAD_HOME%\jlaunchpad.bat %SYSTEM_PARAMETERS% %PROPERTIES% %*
 

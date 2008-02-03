@@ -2,7 +2,7 @@
 
 CYGWIN=true
 
-LAUNCHER_HOME=/cygdrive/d/launcher-cygnus
+JLAUNCHPAD_HOME=/cygdrive/d/jlaunchpad
 
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh
@@ -18,6 +18,6 @@ fi
 
 PROPERTIES="-deps.file.name=$PWD/deps.xml -main.class.name=$MAIN_CLASS"
 
-# $LAUNCHER_HOME/launcher.sh $PROPERTIES $*
+# $JLAUNCHPAD_HOME/jlaunchpad.sh $PROPERTIES $*
 
-$LAUNCHER_HOME/launcher.sh $PROPERTIES Hello.groovy
+$JLAUNCHPAD_HOME/jlaunchpad.sh $PROPERTIES Hello.groovy

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LAUNCHER_HOME=d:/launcher
+JLAUNCHPAD_HOME=d:/jlaunchpad
 
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh
@@ -8,4 +8,4 @@ fi
 
 PROPERTIES="-deps.file.name=`pwd`/deps.xml -pomstarter -wait"
 
-$LAUNCHER_HOME/launcher.sh $PROPERTIES
+$JLAUNCHPAD_HOME/jlaunchpad.sh $PROPERTIES

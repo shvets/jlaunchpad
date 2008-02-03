@@ -1,7 +1,7 @@
 #!/bin/sh
 
-LAUNCHER_HOME=/media/hda5/launcher
+JLAUNCHPAD_HOME=/media/hda5/jlaunchpad
 
 APP_NAME=jboss
 
-$LAUNCHER_HOME/launcher.sh $*
+$JLAUNCHPAD_HOME/jlaunchpad.sh $*

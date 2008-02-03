@@ -1,4 +1,4 @@
-SET LAUNCHER_HOME=d:\launcher
+SET JLAUNCHPAD_HOME=d:\jlaunchpad
 
 if exist "%USERPROFILE%\jlaunchpad\config.bat" (
   @call "%USERPROFILE%\jlaunchpad\config.bat"
@@ -15,4 +15,4 @@ SET PROPERTIES="-deps.file.name=%~dp0deps.xml" "-main.class.name=%MAIN_CLASS%"
 
 SET APP_NAME=grails
 
-%LAUNCHER_HOME%\launcher.bat %SYSTEM_PROPERTIES% %PROPERTIES% %*
+%JLAUNCHPAD_HOME%\jlaunchpad.bat %SYSTEM_PROPERTIES% %PROPERTIES% %*

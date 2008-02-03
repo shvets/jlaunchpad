@@ -1,6 +1,6 @@
-SET LAUNCHER_HOME=c:\launcher
+SET JLAUNCHPAD_HOME=c:\jlaunchpad
 
 SET APP_NAME=jboss
 
-start %LAUNCHER_HOME%\launcher.bat %*
+start %JLAUNCHPAD_HOME%\jlaunchpad.bat %*
 

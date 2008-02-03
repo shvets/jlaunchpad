@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LAUNCHER_HOME=/media/hda5/launcher
+JLAUNCHPAD_HOME=/media/hda5/jlaunchpad
 
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh
@@ -8,4 +8,4 @@ fi
 
 export APP_NAME=idea
 
-$LAUNCHER_HOME/launcher.sh $*
+$JLAUNCHPAD_HOME/jlaunchpad.sh $*

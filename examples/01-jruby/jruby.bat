@@ -1,6 +1,6 @@
 @echo off
 
-SET LAUNCHER_HOME=C:\launcher
+SET JLAUNCHPAD_HOME=C:\jlaunchpad
 
 if exist "%USERPROFILE%\jlaunchpad\config.bat" (
   @call "%USERPROFILE%\jlaunchpad\config.bat"
@@ -15,5 +15,5 @@ if "%1" == "" (
   exit
 )
 
-%LAUNCHER_HOME%\launcher.bat %PROPERTIES% %*
+%JLAUNCHPAD_HOME%\jlaunchpad.bat %PROPERTIES% %*
 

@@ -1,4 +1,4 @@
-LAUNCHER_HOME=d:/launcher
+JLAUNCHPAD_HOME=d:/jlaunchpad
 
 if [ -f ~/jlaunchpad/config.sh ]; then
   . ~/jlaunchpad/config.sh
@@ -10,4 +10,4 @@ PWD=`pwd`
 
 PROPERTIES="-deps.file.name=$PWD/deps.xml -main.class.name=$MAIN_CLASS"
 
-$LAUNCHER_HOME/launchersh $PROPERTIES $*
+$JLAUNCHPAD_HOME/jlaunchpad.sh $PROPERTIES $*

@@ -1,6 +1,6 @@
 @echo off
 
-SET LAUNCHER_HOME=c:\launcher
+SET JLAUNCHPAD_HOME=c:\jlaunchpad
 
 if exist "%USERPROFILE%\jlaunchpad\config.bat" (
   @call "%USERPROFILE%\jlaunchpad\config.bat"
@@ -8,5 +8,5 @@ if exist "%USERPROFILE%\jlaunchpad\config.bat" (
 
 SET PROPERTIES="-deps.file.name=%~dp0cafebabe.sl" "-pomstarter" "-wait"
 
-%LAUNCHER_HOME%\launcher.bat %PROPERTIES% %*
+%JLAUNCHPAD_HOME%\jlaunchpad.bat %PROPERTIES% %*
 
