@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
  */
 public class CoreLauncher extends AbstractLauncher {
   /** The main realm name. */
-  protected final String MAIN_REALM_NAME = "launcher.core";
+  protected final String MAIN_REALM_NAME = "jlaunchpad.core";
 
   /** The ClassWorld class name. */
   protected final String CLASSWORLD_CLASS_NAME = "org.codehaus.classworlds.ClassWorld";

@@ -27,7 +27,7 @@ or
 The program will ask to set up few values/locations:
 
 - Java Home (JAVA_HOME);
-- Launcher Home (LAUNCHER_HOME);
+- JLaunchPad Home (JLAUNCHPAD_HOME);
 - Repository Home (REPOSITORY_HOME).
 
 Java Home variable specifies the location of JDK that will be used for launching Java application. 
@@ -78,7 +78,7 @@ For the implementation the following projects were reused:
 
 - classworlds project        http://dist.codehaus.org/classworlds
 - bootstrap-mini project     http://svn.apache.org/repos/asf/maven/components/tags/maven-2.0.8/bootstrap
-- Java App Launcher 	     https://java-app-launcher.dev.java.net
+- Java App Launcher          https://java-app-launcher.dev.java.net
 
     Examples
 

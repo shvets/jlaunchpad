@@ -584,8 +584,6 @@ public class GuiInstaller extends CoreInstaller
       launcherProps.put("proxyPassword", "");
     }
 
-//    launcherProps.put("launcher.version", System.getProperty("launcher.version"));
-
     super.save();
   }
 

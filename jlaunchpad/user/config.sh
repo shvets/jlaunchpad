@@ -10,5 +10,5 @@ export PROXY_USER=
 export PROXY_PASSWORD=
 
 export JAVA_HOME=$DRIVE_LETTER/jdk1.6.0_03
-export LAUNCHER_HOME=$DRIVE_LETTER/launcher
+export JLAUNCHPAD_HOME=$DRIVE_LETTER/jlaunchpad
 export REPOSITORY_HOME=/media/sda2/maven-repository
