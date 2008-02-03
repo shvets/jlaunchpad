@@ -1,8 +1,8 @@
 @ECHO OFF
 
-@call config.bat
+@call %~dp0config.bat
 
-SET JLAUNCHPAD_PROJECT=.
+SET JLAUNCHPAD_PROJECT=%~dp0
 
 SET BOOTSTRAP_MINI_PROJECT=%JLAUNCHPAD_PROJECT%\projects\bootstrap-mini
 SET POM_READER_PROJECT=%JLAUNCHPAD_PROJECT%\projects\pom-reader
