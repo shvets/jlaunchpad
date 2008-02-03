@@ -24,7 +24,7 @@ rem Overwrites default values, if exists
 IF EXIST %USERPROFILE%\jlaunchpad\config.bat (
   @call "%USERPROFILE%\jlaunchpad\config.bat"
 ) else (
-  @call "user\config.bat"
+  @call "%~dp0user\config.bat"
 )
 
 IF NOT EXIST %JAVA_HOME% (

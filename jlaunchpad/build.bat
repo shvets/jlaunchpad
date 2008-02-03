@@ -1,6 +1,6 @@
 @ECHO OFF
 
-@call config.bat
+@call %~dp0config.bat
 
 SET BOOTSTRAP_MINI_PROJECT=projects\bootstrap-mini
 SET CLASSWORLDS_PROJECT=projects\classworlds
