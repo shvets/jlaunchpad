@@ -531,7 +531,7 @@ public class GuiInstaller extends CoreInstaller
       */
     }
 
-    System.setProperty("launcher.home", launcherHomeField.getText().trim());
+    System.setProperty("jlaunchpad.home", launcherHomeField.getText().trim());
     System.setProperty("repository.home", repositoryHomeField.getText().trim());
   }
 
@@ -540,7 +540,7 @@ public class GuiInstaller extends CoreInstaller
   protected void load() throws IOException {
     super.load();
     updateProperty(javaHomeField, "java.home.internal");
-    updateProperty(launcherHomeField, "launcher.home");
+    updateProperty(launcherHomeField, "jlaunchpad.home");
     updateProperty(repositoryHomeField, "repository.home");
 
     updateProperty(useProxyCheckbox, "proxySet");
@@ -557,7 +557,7 @@ public class GuiInstaller extends CoreInstaller
 
     saveProperty(javaHomeField, "java.home.internal");
 
-    saveProperty(launcherHomeField, "launcher.home");
+    saveProperty(launcherHomeField, "jlaunchpad.home");
     saveProperty(repositoryHomeField, "repository.home");
 
     if (useProxyCheckbox.isSelected()) {

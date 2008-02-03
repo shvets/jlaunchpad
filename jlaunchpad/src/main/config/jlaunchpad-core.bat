@@ -251,7 +251,7 @@ FOR %%i in (%*) DO call :processarg ^%%i^
 set SECTION=
 set RESULT=
 
-rem process config file located in $launcher.home
+rem process config file located in $jlaunchpad.home
 
 FOR /F "usebackq delims=" %%i in ("%LAUNCHER_APP_CONF%") DO call :processline  ^"%%i^"
 

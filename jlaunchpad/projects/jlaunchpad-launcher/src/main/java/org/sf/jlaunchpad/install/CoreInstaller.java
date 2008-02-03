@@ -76,7 +76,7 @@ public class CoreInstaller {
 
   private void configureProxy() throws JDOMException, IOException {
     String repositoryHome = System.getProperty("repository.home");
-    String launcherHome = System.getProperty("launcher.home");
+    String launcherHome = System.getProperty("jlaunchpad.home");
 
     File outSettings = new File(launcherHome + File.separatorChar + "settings.xml");
 
@@ -110,7 +110,7 @@ public class CoreInstaller {
   private void copyConfigFiles(String dir) throws IOException {
     File[] files = new File(installRoot, dir).listFiles();
 
-    String launcherHome = System.getProperty("launcher.home");
+    String launcherHome = System.getProperty("jlaunchpad.home");
     File launcherHomeFile = new File(launcherHome);
 
     if (!launcherHomeFile.exists()) {

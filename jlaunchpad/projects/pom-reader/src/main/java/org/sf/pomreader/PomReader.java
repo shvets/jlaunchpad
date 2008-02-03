@@ -48,7 +48,7 @@ public class PomReader {
 
     Settings settings;
     try {
-      settings = Settings.read(System.getProperty("user.home"), new File(System.getProperty("launcher.home") + File.separatorChar + "settings.xml"));
+      settings = Settings.read(System.getProperty("user.home"), new File(System.getProperty("jlaunchpad.home") + File.separatorChar + "settings.xml"));
     }
     catch (Exception e) {
       settings = new Settings();
@@ -154,7 +154,7 @@ public class PomReader {
    * @throws Exception the exception
    */
   public List<URL> calculateDependencies(File pom) throws Exception {
-	return calculateDependencies(pom, false);
+        return calculateDependencies(pom, false);
   }
 
   /**
@@ -370,7 +370,7 @@ public class PomReader {
   }
 
     private List<Repository> getRepositories(String fileName) throws ParserConfigurationException, SAXException, IOException {
-        String launcherHome = System.getProperty("launcher.home");
+        String launcherHome = System.getProperty("jlaunchpad.home");
 
         List<Repository> repositories;
 

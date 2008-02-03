@@ -231,7 +231,7 @@ COMMAND_LINE_ARGS=
 
 readCommandLine $*
 
-# process config file located in $launcher.home
+# process config file located in $jlaunchpad.home
 
 FILE=$LAUNCHER_APP_CONF
 

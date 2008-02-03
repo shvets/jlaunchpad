@@ -11,7 +11,7 @@ public class PomReaderTest extends TestCase {
     super.setUp();
 
     System.setProperty("repository.home", "c:/maven-repository");
-    System.setProperty("launcher.home", "c:/launcher");
+    System.setProperty("jlaunchpad.home", "c:/jlaunchpad");
   }
 
   protected void tearDown() throws Exception {
