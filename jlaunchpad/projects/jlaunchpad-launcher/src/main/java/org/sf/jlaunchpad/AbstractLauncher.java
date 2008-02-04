@@ -1,4 +1,8 @@
-package org.sf.jlaunchpad.core;
+package org.sf.jlaunchpad;
+
+import org.sf.jlaunchpad.Launcher;
+import org.sf.jlaunchpad.LauncherCommandLineParser;
+import org.sf.jlaunchpad.LauncherException;
 
 /**
  * The class represents abstract implementation of the launcher behavior.

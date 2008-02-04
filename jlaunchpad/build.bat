@@ -95,9 +95,8 @@ SET UL_CLASSPATH=%UL_CLASSPATH%;%JDOM_PROJECT%\target\jdom.jar
 %JAVA_HOME%\bin\javac -nowarn -source %JAVA_SPECIFICATION_VERSION_LEVEL% -target %JAVA_SPECIFICATION_VERSION_LEVEL% ^
   -classpath %UL_CLASSPATH% ^
   -d %JLAUNCHPAD_LAUNCHER_PROJECT%\target\classes ^
-  %JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\core\*.java ^
-  %JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\install\*.java ^
-  %JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\*.java
+  %JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\*.java ^
+  %JLAUNCHPAD_LAUNCHER_PROJECT%\src\main\java\org\sf\jlaunchpad\install\*.java
 
 %JAVA_HOME%\bin\jar cf %JLAUNCHPAD_LAUNCHER_PROJECT%\target\jlaunchpad-launcher.jar ^
   -C %JLAUNCHPAD_LAUNCHER_PROJECT%\target\classes .

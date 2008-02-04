@@ -1,4 +1,4 @@
-package org.sf.jlaunchpad.core;
+package org.sf.jlaunchpad;
 
 /**
  * The class represents exception that happens during launch time.

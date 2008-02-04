@@ -4,8 +4,8 @@ import org.apache.maven.bootstrap.model.Dependency;
 import org.apache.maven.bootstrap.model.Model;
 import org.codehaus.classworlds.ClassRealm;
 import org.codehaus.classworlds.ClassWorld;
-import org.sf.jlaunchpad.core.LauncherCommandLineParser;
-import org.sf.jlaunchpad.core.LauncherException;
+import org.sf.jlaunchpad.LauncherCommandLineParser;
+import org.sf.jlaunchpad.LauncherException;
 import org.sf.jlaunchpad.util.CommonUtil;
 import org.sf.jlaunchpad.util.FileUtil;
 
@@ -23,6 +23,9 @@ import java.util.jar.Manifest;
  */
 public class JLaunchPadLauncher extends DepsLauncher {
   protected final static String IGNORE_EXTENSION = "ignore-extension";
+
+  /** The current used extension within instances collection. */
+  protected static String currentExtension = IGNORE_EXTENSION;
 
   /**
    * The singleton object.
@@ -60,7 +63,10 @@ public class JLaunchPadLauncher extends DepsLauncher {
    * @return the singleton instance
    */
   public static JLaunchPadLauncher getInstance() {
-    return instances.get(IGNORE_EXTENSION);
+    System.out.println("1 " + instances.get(currentExtension));
+
+    //return instances.get(IGNORE_EXTENSION);
+    return instances.get(currentExtension);
   }
 
   /**

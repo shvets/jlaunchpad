@@ -42,8 +42,8 @@ public class XmlHelper {
   public Element getElementByPath(Element parent, String[] path) {
     Element current = parent;
 
-    for (int i=0; i < path.length; i++) {
-      Element e = getElementByName(current, path[i]);
+    for (String aPath : path) {
+      Element e = getElementByName(current, aPath);
 
       current = e;
 
@@ -62,9 +62,7 @@ public class XmlHelper {
   public Element getElementByName(Element parent, String name) {
     List children = parent.getChildren();
 
-    for (int i=0; i < children.size(); i++) {
-      Object o = children.get(i);
-
+    for (Object o : children) {
       if (o instanceof Element) {
         Element element = (Element) o;
 
@@ -80,8 +78,8 @@ public class XmlHelper {
   public void printChildren(Element parent) {
     List children = parent.getChildren();
 
-    for (int i=0; i < children.size(); i++) {
-      Element element = (Element) children.get(i);
+    for (Object aChildren : children) {
+      Element element = (Element) aChildren;
 
       System.out.println(element.getName());
     }

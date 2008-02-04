@@ -1,6 +1,7 @@
 package org.sf.jlaunchpad.install;
 
-import org.sf.jlaunchpad.core.LauncherException;
+import org.sf.jlaunchpad.LauncherException;
+import org.sf.jlaunchpad.util.Console;
 
 import javax.swing.*;
 import javax.swing.event.CaretEvent;
@@ -38,7 +39,7 @@ public class GuiInstaller extends CoreInstaller
   private JButton repositoryHomeSearchButton;
 
   private JButton installButton = new JButton("Install");
-  private org.sf.jlaunchpad.install.Console console = new org.sf.jlaunchpad.install.Console();
+  private Console console = new Console();
   private JButton closeButton;
 
   private JTabbedPane tabbedPane = new JTabbedPane();
@@ -55,7 +56,7 @@ public class GuiInstaller extends CoreInstaller
    * Creates new GUI installer.
    *
    * @param args command line arguments
-   * @throws LauncherException the exception
+   * @throws org.sf.jlaunchpad.LauncherException the exception
    */
   public GuiInstaller(String[] args) throws LauncherException {
     this.args = args;

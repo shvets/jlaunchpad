@@ -8,10 +8,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ProxiesXmlHelper extends XmlHelper {
- // public static final String SETTINGS_XML =
- //         System.getProperty("user.home") + File.separatorChar + ".m2" + File.separatorChar + "settings.xml";
 
-  public void process(/*List parameters*/Properties properties) throws IOException, JDOMException {
+  public void process(Properties properties) throws IOException, JDOMException {
     Element localRepository = getLocalRepositoryElement();
 
     Element proxies = getProxiesElement();
@@ -20,7 +18,7 @@ public class ProxiesXmlHelper extends XmlHelper {
       proxies.detach();
     }
 
-    String proxyHost = /*System.getProperty("proxyHost")*/(String)properties.get("proxyHost");
+    String proxyHost = (String)properties.get("proxyHost");
 
     if(proxyHost != null && proxyHost.trim().length() > 0) {
       proxies = new Element("proxies");
@@ -72,13 +70,10 @@ public class ProxiesXmlHelper extends XmlHelper {
     Element protocol = new Element("protocol");
     protocol.setText("http");
 
-   // String proxyHost = System.getProperty("proxyHost");
-    //String proxyPort = System.getProperty("proxyPort");
-
     Element port = new Element("port");
     Element host = new Element("host");
-    port.setText(/*proxyPort*/(String)properties.get("proxyPort"));
-    host.setText(/*proxyHost*/(String)properties.get("proxyHost"));
+    port.setText((String)properties.get("proxyPort"));
+    host.setText((String)properties.get("proxyHost"));
 
     Element username = new Element("username");
     Element password = new Element("password");

@@ -1,4 +1,4 @@
-package org.sf.jlaunchpad.install;
+package org.sf.jlaunchpad.util;
 
 import javax.swing.*;
 import java.io.FilterOutputStream;

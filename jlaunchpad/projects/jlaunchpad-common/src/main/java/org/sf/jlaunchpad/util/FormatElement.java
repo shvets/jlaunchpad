@@ -33,8 +33,6 @@ public class FormatElement {
   }
 
   /**
-   * Invoked by {@link org.apache.tools.ant.IntrospectionHelper IntrospectionHelper}.
-   *
    * @param value the <code>String</code> value of the attribute
    */
   public final void setValue(String value) {

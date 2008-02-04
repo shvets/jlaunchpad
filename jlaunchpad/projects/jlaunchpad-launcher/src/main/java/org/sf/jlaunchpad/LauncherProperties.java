@@ -6,7 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * This class reads and populate all required system properties form
+ * This class reads and populate all required system properties from
  * propreties file to system properties.
  *
  * @author Alexander Shvets

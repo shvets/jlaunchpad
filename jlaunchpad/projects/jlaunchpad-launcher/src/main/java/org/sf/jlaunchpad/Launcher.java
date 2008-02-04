@@ -1,4 +1,6 @@
-package org.sf.jlaunchpad.core;
+package org.sf.jlaunchpad;
+
+import org.sf.jlaunchpad.LauncherException;
 
 import java.net.URL;
 

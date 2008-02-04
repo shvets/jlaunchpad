@@ -4,8 +4,8 @@ import junit.textui.TestRunner;
 import org.codehaus.classworlds.ClassWorld;
 import org.sf.jlaunchpad.DepsLauncher;
 import org.sf.jlaunchpad.JLaunchPadLauncher;
+import org.sf.jlaunchpad.LauncherCommandLineParser;
 import org.sf.jlaunchpad.install.GuiInstaller;
-import org.sf.jlaunchpad.core.LauncherCommandLineParser;
 
 import java.util.ArrayList;
 import java.util.List;

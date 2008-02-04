@@ -1,6 +1,9 @@
-package org.sf.jlaunchpad.core;
+package org.sf.jlaunchpad;
 
 import org.sf.jlaunchpad.util.ReflectionUtil;
+import org.sf.jlaunchpad.AbstractLauncher;
+import org.sf.jlaunchpad.LauncherCommandLineParser;
+import org.sf.jlaunchpad.LauncherException;
 
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -15,7 +18,7 @@ import java.util.ArrayList;
  * @author Alexander Shvets
  * @version 1.0 01/14/2007
  */
-public class SimpleLauncher extends AbstractLauncher {
+public class DefaultLauncher extends AbstractLauncher {
 
   /** The class loader. */
   private ClassLoader classLoader;
@@ -31,7 +34,7 @@ public class SimpleLauncher extends AbstractLauncher {
    *
    * @param args command line arguments
    */
-  public SimpleLauncher(String[] args) {
+  public DefaultLauncher(String[] args) {
     super(args);
   }
   
@@ -41,7 +44,7 @@ public class SimpleLauncher extends AbstractLauncher {
    * @param parser the parser
    * @param args command line arguments
    */
-  public SimpleLauncher(LauncherCommandLineParser parser, String[] args) {
+  public DefaultLauncher(LauncherCommandLineParser parser, String[] args) {
     super(parser, args);
   }
 

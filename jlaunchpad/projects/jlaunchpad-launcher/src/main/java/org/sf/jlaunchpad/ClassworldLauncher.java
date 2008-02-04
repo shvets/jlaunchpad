@@ -4,8 +4,8 @@ import org.codehaus.classworlds.ClassRealm;
 import org.codehaus.classworlds.ClassWorld;
 import org.codehaus.classworlds.DuplicateRealmException;
 import org.codehaus.classworlds.NoSuchRealmException;
-import org.sf.jlaunchpad.core.LauncherException;
-import org.sf.jlaunchpad.core.LauncherCommandLineParser;
+import org.sf.jlaunchpad.LauncherException;
+import org.sf.jlaunchpad.LauncherCommandLineParser;
 import org.sf.jlaunchpad.util.ReflectionUtil;
 
 import java.io.File;

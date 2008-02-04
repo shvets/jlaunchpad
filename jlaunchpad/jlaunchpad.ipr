@@ -82,95 +82,117 @@
     <option name="PATCH_PATH" value="" />
     <option name="REVERSE_PATCH" value="false" />
   </component>
-  <component name="DBNavigator.Project.CodeCompletionManager">
-    <basic-setup>
-      <schemas type="SCHEMA" selected="true" />
-      <users type="USER" selected="true" />
-      <build-in-functions type="FUNCTION" selected="false" />
-      <user-schema>
-        <object type="TABLE" selected="true" />
-        <object type="INDEX" selected="true" />
-        <object type="VIEW" selected="true" />
-        <object type="SYNONYM" selected="true" />
-        <object type="SEQUENCE" selected="true" />
-        <object type="PROCEDURE" selected="true" />
-        <object type="FUNCTION" selected="true" />
-        <object type="PACKAGE" selected="true" />
-        <object type="TYPE" selected="true" />
-        <object type="DIMENSION" selected="true" />
-        <object type="CLUSTER" selected="true" />
-      </user-schema>
-      <public-schema>
-        <object type="TABLE" selected="false" />
-        <object type="INDEX" selected="false" />
-        <object type="VIEW" selected="false" />
-        <object type="SYNONYM" selected="false" />
-        <object type="SEQUENCE" selected="false" />
-        <object type="PROCEDURE" selected="false" />
-        <object type="FUNCTION" selected="false" />
-        <object type="PACKAGE" selected="false" />
-        <object type="TYPE" selected="false" />
-        <object type="DIMENSION" selected="false" />
-        <object type="CLUSTER" selected="false" />
-      </public-schema>
-      <any-schema>
-        <object type="TABLE" selected="true" />
-        <object type="INDEX" selected="true" />
-        <object type="VIEW" selected="true" />
-        <object type="SYNONYM" selected="true" />
-        <object type="SEQUENCE" selected="true" />
-        <object type="PROCEDURE" selected="true" />
-        <object type="FUNCTION" selected="true" />
-        <object type="PACKAGE" selected="true" />
-        <object type="TYPE" selected="true" />
-        <object type="DIMENSION" selected="true" />
-        <object type="CLUSTER" selected="true" />
-      </any-schema>
-    </basic-setup>
-    <smart-setup>
-      <schemas type="SCHEMA" selected="true" />
-      <users type="USER" selected="true" />
-      <build-in-functions type="FUNCTION" selected="true" />
-      <user-schema>
-        <object type="TABLE" selected="true" />
-        <object type="INDEX" selected="true" />
-        <object type="VIEW" selected="true" />
-        <object type="SYNONYM" selected="true" />
-        <object type="SEQUENCE" selected="true" />
-        <object type="PROCEDURE" selected="true" />
-        <object type="FUNCTION" selected="true" />
-        <object type="PACKAGE" selected="true" />
-        <object type="TYPE" selected="true" />
-        <object type="DIMENSION" selected="true" />
-        <object type="CLUSTER" selected="true" />
-      </user-schema>
-      <public-schema>
-        <object type="TABLE" selected="true" />
-        <object type="INDEX" selected="true" />
-        <object type="VIEW" selected="true" />
-        <object type="SYNONYM" selected="true" />
-        <object type="SEQUENCE" selected="true" />
-        <object type="PROCEDURE" selected="true" />
-        <object type="FUNCTION" selected="true" />
-        <object type="PACKAGE" selected="true" />
-        <object type="TYPE" selected="true" />
-        <object type="DIMENSION" selected="true" />
-        <object type="CLUSTER" selected="true" />
-      </public-schema>
-      <any-schema>
-        <object type="TABLE" selected="true" />
-        <object type="INDEX" selected="true" />
-        <object type="VIEW" selected="true" />
-        <object type="SYNONYM" selected="true" />
-        <object type="SEQUENCE" selected="true" />
-        <object type="PROCEDURE" selected="true" />
-        <object type="FUNCTION" selected="true" />
-        <object type="PACKAGE" selected="true" />
-        <object type="TYPE" selected="true" />
-        <object type="DIMENSION" selected="true" />
-        <object type="CLUSTER" selected="true" />
-      </any-schema>
-    </smart-setup>
+  <component name="DBNavigator.Project.CodeEditorSettings">
+    <code-completion>
+      <basic-scheme>
+        <schemas type="SCHEMA" selected="true" />
+        <users type="USER" selected="true" />
+        <build-in-functions type="FUNCTION" selected="false" />
+        <user-schema>
+          <object type="TABLE" selected="true" />
+          <object type="VIEW" selected="true" />
+          <object type="INDEX" selected="true" />
+          <object type="CONSTRAINT" selected="true" />
+          <object type="TRIGGER" selected="true" />
+          <object type="SYNONYM" selected="true" />
+          <object type="SEQUENCE" selected="true" />
+          <object type="PROCEDURE" selected="true" />
+          <object type="FUNCTION" selected="true" />
+          <object type="PACKAGE" selected="true" />
+          <object type="TYPE" selected="true" />
+          <object type="DIMENSION" selected="true" />
+          <object type="CLUSTER" selected="true" />
+        </user-schema>
+        <public-schema>
+          <object type="TABLE" selected="false" />
+          <object type="VIEW" selected="false" />
+          <object type="INDEX" selected="false" />
+          <object type="CONSTRAINT" selected="false" />
+          <object type="TRIGGER" selected="false" />
+          <object type="SYNONYM" selected="false" />
+          <object type="SEQUENCE" selected="false" />
+          <object type="PROCEDURE" selected="false" />
+          <object type="FUNCTION" selected="false" />
+          <object type="PACKAGE" selected="false" />
+          <object type="TYPE" selected="false" />
+          <object type="DIMENSION" selected="false" />
+          <object type="CLUSTER" selected="false" />
+        </public-schema>
+        <any-schema>
+          <object type="TABLE" selected="true" />
+          <object type="VIEW" selected="true" />
+          <object type="INDEX" selected="true" />
+          <object type="CONSTRAINT" selected="true" />
+          <object type="TRIGGER" selected="true" />
+          <object type="SYNONYM" selected="true" />
+          <object type="SEQUENCE" selected="true" />
+          <object type="PROCEDURE" selected="true" />
+          <object type="FUNCTION" selected="true" />
+          <object type="PACKAGE" selected="true" />
+          <object type="TYPE" selected="true" />
+          <object type="DIMENSION" selected="true" />
+          <object type="CLUSTER" selected="true" />
+        </any-schema>
+      </basic-scheme>
+      <smart-scheme>
+        <schemas type="SCHEMA" selected="true" />
+        <users type="USER" selected="true" />
+        <build-in-functions type="FUNCTION" selected="true" />
+        <user-schema>
+          <object type="TABLE" selected="true" />
+          <object type="VIEW" selected="true" />
+          <object type="INDEX" selected="true" />
+          <object type="CONSTRAINT" selected="true" />
+          <object type="TRIGGER" selected="true" />
+          <object type="SYNONYM" selected="true" />
+          <object type="SEQUENCE" selected="true" />
+          <object type="PROCEDURE" selected="true" />
+          <object type="FUNCTION" selected="true" />
+          <object type="PACKAGE" selected="true" />
+          <object type="TYPE" selected="true" />
+          <object type="DIMENSION" selected="true" />
+          <object type="CLUSTER" selected="true" />
+        </user-schema>
+        <public-schema>
+          <object type="TABLE" selected="true" />
+          <object type="VIEW" selected="true" />
+          <object type="INDEX" selected="true" />
+          <object type="CONSTRAINT" selected="true" />
+          <object type="TRIGGER" selected="true" />
+          <object type="SYNONYM" selected="true" />
+          <object type="SEQUENCE" selected="true" />
+          <object type="PROCEDURE" selected="true" />
+          <object type="FUNCTION" selected="true" />
+          <object type="PACKAGE" selected="true" />
+          <object type="TYPE" selected="true" />
+          <object type="DIMENSION" selected="true" />
+          <object type="CLUSTER" selected="true" />
+        </public-schema>
+        <any-schema>
+          <object type="TABLE" selected="true" />
+          <object type="VIEW" selected="true" />
+          <object type="INDEX" selected="true" />
+          <object type="CONSTRAINT" selected="true" />
+          <object type="TRIGGER" selected="true" />
+          <object type="SYNONYM" selected="true" />
+          <object type="SEQUENCE" selected="true" />
+          <object type="PROCEDURE" selected="true" />
+          <object type="FUNCTION" selected="true" />
+          <object type="PACKAGE" selected="true" />
+          <object type="TYPE" selected="true" />
+          <object type="DIMENSION" selected="true" />
+          <object type="CLUSTER" selected="true" />
+        </any-schema>
+      </smart-scheme>
+    </code-completion>
+    <code-style>
+      <case>
+        <keyword value="lower" />
+        <function value="lower" />
+        <parameter value="lower" />
+        <object value="upper" />
+      </case>
+    </code-style>
   </component>
   <component name="DBNavigator.Project.ConnectionManager">
     <connections />
@@ -178,6 +200,13 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="false" />
+  </component>
+  <component name="DBNavigator.Project.DatasetEditorSettings">
+    <autopopup-text-editor active="true" active-if-empty="false" data-length-threshold="100" delay="1000" />
+    <fetch-block-size value="100" />
+  </component>
+  <component name="DBNavigator.Project.GenericSettings">
+    <settings />
   </component>
   <component name="DaemonCodeAnalyzer">
     <disable_hints />

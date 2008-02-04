@@ -1,6 +1,6 @@
 package org.sf.jlaunchpad.install;
 
-import org.sf.jlaunchpad.core.LauncherException;
+import org.sf.jlaunchpad.LauncherException;
 import org.sf.jlaunchpad.util.FileUtil;
 import org.sf.jlaunchpad.util.StringUtil;
 import org.sf.jlaunchpad.xml.ProxiesXmlHelper;
@@ -9,7 +9,6 @@ import org.jdom.JDOMException;
 import org.jdom.Element;
 
 import java.io.*;
-import java.util.ArrayList;
 
 /**
  * The class perform initial (command line) installation of scriprlandia.

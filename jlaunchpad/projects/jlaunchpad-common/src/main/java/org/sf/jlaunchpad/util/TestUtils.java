@@ -3,62 +3,54 @@
 
 package org.sf.jlaunchpad.util;
 
-import java.lang.reflect.*;
-import java.io.*;
-import java.net.*;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
 
 public class TestUtils
 
 {
 
-   public static void addURL(Class<?> clazz)
+  public static void addURL(Class<?> clazz)  {
 
-   {
+    try  {
 
-       try
+      URLClassLoader sysloader = (URLClassLoader) ClassLoader
 
-       {
+          .getSystemClassLoader();
 
-
-
-           URLClassLoader sysloader = (URLClassLoader) ClassLoader
-
-                   .getSystemClassLoader();
-
-           Class<URLClassLoader> sysclass = URLClassLoader.class;
+      Class<URLClassLoader> sysclass = URLClassLoader.class;
 
 
+      String path = sysloader.getResource(
 
-           String path = sysloader.getResource(
+          clazz.getCanonicalName().replace('.', '/') + ".class")
 
-                   clazz.getCanonicalName().replace('.', '/') + ".class")
+          .getPath();
 
-                   .getPath();
+      int lastSlash = path.lastIndexOf('/');
 
-           int lastSlash = path.lastIndexOf('/');
+      path = path.substring(lastSlash + 1);
 
-           path = path.substring(lastSlash+1);
-
-           URL url = new URL("file://" + path);
-
+      URL url = new URL("file://" + path);
 
 
-           Method method = sysclass.getDeclaredMethod("addURL", URL.class);
+      Method method = sysclass.getDeclaredMethod("addURL", URL.class);
 
-           method.setAccessible(true);
+      method.setAccessible(true);
 
-           method.invoke(sysloader, new Object[] { url });
+      method.invoke(sysloader, new Object[] {url});
 
-       }
+    }
 
-       catch (Throwable t)
+    catch (Throwable t)
 
-       {
+    {
 
-           t.printStackTrace();
+      t.printStackTrace();
 
-       }
+    }
 
-   }
+  }
 
 }

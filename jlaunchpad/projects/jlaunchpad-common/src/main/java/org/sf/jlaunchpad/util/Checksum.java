@@ -367,8 +367,8 @@ public class Checksum {
       // This directory will exist
       directory = file.getParentFile();
     }
-    File checksumFile = new File(directory, file.getName() + fileext);
-    return checksumFile;
+
+    return new File(directory, file.getName() + fileext);
   }
 
   /**

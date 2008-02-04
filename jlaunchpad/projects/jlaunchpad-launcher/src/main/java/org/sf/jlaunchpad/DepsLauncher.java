@@ -2,8 +2,8 @@ package org.sf.jlaunchpad;
 
 import org.codehaus.classworlds.ClassRealm;
 import org.codehaus.classworlds.ClassWorld;
-import org.sf.jlaunchpad.core.LauncherCommandLineParser;
-import org.sf.jlaunchpad.core.LauncherException;
+import org.sf.jlaunchpad.LauncherCommandLineParser;
+import org.sf.jlaunchpad.LauncherException;
 import org.sf.pomreader.PomReader;
 
 import java.io.BufferedReader;
@@ -174,7 +174,7 @@ public class DepsLauncher extends ClassworldLauncher {
    * @throws Exception the exception
    */
   public void resolveDependencies(String depsFileName) throws Exception {
-	  resolveDependencies(depsFileName, false);
+    resolveDependencies(depsFileName, false);
   }
   /**
    * Resolves dependencies for specified pom maven2 dependencies file.
