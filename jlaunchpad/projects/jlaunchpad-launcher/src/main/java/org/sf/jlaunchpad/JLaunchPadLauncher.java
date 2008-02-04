@@ -63,8 +63,6 @@ public class JLaunchPadLauncher extends DepsLauncher {
    * @return the singleton instance
    */
   public static JLaunchPadLauncher getInstance() {
-    System.out.println("1 " + instances.get(currentExtension));
-
     //return instances.get(IGNORE_EXTENSION);
     return instances.get(currentExtension);
   }
