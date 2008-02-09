@@ -2,6 +2,17 @@ rem config.bat
 
 rem Default values
 SET DRIVE_LETTER=c:
+
+SET JAVA_HOME=%DRIVE_LETTER%\Java\jdk1.6.0
+SET JLAUNCHPAD_HOME=%DRIVE_LETTER%\jlaunchpad
+SET REPOSITORY_HOME=%DRIVE_LETTER%\maven-repository
+
+IF NOT EXIST %JAVA_HOME% (
+  ECHO JDK cannot be found!
+  PAUSE
+  EXIT
+)
+
 SET PROXY_SERVER_HOST_NAME=
 SET PROXY_SERVER_PORT=
 SET PROXY_USER=
@@ -9,29 +20,12 @@ SET PROXY_PASSWORD=
 
 SET DEBUG_MODE=false
 
-SET JAVA_HOME=%DRIVE_LETTER%\Java\jdk1.6.0
-SET JLAUNCHPAD_HOME=%DRIVE_LETTER%\jlaunchpad
-SET REPOSITORY_HOME=%DRIVE_LETTER%\maven-repository
-
 rem Constants
 SET JAVA_SPECIFICATION_VERSION_LEVEL=1.5
 SET JLAUNCHPAD_VERSION=1.0.1
 SET CLASSWORLDS_VERSION=1.1
 SET JDOM_VERSION=1.1
 SET BOOTSTRAP_MINI_VERSION=2.0.8
-
-rem Overwrites default values, if exists
-IF EXIST %USERPROFILE%\jlaunchpad\config.bat (
-  @call "%USERPROFILE%\jlaunchpad\config.bat"
-) else (
-  @call "%~dp0user\config.bat"
-)
-
-IF NOT EXIST %JAVA_HOME% (
-  ECHO JDK cannot be found!
-  PAUSE
-  EXIT
-)
 
 rem System properties
 SET SYSTEM_PROPERTIES="-Djlaunchpad.home=%JLAUNCHPAD_HOME%"

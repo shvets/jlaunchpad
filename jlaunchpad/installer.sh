@@ -20,6 +20,11 @@ if [ "$CYGWIN" = "true" ]; then
   CLASSPATH=`cygpath -wp $CLASSPATH`
 fi
 
+# Overwrites default values, if exists
+if [ -f user/config.sh ]; then
+  . user/config.sh
+fi
+
 # MAIN_CLASS=org.sf.jlaunchpad.install.CoreInstaller
 MAIN_CLASS=org.sf.jlaunchpad.install.GuiInstaller
 

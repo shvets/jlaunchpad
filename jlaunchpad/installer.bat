@@ -22,16 +22,8 @@ SET MAIN_CLASS=org.sf.jlaunchpad.install.GuiInstaller
 %JAVA_HOME%\bin\java -classpath %CLASSPATH% %SYSTEM_PROPERTIES% -Dbasedir=. %MAIN_CLASS%
 
 rem Overwrites default values, if exists
-IF EXIST %USERPROFILE%\jlaunchpad\config.bat (
-  @call "%USERPROFILE%\jlaunchpad\config.bat"
-) else (
+IF EXIST user\config.bat (
   @call "user\config.bat"
-)
-
-IF NOT EXIST %JAVA_HOME% (
-  ECHO JDK cannot be found!
-  PAUSE
-  EXIT
 )
 
 rem System properties
