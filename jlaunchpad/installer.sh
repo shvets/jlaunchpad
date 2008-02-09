@@ -21,7 +21,7 @@ if [ "$CYGWIN" = "true" ]; then
 fi
 
 # Overwrites default values, if exists
-if [ -f user/config.sh ]; then
+if [ -e user/config.sh ]; then
   . user/config.sh
 fi
 

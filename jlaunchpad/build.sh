@@ -13,7 +13,7 @@ echo ---### Java Specification Version Level: $JAVA_SPECIFICATION_VERSION_LEVEL
 
 echo ---### Builds bootstrap-mini project
 
-if [ ! -f $BOOTSTRAP_MINI_PROJECT/target/classes ]; then
+if [ ! -e $BOOTSTRAP_MINI_PROJECT/target/classes ]; then
   mkdir -p $BOOTSTRAP_MINI_PROJECT/target/classes
 fi
 
@@ -29,7 +29,7 @@ $JAVA_HOME/bin/jar cf $BOOTSTRAP_MINI_PROJECT/target/bootstrap-mini.jar \
 
 echo ---### Builds classworlds project
 
-if [ ! -f $CLASSWORLDS_PROJECT/target/classes ]; then
+if [ ! -e $CLASSWORLDS_PROJECT/target/classes ]; then
   mkdir -p $CLASSWORLDS_PROJECT/target/classes
 fi
 
@@ -45,7 +45,7 @@ $JAVA_HOME/bin/jar cf $CLASSWORLDS_PROJECT/target/classworlds.jar \
 
 echo ---### Builds jlaunchpad-common project
 
-if [ ! -f $JLAUNCHPAD_COMMON_PROJECT/target/classes ]; then
+if [ ! -e $JLAUNCHPAD_COMMON_PROJECT/target/classes ]; then
   mkdir -p $JLAUNCHPAD_COMMON_PROJECT/target/classes
 fi
 
@@ -63,7 +63,7 @@ $JAVA_HOME/bin/jar cf $JLAUNCHPAD_COMMON_PROJECT/target/jlaunchpad-common.jar \
 
 echo ---### Builds pom-reader project
 
-if [ ! -f $POM_READER_PROJECT/target/classes ]; then
+if [ ! -e $POM_READER_PROJECT/target/classes ]; then
   mkdir -p $POM_READER_PROJECT/target/classes
 fi
 
@@ -86,7 +86,7 @@ $JAVA_HOME/bin/jar cf $POM_READER_PROJECT/target/pom-reader.jar \
 
 echo ---### Builds jlaunchpad-launcher project
 
-if [ ! -f $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes ]; then
+if [ ! -e $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes ]; then
   mkdir -p $JLAUNCHPAD_LAUNCHER_PROJECT/target/classes
 fi
 

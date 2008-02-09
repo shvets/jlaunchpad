@@ -183,7 +183,7 @@ public class CoreInstaller {
       int code = process.waitFor();
 
       if(code > 0) {
-        System.out.println("Error code: " + code);
+        System.out.println("Error code: " + code + ". \"chmod\" - operation is not permitted. Use 'su' rights.");
       }
     } catch (Exception e) {
        e.printStackTrace();

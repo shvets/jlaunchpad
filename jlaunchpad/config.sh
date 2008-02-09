@@ -13,7 +13,7 @@ JAVA_HOME=~/jdk1.6.0_03
 JLAUNCHPAD_HOME=~/jlaunchpad
 REPOSITORY_HOME=/media/sda2/maven-repository
 
-if [ ! -f $JAVA_HOME ]; then
+if [ ! -e $JAVA_HOME ]; then
   echo "JDK cannot be found!"
   
   return
