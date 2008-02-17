@@ -2,6 +2,8 @@
 
 SET DEBUG_MODE=@debug.mode@
 
+SET DEBUG_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6006
+
 set JAVA_HOME=@java.home.internal@
 
 goto execute
@@ -158,64 +160,43 @@ goto end
 
 if "%~1" == "" goto end
 
-set TEMP=%~1
-set PARAM1=%TEMP:~0,2%
-set PARAM2=%TEMP:~0,18%
-set PARAM3=%TEMP:~0,19%
-set PARAM4=%TEMP:~18%
-set PARAM5=%TEMP:~0,16%
-set PARAM6=%TEMP:~16%
+set CURR_ARG=%~1
+set PARAM1=%CURR_ARG:~0,2%
+set PARAM2=%CURR_ARG:~0,18%
+set PARAM3=%CURR_ARG:~0,19%
+set PARAM4=%CURR_ARG:~18%
+set PARAM5=%CURR_ARG:~0,16%
+set PARAM6=%CURR_ARG:~16%
 
-if "%PARAM1%" == "-D" (
-  SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% "%~1%"
-  goto end
-)
-
-
-if "%PARAM2%"=="-Xbootclasspath/p:" (
+if "%CURR_ARG:~0,2%" == "-D" (
+  SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% "%~1"
+) else if "%PARAM2%"=="-Xbootclasspath/p:" (
   if not "%JAVA_BOOTCLASSPATH_APPEND%" == "" (
     SET JAVA_BOOTCLASSPATH_PREPEND=%JAVA_BOOTCLASSPATH_PREPEND%%SEPARATOR%%PARAM4%
   ) else (
     SET JAVA_BOOTCLASSPATH_PERPEND=%PARAM4%
   )
-
-  goto end
-)
-
-if "%PARAM2%"=="-Xbootclasspath/a:" (
+) else if "%PARAM2%"=="-Xbootclasspath/a:" (
   if not "%JAVA_BOOTCLASSPATH_APPEND%" == "" (
     SET JAVA_BOOTCLASSPATH_APPEND=%JAVA_BOOTCLASSPATH_APPEND%%SEPARATOR%%PARAM4%
   ) else (
     SET JAVA_BOOTCLASSPATH_APPEND=%PARAM4%
   )
-
-  goto end
-)
-
-if "%PARAM5%"=="-Xbootclasspath:" (
+) else if "%PARAM5%"=="-Xbootclasspath:" (
   if not "%JAVA_BOOTCLASSPATH%" == "" (
     SET JAVA_BOOTCLASSPATH=%JAVA_BOOTCLASSPATH%%SEPARATOR%%PARAM6%
   ) else (
     SET JAVA_BOOTCLASSPATH_APPEND=%PARAM6%
   )
-
-  goto end
-)
-
-if "%TEMP%"=="-debug" (
-  SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6006
-  goto end
-)
-
-if "%PARAM3%"=="-Djava.library.path" (
+) else if "%TEMP%"=="-debug" (
+  SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% %DEBUG_OPTS%
+) else if "%PARAM3%"=="-Djava.library.path" (
   SET JAVA_LIBRARY_PATH=%JAVA_LIBRARY_PATH% "%~1%"
-  goto end
+) else (
+  set COMMAND_LINE_ARGS=%COMMAND_LINE_ARGS% "%~1%"
 )
-
-set COMMAND_LINE_ARGS=%COMMAND_LINE_ARGS% "%~1%"
 
 goto end
-
 
 :execute
 
@@ -224,7 +205,7 @@ if defined JAVA_HOME set JAVA_CMD="%JAVA_HOME%\bin\%CMD%"
 rem if defined JAVA_CMD set CMD="%JAVA_CMD%"
 rem set JAVA_CMD=
 
-set LAUNCHER_APP_CONF=%JLAUNCHPAD_HOME%\jlaunchpad.conf
+set LAUNCHER_APP_CONF=%JLAUNCHPAD_HOME%\jlaunchpad.jlcfg
 
 if not defined MAIN_APP_CONF (
  SET MAIN_APP_CONF=%LAUNCHER_APP_CONF%
@@ -246,7 +227,25 @@ SET COMMAND_LINE_ARGS=
 
 rem process command line
 
-FOR %%i in (%*) DO call :processarg ^%%i^
+rem FOR %%i in (%*) DO call :processarg ^%%i^
+
+:cmdline_loop
+if "x%~1" == "x" goto cmdline_loop_end
+
+set CURR_ARG=%~1
+
+if "%CURR_ARG:~0,2%" == "-D" (
+  shift
+  shift   
+  call :processarg ^"%~1=%~2^"
+
+  goto cmdline_loop
+) else (
+  shift
+  call :processarg "%~1"
+  goto cmdline_loop
+)
+:cmdline_loop_end
 
 set SECTION=
 set RESULT=

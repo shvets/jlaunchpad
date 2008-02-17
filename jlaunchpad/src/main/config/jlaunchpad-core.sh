@@ -2,6 +2,8 @@
 
 DEBUG_MODE=@debug.mode@
 
+DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6006"
+
 JAVA_HOME="@java.home.internal@"
 
 readCommandLine() {
@@ -35,7 +37,7 @@ processArg() {
   elif [ "$PARAM4" = "-Xbootclasspath:" ]; then
     JAVA_BOOTCLASSPATH="$JAVA_BOOTCLASSPATH$SEPARATOR$arg"
   elif [ "$arg" = "-debug" ]; then
-    JAVA_SYSTEM_PROPS="$JAVA_SYSTEM_PROPS -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6006"
+    JAVA_SYSTEM_PROPS="$JAVA_SYSTEM_PROPS $DEBUG_OPTS"
   elif [ "$PARAM3" = "-Djava.library.path" ]; then
     JAVA_LIBRARY_PATH="$JAVA_LIBRARY_PATH $arg"
   else
@@ -206,7 +208,7 @@ else
   JAVA_CMD="$JAVA_HOME/bin/java"
 fi
 
-LAUNCHER_APP_CONF=$JLAUNCHPAD_HOME/jlaunchpad.conf
+LAUNCHER_APP_CONF=$JLAUNCHPAD_HOME/jlaunchpad.jlcfg
 
 if [ "$MAIN_APP_CONF" = "" ]; then
   MAIN_APP_CONF=$LAUNCHER_APP_CONF
