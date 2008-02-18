@@ -16,16 +16,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Work\Projects\jlaunchpad\trunk\jlaunchpad\src\main\config\classworlds.conf" afterPath="$PROJECT_DIR$/src/main/config/jlaunchpad.conf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/config/jlaunchpad-core.bat" afterPath="$PROJECT_DIR$/src/main/config/jlaunchpad-core.bat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.iws" afterPath="$PROJECT_DIR$/jlaunchpad.iws" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ReflectionUtil.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ReflectionUtil.java" />
-      <change type="MODIFICATION" beforePath="C:\Work\Projects\jlaunchpad\trunk\jlaunchpad\src\main\config\jlaunchpad.jlcfg" afterPath="C:\Work\Projects\jlaunchpad\trunk\jlaunchpad\src\main\config\jlaunchpad.jlcfg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.ipr" afterPath="$PROJECT_DIR$/jlaunchpad.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/jlaunchpad-launcher.iml" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/jlaunchpad-launcher.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/pom-reader/pom-reader.iml" afterPath="$PROJECT_DIR$/projects/pom-reader/pom-reader.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java" afterPath="$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-common/jlaunchpad-common.iml" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/jlaunchpad-common.iml" />
     </list>
     <ignored path="jlaunchpad.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -181,10 +173,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractReader.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AbstractReader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="58" selection-start="1994" selection-end="1994" vertical-scroll-proportion="0.19358177">
+            <state line="74" column="46" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.5672878">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReflectionUtil.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ReflectionUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="19" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.47204968">
               <folding />
             </state>
           </provider>
@@ -270,7 +271,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="PsiDirectory:C:\Work\Projects\jlaunchpad\trunk\jlaunchpad\projects\jlaunchpad-launcher\target" />
+          <option name="myItemId" value="target" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -816,13 +817,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/model/ProjectResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="2783" selection-end="2783" vertical-scroll-proportion="0.13424346">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/ProjectInstaller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="202" column="47" selection-start="5913" selection-end="5913" vertical-scroll-proportion="0.05257271">
@@ -923,7 +917,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="58" selection-start="1994" selection-end="1994" vertical-scroll-proportion="0.19358177">
+        <state line="74" column="46" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.5672878">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ReflectionUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="19" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.47204968">
           <folding />
         </state>
       </provider>
