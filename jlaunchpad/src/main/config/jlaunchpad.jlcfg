@@ -13,7 +13,7 @@ REPOSITORY_HOME=@repository.home@
 <java.library.path>
 
 <java.system.props>
-classworlds.conf=@jlaunchpad.home@/classworlds.conf
+classworlds.conf=@jlaunchpad.home@/jlaunchpad.conf
 repository.home=@repository.home@
 jlaunchpad.home=@jlaunchpad.home@
 jlaunchpad.version=@launcher.version@

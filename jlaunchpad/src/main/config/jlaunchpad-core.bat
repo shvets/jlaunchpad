@@ -188,7 +188,7 @@ if "%CURR_ARG:~0,2%" == "-D" (
   ) else (
     SET JAVA_BOOTCLASSPATH_APPEND=%PARAM6%
   )
-) else if "%TEMP%"=="-debug" (
+) else if "%CURR_ARG%"=="-debug" (
   SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% %DEBUG_OPTS%
 ) else if "%PARAM3%"=="-Djava.library.path" (
   SET JAVA_LIBRARY_PATH=%JAVA_LIBRARY_PATH% "%~1%"

@@ -76,6 +76,11 @@ public class ReflectionUtil {
                       Modifier.isPublic(modifiers) &&
                       (method.getReturnType() == Void.TYPE || method.getReturnType() == Object.class);
 
+      System.out.println("Modifier.isStatic(modifiers): " + Modifier.isStatic(modifiers));
+      System.out.println("method.getReturnType(): " + method.getReturnType());
+      System.out.println("Modifier.isPublic(modifiers): " + Modifier.isPublic(modifiers));
+      System.out.println("modifiers: " + modifiers);
+      
       if (correctSignature) {
         final Class[] currentParamTypes = method.getParameterTypes();
 

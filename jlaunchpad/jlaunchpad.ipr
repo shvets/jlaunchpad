@@ -721,5 +721,8 @@
     </GetOptions>
   </component>
   <component name="WebServicesPlugin" addRequiredLibraries="true" />
+  <UsedPathMacros>
+    <macro name="maven-repository" />
+  </UsedPathMacros>
 </project>
 

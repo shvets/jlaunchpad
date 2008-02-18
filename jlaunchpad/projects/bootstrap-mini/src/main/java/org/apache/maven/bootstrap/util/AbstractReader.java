@@ -52,7 +52,8 @@ public abstract class AbstractReader
         IOUtil.copy( new FileInputStream( file ), output );
         String out = output.toString( "UTF-8" );
         out = StringUtils.replace( out, "&oslash;", "\u00f8" );
-
+        out = StringUtils.replace( out, "&copy;", "\u00a9" );
+        out = StringUtils.replace( out, "&ndash;", "\u2013" );
         InputSource is = new InputSource( new ByteArrayInputStream( out.getBytes( "UTF-8" ) ) );
 
         try
