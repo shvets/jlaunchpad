@@ -1,0 +1,16 @@
+<set.variables>
+#GRAILS_HOME=C:/JavaPrograms/grails-0.5.6
+#GRAILS_HOME=C:/Work/jlaunchpad/trunk/samples/grails
+
+<java.system.props>
+#program.name=
+#grails.home=%GRAILS_HOME%
+#grails.home=C:/JavaPrograms/grails-0.5.6
+#tools.jar=c:/Java/jdk1.5.0/lib/tools.jar 
+#groovy.starter.conf=C:/JavaPrograms/grails-0.5.6/conf/groovy-starter.conf  
+
+<java.classpath>
+#.
+
+<jvm.args>
+-Xmx128m

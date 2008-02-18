@@ -1,1 +1,1 @@
-mvn assembly:assembly "-Djava.specification.version=1.5"
+mvn assembly:assembly -Djava.specification.version=1.5

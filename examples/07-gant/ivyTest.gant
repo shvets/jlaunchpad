@@ -34,7 +34,7 @@ cleanPattern << '**/*.bak'
 
 //  Cannot have a target called run as it creates an infinite mutual recursion. :-(
 
-task ( runTest : 'Run the Ivy "Hello" test.' ) {
+target ( runTest : 'Run the Ivy "Hello" test.' ) {
   def classPathRef = 'classpath'
   Ant.mkdir ( dir : buildDirectory )
   Ant.path ( id : classPathRef )
@@ -50,6 +50,6 @@ task ( runTest : 'Run the Ivy "Hello" test.' ) {
   }
 }
 
-task ( cleanCache : 'Clean the Ivy cache.' ) { Ant.delete ( dir : System.getenv ( ).HOME + '/.ivy/cache' ) }
+target ( cleanCache : 'Clean the Ivy cache.' ) { Ant.delete ( dir : System.getenv ( ).HOME + '/.ivy/cache' ) }
 
 task ( 'default' : 'The default task in run.' ) { runTest ( ) }

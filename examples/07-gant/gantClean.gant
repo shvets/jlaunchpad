@@ -21,14 +21,14 @@ includeTargets << gant.targets.Clean
 cleanPattern << [ '**/*~' ,  '**/*.bak' ]
 cleanDirectory << 'build'
 
-task ( 'default' : 'The default target.' ) {
+target ( 'default' : 'The default target.' ) {
   println ( 'Default' )
   clean ( )
   Ant.echo ( message : 'A default message from Ant.' )
   otherStuff ( )
 }
 
-task ( otherStuff : 'Other stuff' ) {
+target ( otherStuff : 'Other stuff' ) {
   println ( 'OtherStuff' )
   Ant.echo ( message : 'Another message from Ant.' )
   clean ( )

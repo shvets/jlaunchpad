@@ -1,15 +1,10 @@
-SET JLAUNCHPAD_HOME=d:\jlaunchpad
+SET JLAUNCHPAD_HOME=C:\jlaunchpad
 
-if exist "%USERPROFILE%\jlaunchpad\config.bat" (
-  @call "%USERPROFILE%\jlaunchpad\config.bat"
-)
-
-rem SET GRAILS_HOME=d:\JavaPrograms\grails-0.5.6
 SET GRAILS_HOME=%~dp0
-
+                                                                                                   
 SET MAIN_CLASS=org.codehaus.groovy.grails.cli.GrailsScriptRunner
 
-SET SYSTEM_PROPERTIES="-Dgrails.version=0.5.6"
+SET SYSTEM_PROPERTIES=-Dgrails.version=1.0.0 -Dgrails.home=C:\Work\Projects\jlaunchpad\trunk\examples\pending\grails
 
 SET PROPERTIES="-deps.file.name=%~dp0deps.xml" "-main.class.name=%MAIN_CLASS%"
 

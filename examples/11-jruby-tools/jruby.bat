@@ -1,6 +1,6 @@
 @echo off
 
-SET JLAUNCHPAD_HOME=c:\jlaunchpad
+SET JLAUNCHPAD_HOME=C:\jlaunchpad
 
 if exist "%USERPROFILE%\jlaunchpad\config.bat" (
   @call "%USERPROFILE%\jlaunchpad\config.bat"
@@ -15,14 +15,5 @@ if "%1" == "" (
   exit
 )
 
-SET REPOSITOTY_HOME=c:\maven-repository
-SET JRUBY_HOME=%REPOSITOTY_HOME%\jruby\jruby\1.1b1
-
-SET SYSTEM_PARAMETERS="-Djruby.base=%JRUBY_HOME%"
-SET SYSTEM_PARAMETERS=%SYSTEM_PARAMETERS% "-Djruby.home=%JRUBY_HOME%"
-SET SYSTEM_PARAMETERS=%SYSTEM_PARAMETERS% "-Djruby.lib=%JRUBY_HOME%\lib"
-SET SYSTEM_PARAMETERS=%SYSTEM_PARAMETERS% "-Djruby.shell=cmd.exe"
-SET SYSTEM_PARAMETERS=%SYSTEM_PARAMETERS% "-Djruby.script=jruby.bat"
-
-%JLAUNCHPAD_HOME%\jlaunchpad.bat %SYSTEM_PARAMETERS% %PROPERTIES% %*
+%JLAUNCHPAD_HOME%\jlaunchpad.bat %PROPERTIES% %*
 
