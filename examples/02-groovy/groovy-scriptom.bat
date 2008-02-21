@@ -10,4 +10,4 @@ SET PROPERTIES="-deps.file.name=%CD%\deps.xml" "-main.class.name=%MAIN_CLASS%"
 
 SET APP_NAME=groovy
 
-%JLAUNCHPAD_HOME%\launchpad.bat %PROPERTIES% ie.groovy
+%JLAUNCHPAD_HOME%\jlaunchpad.bat %PROPERTIES% ie.groovy

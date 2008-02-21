@@ -1,5 +1,5 @@
 <set.variables>
-REPOSITORY_HOME=d:/maven-repository
+REPOSITORY_HOME=c:/maven-repository
 
 <java.library.path>
 %REPOSITORY_HOME%/jacob/jacob-dll/1.10.1
