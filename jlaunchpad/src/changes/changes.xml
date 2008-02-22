@@ -3,23 +3,35 @@
 <document>
   <properties>
     <title>JLaunchPad project</title>
-    <author email="shvets_alexander@yahoo.com">Alexander Shvets</author>
+    <author email="alexander.shvets@gmail.com">Alexander Shvets</author>
   </properties>
 
   <body>
-    <release version="1.0.0" date="29-Aug-2007" description="Initial Release">    
+    <release version="1.0.0" date="22-Feb-2008" description="Initial Release">    
       <action dev="Alexander Shvets" type="add">
         Initial Release.
       </action>
     </release>
 
-    <release version="1.0.1" date="29-Aug-2007" description="Minor Release">    
+    <release version="1.0.1" date="22-Feb-2008" description="Minor Release">    
       <action dev="Alexander Shvets" type="add">
         Added proxy with authenication.
       </action>
 
       <action dev="Alexander Shvets" type="add">
         Removed dependency on maven2 settings.xml file.
+      </action>
+
+      <action dev="Alexander Shvets" type="add">
+        Added new examples.
+      </action>
+
+      <action dev="Alexander Shvets" type="fix">
+        Changes in installation program layout.
+      </action>
+
+      <action dev="Alexander Shvets" type="fix">
+        Various changes and improvements.
       </action>
     </release>
 

@@ -10,6 +10,13 @@
 
   <name>JLaunchPad Main Module</name>
 
+  <description>
+    This is Main Module for JLaunchPad project.
+    <br/>
+    Currently JLaunchpad is used in <a href="http://code.google.com/p/maven-archetypes">Maven Archetypes</a> and 
+    <a href="http://sourceforge.net/projects/scriptlandia">Scriptlandia</a> projects.
+  </description>
+                                                                                
   <url>http://sf.net/projects/jlaunchpad/</url>
   <inceptionYear>2007</inceptionYear>
 
@@ -40,7 +47,7 @@
     <developer>
       <id>shvets</id>
       <name>Alexander Shvets</name>
-      <email>shvets_alexander@yahoo.com</email>
+      <email>alexander.shvets@gmail.com</email>
       <organization></organization>
       <roles>
         <role>Founder</role>
