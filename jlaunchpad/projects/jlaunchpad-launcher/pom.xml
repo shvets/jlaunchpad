@@ -5,7 +5,7 @@
 
   <groupId>org.sf.jlaunchpad</groupId>
   <artifactId>jlaunchpad-launcher</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 
   <name>JLaunchPad Launcher Module</name>
   <description>
@@ -65,7 +65,7 @@
     <dependency>
       <groupId>org.sf.jlaunchpad</groupId>
       <artifactId>jlaunchpad-common</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
 
     <dependency>
@@ -77,7 +77,7 @@
     <dependency>
       <groupId>org.sf.jlaunchpad</groupId>
       <artifactId>pom-reader</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.2</version>
     </dependency>
   </dependencies>
 

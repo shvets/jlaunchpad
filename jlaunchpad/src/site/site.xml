@@ -27,7 +27,7 @@
       <item name="${project.name}" href="${project.url}"/>
     </links>
 
-    <menu name="JLaunchPad 1.0.1">
+    <menu name="JLaunchPad 1.0.2">
       <item name="Readme file" href="docs/README.txt"/>
 
       <item name="Downloads" href="http://sourceforge.net/projects/jlaunchpad"/>
