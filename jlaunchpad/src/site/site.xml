@@ -27,18 +27,23 @@
       <item name="${project.name}" href="${project.url}"/>
     </links>
 
-    <menu name="JLaunchPad 1.0.x">
+    <menu name="JLaunchPad 1.0.1">
       <item name="Readme file" href="docs/README.txt"/>
 
       <item name="Downloads" href="http://sourceforge.net/projects/jlaunchpad"/>
     </menu>
 
-    <menu name="SubProjects">
+    <menu name="Subprojects">
       <item name="Bootstrap-Mini" href="bootstrap-mini/index.html"/>
       <item name="Classworlds" href="classworlds/index.html"/>      
       <item name="Pom-Reader" href="pom-reader/index.html"/>
       <item name="JLaunchPad-Common" href="jlaunchpad-common/index.html"/>
       <item name="JLaunchPad-Launcher" href="jlaunchpad-launcher/index.html"/>
+    </menu>
+
+    <menu name="Projects that use JLaunchpad">
+      <item name="Maven Archetypes (standalone)" href="http://code.google.com/p/maven-archetypes"/>
+      <item name="Scriptlandia" href="http://sourceforge.net/projects/scriptlandia"/>      
     </menu>
 
     ${parentProject}

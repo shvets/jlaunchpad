@@ -12,9 +12,6 @@
 
   <description>
     This is Main Module for JLaunchPad project.
-    <br/>
-    Currently JLaunchpad is used in <a href="http://code.google.com/p/maven-archetypes">Maven Archetypes</a> and 
-    <a href="http://sourceforge.net/projects/scriptlandia">Scriptlandia</a> projects.
   </description>
                                                                                 
   <url>http://sf.net/projects/jlaunchpad/</url>
