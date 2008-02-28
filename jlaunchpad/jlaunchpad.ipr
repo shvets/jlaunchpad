@@ -204,6 +204,10 @@
   <component name="DBNavigator.Project.DatasetEditorSettings">
     <autopopup-text-editor active="true" active-if-empty="false" data-length-threshold="100" delay="1000" />
     <fetch-block-size value="100" />
+    <trim-whitespaces value="true" />
+    <convert-empty-strings-to-null value="true" />
+    <prompt-filter-dialog value="true" />
+    <create-default-filter value="true" />
   </component>
   <component name="DBNavigator.Project.GenericSettings">
     <settings />

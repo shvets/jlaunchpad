@@ -17,14 +17,8 @@
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/pom.xml" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/pom-reader/pom.xml" afterPath="$PROJECT_DIR$/projects/pom-reader/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.iws" afterPath="$PROJECT_DIR$/jlaunchpad.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-common/pom.xml" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.sh" afterPath="$PROJECT_DIR$/config.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/changes/changes.xml" afterPath="$PROJECT_DIR$/src/changes/changes.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/site/site.xml" afterPath="$PROJECT_DIR$/src/site/site.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.bat" afterPath="$PROJECT_DIR$/config.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.ipr" afterPath="$PROJECT_DIR$/jlaunchpad.ipr" />
     </list>
     <ignored path="jlaunchpad.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,7 +90,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java" line="170" class="org.sf.pomreader.PomReader" package="org.sf.pomreader">
+      <breakpoint url="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java" line="81" class="org.apache.maven.bootstrap.util.AbstractReader" package="org.apache.maven.bootstrap.util">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -109,7 +103,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java" line="81" class="org.apache.maven.bootstrap.util.AbstractReader" package="org.apache.maven.bootstrap.util">
+      <breakpoint url="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/ProjectInstaller.java" line="523" class="org.sf.pomreader.ProjectInstaller" package="org.sf.pomreader">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -174,7 +168,7 @@
       <file leaf-file-name="AbstractLauncher.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/AbstractLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="90" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.019709544">
+            <state line="51" column="90" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.030206677">
               <folding />
             </state>
           </provider>
@@ -183,7 +177,7 @@
       <file leaf-file-name="AbstractReader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="46" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.56639004">
+            <state line="74" column="46" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.3354531">
               <folding />
             </state>
           </provider>
@@ -192,7 +186,7 @@
       <file leaf-file-name="ReflectionUtil.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ReflectionUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="19" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.019709544">
+            <state line="77" column="19" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.030206677">
               <folding />
             </state>
           </provider>
@@ -201,16 +195,34 @@
       <file leaf-file-name="config.bat" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.bat">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="44" selection-start="672" selection-end="672" vertical-scroll-proportion="0.62065333">
+            <state line="31" column="44" selection-start="672" selection-end="672" vertical-scroll-proportion="0.42607313">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PomReader.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PomReader.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="125" selection-start="2100" selection-end="2100" vertical-scroll-proportion="0.020021075">
+            <state line="170" column="0" selection-start="5563" selection-end="5563" vertical-scroll-proportion="0.030206677">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectInstaller.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/ProjectInstaller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="101" column="0" selection-start="2831" selection-end="2831" vertical-scroll-proportion="0.030206677">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUtils.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/FileUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="749" column="0" selection-start="21792" selection-end="21792" vertical-scroll-proportion="0.030206677">
               <folding />
             </state>
           </provider>
@@ -459,27 +471,17 @@
     <RUBY_DOC NAME="NUMBER" VALUE="0" />
   </component>
   <component name="RunManager" selected="Remote.remote">
-    <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
+    <configuration default="true" type="Applet" factoryName="Applet">
       <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="ADDITIONAL_CLASS_PATH" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="wholeProject" />
-      </option>
-      <envs />
-      <method>
-        <option name="Make" value="true" />
-      </method>
     </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -523,29 +525,6 @@
         </option>
       </MavenSettings>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method>
-        <option name="Make" value="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -575,17 +554,50 @@
         <option name="Make" value="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
       <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method>
+        <option name="Make" value="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <envs />
+      <method>
+        <option name="Make" value="true" />
+      </method>
     </configuration>
     <configuration default="false" name="pom-reader-junit" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <module name="" />
@@ -727,33 +739,34 @@
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50451356" order="8" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24919441" order="1" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" order="1" />
       <window_info id="DBHelper" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="1" />
-      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="9" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="11" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32957596" order="3" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="10" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="12" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24650913" order="4" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21052632" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26530612" order="0" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875207" order="5" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="2" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898697" order="2" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
-      <window_info id="Dilbert" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="15" />
+      <window_info id="Dilbert" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="17" />
       <window_info id="Archetypes" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977018" order="7" />
-      <window_info id="SQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
+      <window_info id="SQL" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="9" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="5" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.59077233" order="1" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5356068" order="3" />
       <window_info id="FileBrowser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" order="4" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898697" order="11" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898697" order="13" />
       <window_info id="CafeBabe" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32957596" order="7" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24919441" order="2" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="6" />
-      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="12" />
-      <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="13" />
+      <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="14" />
+      <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="15" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39919758" order="5" />
-      <window_info id="DBOutput" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="8" />
-      <window_info id="Maven Runner Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32798395" order="14" />
+      <window_info id="DBOutput" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="10" />
+      <window_info id="TunnelliJ 1.3" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32898697" order="18" />
+      <window_info id="Maven Runner Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32798395" order="16" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="6" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="0" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="6" />
@@ -824,20 +837,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/install/CoreInstaller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="39" selection-start="3659" selection-end="3659" vertical-scroll-proportion="-0.41069397">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.6.0/src.zip!/com/sun/org/apache/xerces/internal/util/ErrorHandlerWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="176" column="0" selection-start="6386" selection-end="6386" vertical-scroll-proportion="0.30760625">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Java/jdk1.6.0/src.zip!/com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="387" column="0" selection-start="14019" selection-end="14019" vertical-scroll-proportion="0.1375839">
@@ -903,35 +902,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/AbstractLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="90" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.019709544">
+        <state line="51" column="90" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.030206677">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="46" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.56639004">
+        <state line="74" column="46" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.3354531">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/util/ReflectionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="19" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.019709544">
+        <state line="77" column="19" selection-start="2438" selection-end="2438" vertical-scroll-proportion="0.030206677">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.bat">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="44" selection-start="672" selection-end="672" vertical-scroll-proportion="0.62065333">
+        <state line="31" column="44" selection-start="672" selection-end="672" vertical-scroll-proportion="0.42607313">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="125" selection-start="2100" selection-end="2100" vertical-scroll-proportion="0.020021075">
+        <state line="170" column="0" selection-start="5563" selection-end="5563" vertical-scroll-proportion="0.030206677">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="749" column="0" selection-start="21792" selection-end="21792" vertical-scroll-proportion="0.030206677">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/ProjectInstaller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="0" selection-start="2831" selection-end="2831" vertical-scroll-proportion="0.030206677">
           <folding />
         </state>
       </provider>
