@@ -39,7 +39,7 @@ import java.util.TimeZone;
  * I/O for repository metadata.
  *
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id: RepositoryMetadata.java 585268 2007-10-16 21:43:07Z hboutemy $
+ * @version $Id: RepositoryMetadata.java 640549 2008-03-24 20:05:11Z bentmann $
  */
 public class RepositoryMetadata
 {

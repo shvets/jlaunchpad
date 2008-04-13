@@ -64,7 +64,7 @@ import javax.xml.parsers.ParserConfigurationException;
  * Main class for bootstrap module.
  *
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id: Bootstrap.java 453100 2006-10-05 03:38:17Z jvanzyl $
+ * @version $Id: Bootstrap.java 640549 2008-03-24 20:05:11Z bentmann $
  */
 public class Bootstrap
 {

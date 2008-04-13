@@ -20,7 +20,7 @@ package org.apache.maven.bootstrap.settings;
  * Proxy definition.
  *
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id: Proxy.java 332580 2005-11-11 15:05:53Z brett $
+ * @version $Id: Proxy.java 640549 2008-03-24 20:05:11Z bentmann $
  */
    public class Proxy
 {

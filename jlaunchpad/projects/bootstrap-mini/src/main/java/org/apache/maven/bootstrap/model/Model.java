@@ -118,7 +118,7 @@ public class Model
     this.classifier = classifier;
   }
 
-  public String getGroupId()
+    public String getGroupId()
     {
         return groupId;
     }

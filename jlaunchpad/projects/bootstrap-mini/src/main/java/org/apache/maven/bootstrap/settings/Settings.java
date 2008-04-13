@@ -32,7 +32,7 @@ import java.util.List;
  * Settings definition.
  *
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id: Settings.java 332580 2005-11-11 15:05:53Z brett $
+ * @version $Id: Settings.java 640549 2008-03-24 20:05:11Z bentmann $
  */
 public class Settings
 {

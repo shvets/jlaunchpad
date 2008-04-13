@@ -239,5 +239,4 @@ public class Dependency extends Model
             return false;
         }
     }
-
 }

@@ -27,7 +27,7 @@ import org.apache.maven.bootstrap.model.Model;
  * Failed download.
  *
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id: DownloadFailedException.java 420409 2006-07-10 03:31:52Z kenney $
+ * @version $Id: DownloadFailedException.java 640545 2008-03-24 19:50:56Z bentmann $
  */
 public class DownloadFailedException
     extends Exception

@@ -20,7 +20,7 @@ package org.apache.maven.bootstrap.settings;
  * Mirror definition.
  *
  * @author <a href="mailto:brett@apache.org">Brett Porter</a>
- * @version $Id: Mirror.java 332580 2005-11-11 15:05:53Z brett $
+ * @version $Id: Mirror.java 640549 2008-03-24 20:05:11Z bentmann $
  */
 public class Mirror
 {
