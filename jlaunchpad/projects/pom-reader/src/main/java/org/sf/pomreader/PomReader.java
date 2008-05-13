@@ -87,6 +87,22 @@ public class PomReader {
       }
     }
 
+    // propagate proxy settings from settings.xml to system properties
+    // (for the case when proxy was not presented as command line parameters)
+    if (settings.getActiveProxy() != null) {
+      Proxy proxy = settings.getActiveProxy();
+
+      System.setProperty("proxySet", Boolean.TRUE.toString());
+      System.setProperty("proxyHost", proxy.getHost());
+      System.setProperty("proxyPort", proxy.getPort());
+
+      if (proxy.getUserName() != null) {
+        System.setProperty("proxyAuth", Boolean.TRUE.toString());
+        System.setProperty("proxyUser", proxy.getUserName());
+        System.setProperty("proxyPassword", proxy.getPassword());
+      }
+    }
+
     resolver = setupRepositories(settings);
   }
 
@@ -104,20 +120,20 @@ public class PomReader {
   }
 
   /**
-    * Builds the model based on pom/xml file.
-    *
-    * @param file                          pom file
-    * @param resolveTransitiveDependencies true if transitive dependencies should be resolved; false otherwise
-    * @return the model
-    * @throws ParserConfigurationException the exception
-    * @throws SAXException                 the exception
-    * @throws IOException                  the exception
-    */
-   public Model readModel(File file, boolean resolveTransitiveDependencies)
-       throws ParserConfigurationException, SAXException, IOException {
+   * Builds the model based on pom/xml file.
+   *
+   * @param file                          pom file
+   * @param resolveTransitiveDependencies true if transitive dependencies should be resolved; false otherwise
+   * @return the model
+   * @throws ParserConfigurationException the exception
+   * @throws SAXException                 the exception
+   * @throws IOException                  the exception
+   */
+  public Model readModel(File file, boolean resolveTransitiveDependencies)
+      throws ParserConfigurationException, SAXException, IOException {
 
-      return readModel(file, resolveTransitiveDependencies, false);
-   }
+    return readModel(file, resolveTransitiveDependencies, false);
+  }
 
   /**
    * Builds the model based on pom/xml file.
@@ -154,13 +170,13 @@ public class PomReader {
    * @throws Exception the exception
    */
   public List<URL> calculateDependencies(File pom) throws Exception {
-        return calculateDependencies(pom, false);
+    return calculateDependencies(pom, false);
   }
 
   /**
    * Resolves dependencies for specified pom maven2 dependencies file.
    *
-   * @param pom the pom file
+   * @param pom    the pom file
    * @param ignore do not download pom file
    * @return the list of dependent URLs
    * @throws Exception the exception
@@ -423,8 +439,8 @@ public class PomReader {
         downloader.setProxy(proxy.getHost(), proxy.getPort(), proxy.getUserName(), proxy.getPassword());
       }
 
-     // List remoteRepos = downloader.getRemoteRepositories();
-       List remoteRepos = settings.getRepositories();
+      // List remoteRepos = downloader.getRemoteRepositories();
+      List remoteRepos = settings.getRepositories();
       List newRemoteRepos = new ArrayList();
 
       for (Iterator i = remoteRepos.iterator(); i.hasNext();) {
