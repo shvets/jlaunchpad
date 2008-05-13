@@ -1,17 +1,8 @@
 4#!/bin/sh
 
 # Default values
-PROXY_SERVER_HOST_NAME=
-PROXY_SERVER_PORT=
-PROXY_USER=
-PROXY_PASSWORD=
-
-DEBUG_MODE=false
-CYGWIN=false
 
 JAVA_HOME=~/jdk1.6.0_03
-JLAUNCHPAD_HOME=~/jlaunchpad
-REPOSITORY_HOME=/media/sda2/maven-repository
 
 if [ ! -e $JAVA_HOME ]; then
   echo "JDK cannot be found!"
@@ -19,7 +10,11 @@ if [ ! -e $JAVA_HOME ]; then
   return
 fi
 
+DEBUG_MODE=false
+CYGWIN=false
+
 # Constants
+
 JAVA_SPECIFICATION_VERSION_LEVEL=1.5
 JLAUNCHPAD_VERSION=1.0.2
 CLASSWORLDS_VERSION=1.1
@@ -27,20 +22,14 @@ JDOM_VERSION=1.1
 BOOTSTRAP_MINI_VERSION=2.0.9
 
 # System properties
-SYSTEM_PROPERTIES="-Djlaunchpad.home=$JLAUNCHPAD_HOME \
--Drepository.home=$REPOSITORY_HOME \
--Djlaunchpad.version=$JLAUNCHPAD_VERSION \
+
+SYSTEM_PROPERTIES="-Djlaunchpad.version=$JLAUNCHPAD_VERSION \
 -Dclassworlds.version=$CLASSWORLDS_VERSION \
 -Djdom.version=$JDOM_VERSION \
 -Dbootstrap-mini.version=$BOOTSTRAP_MINI_VERSION \
 -Djava.specification.version.level=$JAVA_SPECIFICATION_VERSION_LEVEL \
 -Djava.home.internal=$JAVA_HOME \
 -Ddebug.mode=$DEBUG_MODE"
-
-if [ "x$PROXY_SERVER_HOST_NAME" = "x" ]; then
-  SYSTEM_PROPERTIES="$SYSTEM_PROPERTIES -DproxySet=true -DproxyHost=$PROXY_SERVER_HOST_NAME -DproxyPort=$PROXY_SERVER_PORT"
-  SYSTEM_PROPERTIES="$SYSTEM_PROPERTIES -DproxyUser=$PROXY_USER -DproxyUser=$PROXY_PASSWORD"
-fi
 
 export PROXY_SERVER_HOST_NAME PROXY_SERVER_PORT
 export JAVA_HOME JLAUNCHPAD_HOME REPOSITORY_HOME
