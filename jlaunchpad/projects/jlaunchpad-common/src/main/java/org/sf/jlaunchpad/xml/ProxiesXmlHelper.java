@@ -87,7 +87,7 @@ public class ProxiesXmlHelper extends XmlHelper {
       password.setText("");
     }
 
-    Element id = new Element("id");
+    //Element id = new Element("id");
 
     proxy.addContent("\n      ");
     proxy.addContent(active);
@@ -101,8 +101,8 @@ public class ProxiesXmlHelper extends XmlHelper {
     proxy.addContent(port);
     proxy.addContent("\n      ");
     proxy.addContent(host);
-    proxy.addContent("\n      ");
-    proxy.addContent(id);
+   // proxy.addContent("\n      ");
+   // proxy.addContent(id);
     proxy.addContent("\n    ");
   }
 
