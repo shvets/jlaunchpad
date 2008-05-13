@@ -16,16 +16,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.bat" afterPath="$PROJECT_DIR$/config.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/installer.bat" afterPath="$PROJECT_DIR$/installer.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.sh" afterPath="$PROJECT_DIR$/config.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/config.sh" afterPath="$PROJECT_DIR$/user/config.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.iws" afterPath="$PROJECT_DIR$/jlaunchpad.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/xml/ProxiesXmlHelper.java" afterPath="$PROJECT_DIR$/projects/jlaunchpad-common/src/main/java/org/sf/jlaunchpad/xml/ProxiesXmlHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.iml" afterPath="$PROJECT_DIR$/jlaunchpad.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jlaunchpad.ipr" afterPath="$PROJECT_DIR$/jlaunchpad.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/config.bat" afterPath="$PROJECT_DIR$/user/config.bat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java" afterPath="$PROJECT_DIR$/projects/pom-reader/src/main/java/org/sf/pomreader/PomReader.java" />
     </list>
     <ignored path="jlaunchpad.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,6 +102,19 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/AbstractLauncher.java" line="113" class="org.sf.jlaunchpad.AbstractLauncher" package="org.sf.jlaunchpad">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
     </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
@@ -159,10 +164,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.bat" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="config.bat" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.bat">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="52" selection-start="155" selection-end="155" vertical-scroll-proportion="0.18149467">
+            <state line="17" column="46" selection-start="210" selection-end="210" vertical-scroll-proportion="0.7917808">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractLauncher.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/AbstractLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="113" column="0" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.33150685">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoreLauncher.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="131" column="0" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.33150685">
               <folding />
             </state>
           </provider>
@@ -171,7 +194,7 @@
       <file leaf-file-name="config.sh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="649" selection-end="649" vertical-scroll-proportion="0.66548043">
+            <state line="33" column="0" selection-start="649" selection-end="649" vertical-scroll-proportion="1.5369864">
               <folding />
             </state>
           </provider>
@@ -306,17 +329,41 @@
     <RUBY_DOC NAME="NUMBER" VALUE="0" />
   </component>
   <component name="RunManager" selected="Remote.remote">
-    <configuration default="true" type="Applet" factoryName="Applet">
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
       <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="ADDITIONAL_CLASS_PATH" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="wholeProject" />
+      </option>
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method>
+        <option name="Make" value="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false">
       <module name="" />
@@ -339,6 +386,18 @@
       <method>
         <option name="Make" value="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
     </configuration>
     <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
@@ -380,42 +439,6 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="ADDITIONAL_CLASS_PATH" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="wholeProject" />
-      </option>
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method>
-        <option name="Make" value="true" />
-      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false">
       <option name="MAIN_CLASS_NAME" />
@@ -568,22 +591,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1688" height="1024" extended-state="0" />
+    <frame x="0" y="0" width="1680" height="1016" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="3" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.50451356" order="8" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5034325" order="8" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="5" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32975295" order="1" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.590389" order="1" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5354691" order="3" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53464204" order="3" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32902583" order="12" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32898697" order="13" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="7" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24919441" order="2" />
       <window_info id="Maven projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24650913" order="4" />
       <window_info id="Module Dependencies" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="6" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.329455" order="0" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32923076" order="0" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" order="14" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" order="2" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39919758" order="5" />
@@ -618,7 +641,7 @@
     <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing bootstrap version" />
+    <option name="LAST_COMMIT_MESSAGE" value="simplifying script" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
@@ -634,6 +657,11 @@
     <MESSAGE value="adding new shared property" />
     <MESSAGE value="rearranging class locations" />
     <MESSAGE value="changing bootstrap version" />
+    <MESSAGE value="adding spring ap repositories" />
+    <MESSAGE value="removing &quot;id&quot; from proxy section: causing error if present" />
+    <MESSAGE value="setting system properties for proxy parameters if they are specified in settings.xml" />
+    <MESSAGE value="simplifying scripts" />
+    <MESSAGE value="simplifying script" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
@@ -674,20 +702,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/AbstractLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="90" selection-start="1104" selection-end="1104" vertical-scroll-proportion="0.04857143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.5.0/src.zip!/org/xml/sax/InputSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="288" column="0" selection-start="8920" selection-end="8920" vertical-scroll-proportion="0.020961776">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/bootstrap-mini/src/main/java/org/apache/maven/bootstrap/util/AbstractReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="30" selection-start="1347" selection-end="1347" vertical-scroll-proportion="0.33333334">
@@ -774,14 +788,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="649" selection-end="649" vertical-scroll-proportion="0.66548043">
+        <state line="33" column="0" selection-start="649" selection-end="649" vertical-scroll-proportion="1.5369864">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config.bat">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="52" selection-start="155" selection-end="155" vertical-scroll-proportion="0.18149467">
+        <state line="17" column="46" selection-start="210" selection-end="210" vertical-scroll-proportion="0.7917808">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/AbstractLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="0" selection-start="2218" selection-end="2218" vertical-scroll-proportion="0.33150685">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/jlaunchpad-launcher/src/main/java/org/sf/jlaunchpad/CoreLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="131" column="0" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.33150685">
           <folding />
         </state>
       </provider>

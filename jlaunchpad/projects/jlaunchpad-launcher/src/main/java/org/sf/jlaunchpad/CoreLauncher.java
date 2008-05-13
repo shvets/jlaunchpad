@@ -128,6 +128,7 @@ public class CoreLauncher extends AbstractLauncher {
       }
     }
     catch(Exception e) {
+      e.printStackTrace();
       if(throwable != null) {
         throw new LauncherException(throwable);
       }
