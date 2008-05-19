@@ -1,4 +1,4 @@
-4#!/bin/sh
+#!/bin/sh
 
 # Default values
 
