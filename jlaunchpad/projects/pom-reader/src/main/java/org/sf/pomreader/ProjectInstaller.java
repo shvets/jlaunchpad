@@ -293,7 +293,7 @@ public class ProjectInstaller {
 
     File jarFile;
 
-    if (!model.getPackaging().equalsIgnoreCase("pom")) {
+    if (model.getPackaging().equalsIgnoreCase("jar")) {
       System.out.println("Compiling sources ...");
 
       compile(model.getAllDependencies(), sources, classes, null, null, Dependency.SCOPE_COMPILE, resolver);

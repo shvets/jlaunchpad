@@ -2,8 +2,6 @@ package org.sf.jlaunchpad;
 
 import org.codehaus.classworlds.ClassRealm;
 import org.codehaus.classworlds.ClassWorld;
-import org.sf.jlaunchpad.LauncherCommandLineParser;
-import org.sf.jlaunchpad.LauncherException;
 import org.sf.pomreader.PomReader;
 
 import java.io.BufferedReader;

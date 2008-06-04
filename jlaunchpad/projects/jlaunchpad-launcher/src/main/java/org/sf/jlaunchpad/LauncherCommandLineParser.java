@@ -51,6 +51,9 @@ public class LauncherCommandLineParser {
         else if(arg.equalsIgnoreCase("-wait")) {
           commandLine.put("wait.mode", "true");
         }
+        else if(arg.equalsIgnoreCase("-verbose")) {
+          commandLine.put("verbose", "true");
+        }
         else if(arg.equalsIgnoreCase("-pomstarter")) {
           commandLine.put("pomstarter.mode", "true");
         }
@@ -104,6 +107,16 @@ public class LauncherCommandLineParser {
    */
   public boolean isWaitMode() {
     String s = (String)commandLine.get("wait.mode");
+    return s != null && s.equalsIgnoreCase("true");
+  }
+
+  /**
+   * Checks if wait mode.
+   *
+   * @return true if wait mode; false otherwise
+   */
+  public boolean isVerbose() {
+    String s = (String)commandLine.get("verbose");
     return s != null && s.equalsIgnoreCase("true");
   }
 

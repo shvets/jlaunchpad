@@ -1,9 +1,6 @@
 package org.sf.jlaunchpad;
 
 import org.sf.jlaunchpad.util.ReflectionUtil;
-import org.sf.jlaunchpad.AbstractLauncher;
-import org.sf.jlaunchpad.LauncherCommandLineParser;
-import org.sf.jlaunchpad.LauncherException;
 
 import java.net.URL;
 import java.net.URLClassLoader;

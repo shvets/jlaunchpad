@@ -16,114 +16,103 @@ import java.util.Properties;
  */
 public class LauncherProperties extends Properties {
 
-    /**
-     * Maven2 settings.xml file location.
-     */
-    public static final String SETTINGS_XML =
-            System.getProperty("user.home") + File.separatorChar + ".m2" + File.separatorChar + "settings.xml";
+  /**
+   * Maven2 settings.xml file location.
+   */
+  public static final String SETTINGS_XML =
+      System.getProperty("user.home") + File.separatorChar + ".m2" + File.separatorChar + "settings.xml";
 
-    public final static String LAUNCHER_PROPERTIES =
-            System.getProperty("user.home") + File.separatorChar + ".jlaunchpad";
+  public final static String LAUNCHER_PROPERTIES =
+      System.getProperty("user.home") + File.separatorChar + ".jlaunchpad";
 
-    protected String fileName;
+  protected String fileName;
 
-    public LauncherProperties() {
-        this(LAUNCHER_PROPERTIES);
+  public LauncherProperties() {
+    this(LAUNCHER_PROPERTIES);
+  }
+
+  public LauncherProperties(String fileName) {
+    this.fileName = fileName;
+  }
+
+  /**
+   * Loads the properties file.
+   *
+   * @throws IOException I/O exception
+   */
+  public void load() throws IOException {
+    String root = "/";
+
+    if (System.getProperty("os.name").toLowerCase().startsWith("win")) {
+      root = System.getProperty("user.dir").substring(0, 1) + ":\\";
     }
 
-    public LauncherProperties(String fileName) {
-        this.fileName = fileName;
+    File launcherPropsFile = new File(fileName);
+
+    if (launcherPropsFile.exists()) {
+      super.load(new FileInputStream(launcherPropsFile));
+
+      String proxySet = (String) get("proxySet");
+
+      if (proxySet == null || proxySet.equalsIgnoreCase("false")) {
+        remove("proxySet");
+        remove("proxyHost");
+        remove("proxyPort");
+        remove("proxyUser");
+        remove("proxyAuth");
+        remove("proxyPassword");
+      }
+
+      String httpProxySet = (String) get("http.proxySet");
+
+      if (httpProxySet == null || httpProxySet.equalsIgnoreCase("false")) {
+        remove("http.proxySet");
+        remove("http.proxyHost");
+        remove("http.proxyPort");
+        remove("http.proxyUser");
+        remove("http.proxyAuth");
+        remove("http.proxyPassword");
+      }
+    } else {
+      //put("java.specification.version.level", "1.5");
+      put("java.home.internal", root + "Java" + File.separatorChar + "jdk1.6.0");
     }
 
-    /**
-     * Loads the properties file.
-     *
-     * @throws IOException I/O exception
-     */
-    public void load() throws IOException {
-        String root = "/";
+    if (get("repository.home") == null) {
+      String repositoryHome;
 
-        if (System.getProperty("os.name").toLowerCase().startsWith("win")) {
-            root = System.getProperty("user.dir").substring(0, 1) + ":\\";
-        }
+      String settingsXml =
+          System.getProperty("user.home") + File.separatorChar + ".m2" + File.separatorChar + "settings.xml";
 
-        File launcherPropsFile = new File(fileName);
+      File outSettings = new File(settingsXml);
 
-        if (launcherPropsFile.exists()) {
-            super.load(new FileInputStream(launcherPropsFile));
+      if (!outSettings.exists()) {
+        repositoryHome = root + "maven-repository";
+      } else {
+        String settings = new String(FileUtil.getStreamAsBytes(new FileInputStream(SETTINGS_XML)));
+        int index1 = settings.indexOf("<localRepository>");
+        int index2 = settings.indexOf("</localRepository>");
 
-            String proxySet = (String) get("proxySet");
+        repositoryHome = settings.substring(index1 + "<localRepository>".length(), index2);
+      }
 
-            if (proxySet == null || proxySet.equalsIgnoreCase("false")) {
-                remove("proxySet");
-                remove("proxyHost");
-                remove("proxyPort");
-                remove("proxyUser");
-                remove("proxyAuth");
-                remove("proxyPassword");
-            }
-
-            String httpProxySet = (String) get("http.proxySet");
-
-            if (httpProxySet == null || httpProxySet.equalsIgnoreCase("false")) {
-                remove("http.proxySet");
-                remove("http.proxyHost");
-                remove("http.proxyPort");
-                remove("http.proxyUser");
-                remove("http.proxyAuth");
-                remove("http.proxyPassword");
-            }
-        } else {
-            //put("java.specification.version.level", "1.5");
-            put("java.home.internal", root + "Java" + File.separatorChar + "jdk1.6.0");
-//      put("mobile.java.home", "");
-            //put("scriptlandia.home", root + "scriptlandia");
-/*
-      put("proxySet", "false");
-      put("proxyHost", "");
-      put("proxyPort", "");
-      put("proxyAuth", "false");
-      put("proxyUser", "");
-      put("proxyPassword", "");
-      */
-            //put("native.ruby.home", "");
-        }
-
-        if (get("repository.home") == null) {
-            String repositoryHome;
-
-            String settingsXml =
-                    System.getProperty("user.home") + File.separatorChar + ".m2" + File.separatorChar + "settings.xml";
-
-            File outSettings = new File(settingsXml);
-
-            if (!outSettings.exists()) {
-                repositoryHome = root + "maven-repository";
-            } else {
-                String settings = new String(FileUtil.getStreamAsBytes(new FileInputStream(SETTINGS_XML)));
-                int index1 = settings.indexOf("<localRepository>");
-                int index2 = settings.indexOf("</localRepository>");
-
-                repositoryHome = settings.substring(index1 + "<localRepository>".length(), index2);
-            }
-
-            put("repository.home", repositoryHome);
-        }
-
-        if (get("jlaunchpad.home") == null) {
-            put("jlaunchpad.home", System.getProperty("user.home") + File.separatorChar + "launcher");
-        }
+      put("repository.home", repositoryHome);
     }
 
-    /**
-     * Saves the properties file.
-     *
-     * @throws IOException I/O exception
-     */
-    public void save() throws IOException {
-        File launcherPropsFile = new File(fileName);
-
-        store(new FileOutputStream(launcherPropsFile), "Launcher properties");
+    if (get("jlaunchpad.home") == null) {
+      put("jlaunchpad.home", System.getProperty("user.home") + File.separatorChar + "launcher");
     }
+  }
+
+  /**
+   * Saves the properties file.
+   *
+   * @throws IOException I/O exception
+   */
+  public void save() throws IOException {
+    File launcherPropsFile = new File(fileName);
+
+    store(new FileOutputStream(launcherPropsFile), "Launcher properties");
+  }
 
 }

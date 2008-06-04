@@ -4,8 +4,6 @@ import org.apache.maven.bootstrap.model.Dependency;
 import org.apache.maven.bootstrap.model.Model;
 import org.codehaus.classworlds.ClassRealm;
 import org.codehaus.classworlds.ClassWorld;
-import org.sf.jlaunchpad.LauncherCommandLineParser;
-import org.sf.jlaunchpad.LauncherException;
 import org.sf.jlaunchpad.util.CommonUtil;
 import org.sf.jlaunchpad.util.FileUtil;
 
