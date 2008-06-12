@@ -124,4 +124,10 @@
     </site>
   </distributionManagement>
 
+  <scm>
+    <connection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk/jlaunchpad</connection>
+    <developerConnection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk/jlaunchpad</developerConnection>
+    <url>http://jlaunchpad.svn.sourceforge.net/viewvc/jlaunchpad/trunk/jlaunchpad</url>
+  </scm>
+
 </project>

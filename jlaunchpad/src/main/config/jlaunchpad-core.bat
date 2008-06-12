@@ -190,6 +190,7 @@ if "%CURR_ARG:~0,2%" == "-D" (
   )
 ) else if "%CURR_ARG%"=="-debug" (
   SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% %DEBUG_OPTS%
+  SET DEBUG_MODE=true
 ) else if "%PARAM3%"=="-Djava.library.path" (
   SET JAVA_LIBRARY_PATH=%JAVA_LIBRARY_PATH% "%~1%"
 ) else (
@@ -295,6 +296,10 @@ if not "%JAVA_EXT_DIRS%" == "" (
 
 if not "%JAVA_LIBRARY_PATH%" == "" (
   SET JAVA_LIBRARY_PATH=-Djava.library.path="%JAVA_LIBRARY_PATH%"
+)
+
+if "%DEBUG_MODE%" == "true" (
+  SET JAVA_SYSTEM_PROPS=%JAVA_SYSTEM_PROPS% -Ddebug=true
 )
 
 if "%DEBUG_MODE%" == "true" (

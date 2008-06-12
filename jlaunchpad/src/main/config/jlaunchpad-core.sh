@@ -38,6 +38,7 @@ processArg() {
     JAVA_BOOTCLASSPATH="$JAVA_BOOTCLASSPATH$SEPARATOR$arg"
   elif [ "$arg" = "-debug" ]; then
     JAVA_SYSTEM_PROPS="$JAVA_SYSTEM_PROPS $DEBUG_OPTS"
+    DEBUG_MODE=true
   elif [ "$PARAM3" = "-Djava.library.path" ]; then
     JAVA_LIBRARY_PATH="$JAVA_LIBRARY_PATH $arg"
   else
@@ -290,6 +291,11 @@ fi
 
 if [ "$JAVA_LIBRARY_PATH" != "" ]; then
   JAVA_LIBRARY_PATH="-Djava.library.path=$JAVA_LIBRARY_PATH"
+fi
+
+
+if [ "$DEBUG_MODE" = "true" ]; then
+  JAVA_SYSTEM_PROPS="$JAVA_SYSTEM_PROPS -Ddebug=true"
 fi
  
 if [ "$DEBUG_MODE" = "true" ]; then
