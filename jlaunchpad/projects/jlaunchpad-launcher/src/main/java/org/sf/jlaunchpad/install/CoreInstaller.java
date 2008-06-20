@@ -62,6 +62,13 @@ public class CoreInstaller {
       install("pom-reader");
       install("jlaunchpad-launcher");
 
+      String proxyHost = (String)launcherProps.get("proxyHost");
+
+      if(proxyHost != null && proxyHost.trim().length() > 0) {
+        System.setProperty("jruby.proxy.line", "http://" + launcherProps.get("proxyHost") + ":" + 
+                                               launcherProps.get("proxyPort"));
+      }
+
       copyConfigFiles("src/main/config");
 
       configureProxy();
@@ -95,7 +102,7 @@ public class CoreInstaller {
     // set up local repository value
     localRepository.setText(repositoryHome.replace(File.separatorChar, '/'));
 
-    xmlHelper.process(/*new ArrayList()*/launcherProps);
+    xmlHelper.process(launcherProps);
 
     xmlHelper.save(outSettings);
   }
@@ -149,7 +156,7 @@ public class CoreInstaller {
         if (line == null) {
           done = true;
         } else {
-          writer.write(StringUtil.substituteProperties(line, "@", "@"));
+          writer.write(StringUtil.substituteProperties(line, "@", "@", System.getProperties()));
 
           if (isUnixFile) {
             writer.write("\n");
