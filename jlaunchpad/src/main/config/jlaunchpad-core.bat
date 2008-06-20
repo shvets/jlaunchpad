@@ -4,7 +4,9 @@ SET DEBUG_MODE=@debug.mode@
 
 SET DEBUG_OPTS=-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6006
 
-set JAVA_HOME=@java.home.internal@
+SET http_proxy=@jruby.proxy.line@
+
+SET JAVA_HOME=@java.home.internal@
 
 goto execute
 

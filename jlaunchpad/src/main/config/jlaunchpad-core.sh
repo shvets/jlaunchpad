@@ -4,6 +4,8 @@ DEBUG_MODE=@debug.mode@
 
 DEBUG_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=6006"
 
+http_proxy=@jruby.proxy.line@
+
 JAVA_HOME="@java.home.internal@"
 
 readCommandLine() {
