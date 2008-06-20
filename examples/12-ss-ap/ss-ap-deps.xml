@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.sf.scriptlandia</groupId>
+  <artifactId>ss-ap-starter</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+
+  <name>SpringSource Application Platform Starter</name>
+  <description>SpringSource Application Platform Starter</description>
+
+<!--
+  <dependencies>
+    <dependency>
+      <groupId>jruby</groupId>
+      <artifactId>jruby</artifactId>
+      <version>1.0.2</version>
+    </dependency>
+  </dependencies>
+-->
+</project>
