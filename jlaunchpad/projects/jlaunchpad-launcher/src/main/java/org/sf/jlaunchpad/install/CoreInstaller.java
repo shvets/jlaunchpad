@@ -127,10 +127,15 @@ public class CoreInstaller {
       if (fromFile.exists() && !fromFile.isHidden() && !fromFile.isDirectory()) {
         File toFile = new File(launcherHomeFile.toString(), fromFile.getName());
 
-        if(!fromFile.getName().equals("proxies-segment.xml")) {
-          System.out.println("Copying \"" + fromFile.getName() + "\" file to \"" + toFile.getParent() + "\" directory...");
+        String name = fromFile.getName();
+        String ext = name.substring(name.lastIndexOf(".")+1);
 
-          copy(fromFile, toFile);
+        if(!ext.equals("ico")) {
+          if(!name.equals("proxies-segment.xml")) {
+            System.out.println("Copying \"" + name + "\" file to \"" + toFile.getParent() + "\" directory...");
+
+            copy(fromFile, toFile);
+          }
         }
       }
     }

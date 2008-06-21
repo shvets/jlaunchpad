@@ -64,6 +64,7 @@ public final class StringUtil {
     return newText.toString();
   }
 */
+
   /**
    * Substitutes properties with actual values.
    *
@@ -73,6 +74,18 @@ public final class StringUtil {
    * @return substituted string
    */
   public static String substituteProperties(String text, String startSymbol, String endSymbol, Map map) {
+    return substituteProperties(text, startSymbol, endSymbol, map, true);
+  }
+
+  /**
+   * Substitutes properties with actual values.
+   *
+   * @param text input string
+   * @param startSymbol start symbol
+   * @param endSymbol end symbol
+   * @return substituted string
+   */
+  public static String substituteProperties(String text, String startSymbol, String endSymbol, Map map, boolean ignore) {
     if(!text.contains(startSymbol)) {
       return text;
     }
@@ -109,7 +122,14 @@ public final class StringUtil {
             newText.append(propertyValue.replace('\\', '/'));
           }
           else {
-            newText.append(startSymbol + propertyName + endSymbol);
+            newText.append(s.substring(0, index1));
+
+            if (ignore) {
+              newText.append(s.substring(index2+1));
+            }
+            else {
+              newText.append(startSymbol + propertyName + endSymbol);
+            }
           }
 
           s = s.substring(index2+1);

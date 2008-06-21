@@ -16,7 +16,7 @@ REPOSITORY_HOME=@repository.home@
 classworlds.conf=@jlaunchpad.home@/jlaunchpad.conf
 repository.home=@repository.home@
 jlaunchpad.home=@jlaunchpad.home@
-jlaunchpad.version=@launcher.version@
+jlaunchpad.version=@jlaunchpad.version@
 
 <java.bootclasspath.prepend>
 
