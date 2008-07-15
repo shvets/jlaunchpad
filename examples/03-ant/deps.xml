@@ -11,7 +11,7 @@
   <description>Ant Starter Module</description>
 
   <properties>
-    <ant.version>1.7.0</ant.version>
+    <ant.version>1.7.1</ant.version>
     <beanshell.version>2.0b5</beanshell.version>
   </properties>
 

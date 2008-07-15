@@ -9,7 +9,7 @@ or unzip archive in the current directory.
 
 2.1
 
->cd apache-ant-1.7.0 
+>cd apache-ant-1.7.1 
 
 2.2. Modify build.bat file (add line):
 
