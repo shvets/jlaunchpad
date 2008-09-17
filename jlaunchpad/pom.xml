@@ -30,9 +30,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk</connection>
-
-    <url>http://jlaunchpad.svn.sourceforge.net/viewvc/jlaunchpad</url>
+    <connection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk/jlaunchpad</connection>
+    <developerConnection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk/jlaunchpad</developerConnection>
+    <url>http://jlaunchpad.svn.sourceforge.net/viewvc/jlaunchpad/trunk/jlaunchpad</url>
   </scm>
 
   <organization>
@@ -123,11 +123,5 @@
       <url>scp://shell.sourceforge.net/home/groups/j/jl/jlaunchpad/htdocs/</url>
     </site>
   </distributionManagement>
-
-  <scm>
-    <connection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk/jlaunchpad</connection>
-    <developerConnection>scm:svn:https://jlaunchpad.svn.sourceforge.net/svnroot/jlaunchpad/trunk/jlaunchpad</developerConnection>
-    <url>http://jlaunchpad.svn.sourceforge.net/viewvc/jlaunchpad/trunk/jlaunchpad</url>
-  </scm>
 
 </project>
