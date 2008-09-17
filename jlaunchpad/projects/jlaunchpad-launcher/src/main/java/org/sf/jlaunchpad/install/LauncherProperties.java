@@ -100,7 +100,7 @@ public class LauncherProperties extends Properties {
     }
 
     if (get("jlaunchpad.home") == null) {
-      put("jlaunchpad.home", System.getProperty("user.home") + File.separatorChar + "launcher");
+      put("jlaunchpad.home", System.getProperty("user.home") + File.separatorChar + "jlaunchpad");
     }
   }
 
