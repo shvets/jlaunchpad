@@ -5,7 +5,7 @@
 
   <groupId>org.sf.jlaunchpad</groupId>
   <artifactId>pom-reader</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
 
   <name>Pom Reader Module</name>
   <description>
@@ -69,7 +69,7 @@
     <dependency>
       <groupId>org.sf.jlaunchpad</groupId>
       <artifactId>jlaunchpad-common</artifactId>
-      <version>1.0.2</version>
+      <version>1.0.3</version>
     </dependency>
   </dependencies>
 

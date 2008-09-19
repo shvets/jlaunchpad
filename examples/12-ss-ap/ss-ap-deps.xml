@@ -10,13 +10,4 @@
   <name>SpringSource Application Platform Starter</name>
   <description>SpringSource Application Platform Starter</description>
 
-<!--
-  <dependencies>
-    <dependency>
-      <groupId>jruby</groupId>
-      <artifactId>jruby</artifactId>
-      <version>1.0.2</version>
-    </dependency>
-  </dependencies>
--->
 </project>
