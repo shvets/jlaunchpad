@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module relativePaths="false" type="JAVA_MODULE" version="4">
+<module relativePaths="false" MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="DBNavigator.Module.ConnectionManager">
     <connections />
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <exclude-output />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -16,19 +16,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
-      <library name="jdom:jdom:1.1">
-        <CLASSES>
-          <root url="jar://$maven-repository$/jdom/jdom/1.1/jdom-1.1.jar!/" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="jar://$maven-repository$/jdom/jdom/1.1/jdom-1.1-javadoc.jar!/" />
-        </JAVADOC>
-        <SOURCES>
-          <root url="jar://$maven-repository$/jdom/jdom/1.1/jdom-1.1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
     <orderEntry type="module-library">
       <library name="junit:junit:3.8.1">
         <CLASSES>
@@ -44,6 +31,19 @@
     </orderEntry>
     <orderEntry type="module" module-name="bootstrap-mini" exported="" />
     <orderEntry type="module" module-name="jlaunchpad-common" exported="" />
+    <orderEntry type="module-library" exported="">
+      <library name="jdom:jdom:1.1">
+        <CLASSES>
+          <root url="jar://$maven-repository$/jdom/jdom/1.1/jdom-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$maven-repository$/jdom/jdom/1.1/jdom-1.1-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$maven-repository$/jdom/jdom/1.1/jdom-1.1-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
     <orderEntryProperties />
   </component>
   <component name="RSpecModuleSettingsStorage">
