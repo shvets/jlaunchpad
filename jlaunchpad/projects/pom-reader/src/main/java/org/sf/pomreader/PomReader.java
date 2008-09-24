@@ -96,7 +96,7 @@ public class PomReader {
       System.setProperty("proxyHost", proxy.getHost());
       System.setProperty("proxyPort", proxy.getPort());
 
-      if (proxy.getUserName() != null) {
+      if (proxy.getUserName() != null && proxy.getUserName().trim().length() > 0) {
         System.setProperty("proxyAuth", Boolean.TRUE.toString());
         System.setProperty("proxyUser", proxy.getUserName());
         System.setProperty("proxyPassword", proxy.getPassword());
