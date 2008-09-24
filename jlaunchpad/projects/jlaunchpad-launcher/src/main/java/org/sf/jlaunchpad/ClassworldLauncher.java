@@ -26,6 +26,14 @@ public class ClassworldLauncher extends CoreLauncher {
   protected org.codehaus.classworlds.Launcher classworldLauncher = new org.codehaus.classworlds.Launcher() {
     public void launch(String[] args) {
       try {
+        if(getMainClass().getName().equals("org.apache.maven.cli.MavenCli")) {
+          args = addMavenSettingsToParameters(args);
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+
+      try {
         super.launch(args);
       }
       catch(NoSuchMethodException e) {
@@ -55,6 +63,20 @@ public class ClassworldLauncher extends CoreLauncher {
       }
     }
   };
+
+  private String[] addMavenSettingsToParameters(String[] args) {
+    final List<String> newArgsList = new ArrayList<String>();
+
+    newArgsList.addAll(Arrays.asList(args));
+    newArgsList.add("-s");
+    newArgsList.add(System.getProperty("jlaunchpad.home") + File.separatorChar + "settings.xml");
+
+    String[] newArgs = new String[newArgsList.size()];
+
+    newArgsList.toArray(newArgs);
+
+    return newArgs;
+  }
 
   /**
    * Creates new classworld launcher.
@@ -333,8 +355,8 @@ public class ClassworldLauncher extends CoreLauncher {
    * @param systemParams the collection of system parameters
    * @return new arguments without "-lib" parameters
    */
-  public static String[] processSpecialParameters(String[] args, List<String> libPaths,
-                                                  Map<String, String> systemParams) {
+  public String[] processSpecialParameters(String[] args, List<String> libPaths,
+                                           Map<String, String> systemParams) {
     List<String> newArgsList = new ArrayList<String>();
 
     processLibParameters(args, newArgsList, libPaths);
