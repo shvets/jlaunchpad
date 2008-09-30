@@ -39,6 +39,9 @@
     </release>
 
     <release version="1.0.3" date="19-Sep-2008" description="Minor Release">    
+      <action dev="Alexander Shvets" type="fix">
+        Fix: proxy auth is invoked even if it's not specified.
+      </action>
     </release>
   </body>
 </document>
