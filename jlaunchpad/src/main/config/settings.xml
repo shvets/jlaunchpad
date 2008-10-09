@@ -321,13 +321,6 @@ under the License.
       <mirrorOf>central</mirrorOf>
       <!-- United States, North Carolina -->
     </mirror>
-
-    <mirror>
-      <id>ggi-project.org</id>
-      <url>http://ftp.ggi-project.org/pub/packages/maven2</url>
-      <mirrorOf>central</mirrorOf>
-      <!-- The Netherlands, Amsterdam -->
-    </mirror>
   </mirrors>
 
 </settings>
