@@ -11,7 +11,7 @@
   <description>Maven Starter Module</description>
 
   <properties>
-    <maven.version>2.0.8</maven.version>
+    <maven.version>2.0.9</maven.version>
     <ant.version>1.7.1</ant.version>
     <beanshell.version>2.0b5</beanshell.version>
   </properties>

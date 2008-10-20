@@ -1,6 +1,6 @@
 @echo off
 
-SET JLAUNCHPAD_HOME=c:\jlaunchpad
+SET JLAUNCHPAD_HOME=c:\Work\jlaunchpad
 
 if exist "%USERPROFILE%\jlaunchpad\config.bat" (
   @call "%USERPROFILE%\jlaunchpad\config.bat"
